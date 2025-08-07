@@ -1,0 +1,1251 @@
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\GUESSING_GAME.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE GUESSING_GAME.asm SET(SMALL) DEBUG PRINT(.\Listings\GUESSING_GAME.lst) 
+                      OBJECT(.\Objects\GUESSING_GAME.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+                       2     
+                       3     
+                       4     
+                       5     
+                       6     
+                       7     
+                       8     
+                       9     
+                      10     
+                      11     ; ½ûÓÃ51µÄSFR¶¨Òå»ã±à³ÌÐòµÄÃû³Æ
+                      12     $nomod51 
+                      13     NAME    GUESSING_GAME
+                      14     ; °üº¬Ò»¸ö°üº¬ºê¶¨ÒåµÄÎÄ¼þ£¬ÀÈçGUESSING_GAME.inc
+                      15     ;$include (GUESSING_GAME.inc) ;
+                +1    16     
+                +1    17     
+                +1    18     
+                +1    19     
+                +1    20     
+                +1    21     
+                +1    22     
+                +1    23     
+                +1    24     
+                +1    25     
+                +1    26     ;$include (C8051F020.inc) ; °üº¬Í·ÎÄ¼þC8051F020.inc
+                +2    27     ;-----------------------------------------------------------------------------
+                +2    28     ;       
+                +2    29     ;       
+                +2    30     ;
+                +2    31     ;
+                +2    32     ;       FILE NAME       : C8051F020.INC 
+                +2    33     ;       TARGET MCUs     : C8051F020, 'F021, 'F022, 'F023 
+                +2    34     ;       DESCRIPTION     : Register/bit definitions for the C8051F02x product family.  
+                +2    35     ;
+                +2    36     ;       REVISION 1.0    
+                +2    37     ;
+                +2    38     ;-----------------------------------------------------------------------------
+                +2    39     ;REGISTER DEFINITIONS
+                +2    40     ;
+  0080          +2    41     P0       DATA  080H   ; PORT 0
+  0081          +2    42     SP       DATA  081H   ; STACK POINTER
+  0082          +2    43     DPL      DATA  082H   ; DATA POINTER - LOW BYTE
+  0083          +2    44     DPH      DATA  083H   ; DATA POINTER - HIGH BYTE
+  0084          +2    45     P4       DATA  084H   ; PORT 4
+  0085          +2    46     P5       DATA  085H   ; PORT 5
+  0086          +2    47     P6       DATA  086H   ; PORT 6
+  0087          +2    48     PCON     DATA  087H   ; POWER CONTROL
+  0088          +2    49     TCON     DATA  088H   ; TIMER CONTROL
+  0089          +2    50     TMOD     DATA  089H   ; TIMER MODE
+  008A          +2    51     TL0      DATA  08AH   ; TIMER 0 - LOW BYTE
+  008B          +2    52     TL1      DATA  08BH   ; TIMER 1 - LOW BYTE
+  008C          +2    53     TH0      DATA  08CH   ; TIMER 0 - HIGH BYTE
+  008D          +2    54     TH1      DATA  08DH   ; TIMER 1 - HIGH BYTE
+  008E          +2    55     CKCON    DATA  08EH   ; CLOCK CONTROL
+  008F          +2    56     PSCTL    DATA  08FH   ; PROGRAM STORE R/W CONTROL
+  0090          +2    57     P1       DATA  090H   ; PORT 1
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE     2
+
+  0091          +2    58     TMR3CN   DATA  091H   ; TIMER 3 CONTROL
+  0092          +2    59     TMR3RLL  DATA  092H   ; TIMER 3 RELOAD REGISTER - LOW BYTE
+  0093          +2    60     TMR3RLH  DATA  093H   ; TIMER 3 RELOAD REGISTER - HIGH BYTE
+  0094          +2    61     TMR3L    DATA  094H   ; TIMER 3 - LOW BYTE
+  0095          +2    62     TMR3H    DATA  095H   ; TIMER 3 - HIGH BYTE
+  0096          +2    63     P7       DATA  096H   ; PORT 7
+  0098          +2    64     SCON0    DATA  098H   ; SERIAL PORT 0 CONTROL
+  0099          +2    65     SBUF0    DATA  099H   ; SERIAL PORT 0 BUFFER
+  009A          +2    66     SPI0CFG  DATA  09AH   ; SERIAL PERIPHERAL INTERFACE 0 CONFIGURATION
+  009B          +2    67     SPI0DAT  DATA  09BH   ; SERIAL PERIPHERAL INTERFACE 0 DATA
+  009C          +2    68     ADC1     DATA  09CH   ; ADC 1 DATA
+  009D          +2    69     SPI0CKR  DATA  09DH   ; SERIAL PERIPHERAL INTERFACE 0 CLOCK RATE CONTROL
+  009E          +2    70     CPT0CN   DATA  09EH   ; COMPARATOR 0 CONTROL
+  009F          +2    71     CPT1CN   DATA  09FH   ; COMPARATOR 1 CONTROL 
+  00A0          +2    72     P2       DATA  0A0H   ; PORT 2
+  00A1          +2    73     EMI0TC   DATA  0A1H   ; EMIF TIMING CONTROL
+  00A3          +2    74     EMI0CF   DATA  0A3H   ; EXTERNAL MEMORY INTERFACE (EMIF) CONFIGURATION
+  00A4          +2    75     P0MDOUT  DATA  0A4H   ; PORT 0 OUTPUT MODE CONFIGURATION
+  00A5          +2    76     P1MDOUT  DATA  0A5H   ; PORT 1 OUTPUT MODE CONFIGURATION
+  00A6          +2    77     P2MDOUT  DATA  0A6H   ; PORT 2 OUTPUT MODE CONFIGURATION
+  00A7          +2    78     P3MDOUT  DATA  0A7H   ; PORT 3 OUTPUT MODE CONFIGURATION
+  00A8          +2    79     IE       DATA  0A8H   ; INTERRUPT ENABLE
+  00A9          +2    80     SADDR0   DATA  0A9H   ; SERIAL PORT 0 SLAVE ADDRESS
+  00AA          +2    81     ADC1CN  DATA  0AAH   ; ADC 1 CONTROL
+  00AB          +2    82     ADC1CF   DATA  0ABH   ; ADC 1 ANALOG MUX CONFIGURATION
+  00AC          +2    83     AMX1SL   DATA  0ACH   ; ADC 1 ANALOG MUX CHANNEL SELECT
+  00AD          +2    84     P3IF     DATA  0ADH   ; PORT 3 EXTERNAL INTERRUPT FLAGS
+  00AE          +2    85     SADEN1   DATA  0AEH   ; SERIAL PORT 1 SLAVE ADDRESS MASK
+  00AF          +2    86     EMI0CN   DATA  0AFH   ; EXTERNAL MEMORY INTERFACE CONTROL
+  00B0          +2    87     P3       DATA  0B0H   ; PORT 3
+  00B1          +2    88     OSCXCN   DATA  0B1H   ; EXTERNAL OSCILLATOR CONTROL
+  00B2          +2    89     OSCICN   DATA  0B2H   ; INTERNAL OSCILLATOR CONTROL
+  00B5          +2    90     P74OUT   DATA  0B5H   ; PORTS 4 - 7 OUTPUT MODE
+  00B6          +2    91     FLSCL    DATA  0B6H   ; FLASH MEMORY TIMING PRESCALER
+  00B7          +2    92     FLACL    DATA  0B7H   ; FLASH ACESS LIMIT 
+  00B8          +2    93     IP       DATA  0B8H   ; INTERRUPT PRIORITY
+  00B9          +2    94     SADEN0   DATA  0B9H   ; SERIAL PORT 0 SLAVE ADDRESS MASK
+  00BA          +2    95     AMX0CF   DATA  0BAH   ; ADC 0 MUX CONFIGURATION
+  00BB          +2    96     AMX0SL   DATA  0BBH   ; ADC 0 MUX CHANNEL SELECTION
+  00BC          +2    97     ADC0CF   DATA  0BCH   ; ADC 0 CONFIGURATION
+  00BD          +2    98     P1MDIN   DATA  0BDH   ; PORT 1 INPUT MODE
+  00BE          +2    99     ADC0L    DATA  0BEH   ; ADC 0 DATA - LOW BYTE
+  00BF          +2   100     ADC0H    DATA  0BFH   ; ADC 0 DATA - HIGH BYTE 
+  00C0          +2   101     SMB0CN   DATA  0C0H   ; SMBUS 0 CONTROL
+  00C1          +2   102     SMB0STA  DATA  0C1H   ; SMBUS 0 STATUS
+  00C2          +2   103     SMB0DAT  DATA  0C2H   ; SMBUS 0 DATA 
+  00C3          +2   104     SMB0ADR  DATA  0C3H   ; SMBUS 0 SLAVE ADDRESS
+  00C4          +2   105     ADC0GTL  DATA  0C4H   ; ADC 0 GREATER-THAN REGISTER - LOW BYTE
+  00C5          +2   106     ADC0GTH  DATA  0C5H   ; ADC 0 GREATER-THAN REGISTER - HIGH BYTE
+  00C6          +2   107     ADC0LTL  DATA  0C6H   ; ADC 0 LESS-THAN REGISTER - LOW BYTE
+  00C7          +2   108     ADC0LTH  DATA  0C7H   ; ADC 0 LESS-THAN REGISTER - HIGH BYTE
+  00C8          +2   109     T2CON    DATA  0C8H   ; TIMER 2 CONTROL
+  00C9          +2   110     T4CON    DATA  0C9H   ; TIMER 4 CONTROL
+  00CA          +2   111     RCAP2L   DATA  0CAH   ; TIMER 2 CAPTURE REGISTER - LOW BYTE
+  00CB          +2   112     RCAP2H   DATA  0CBH   ; TIMER 2 CAPTURE REGISTER - HIGH BYTE
+  00CC          +2   113     TL2      DATA  0CCH   ; TIMER 2 - LOW BYTE
+  00CD          +2   114     TH2      DATA  0CDH   ; TIMER 2 - HIGH BYTE
+  00CF          +2   115     SMB0CR   DATA  0CFH   ; SMBUS 0 CLOCK RATE
+  00D0          +2   116     PSW      DATA  0D0H   ; PROGRAM STATUS WORD
+  00D1          +2   117     REF0CN   DATA  0D1H   ; VOLTAGE REFERENCE 0 CONTROL
+  00D2          +2   118     DAC0L    DATA  0D2H   ; DAC 0 REGISTER - LOW BYTE
+  00D3          +2   119     DAC0H    DATA  0D3H   ; DAC 0 REGISTER - HIGH BYTE
+  00D4          +2   120     DAC0CN   DATA  0D4H   ; DAC 0 CONTROL
+  00D5          +2   121     DAC1L    DATA  0D5H   ; DAC 1 REGISTER - LOW BYTE
+  00D6          +2   122     DAC1H    DATA  0D6H   ; DAC 1 REGISTER - HIGH BYTE
+  00D7          +2   123     DAC1CN   DATA  0D7H   ; DAC 1 CONTROL
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE     3
+
+  00D8          +2   124     PCA0CN   DATA  0D8H   ; PCA 0 COUNTER CONTROL
+  00D9          +2   125     PCA0MD   DATA  0D9H   ; PCA 0 COUNTER MODE
+  00DA          +2   126     PCA0CPM0 DATA  0DAH   ; CONTROL REGISTER FOR PCA 0 MODULE 0
+  00DB          +2   127     PCA0CPM1 DATA  0DBH   ; CONTROL REGISTER FOR PCA 0 MODULE 1
+  00DC          +2   128     PCA0CPM2 DATA  0DCH   ; CONTROL REGISTER FOR PCA 0 MODULE 2
+  00DD          +2   129     PCA0CPM3 DATA  0DDH   ; CONTROL REGISTER FOR PCA 0 MODULE 3
+  00DE          +2   130     PCA0CPM4 DATA  0DEH   ; CONTROL REGISTER FOR PCA 0 MODULE 4
+  00E0          +2   131     ACC      DATA  0E0H   ; ACCUMULATOR
+  00E1          +2   132     XBR0     DATA  0E1H   ; DIGITAL CROSSBAR CONFIGURATION REGISTER 0
+  00E2          +2   133     XBR1     DATA  0E2H   ; DIGITAL CROSSBAR CONFIGURATION REGISTER 1
+  00E3          +2   134     XBR2     DATA  0E3H   ; DIGITAL CROSSBAR CONFIGURATION REGISTER 2
+  00E4          +2   135     RCAP4L   DATA  0E4H   ; TIMER 4 CAPTURE REGISTER - LOW BYTE
+  00E5          +2   136     RCAP4H   DATA  0E5H   ; TIMER 4 CAPTURE REGISTER - HIGH BYTE
+  00E6          +2   137     EIE1     DATA  0E6H   ; EXTERNAL INTERRUPT ENABLE 1
+  00E7          +2   138     EIE2     DATA  0E7H   ; EXTERNAL INTERRUPT ENABLE 2
+  00E8          +2   139     ADC0CN   DATA  0E8H   ; ADC 0 CONTROL
+  00E9          +2   140     PCA0L    DATA  0E9H   ; PCA 0 TIMER - LOW BYTE
+  00EA          +2   141     PCA0CPL0 DATA  0EAH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 0 - LOW BYTE
+  00EB          +2   142     PCA0CPL1 DATA  0EBH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 1 - LOW BYTE
+  00EC          +2   143     PCA0CPL2 DATA  0ECH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 2 - LOW BYTE
+  00ED          +2   144     PCA0CPL3 DATA  0EDH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 3 - LOW BYTE
+  00EE          +2   145     PCA0CPL4 DATA  0EEH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 4 - LOW BYTE
+  00EF          +2   146     RSTSRC   DATA  0EFH   ; RESET SOURCE 
+  00F0          +2   147     B        DATA  0F0H   ; B REGISTER
+  00F1          +2   148     SCON1    DATA  0F1H   ; SERIAL PORT 1 CONTROL
+  00F2          +2   149     SBUF1    DATA  0F2H   ; SERAIL PORT 1 DATA
+  00F3          +2   150     SADDR1   DATA  0F3H   ; SERAIL PORT 1 
+  00F4          +2   151     TL4      DATA  0F4H   ; TIMER 4 DATA - LOW BYTE
+  00F5          +2   152     TH4      DATA  0F5H   ; TIMER 4 DATA - HIGH BYTE
+  00F6          +2   153     EIP1     DATA  0F6H   ; EXTERNAL INTERRUPT PRIORITY REGISTER 1
+  00F7          +2   154     EIP2     DATA  0F7H   ; EXTERNAL INTERRUPT PRIORITY REGISTER 2
+  00F8          +2   155     SPI0CN   DATA  0F8H   ; SERIAL PERIPHERAL INTERFACE 0 CONTROL 
+  00F9          +2   156     PCA0H    DATA  0F9H   ; PCA 0 TIMER - HIGH BYTE
+  00FA          +2   157     PCA0CPH0 DATA  0FAH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 0 - HIGH BYTE
+  00FB          +2   158     PCA0CPH1 DATA  0FBH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 1 - HIGH BYTE
+  00FC          +2   159     PCA0CPH2 DATA  0FCH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 2 - HIGH BYTE
+  00FD          +2   160     PCA0CPH3 DATA  0FDH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 3 - HIGH BYTE
+  00FE          +2   161     PCA0CPH4 DATA  0FEH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 4 - HIGH BYTE
+  00FF          +2   162     WDTCN    DATA  0FFH   ; WATCHDOG TIMER CONTROL 
+                +2   163     ;
+                +2   164     ;------------------------------------------------------------------------------
+                +2   165     ;BIT DEFINITIONS
+                +2   166     ;
+                +2   167     ; TCON 88H
+  0088          +2   168     IT0      BIT   TCON.0 ; EXT. INTERRUPT 0 TYPE
+  0089          +2   169     IE0      BIT   TCON.1 ; EXT. INTERRUPT 0 EDGE FLAG
+  008A          +2   170     IT1      BIT   TCON.2 ; EXT. INTERRUPT 1 TYPE
+  008B          +2   171     IE1      BIT   TCON.3 ; EXT. INTERRUPT 1 EDGE FLAG
+  008C          +2   172     TR0      BIT   TCON.4 ; TIMER 0 ON/OFF CONTROL
+  008D          +2   173     TF0      BIT   TCON.5 ; TIMER 0 OVERFLOW FLAG
+  008E          +2   174     TR1      BIT   TCON.6 ; TIMER 1 ON/OFF CONTROL
+  008F          +2   175     TF1      BIT   TCON.7 ; TIMER 1 OVERFLOW FLAG
+                +2   176     ;
+                +2   177     ; SCON0 98H
+  0098          +2   178     RI       BIT   SCON0.0 ; RECEIVE INTERRUPT FLAG
+  0099          +2   179     TI       BIT   SCON0.1 ; TRANSMIT INTERRUPT FLAG
+  009A          +2   180     RB8      BIT   SCON0.2 ; RECEIVE BIT 8
+  009B          +2   181     TB8      BIT   SCON0.3 ; TRANSMIT BIT 8
+  009C          +2   182     REN      BIT   SCON0.4 ; RECEIVE ENABLE
+  009D          +2   183     SM2      BIT   SCON0.5 ; MULTIPROCESSOR COMMUNICATION ENABLE
+  009E          +2   184     SM1      BIT   SCON0.6 ; SERIAL MODE CONTROL BIT 1
+  009F          +2   185     SM0      BIT   SCON0.7 ; SERIAL MODE CONTROL BIT 0
+                +2   186     ; 
+                +2   187     ; IE A8H
+  00A8          +2   188     EX0      BIT   IE.0   ; EXTERNAL INTERRUPT 0 ENABLE
+  00A9          +2   189     ET0      BIT   IE.1   ; TIMER 0 INTERRUPT ENABLE
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE     4
+
+  00AA          +2   190     EX1      BIT   IE.2   ; EXTERNAL INTERRUPT 1 ENABLE
+  00AB          +2   191     ET1      BIT   IE.3   ; TIMER 1 INTERRUPT ENABLE
+  00AC          +2   192     ES       BIT   IE.4   ; SERIAL PORT INTERRUPT ENABLE
+  00AD          +2   193     ET2      BIT   IE.5   ; TIMER 2 INTERRUPT ENABLE
+  00AF          +2   194     EA       BIT   IE.7   ; GLOBAL INTERRUPT ENABLE
+                +2   195     ;
+                +2   196     ; IP B8H
+  00B8          +2   197     PX0      BIT   IP.0   ; EXTERNAL INTERRUPT 0 PRIORITY
+  00B9          +2   198     PT0      BIT   IP.1   ; TIMER 0 PRIORITY
+  00BA          +2   199     PX1      BIT   IP.2   ; EXTERNAL INTERRUPT 1 PRIORITY
+  00BB          +2   200     PT1      BIT   IP.3   ; TIMER 1 PRIORITY
+  00BC          +2   201     PS       BIT   IP.4   ; SERIAL PORT PRIORITY
+  00BD          +2   202     PT2      BIT   IP.5   ; TIMER 2 PRIORITY
+                +2   203     ;
+                +2   204     ; SMB0CN C0H
+  00C0          +2   205     SMBTOE   BIT   SMB0CN.0 ; SMBUS 0 TIMEOUT ENABLE
+  00C1          +2   206     SMBFTE   BIT   SMB0CN.1 ; SMBUS 0 FREE TIMER ENABLE
+  00C2          +2   207     AA       BIT   SMB0CN.2 ; SMBUS 0 ASSERT/ACKNOWLEDGE FLAG
+  00C3          +2   208     SI       BIT   SMB0CN.3 ; SMBUS 0 INTERRUPT PENDING FLAG
+  00C4          +2   209     STO      BIT   SMB0CN.4 ; SMBUS 0 STOP FLAG
+  00C5          +2   210     STA      BIT   SMB0CN.5 ; SMBUS 0 START FLAG
+  00C6          +2   211     ENSMB    BIT   SMB0CN.6 ; SMBUS 0 ENABLE 
+                +2   212     ;
+                +2   213     ; T2CON C8H
+  00C8          +2   214     CPRL2    BIT   T2CON.0 ; CAPTURE OR RELOAD SELECT
+  00C9          +2   215     CT2      BIT   T2CON.1 ; TIMER OR COUNTER SELECT
+  00CA          +2   216     TR2      BIT   T2CON.2 ; TIMER 2 ON/OFF CONTROL
+  00CB          +2   217     EXEN2    BIT   T2CON.3 ; TIMER 2 EXTERNAL ENABLE FLAG
+  00CC          +2   218     TCLK     BIT   T2CON.4 ; TRANSMIT CLOCK FLAG
+  00CD          +2   219     RCLK     BIT   T2CON.5 ; RECEIVE CLOCK FLAG
+  00CE          +2   220     EXF2     BIT   T2CON.6 ; EXTERNAL FLAG
+  00CF          +2   221     TF2      BIT   T2CON.7 ; TIMER 2 OVERFLOW FLAG
+                +2   222     ;
+                +2   223     ; PSW D0H
+  00D0          +2   224     P        BIT   PSW.0  ; ACCUMULATOR PARITY FLAG
+  00D1          +2   225     F1       BIT   PSW.1  ; USER FLAG 1
+  00D2          +2   226     OV       BIT   PSW.2  ; OVERFLOW FLAG
+  00D3          +2   227     RS0      BIT   PSW.3  ; REGISTER BANK SELECT 0
+  00D4          +2   228     RS1      BIT   PSW.4  ; REGISTER BANK SELECT 1
+  00D5          +2   229     F0       BIT   PSW.5  ; USER FLAG 0
+  00D6          +2   230     AC       BIT   PSW.6  ; AUXILIARY CARRY FLAG
+  00D7          +2   231     CY       BIT   PSW.7  ; CARRY FLAG
+                +2   232     ;
+                +2   233     ; PCA0CN D8H
+  00D8          +2   234     CCF0     BIT   PCA0CN.0 ; PCA 0 MODULE 0 INTERRUPT FLAG
+  00D9          +2   235     CCF1     BIT   PCA0CN.1 ; PCA 0 MODULE 1 INTERRUPT FLAG
+  00DA          +2   236     CCF2     BIT   PCA0CN.2 ; PCA 0 MODULE 2 INTERRUPT FLAG
+  00DB          +2   237     CCF3     BIT   PCA0CN.3 ; PCA 0 MODULE 3 INTERRUPT FLAG
+  00DC          +2   238     CCF4     BIT   PCA0CN.4 ; PCA 0 MODULE 4 INTERRUPT FLAG
+  00DE          +2   239     CR       BIT   PCA0CN.6 ; PCA 0 COUNTER RUN CONTROL BIT
+  00DF          +2   240     CF       BIT   PCA0CN.7 ; PCA 0 COUNTER OVERFLOW FLAG
+                +2   241     ;
+                +2   242     ; ADC0CN E8H
+  00E8          +2   243     AD0LJST  BIT   ADC0CN.0 ; ADC 0 RIGHT JUSTIFY DATA BIT
+  00E9          +2   244     AD0WINT  BIT   ADC0CN.1 ; ADC 0 WINDOW COMPARE INTERRUPT FLAG
+  00EA          +2   245     AD0STM0  BIT   ADC0CN.2 ; ADC 0 START OF CONVERSION MODE BIT 0
+  00EB          +2   246     AD0STM1  BIT   ADC0CN.3 ; ADC 0 START OF CONVERSION MODE BIT 1
+  00EC          +2   247     AD0BUSY  BIT   ADC0CN.4 ; ADC 0 BUSY FLAG
+  00ED          +2   248     AD0INT   BIT   ADC0CN.5 ; ADC 0 CONVERISION COMPLETE INTERRUPT FLAG 
+  00EE          +2   249     AD0TM    BIT   ADC0CN.6 ; ADC 0 TRACK MODE
+  00EF          +2   250     AD0EN    BIT   ADC0CN.7 ; ADC 0 ENABLE
+                +2   251     ;
+                +2   252     ; SPI0CN F8H
+  00F8          +2   253     SPIEN    BIT   SPI0CN.0 ; SPI 0 SPI ENABLE
+  00F9          +2   254     MSTEN    BIT   SPI0CN.1 ; SPI 0 MASTER ENABLE
+  00FA          +2   255     SLVSEL   BIT   SPI0CN.2 ; SPI 0 SLAVE SELECT
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE     5
+
+  00FB          +2   256     TXBSY    BIT   SPI0CN.3 ; SPI 0 TX BUSY FLAG
+  00FC          +2   257     RXOVRN   BIT   SPI0CN.4 ; SPI 0 RX OVERRUN FLAG
+  00FD          +2   258     MODF     BIT   SPI0CN.5 ; SPI 0 MODE FAULT FLAG
+  00FE          +2   259     WCOL     BIT   SPI0CN.6 ; SPI 0 WRITE COLLISION FLAG
+  00FF          +2   260     SPIF     BIT   SPI0CN.7 ; SPI 0 INTERRUPT FLAG
+                +1   261     check_digits_GUESSING_GAME           SEGMENT CODE   ; ¶¨Òåcheck_digits_GUESSING_GAME¶ÎÎª´úÂ
+                             ë¶Î
+                +1   262     correct_GAME                SEGMENT CODE   ; ¶¨Òåcorrect_GAME¶ÎÎª´úÂë¶Î
+                +1   263     error_GAME                  SEGMENT CODE   ; ¶¨Òåerror_GAME¶ÎÎª´úÂë¶Î
+                +1   264     win_GAME                    SEGMENT CODE   ; ¶¨Òåwin_GAME¶ÎÎª´úÂë¶Î
+                +1   265     lose_GAME                   SEGMENT CODE   ; ¶¨Òålose_GAME¶ÎÎª´úÂë¶Î
+                +1   266     guess_once_GAME             SEGMENT CODE   ; ¶¨Òåguess_once_GAME¶ÎÎª´úÂë¶Î
+                +1   267     DT_guess_once_GUESSING_GAME             SEGMENT DATA OVERLAYABLE ; ¶¨ÒåDT_guess_once_GUESSI
+                             NG_GAME¶ÎÎªÊ¾Ý¶Î£¬ÇÒÊÇ¶ÑÕ»¶Î
+                +1   268     BI_guess_once_GUESSING_GAME             SEGMENT BIT OVERLAYABLE ; ¶¨ÒåBI_guess_once_GUESSIN
+                             G_GAME¶ÎÎªÎ»Óò¶Î
+                +1   269     guess_one_level_GAME        SEGMENT CODE   ; ¶¨Òåguess_one_level_GUESSING_GAME¶ÎÎª´úÂë¶Î
+                +1   270     BI_guess_one_level_GUESSING_GAME        SEGMENT BIT OVERLAYABLE ; ¶¨ÒåBI_guess_one_level_GU
+                             ESSING_GAME¶ÎÎªÎ»Óò¶Î
+                +1   271     main_menu_GAME              SEGMENT CODE   ; ¶¨Òåmain_menu_GAME¶ÎÎª´úÂë¶Î
+                +1   272     mode_select_GAME            SEGMENT CODE   ; ¶¨Òåmode_select_GAME¶ÎÎª´úÂë¶Î
+                +1   273     begin_select_GAME           SEGMENT CODE   ; ¶¨Òåbegin_select_GAME¶ÎÎª´úÂë¶Î
+                +1   274     mode1_GAME                  SEGMENT CODE   ; ¶¨Òåmode1_GAME¶ÎÎª´úÂë¶Î
+                +1   275     DT_mode1_GAME                  SEGMENT DATA OVERLAYABLE ; ¶¨ÒåDT_mode1_GUESSING_GAME¶ÎÎªÊ¾Ý
+                             ¶Î£¬ÇÒÊÇ¶ÑÕ»¶Î
+                +1   276     mode2_GAME                  SEGMENT CODE   ; ¶¨Òåmode2_GAME¶ÎÎª´úÂë¶Î
+                +1   277     mode3_GAME                  SEGMENT CODE   ; ¶¨Òåmode3_GAME¶ÎÎª´úÂë¶Î
+                +1   278     acknowledgement_GAME        SEGMENT CODE   ; ¶¨Òåacknowledgement_GAME¶ÎÎª´úÂë¶Î
+                +1   279     gussing_game_GAME           SEGMENT CODE   ; ¶¨Òågussing_game_GAME¶ÎÎª´úÂë¶Î
+                +1   280     games_GUESSING_GAME                  SEGMENT CODE   ; ¶¨Òågames_GUESSING_GAME¶ÎÎª´úÂë¶Î
+                +1   281     ?C_INITSEG           SEGMENT CODE   ; ¶¨Òå?C_INITSEG¶ÎÎª´úÂë¶Î
+                +1   282     CO_GUESSING_GAME    SEGMENT CODE   ; ¶¨ÒåCO_GUESSING_GAME¶ÎÎª´úÂë¶Î
+                +1   283     XD_GUESSING_GAME    SEGMENT XDATA   ; ¶¨ÒåXD_GUESSING_GAME¶ÎÎªÀ©Õ¹Ê¾Ý¶Î
+                +1   284     DT_GUESSING_GAME    SEGMENT DATA   ; ¶¨ÒåDT_GUESSING_GAME¶ÎÎªÊ¾Ý¶Î
+                +1   285     ; ¶¨ÒåÍâ²¿º¯Ê
+                +1   286     EXTRN   CODE (display_error)            ; ¶¨Òådisplay_errorº¯Ê
+                +1   287     EXTRN   CODE (display_input)            ; ¶¨Òådisplay_inputº¯Ê
+                +1   288     EXTRN   CODE (display_lose)             ; ¶¨Òådisplay_loseº¯Ê
+                +1   289     EXTRN   CODE (kscan)                    ; ¶¨Òåkscanº¯Ê
+                +1   290     EXTRN   CODE (display_main_menu)        ; ¶¨Òådisplay_main_menuº¯Ê
+                +1   291     EXTRN   CODE (input_digits)             ; ¶¨Òåinput_digitsº¯Ê
+                +1   292     EXTRN   CODE (display_acknowledgement)  ; ¶¨Òådisplay_acknowledgementº¯Ê
+                +1   293     EXTRN   CODE (input_display_time)       ; ¶¨Òåinput_display_timeº¯Ê
+                +1   294     EXTRN   XDATA (inputs)          ; ¶¨ÒåinputsÀ©Õ¹Ê¾Ý¶Î
+                +1   295     EXTRN   CODE (rand)                     ; ¶¨Òårandº¯Ê
+                +1   296     EXTRN   CODE (display_win)              ; ¶¨Òådisplay_winº¯Ê
+                +1   297     EXTRN   CODE (input_bits)               ; ¶¨Òåinput_bitsº¯Ê
+                +1   298     EXTRN   CODE (display_begin_select)     ; ¶¨Òådisplay_begin_selectº¯Ê
+                +1   299     EXTRN   CODE (display_random_digits)    ; ¶¨Òådisplay_random_digitsº¯Ê
+                +1   300     EXTRN   CODE (display_correct)  ; ¶¨Òådisplay_correctº¯Ê
+                +1   301     EXTRN   CODE (display_gussing_game)     ; ¶¨Òådisplay_gussing_gameº¯Ê
+                +1   302     EXTRN   CODE (display_mode_select)      ; ¶¨Òådisplay_mode_selectº¯Ê
+                +1   303     EXTRN   CODE (f_or_e)                   ; ¶¨Òåf_or_eº¯Ê
+                +1   304     EXTRN   CODE (display_time_select)      ; ¶¨Òådisplay_time_selectº¯Ê
+                +1   305     EXTRN   CODE (display_bits_select)      ; ¶¨Òådisplay_bits_selectº¯Ê
+                +1   306     EXTRN   CODE (?C?SIDIV)         ; ¶¨Òå?C?SIDIVº¯Ê
+                +1   307     
+                +1   308     ; ¶¨Òå¹«¹²±äÁ¿
+                +1   309     PUBLIC random_digits            ; ¶¨Òårandom_digits¹«¹²±äÁ¿
+                +1   310     PUBLIC bits                     ; ¶¨Òåbits¹«¹²±äÁ¿
+                +1   311     PUBLIC level_bits               ; ¶¨Òålevel_bits¹«¹²±äÁ¿
+                +1   312     PUBLIC display_time             ; ¶¨Òådisplay_time¹«¹²±äÁ¿
+                +1   313     PUBLIC level_display_time       ; ¶¨Òålevel_display_time¹«¹²±äÁ¿
+                +1   314     PUBLIC digits                   ; ¶¨Òådigits¹«¹²±äÁ¿
+                +1   315     PUBLIC games                    ; ¶¨Òågames¹«¹²±äÁ¿
+                +1   316     PUBLIC gussing_game             ; ¶¨Òågussing_game¹«¹²±äÁ¿
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE     6
+
+                +1   317     PUBLIC acknowledgement          ; ¶¨Òåacknowledgement¹«¹²±äÁ¿
+                +1   318     PUBLIC mode3                    ; ¶¨Òåmode3¹«¹²±äÁ¿
+                +1   319     PUBLIC mode2                    ; ¶¨Òåmode2¹«¹²±äÁ¿
+                +1   320     PUBLIC mode1                    ; ¶¨Òåmode1¹«¹²±äÁ¿
+                +1   321     PUBLIC begin_select             ; ¶¨Òåbegin_select¹«¹²±äÁ¿
+                +1   322     PUBLIC mode_select              ; ¶¨Òåmode_select¹«¹²±äÁ¿
+                +1   323     PUBLIC main_menu                ; ¶¨Òåmain_menu¹«¹²±äÁ¿
+                +1   324     PUBLIC guess_one_level_BIT      ; ¶¨Òåguess_one_level_BIT¹«¹²±äÁ¿
+                +1   325     PUBLIC guess_one_level          ; ¶¨Òåguess_one_level¹«¹²±äÁ¿
+                +1   326     PUBLIC guess_once               ; ¶¨Òåguess_once¹«¹²±äÁ¿
+                +1   327     PUBLIC lose                     ; ¶¨Òålose¹«¹²±äÁ¿
+                +1   328     PUBLIC win                      ; ¶¨Òåwin¹«¹²±äÁ¿
+                +1   329     PUBLIC error                    ; ¶¨Òåerror¹«¹²±äÁ¿
+                +1   330     PUBLIC correct                  ; ¶¨Òåcorrect¹«¹²±äÁ¿
+                +1   331     PUBLIC check_digits     ; ¶¨Òåcheck_digits¹«¹²±äÁ¿
+                     332     ; ¶¨ÒåÒ»¸öÃûÎªDT_guess_once_GUESSING_GAMEµÄ¶Î£¬ÓÃÓÚ´æ´¢³ÌÐòµÄÊ¾Ý
+----                 333     RSEG  DT_guess_once_GUESSING_GAME
+                     334     
+                     335     ; guess_once_BYTE: ¶¨ÒåÒ»¸öÃûÎªguess_once_BYTEµÄ¶Î£¬ÓÃÓÚ´æ´¢³ÌÐòµÄÊ¾Ý
+0000                 336     guess_once_BYTE:
+0000                 337          state:   DS   1  ; ¶¨ÒåÒ»¸öÃûÎªstateµÄ¼Ä´æÆ÷£¬ÓÃÓÚ´æ´¢²Â²â×´Ì¬
+----                 338             RSEG  BI_guess_once_GUESSING_GAME  ; °üº¬Ò»¸öÃûÎªBI_guess_once_GUESSING_GAMEµÄ¶Î£¬Ó
+                             ÃÓÚ´æ´¢³ÌÐòµÄÊ¾Ý
+0000                 339     guess_once_BIT:
+0000                 340              a1:   DBIT   1  ; ¶¨ÒåÒ»¸öÃûÎªa1µÄ¼Ä´æÆ÷£¬ÓÃÓÚ´æ´¢Ò»¸öÎ»
+0001                 341           temp:   DBIT   1  ; ¶¨ÒåÒ»¸öÃûÎªtempµÄ¼Ä´æÆ÷£¬ÓÃÓÚ´æ´¢Ò»¸öÎ»
+----                 342             RSEG  BI_guess_one_level_GUESSING_GAME  ; °üº¬Ò»¸öÃûÎªBI_guess_one_level_GUESSING_G
+                             AMEµÄ¶Î£¬ÓÃÓÚ´æ´¢³ÌÐòµÄÊ¾Ý
+0000                 343     guess_one_level_BIT:
+0000                 344              b2:   DBIT   1  ; ¶¨ÒåÒ»¸öÃûÎªb2µÄ¼Ä´æÆ÷£¬ÓÃÓÚ´æ´¢Ò»¸öÎ»
+0001                 345              a2:   DBIT   1  ; ¶¨ÒåÒ»¸öÃûÎªa2µÄ¼Ä´æÆ÷£¬ÓÃÓÚ´æ´¢Ò»¸öÎ»
+----                 346             RSEG  DT_mode1_GAME  ; °üº¬Ò»¸öÃûÎªDT_mode1_GAMEµÄ¶Î£¬ÓÃÓÚ´æ´¢³ÌÐòµÄÊ¾Ý
+0000                 347     mode1_BYTE:
+0000                 348             i:   DS   1  ; ¶¨ÒåÒ»¸öÃûÎªiµÄ¼Ä´æÆ÷£¬ÓÃÓÚ´æ´¢Ò»¸ö×Ö½Ú
+0001                 349         state1:   DS   1  ; ¶¨ÒåÒ»¸öÃûÎªstate1µÄ¼Ä´æÆ÷£¬ÓÃÓÚ´æ´¢²Â²â×´Ì¬
+----                 350             RSEG  XD_GUESSING_GAME  ; °üº¬Ò»¸öÃûÎªXD_GUESSING_GAMEµÄ¶Î£¬ÓÃÓÚ´æ´¢³ÌÐòµÄÊ¾Ý
+0000                 351     level_display_time:   DS   20  ; ¶¨ÒåÒ»¸öÃûÎªlevel_display_timeµÄ¼Ä´æÆ÷£¬ÓÃÓÚ´æ´¢ÏÔÊ¾Ê±¼ä
+0014                 352         level_bits:   DS   10  ; ¶¨ÒåÒ»¸öÃûÎªlevel_bitsµÄ¼Ä´æÆ÷£¬ÓÃÓÚ´æ´¢ÏÔÊ¾µÄÎ»
+001E                 353      random_digits:   DS   64  ; ¶¨ÒåÒ»¸öÃûÎªrandom_digitsµÄ¼Ä´æÆ÷£¬ÓÃÓÚ´æ´¢Ëæ»úÊ
+----                 354             RSEG  DT_GUESSING_GAME  ; °üº¬Ò»¸öÃûÎªDT_GUESSING_GAMEµÄ¶Î£¬ÓÃÓÚ´æ´¢³ÌÐòµÄÊ¾Ý
+0000                 355       display_time:   DS   2  ; ¶¨ÒåÒ»¸öÃûÎªdisplay_timeµÄ¼Ä´æÆ÷£¬ÓÃÓÚ´æ´¢ÏÔÊ¾Ê±¼ä
+0002                 356               bits:   DS   1  ; ¶¨ÒåÒ»¸öÃûÎªbitsµÄ¼Ä´æÆ÷£¬ÓÃÓÚ´æ´¢Ò»¸öÎ»
+                     357     
+----                 358         RSEG CO_GUESSING_GAME ; °üº¬Ò»¸öÃûÎªCO_GUESSING_GAMEµÄ¶Î£¬ÓÃÓÚ´æ´¢³ÌÐòµÄÊ¾Ý
+0000                 359     CODE_GUESSING_GAME:
+                     360        ; digits: ¶¨ÒåÒ»¸öÃûÎªdigitsµÄÊ×é£¬ÓÃÓÚ´æ´¢Ê×Ö0-9ºÍ×ÖÄ¸A-F
+0000 30313233        361        digits:   DB  '0' ,'1' ,'2' ,'3' ,'4' ,'5' ,'6' ,'7' ,'8' ,'9' 
+0004 34353637                
+0008 3839                    
+000A 41424344        362              DB  'A' ,'B' ,'C' ,'D' ,'E' ,'F' ,000H
+000E 454600                  
+                     363             ; RSEG  ?C_INITSEG: ¶¨ÒåÒ»¸öÃûÎª?C_INITSEGµÄ¶Î£¬ÓÃÓÚ´æ´¢³ÌÐòµÄÊ¾Ý
+----                 364             RSEG  ?C_INITSEG
+0000 60              365             DB      060H
+0001 40              366             DB      040H
+0002 0000     F      367             DW      random_digits
+0004 00              368             DB      000H
+0005 00000000        369             DB  000H,000H,000H,000H,000H,000H,000H,000H,000H,000H
+0009 00000000                
+000D 0000                    
+000F 00000000        370             DB  000H,000H,000H,000H,000H,000H,000H,000H,000H,000H
+0013 00000000                
+0017 0000                    
+0019 00000000        371             DB  000H,000H,000H,000H,000H,000H,000H,000H,000H,000H
+001D 00000000                
+0021 0000                    
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE     7
+
+0023 00000000        372             DB  000H,000H,000H,000H,000H,000H,000H,000H,000H,000H
+0027 00000000                
+002B 0000                    
+002D 00000000        373             DB  000H,000H,000H,000H,000H,000H,000H,000H,000H,000H
+0031 00000000                
+0035 0000                    
+0037 00000000        374             DB  000H,000H,000H,000H,000H,000H,000H,000H,000H,000H
+003B 00000000                
+003F 0000                    
+0041 000000          375             DB  000H,000H,000H
+0044 01              376             DB      001H
+0045 00       F      377             DB      bits
+0046 00              378             DB      000H
+0047 02              379             DB      002H
+0048 00       F      380             DB      display_time
+0049 0000            381             DW      00000H
+004B 4A              382             DB      04AH
+004C 0000     F      383             DW      level_bits
+004E 01              384             DB      001H
+004F 02              385             DB      002H
+0050 03              386             DB      003H
+0051 04              387             DB      004H
+0052 05              388             DB      005H
+0053 06              389             DB      006H
+0054 07              390             DB      007H
+0055 08              391             DB      008H
+0056 09              392             DB      009H
+0057 0A              393             DB      00AH
+0058 54              394             DB      054H
+0059 0000     F      395             DW      level_display_time
+005B 00C8            396             DW      000C8H
+005D 0190            397             DW      00190H
+005F 0258            398             DW      00258H
+0061 0320            399             DW      00320H
+0063 03E8            400             DW      003E8H
+0065 04B0            401             DW      004B0H
+0067 0578            402             DW      00578H
+0069 0640            403             DW      00640H
+006B 0708            404             DW      00708H
+006D 07D0            405             DW      007D0H
+----                 406             RSEG  check_digits_GUESSING_GAME
+                     407     ; ¶¨ÒåÒ»¸öÃûÎªcheck_digits_GUESSING_GAMEµÄ¶Î£¬ÓÃÓÚ´æ´¢³ÌÐòµÄÊ¾Ý
+0000                 408     check_digits_GUESSING:
+                     409             ; ¶¨ÒåÒ»¸öÃûÎªcheck_digitsµÄ±êÇ©£¬ÓÃÓÚÌø×ªµ½¸Ã±êÇ©µÄÎ»ÖÃ
+0000                 410     check_digits:
+                     411             ; Ê¹ÓÃ¼Ä´æÆ÷0×÷Îª¹¤×÷¼Ä´æÆ÷
+                     412             USING   0
+                     413             ;½«¼Ä´æÆ÷AÖÐµÄÖµÇåÁã
+0000 E4              414             CLR     A
+                     415             ;½«¼Ä´æÆ÷AÖÐµÄÖµ´æ´¢µ½¼Ä´æÆ÷R7ÖÐ
+0001 FF              416             MOV     R7,A
+                     417     ; GUSSING_GAME0001: ¶¨ÒåÒ»¸öÑ­»·£¬ÓÃÓÚ¼ì²éÓÃ»§ÊäÈëµÄÊ×ÖÊÇ·ñÔÚËæ»úÊÊ×éÖÐ
+0002                 418     GUSSING_GAME0001:
+                     419             ;½«ÊäÈëµÄµÍ8Î»´æ´¢µ½¼Ä´æÆ÷AÖÐ
+0002 7400     F      420             MOV     A,#LOW (inputs)
+0004 2F              421             ADD     A,R7
+0005 F582            422             MOV     DPL,A
+0007 E4              423             CLR     A
+0008 3400     F      424             ADDC    A,#HIGH (inputs); ½«ÊäÈëµÄ¸ß8Î»ÓëÊäÈëµÄµÍ8Î»Ïà¼Ó£¬½á¹û´æ´¢µ½¼Ä´æÆ÷AÖÐ
+000A F583            425             MOV     DPH,A
+000C E0              426             MOVX    A,@DPTR; ½«Ëæ»úÊÊ×éÖÐµÄÊ×Ö´æ´¢µ½¼Ä´æÆ÷AÖÐ
+000D FE              427             MOV     R6,A; ½«¼Ä´æÆ÷AÖÐµÄÖµ´æ´¢µ½¼Ä´æÆ÷R6ÖÐ£¬ÓÃÓÚºóÐø±È½Ï
+000E 7400     F      428             MOV     A,#LOW (random_digits); ½«Ëæ»úÊÊ×éÖÐµÄµÍ8Î»´æ´¢µ½¼Ä´æÆ÷AÖÐ
+0010 2F              429             ADD     A,R7; ½«Ëæ»úÊÊ×éÖÐµÄÆ«ÒÆÁ¿ÓëÊäÈëµÄÆ«ÒÆÁ¿Ïà¼Ó£¬½á¹û´æ´¢µ½¼Ä´æÆ÷AÖÐ
+0011 F582            430             MOV     DPL,A
+0013 E4              431             CLR     A
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE     8
+
+0014 3400     F      432             ADDC    A,#HIGH (random_digits); ½«Ëæ»úÊÊ×éÖÐµÄ¸ß8Î»ÓëÊäÈëµÄ¸ß8Î»Ïà¼Ó£¬½á¹û´æ´¢µ½¼Ä
+                             ´æÆ÷AÖÐ
+0016 F583            433             MOV     DPH,A
+0018 E0              434             MOVX    A,@DPTR; ½«Ëæ»úÊÊ×éÖÐµÄÊ×Ö´æ´¢µ½¼Ä´æÆ÷AÖÐ
+0019 B50604          435             CJNE    A,AR6,GUSSING_GAME0002; Èç¹ûÊäÈëµÄÊ×ÖÓëËæ»úÊÊ×éÖÐµÄÊ×Ö²»ÏàµÈ£¬ÔòÌø×ªµ½GUSSI
+                             NG_GAME0002±êÇ©
+001C 0F              436             INC     R7; Èç¹ûÊäÈëµÄÊ×ÖÓëËæ»úÊÊ×éÖÐµÄÊ×ÖÏàµÈ£¬Ôò½«Ëæ»úÊÊ×éµÄÆ«ÒÆÁ¿¼Ó1
+001D BF40E2          437             CJNE    R7,#040H,GUSSING_GAME0001; Èç¹ûËæ»úÊÊ×éµÄÆ«ÒÆÁ¿´óÓÚµÈÓÚ40£¬ÔòÌø×ªµ½GUSSING_
+                             GAME0001±êÇ©
+                     438     
+                     439     ; GUSSING_GAME0002: Èç¹ûÊäÈëµÄÊ×ÖÓëËæ»úÊÊ×éÖÐµÄÊ×Ö²»ÏàµÈ£¬ÔòÌø×ªµ½GUSSING_GAME0005±êÇ©
+0020                 440     GUSSING_GAME0002:
+                     441             ; CJNE  R7,#040H,GUSSING_GAME0005: Èç¹ûËæ»úÊÊ×éµÄÆ«ÒÆÁ¿´óÓÚµÈÓÚ40£¬ÔòÌø×ªµ½GUSSING_
+                             GAME0005±êÇ©
+0020 BF4002          442             CJNE    R7,#040H,GUSSING_GAME0005
+                     443             ; SETB  C: ÉèÖÃCÎ»Îª1£¬±íÊ¾²Â²âÕÈ·
+0023 D3              444             SETB    C
+                     445             ; RET   : ·µ»Øµ÷ÓÃ´¦µÄµØÖ·
+0024 22              446             RET  
+0025                 447     GUSSING_GAME0005:
+                     448             ; CLR   C: ½«CÎ»ÇåÁã£¬±íÊ¾²Â²â´íÎó
+0025 C3              449             CLR     C
+0026                 450     GUSSING_GAME0006:
+                     451             ; RET   : ·µ»Øµ÷ÓÃ´¦µÄµØÖ·
+0026 22              452             RET  
+                     453             ; RSEG  correct_GAME: ¶¨ÒåÒ»¸ö°üº¬ÕÈ·ÏÔÊ¾º¯ÊµÄ¶Î
+----                 454             RSEG  correct_GAME
+0000                 455     correct:
+                     456             ; USING 0: Ê¹ÓÃ¼Ä´æÆ÷0×÷Îª¹¤×÷¼Ä´æÆ÷
+                     457             USING   0
+                     458             ; LCALL display_correct: µ÷ÓÃÏÔÊ¾ÕÈ·ÏÔÊ¾µÄº¯Ê
+0000 120000   F      459             LCALL   display_correct
+                     460             ; LJMP  f_or_e: Ìø×ªµ½f_or_e±êÇ©
+0003 020000   F      461             LJMP    f_or_e
+                     462             ; RSEG  error_GAME: ¶¨ÒåÒ»¸ö°üº¬´íÎóÏÔÊ¾º¯ÊµÄ¶Î
+----                 463             RSEG  error_GAME
+0000                 464     error:
+                     465             ; USING 0: Ê¹ÓÃ¼Ä´æÆ÷0×÷Îª¹¤×÷¼Ä´æÆ÷
+                     466             USING   0
+                     467             ; LCALL display_error: µ÷ÓÃÏÔÊ¾´íÎóÏÔÊ¾µÄº¯Ê
+0000 120000   F      468             LCALL   display_error
+                     469             ; LJMP  f_or_e: Ìø×ªµ½f_or_e±êÇ©
+0003 020000   F      470             LJMP    f_or_e
+                     471             ; RSEG  win_GAME: ¶¨ÒåÒ»¸ö°üº¬Ê¤ÀûÏÔÊ¾º¯ÊµÄ¶Î
+----                 472             RSEG  win_GAME
+                     473     ; win: ¶¨ÒåÒ»¸ö°üº¬Ê¤ÀûÏÔÊ¾º¯ÊµÄ¶Î
+0000                 474     win:
+                     475             ; USING 0: Ê¹ÓÃ¼Ä´æÆ÷0×÷Îª¹¤×÷¼Ä´æÆ÷
+                     476             USING   0
+                     477             ; LCALL display_win: µ÷ÓÃÏÔÊ¾Ê¤ÀûÏÔÊ¾µÄº¯Ê
+0000 120000   F      478             LCALL   display_win
+                     479             ; LJMP  f_or_e: Ìø×ªµ½f_or_e±êÇ©
+0003 020000   F      480             LJMP    f_or_e
+----                 481             RSEG  lose_GAME  ; ¶¨ÒåÁËÒ»¸öÃûÎª lose_GAME µÄÊ¾Ý¶Î
+0000                 482     lose:  ; »ã±à±êÇ©£¬±íÊ¾Ò»¸ö»ã±àº¯ÊµÄ¿ªÊ¼
+                     483             USING 0  ; ±íÊ¾Ê¹ÓÃ¼Ä´æÆ÷0 
+0000 120000   F      484             LCALL display_lose  ; µ÷ÓÃ display_lose º¯Ê£¬ÓÃÓÚÏÔÊ¾Íæ¼ÒÊäµôÓÎÏ·µÄÊ§°ÜÐÅÏ¢
+0003 020000   F      485             LJMP f_or_e  ; Ìø×ªµ½ f_or_e ±êÇ©
+                     486     
+----                 487     RSEG  guess_once_GAME
+0000                 488     guess_once:
+                     489             ; Ê¹ÓÃ¼Ä´æÆ÷0×÷Îª¹¤×÷¼Ä´æÆ÷
+                     490             USING   0
+                     491             ; ½«×´Ì¬¼Ä´æÆ÷ÇåÁã
+0000 E4              492             CLR     A
+                     493             ; ½«×´Ì¬¼Ä´æÆ÷µÄÖµ´æ´¢µ½state±äÁ¿ÖÐ
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE     9
+
+0001 F500     F      494             MOV     state,A
+                     495             ; µ÷ÓÃÏÔÊ¾Ëæ»úÊÊ×éµÄº¯Ê
+0003 120000   F      496             LCALL   display_random_digits
+                     497             ; µ÷ÓÃÏÔÊ¾ÊäÈëÌáÊ¾µÄº¯Ê
+0006 120000   F      498             LCALL   display_input
+                     499             ; µ÷ÓÃÊäÈëÊ×ÖµÄº¯Ê
+0009 120000   F      500             LCALL   input_digits
+                     501             ; ½«×´Ì¬¼Ä´æÆ÷ÇåÁã
+000C E4              502             CLR     A
+                     503             ; ½«×´Ì¬¼Ä´æÆ÷µÄÖµÓÒÒÆ1Î»
+000D 33              504             RLC     A
+                     505             ; ½«×´Ì¬¼Ä´æÆ÷µÄÖµ´æ´¢µ½state±äÁ¿ÖÐ
+000E F500     F      506             MOV     state,A
+                     507             ; Èç¹ûÊäÈëµÄÊ×Ö²»ÊÇ1£¬ÔòÌø×ªµ½GUSSING_GAME0012±êÇ©
+0010 B40102          508             CJNE    A,#01H,GUSSING_GAME0012
+                     509             ; ½«ÊäÈëµÄÊ×Ö´æ´¢µ½R7¼Ä´æÆ÷ÖÐ
+0013 FF              510             MOV     R7,A
+                     511             ; ·µ»Øµ÷ÓÃ´¦µÄµØÖ·
+0014 22              512             RET     
+0015                 513     GUSSING_GAME0012:
+                     514             ; µ÷ÓÃ¼ì²éÊ×ÖµÄº¯Ê
+0015 120000   F      515             LCALL   check_digits
+                     516             ; ½«½á¹û´æ´¢µ½¼Ä´æÆ÷AÖÐ
+0018 9200     F      517             MOV     a1,C
+                     518             ; Èç¹ûÊäÈëµÄÊ×ÖÕÈ·£¬ÔòÌø×ªµ½GUSSING_GAME0014±êÇ©
+001A 30000D   F      519             JNB     a1,GUSSING_GAME0014
+                     520             ; µ÷ÓÃÏÔÊ¾ÕÈ·ÌáÊ¾µÄº¯Ê
+001D 120000   F      521             LCALL   correct
+                     522             ; ½«ÊäÈëµÄÊ×Ö´æ´¢µ½¼Ä´æÆ÷R7ÖÐ
+0020 9200     F      523             MOV     temp,C
+                     524             ; Èç¹ûÊäÈëµÄÊ×ÖÕÈ·£¬ÔòÌø×ªµ½GUSSING_GAME0015±êÇ©
+0022 300002   F      525             JNB     temp,GUSSING_GAME0015
+                     526             ; Ìø×ªµ½GUSSING_GAME0094±êÇ©
+0025 800B            527             SJMP    GUSSING_GAME0094
+0027                 528     GUSSING_GAME0015:
+                     529             ; ½«R7¼Ä´æÆ÷µÄÖµÉèÖÃÎª0
+0027 7F00            530             MOV     R7,#00H
+                     531             ; ·µ»Øµ÷ÓÃ´¦µÄµØÖ·
+0029 22              532             RET     
+002A                 533     GUSSING_GAME0014:
+                     534             ; µ÷ÓÃÏÔÊ¾´íÎóÌáÊ¾µÄº¯Ê
+002A 120000   F      535             LCALL   error
+                     536             ; ½«ÊäÈëµÄÊ×Ö´æ´¢µ½¼Ä´æÆ÷R7ÖÐ
+002D 9200     F      537             MOV     temp,C
+                     538             ; Èç¹ûÊäÈëµÄÊ×ÖÕÈ·£¬ÔòÌø×ªµ½GUSSING_GAME0017±êÇ©
+002F 300006   F      539             JNB     temp,GUSSING_GAME0017
+0032                 540     GUSSING_GAME0094:
+                     541             ; ½«×´Ì¬¼Ä´æÆ÷µÄÖµÉèÖÃÎª1
+0032 750001   F      542             MOV     state,#01H
+                     543             ; ½«×´Ì¬¼Ä´æÆ÷µÄÖµ´æ´¢µ½R7¼Ä´æÆ÷ÖÐ
+0035 AF00     F      544             MOV     R7,state
+                     545             ; ·µ»Øµ÷ÓÃ´¦µÄµØÖ·
+0037 22              546             RET     
+0038                 547     GUSSING_GAME0017:
+                     548             ; ½«R7¼Ä´æÆ÷µÄÖµÉèÖÃÎª2
+0038 7F02            549             MOV     R7,#02H
+003A                 550     GUSSING_GAME0013:
+                     551             ; ·µ»Øµ÷ÓÃ´¦µÄµØÖ·
+003A 22              552             RET     
+----                 553             RSEG  guess_one_level_GAME
+                     554     
+0000                 555     guess_one_level:
+                     556             USING   0
+0000 E4              557             CLR     A
+0001 FD              558             MOV     R5,A
+0002 120000   F      559             LCALL   display_random_digits
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE    10
+
+0005 120000   F      560             LCALL   display_input
+0008 120000   F      561             LCALL   input_digits
+000B E4              562             CLR     A
+000C 33              563             RLC     A
+000D FD              564             MOV     R5,A
+000E BD0102          565             CJNE    R5,#01H,GUSSING_GAME0018
+0011 FF              566             MOV     R7,A
+0012 22              567             RET     
+0013                 568     GUSSING_GAME0018:
+0013 120000   F      569             LCALL   check_digits
+0016 9200     F      570             MOV     a2,C
+0018 30001F   F      571             JNB     a2,GUSSING_GAME0020
+001B 20000E   F      572             JB      b2,GUSSING_GAME0021
+001E 120000   F      573             LCALL   correct
+0021 E4              574             CLR     A
+0022 33              575             RLC     A
+0023 FD              576             MOV     R5,A
+0024 BD0102          577             CJNE    R5,#01H,GUSSING_GAME0022
+0027 FF              578             MOV     R7,A
+0028 22              579             RET     
+0029                 580     GUSSING_GAME0022:
+0029 7F02            581             MOV     R7,#02H
+002B 22              582             RET     
+002C                 583     GUSSING_GAME0021:
+002C 120000   F      584             LCALL   win
+002F E4              585             CLR     A
+0030 33              586             RLC     A
+0031 FD              587             MOV     R5,A
+0032 BD0102          588             CJNE    R5,#01H,GUSSING_GAME0025
+0035 FF              589             MOV     R7,A
+0036 22              590             RET     
+0037                 591     GUSSING_GAME0025:
+0037 7F00            592             MOV     R7,#00H
+0039 22              593             RET     
+003A                 594     GUSSING_GAME0020:
+003A 120000   F      595             LCALL   lose
+003D E4              596             CLR     A
+003E 33              597             RLC     A
+003F FF              598             MOV     R7,A
+0040                 599     GUSSING_GAME0019:
+0040 22              600             RET     
+----                 601             RSEG  main_menu_GAME
+0000                 602     main_menu:
+                     603             USING   0
+0000 120000   F      604             LCALL   display_main_menu
+0003                 605     GUSSING_GAME0028:
+0003 120000   F      606             LCALL   kscan
+0006 BF0104          607             CJNE    R7,#01H,GUSSING_GAME0031
+0009 7E01            608             MOV     R6,#01H
+000B 8002            609             SJMP    GUSSING_GAME0032
+000D                 610     GUSSING_GAME0031:
+000D 7E00            611             MOV     R6,#00H
+000F                 612     GUSSING_GAME0032:
+000F EF              613             MOV     A,R7
+0010 7004            614             JNZ     GUSSING_GAME0033
+0012 7D01            615             MOV     R5,#01H
+0014 8002            616             SJMP    GUSSING_GAME0034
+0016                 617     GUSSING_GAME0033:
+0016 7D00            618             MOV     R5,#00H
+0018                 619     GUSSING_GAME0034:
+0018 ED              620             MOV     A,R5
+0019 4E              621             ORL     A,R6
+001A FE              622             MOV     R6,A
+001B BF0E04          623             CJNE    R7,#0EH,GUSSING_GAME0035
+001E 7D01            624             MOV     R5,#01H
+0020 8002            625             SJMP    GUSSING_GAME0036
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE    11
+
+0022                 626     GUSSING_GAME0035:
+0022 7D00            627             MOV     R5,#00H
+0024                 628     GUSSING_GAME0036:
+0024 ED              629             MOV     A,R5
+0025 4E              630             ORL     A,R6
+0026 60DB            631             JZ      GUSSING_GAME0028
+0028                 632     GUSSING_GAME0029:
+0028 22              633             RET     
+----                 634             RSEG  mode_select_GAME
+0000                 635     mode_select:
+                     636             USING   0
+0000 120000   F      637             LCALL   display_mode_select
+0003                 638     GUSSING_GAME0038:
+0003 120000   F      639             LCALL   kscan
+0006 BF0104          640             CJNE    R7,#01H,GUSSING_GAME0041
+0009 7E01            641             MOV     R6,#01H
+000B 8002            642             SJMP    GUSSING_GAME0042
+000D                 643     GUSSING_GAME0041:
+000D 7E00            644             MOV     R6,#00H
+000F                 645     GUSSING_GAME0042:
+000F EF              646             MOV     A,R7
+0010 7004            647             JNZ     GUSSING_GAME0043
+0012 7D01            648             MOV     R5,#01H
+0014 8002            649             SJMP    GUSSING_GAME0044
+0016                 650     GUSSING_GAME0043:
+0016 7D00            651             MOV     R5,#00H
+0018                 652     GUSSING_GAME0044:
+0018 ED              653             MOV     A,R5
+0019 4E              654             ORL     A,R6
+001A FE              655             MOV     R6,A
+001B BF0204          656             CJNE    R7,#02H,GUSSING_GAME0045
+001E 7D01            657             MOV     R5,#01H
+0020 8002            658             SJMP    GUSSING_GAME0046
+0022                 659     GUSSING_GAME0045:
+0022 7D00            660             MOV     R5,#00H
+0024                 661     GUSSING_GAME0046:
+0024 ED              662             MOV     A,R5
+0025 4E              663             ORL     A,R6
+0026 FE              664             MOV     R6,A
+0027 BF0E04          665             CJNE    R7,#0EH,GUSSING_GAME0047
+002A 7D01            666             MOV     R5,#01H
+002C 8002            667             SJMP    GUSSING_GAME0048
+002E                 668     GUSSING_GAME0047:
+002E 7D00            669             MOV     R5,#00H
+0030                 670     GUSSING_GAME0048:
+0030 ED              671             MOV     A,R5
+0031 4E              672             ORL     A,R6
+0032 60CF            673             JZ      GUSSING_GAME0038
+0034                 674     GUSSING_GAME0039:
+0034 22              675             RET     
+----                 676             RSEG  begin_select_GAME
+0000                 677     begin_select:
+                     678             USING   0
+0000 120000   F      679             LCALL   display_begin_select
+0003 020000   F      680             LJMP    f_or_e
+----                 681             RSEG  mode1_GAME
+0000                 682     mode1:
+                     683             USING   0
+0000 E4              684             CLR     A
+0001 F500     F      685             MOV     i,A
+0003                 686     GUSSING_GAME0051:
+0003 E4              687             CLR     A
+0004 F500     F      688             MOV     i,A
+0006                 689     GUSSING_GAME0053:
+0006 7400     F      690             MOV     A,#LOW (level_bits)
+0008 2500     F      691             ADD     A,i
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE    12
+
+000A F582            692             MOV     DPL,A
+000C E4              693             CLR     A
+000D 3400     F      694             ADDC    A,#HIGH (level_bits)
+000F F583            695             MOV     DPH,A
+0011 E0              696             MOVX    A,@DPTR
+0012 F500     F      697             MOV     bits,A
+0014 E500     F      698             MOV     A,i
+0016 25E0            699             ADD     A,ACC
+0018 2400     F      700             ADD     A,#LOW (level_display_time)
+001A F582            701             MOV     DPL,A
+001C E4              702             CLR     A
+001D 3400     F      703             ADDC    A,#HIGH (level_display_time)
+001F F583            704             MOV     DPH,A
+0021 E0              705             MOVX    A,@DPTR
+0022 F500     F      706             MOV     display_time,A
+0024 A3              707             INC     DPTR
+0025 E0              708             MOVX    A,@DPTR
+0026 F500     F      709             MOV     display_time+01H,A
+0028 120000   F      710             LCALL   begin_select
+002B 4025            711             JC      GUSSING_GAME0057
+002D E500     F      712             MOV     A,i
+002F B40903          713             CJNE    A,#09H,GUSSING_GAME0058
+0032 D3              714             SETB    C
+0033 8001            715             SJMP    GUSSING_GAME0059
+0035                 716     GUSSING_GAME0058:
+0035 C3              717             CLR     C
+0036                 718     GUSSING_GAME0059:
+0036 9200     F      719             MOV     guess_one_level_BIT,C
+0038 120000   F      720             LCALL   guess_one_level
+003B 8F00     F      721             MOV     state1,R7
+003D E500     F      722             MOV     A,state1
+003F 6401            723             XRL     A,#01H
+0041 600F            724             JZ      GUSSING_GAME0057
+0043 E500     F      725             MOV     A,state1
+0045 60BC            726             JZ      GUSSING_GAME0051
+0047 0500     F      727             INC     i
+0049 E500     F      728             MOV     A,i
+004B C3              729             CLR     C
+004C 940A            730             SUBB    A,#0AH
+004E 40B6            731             JC      GUSSING_GAME0053
+0050 80B1            732             SJMP    GUSSING_GAME0051
+0052                 733     GUSSING_GAME0057:
+0052 22              734             RET     
+----                 735             RSEG  mode2_GAME
+0000                 736     mode2:
+                     737             USING   0
+0000 120000   F      738             LCALL   display_bits_select
+0003 120000   F      739             LCALL   input_bits
+0006 4016            740             JC      GUSSING_GAME0065
+0008 120000   F      741             LCALL   display_time_select
+000B 120000   F      742             LCALL   input_display_time
+000E 400E            743             JC      GUSSING_GAME0065
+0010 120000   F      744             LCALL   display_begin_select
+0013                 745     GUSSING_GAME0067:
+0013 120000   F      746             LCALL   begin_select
+0016 4006            747             JC      GUSSING_GAME0065
+0018 120000   F      748             LCALL   guess_once
+001B BF01F5          749             CJNE    R7,#01H,GUSSING_GAME0067
+001E                 750     GUSSING_GAME0065:
+001E 22              751             RET     
+----                 752             RSEG  mode3_GAME
+0000                 753     mode3:
+                     754             USING   0
+0000                 755     GUSSING_GAME0071:
+0000 120000   F      756             LCALL   rand
+0003 7C00            757             MOV     R4,#00H
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE    13
+
+0005 7D08            758             MOV     R5,#08H
+0007 120000   F      759             LCALL   ?C?SIDIV
+000A ED              760             MOV     A,R5
+000B 04              761             INC     A
+000C F500     F      762             MOV     bits,A
+000E 120000   F      763             LCALL   rand
+0011 7C00            764             MOV     R4,#00H
+0013 7D65            765             MOV     R5,#065H
+0015 120000   F      766             LCALL   ?C?SIDIV
+0018 E500     F      767             MOV     A,bits
+001A 75F0C8          768             MOV     B,#0C8H
+001D A4              769             MUL     AB
+001E AEF0            770             MOV     R6,B
+0020 2D              771             ADD     A,R5
+0021 F500     F      772             MOV     display_time+01H,A
+0023 EE              773             MOV     A,R6
+0024 3C              774             ADDC    A,R4
+0025 F500     F      775             MOV     display_time,A
+0027 120000   F      776             LCALL   begin_select
+002A 4006            777             JC      GUSSING_GAME0074
+002C 120000   F      778             LCALL   guess_once
+002F BF01CE          779             CJNE    R7,#01H,GUSSING_GAME0071
+0032                 780     GUSSING_GAME0074:
+0032 22              781             RET     
+----                 782             RSEG  acknowledgement_GAME
+0000                 783     acknowledgement:
+                     784             USING   0
+0000 020000   F      785             LJMP    display_acknowledgement
+----                 786             RSEG  gussing_game_GAME
+0000                 787     gussing_game:
+                     788             USING   0
+0000                 789     GUSSING_GAME0077:
+0000 120000   F      790             LCALL   mode_select
+0003 EF              791             MOV     A,R7
+0004 640E            792             XRL     A,#0EH
+0006 601A            793             JZ      GUSSING_GAME0085
+0008 EF              794             MOV     A,R7
+0009 14              795             DEC     A
+000A 600C            796             JZ      GUSSING_GAME0082
+000C 14              797             DEC     A
+000D 600E            798             JZ      GUSSING_GAME0083
+000F 2402            799             ADD     A,#02H
+0011 70ED            800             JNZ     GUSSING_GAME0077
+0013                 801     GUSSING_GAME0081:
+0013 120000   F      802             LCALL   mode1
+0016 80E8            803             SJMP    GUSSING_GAME0077
+0018                 804     GUSSING_GAME0082:
+0018 120000   F      805             LCALL   mode2
+001B 80E3            806             SJMP    GUSSING_GAME0077
+001D                 807     GUSSING_GAME0083:
+001D 120000   F      808             LCALL   mode3
+0020 80DE            809             SJMP    GUSSING_GAME0077
+0022                 810     GUSSING_GAME0085:
+0022 22              811             RET     
+----                 812             RSEG  games_GUESSING_GAME
+0000                 813     games:
+                     814             USING   0
+0000 120000   F      815             LCALL   display_gussing_game
+0003                 816     GUSSING_GAME0086:
+0003 120000   F      817             LCALL   main_menu
+0006 EF              818             MOV     A,R7
+0007 640E            819             XRL     A,#0EH
+0009 6011            820             JZ      GUSSING_GAME0093
+000B EF              821             MOV     A,R7
+000C 14              822             DEC     A
+000D 6008            823             JZ      GUSSING_GAME0091
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE    14
+
+000F 04              824             INC     A
+0010 70F1            825             JNZ     GUSSING_GAME0086
+0012                 826     GUSSING_GAME0090:
+0012 120000   F      827             LCALL   gussing_game
+0015 80EC            828             SJMP    GUSSING_GAME0086
+0017                 829     GUSSING_GAME0091:
+0017 120000   F      830             LCALL   acknowledgement
+001A 80E7            831             SJMP    GUSSING_GAME0086
+001C                 832     GUSSING_GAME0093:
+001C 22              833             RET     
+                     834             END
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE    15
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                           T Y P E  V A L U E   ATTRIBUTES
+
+?C?SIDIV . . . . . . . . . . . .  C ADDR   -----       EXT
+?C_INITSEG . . . . . . . . . . .  C SEG    006FH       REL=UNIT
+A1 . . . . . . . . . . . . . . .  B ADDR   0000H.0 R   SEG=BI_GUESS_ONCE_GUESSING_GAME
+A2 . . . . . . . . . . . . . . .  B ADDR   0000H.1 R   SEG=BI_GUESS_ONE_LEVEL_GUESSING_GAME
+AA . . . . . . . . . . . . . . .  B ADDR   00C0H.2 A   
+AC . . . . . . . . . . . . . . .  B ADDR   00D0H.6 A   
+ACC. . . . . . . . . . . . . . .  D ADDR   00E0H   A   
+ACKNOWLEDGEMENT. . . . . . . . .  C ADDR   0000H   R   SEG=ACKNOWLEDGEMENT_GAME
+ACKNOWLEDGEMENT_GAME . . . . . .  C SEG    0003H       REL=UNIT
+AD0BUSY. . . . . . . . . . . . .  B ADDR   00E8H.4 A   
+AD0EN. . . . . . . . . . . . . .  B ADDR   00E8H.7 A   
+AD0INT . . . . . . . . . . . . .  B ADDR   00E8H.5 A   
+AD0LJST. . . . . . . . . . . . .  B ADDR   00E8H.0 A   
+AD0STM0. . . . . . . . . . . . .  B ADDR   00E8H.2 A   
+AD0STM1. . . . . . . . . . . . .  B ADDR   00E8H.3 A   
+AD0TM. . . . . . . . . . . . . .  B ADDR   00E8H.6 A   
+AD0WINT. . . . . . . . . . . . .  B ADDR   00E8H.1 A   
+ADC0CF . . . . . . . . . . . . .  D ADDR   00BCH   A   
+ADC0CN . . . . . . . . . . . . .  D ADDR   00E8H   A   
+ADC0GTH. . . . . . . . . . . . .  D ADDR   00C5H   A   
+ADC0GTL. . . . . . . . . . . . .  D ADDR   00C4H   A   
+ADC0H. . . . . . . . . . . . . .  D ADDR   00BFH   A   
+ADC0L. . . . . . . . . . . . . .  D ADDR   00BEH   A   
+ADC0LTH. . . . . . . . . . . . .  D ADDR   00C7H   A   
+ADC0LTL. . . . . . . . . . . . .  D ADDR   00C6H   A   
+ADC1 . . . . . . . . . . . . . .  D ADDR   009CH   A   
+ADC1CF . . . . . . . . . . . . .  D ADDR   00ABH   A   
+ADC1CN . . . . . . . . . . . . .  D ADDR   00AAH   A   
+AMX0CF . . . . . . . . . . . . .  D ADDR   00BAH   A   
+AMX0SL . . . . . . . . . . . . .  D ADDR   00BBH   A   
+AMX1SL . . . . . . . . . . . . .  D ADDR   00ACH   A   
+AR6. . . . . . . . . . . . . . .  D ADDR   0006H   A   
+B. . . . . . . . . . . . . . . .  D ADDR   00F0H   A   
+B2 . . . . . . . . . . . . . . .  B ADDR   0000H.0 R   SEG=BI_GUESS_ONE_LEVEL_GUESSING_GAME
+BEGIN_SELECT . . . . . . . . . .  C ADDR   0000H   R   SEG=BEGIN_SELECT_GAME
+BEGIN_SELECT_GAME. . . . . . . .  C SEG    0006H       REL=UNIT
+BITS . . . . . . . . . . . . . .  D ADDR   0002H   R   SEG=DT_GUESSING_GAME
+BI_GUESS_ONCE_GUESSING_GAME. . .  B SEG    0002H       REL=UNIT
+BI_GUESS_ONE_LEVEL_GUESSING_GAME  B SEG    0002H       REL=UNIT
+CCF0 . . . . . . . . . . . . . .  B ADDR   00D8H.0 A   
+CCF1 . . . . . . . . . . . . . .  B ADDR   00D8H.1 A   
+CCF2 . . . . . . . . . . . . . .  B ADDR   00D8H.2 A   
+CCF3 . . . . . . . . . . . . . .  B ADDR   00D8H.3 A   
+CCF4 . . . . . . . . . . . . . .  B ADDR   00D8H.4 A   
+CF . . . . . . . . . . . . . . .  B ADDR   00D8H.7 A   
+CHECK_DIGITS . . . . . . . . . .  C ADDR   0000H   R   SEG=CHECK_DIGITS_GUESSING_GAME
+CHECK_DIGITS_GUESSING. . . . . .  C ADDR   0000H   R   SEG=CHECK_DIGITS_GUESSING_GAME
+CHECK_DIGITS_GUESSING_GAME . . .  C SEG    0027H       REL=UNIT
+CKCON. . . . . . . . . . . . . .  D ADDR   008EH   A   
+CODE_GUESSING_GAME . . . . . . .  C ADDR   0000H   R   SEG=CO_GUESSING_GAME
+CORRECT. . . . . . . . . . . . .  C ADDR   0000H   R   SEG=CORRECT_GAME
+CORRECT_GAME . . . . . . . . . .  C SEG    0006H       REL=UNIT
+CO_GUESSING_GAME . . . . . . . .  C SEG    0011H       REL=UNIT
+CPRL2. . . . . . . . . . . . . .  B ADDR   00C8H.0 A   
+CPT0CN . . . . . . . . . . . . .  D ADDR   009EH   A   
+CPT1CN . . . . . . . . . . . . .  D ADDR   009FH   A   
+CR . . . . . . . . . . . . . . .  B ADDR   00D8H.6 A   
+CT2. . . . . . . . . . . . . . .  B ADDR   00C8H.1 A   
+CY . . . . . . . . . . . . . . .  B ADDR   00D0H.7 A   
+DAC0CN . . . . . . . . . . . . .  D ADDR   00D4H   A   
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE    16
+
+DAC0H. . . . . . . . . . . . . .  D ADDR   00D3H   A   
+DAC0L. . . . . . . . . . . . . .  D ADDR   00D2H   A   
+DAC1CN . . . . . . . . . . . . .  D ADDR   00D7H   A   
+DAC1H. . . . . . . . . . . . . .  D ADDR   00D6H   A   
+DAC1L. . . . . . . . . . . . . .  D ADDR   00D5H   A   
+DIGITS . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=CO_GUESSING_GAME
+DISPLAY_ACKNOWLEDGEMENT. . . . .  C ADDR   -----       EXT
+DISPLAY_BEGIN_SELECT . . . . . .  C ADDR   -----       EXT
+DISPLAY_BITS_SELECT. . . . . . .  C ADDR   -----       EXT
+DISPLAY_CORRECT. . . . . . . . .  C ADDR   -----       EXT
+DISPLAY_ERROR. . . . . . . . . .  C ADDR   -----       EXT
+DISPLAY_GUSSING_GAME . . . . . .  C ADDR   -----       EXT
+DISPLAY_INPUT. . . . . . . . . .  C ADDR   -----       EXT
+DISPLAY_LOSE . . . . . . . . . .  C ADDR   -----       EXT
+DISPLAY_MAIN_MENU. . . . . . . .  C ADDR   -----       EXT
+DISPLAY_MODE_SELECT. . . . . . .  C ADDR   -----       EXT
+DISPLAY_RANDOM_DIGITS. . . . . .  C ADDR   -----       EXT
+DISPLAY_TIME . . . . . . . . . .  D ADDR   0000H   R   SEG=DT_GUESSING_GAME
+DISPLAY_TIME_SELECT. . . . . . .  C ADDR   -----       EXT
+DISPLAY_WIN. . . . . . . . . . .  C ADDR   -----       EXT
+DPH. . . . . . . . . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . . . . . . . . .  D ADDR   0082H   A   
+DT_GUESSING_GAME . . . . . . . .  D SEG    0003H       REL=UNIT
+DT_GUESS_ONCE_GUESSING_GAME. . .  D SEG    0001H       REL=UNIT
+DT_MODE1_GAME. . . . . . . . . .  D SEG    0002H       REL=UNIT
+EA . . . . . . . . . . . . . . .  B ADDR   00A8H.7 A   
+EIE1 . . . . . . . . . . . . . .  D ADDR   00E6H   A   
+EIE2 . . . . . . . . . . . . . .  D ADDR   00E7H   A   
+EIP1 . . . . . . . . . . . . . .  D ADDR   00F6H   A   
+EIP2 . . . . . . . . . . . . . .  D ADDR   00F7H   A   
+EMI0CF . . . . . . . . . . . . .  D ADDR   00A3H   A   
+EMI0CN . . . . . . . . . . . . .  D ADDR   00AFH   A   
+EMI0TC . . . . . . . . . . . . .  D ADDR   00A1H   A   
+ENSMB. . . . . . . . . . . . . .  B ADDR   00C0H.6 A   
+ERROR. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=ERROR_GAME
+ERROR_GAME . . . . . . . . . . .  C SEG    0006H       REL=UNIT
+ES . . . . . . . . . . . . . . .  B ADDR   00A8H.4 A   
+ET0. . . . . . . . . . . . . . .  B ADDR   00A8H.1 A   
+ET1. . . . . . . . . . . . . . .  B ADDR   00A8H.3 A   
+ET2. . . . . . . . . . . . . . .  B ADDR   00A8H.5 A   
+EX0. . . . . . . . . . . . . . .  B ADDR   00A8H.0 A   
+EX1. . . . . . . . . . . . . . .  B ADDR   00A8H.2 A   
+EXEN2. . . . . . . . . . . . . .  B ADDR   00C8H.3 A   
+EXF2 . . . . . . . . . . . . . .  B ADDR   00C8H.6 A   
+F0 . . . . . . . . . . . . . . .  B ADDR   00D0H.5 A   
+F1 . . . . . . . . . . . . . . .  B ADDR   00D0H.1 A   
+FLACL. . . . . . . . . . . . . .  D ADDR   00B7H   A   
+FLSCL. . . . . . . . . . . . . .  D ADDR   00B6H   A   
+F_OR_E . . . . . . . . . . . . .  C ADDR   -----       EXT
+GAMES. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=GAMES_GUESSING_GAME
+GAMES_GUESSING_GAME. . . . . . .  C SEG    001DH       REL=UNIT
+GUESSING_GAME. . . . . . . . . .  N NUMB   -----       
+GUESS_ONCE . . . . . . . . . . .  C ADDR   0000H   R   SEG=GUESS_ONCE_GAME
+GUESS_ONCE_BIT . . . . . . . . .  B ADDR   0000H.0 R   SEG=BI_GUESS_ONCE_GUESSING_GAME
+GUESS_ONCE_BYTE. . . . . . . . .  D ADDR   0000H   R   SEG=DT_GUESS_ONCE_GUESSING_GAME
+GUESS_ONCE_GAME. . . . . . . . .  C SEG    003BH       REL=UNIT
+GUESS_ONE_LEVEL. . . . . . . . .  C ADDR   0000H   R   SEG=GUESS_ONE_LEVEL_GAME
+GUESS_ONE_LEVEL_BIT. . . . . . .  B ADDR   0000H.0 R   SEG=BI_GUESS_ONE_LEVEL_GUESSING_GAME
+GUESS_ONE_LEVEL_GAME . . . . . .  C SEG    0041H       REL=UNIT
+GUSSING_GAME . . . . . . . . . .  C ADDR   0000H   R   SEG=GUSSING_GAME_GAME
+GUSSING_GAME0001 . . . . . . . .  C ADDR   0002H   R   SEG=CHECK_DIGITS_GUESSING_GAME
+GUSSING_GAME0002 . . . . . . . .  C ADDR   0020H   R   SEG=CHECK_DIGITS_GUESSING_GAME
+GUSSING_GAME0005 . . . . . . . .  C ADDR   0025H   R   SEG=CHECK_DIGITS_GUESSING_GAME
+GUSSING_GAME0006 . . . . . . . .  C ADDR   0026H   R   SEG=CHECK_DIGITS_GUESSING_GAME
+GUSSING_GAME0012 . . . . . . . .  C ADDR   0015H   R   SEG=GUESS_ONCE_GAME
+GUSSING_GAME0013 . . . . . . . .  C ADDR   003AH   R   SEG=GUESS_ONCE_GAME
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE    17
+
+GUSSING_GAME0014 . . . . . . . .  C ADDR   002AH   R   SEG=GUESS_ONCE_GAME
+GUSSING_GAME0015 . . . . . . . .  C ADDR   0027H   R   SEG=GUESS_ONCE_GAME
+GUSSING_GAME0017 . . . . . . . .  C ADDR   0038H   R   SEG=GUESS_ONCE_GAME
+GUSSING_GAME0018 . . . . . . . .  C ADDR   0013H   R   SEG=GUESS_ONE_LEVEL_GAME
+GUSSING_GAME0019 . . . . . . . .  C ADDR   0040H   R   SEG=GUESS_ONE_LEVEL_GAME
+GUSSING_GAME0020 . . . . . . . .  C ADDR   003AH   R   SEG=GUESS_ONE_LEVEL_GAME
+GUSSING_GAME0021 . . . . . . . .  C ADDR   002CH   R   SEG=GUESS_ONE_LEVEL_GAME
+GUSSING_GAME0022 . . . . . . . .  C ADDR   0029H   R   SEG=GUESS_ONE_LEVEL_GAME
+GUSSING_GAME0025 . . . . . . . .  C ADDR   0037H   R   SEG=GUESS_ONE_LEVEL_GAME
+GUSSING_GAME0028 . . . . . . . .  C ADDR   0003H   R   SEG=MAIN_MENU_GAME
+GUSSING_GAME0029 . . . . . . . .  C ADDR   0028H   R   SEG=MAIN_MENU_GAME
+GUSSING_GAME0031 . . . . . . . .  C ADDR   000DH   R   SEG=MAIN_MENU_GAME
+GUSSING_GAME0032 . . . . . . . .  C ADDR   000FH   R   SEG=MAIN_MENU_GAME
+GUSSING_GAME0033 . . . . . . . .  C ADDR   0016H   R   SEG=MAIN_MENU_GAME
+GUSSING_GAME0034 . . . . . . . .  C ADDR   0018H   R   SEG=MAIN_MENU_GAME
+GUSSING_GAME0035 . . . . . . . .  C ADDR   0022H   R   SEG=MAIN_MENU_GAME
+GUSSING_GAME0036 . . . . . . . .  C ADDR   0024H   R   SEG=MAIN_MENU_GAME
+GUSSING_GAME0038 . . . . . . . .  C ADDR   0003H   R   SEG=MODE_SELECT_GAME
+GUSSING_GAME0039 . . . . . . . .  C ADDR   0034H   R   SEG=MODE_SELECT_GAME
+GUSSING_GAME0041 . . . . . . . .  C ADDR   000DH   R   SEG=MODE_SELECT_GAME
+GUSSING_GAME0042 . . . . . . . .  C ADDR   000FH   R   SEG=MODE_SELECT_GAME
+GUSSING_GAME0043 . . . . . . . .  C ADDR   0016H   R   SEG=MODE_SELECT_GAME
+GUSSING_GAME0044 . . . . . . . .  C ADDR   0018H   R   SEG=MODE_SELECT_GAME
+GUSSING_GAME0045 . . . . . . . .  C ADDR   0022H   R   SEG=MODE_SELECT_GAME
+GUSSING_GAME0046 . . . . . . . .  C ADDR   0024H   R   SEG=MODE_SELECT_GAME
+GUSSING_GAME0047 . . . . . . . .  C ADDR   002EH   R   SEG=MODE_SELECT_GAME
+GUSSING_GAME0048 . . . . . . . .  C ADDR   0030H   R   SEG=MODE_SELECT_GAME
+GUSSING_GAME0051 . . . . . . . .  C ADDR   0003H   R   SEG=MODE1_GAME
+GUSSING_GAME0053 . . . . . . . .  C ADDR   0006H   R   SEG=MODE1_GAME
+GUSSING_GAME0057 . . . . . . . .  C ADDR   0052H   R   SEG=MODE1_GAME
+GUSSING_GAME0058 . . . . . . . .  C ADDR   0035H   R   SEG=MODE1_GAME
+GUSSING_GAME0059 . . . . . . . .  C ADDR   0036H   R   SEG=MODE1_GAME
+GUSSING_GAME0065 . . . . . . . .  C ADDR   001EH   R   SEG=MODE2_GAME
+GUSSING_GAME0067 . . . . . . . .  C ADDR   0013H   R   SEG=MODE2_GAME
+GUSSING_GAME0071 . . . . . . . .  C ADDR   0000H   R   SEG=MODE3_GAME
+GUSSING_GAME0074 . . . . . . . .  C ADDR   0032H   R   SEG=MODE3_GAME
+GUSSING_GAME0077 . . . . . . . .  C ADDR   0000H   R   SEG=GUSSING_GAME_GAME
+GUSSING_GAME0081 . . . . . . . .  C ADDR   0013H   R   SEG=GUSSING_GAME_GAME
+GUSSING_GAME0082 . . . . . . . .  C ADDR   0018H   R   SEG=GUSSING_GAME_GAME
+GUSSING_GAME0083 . . . . . . . .  C ADDR   001DH   R   SEG=GUSSING_GAME_GAME
+GUSSING_GAME0085 . . . . . . . .  C ADDR   0022H   R   SEG=GUSSING_GAME_GAME
+GUSSING_GAME0086 . . . . . . . .  C ADDR   0003H   R   SEG=GAMES_GUESSING_GAME
+GUSSING_GAME0090 . . . . . . . .  C ADDR   0012H   R   SEG=GAMES_GUESSING_GAME
+GUSSING_GAME0091 . . . . . . . .  C ADDR   0017H   R   SEG=GAMES_GUESSING_GAME
+GUSSING_GAME0093 . . . . . . . .  C ADDR   001CH   R   SEG=GAMES_GUESSING_GAME
+GUSSING_GAME0094 . . . . . . . .  C ADDR   0032H   R   SEG=GUESS_ONCE_GAME
+GUSSING_GAME_GAME. . . . . . . .  C SEG    0023H       REL=UNIT
+I. . . . . . . . . . . . . . . .  D ADDR   0000H   R   SEG=DT_MODE1_GAME
+IE . . . . . . . . . . . . . . .  D ADDR   00A8H   A   
+IE0. . . . . . . . . . . . . . .  B ADDR   0088H.1 A   
+IE1. . . . . . . . . . . . . . .  B ADDR   0088H.3 A   
+INPUTS . . . . . . . . . . . . .  X ADDR   -----       EXT
+INPUT_BITS . . . . . . . . . . .  C ADDR   -----       EXT
+INPUT_DIGITS . . . . . . . . . .  C ADDR   -----       EXT
+INPUT_DISPLAY_TIME . . . . . . .  C ADDR   -----       EXT
+IP . . . . . . . . . . . . . . .  D ADDR   00B8H   A   
+IT0. . . . . . . . . . . . . . .  B ADDR   0088H.0 A   
+IT1. . . . . . . . . . . . . . .  B ADDR   0088H.2 A   
+KSCAN. . . . . . . . . . . . . .  C ADDR   -----       EXT
+LEVEL_BITS . . . . . . . . . . .  X ADDR   0014H   R   SEG=XD_GUESSING_GAME
+LEVEL_DISPLAY_TIME . . . . . . .  X ADDR   0000H   R   SEG=XD_GUESSING_GAME
+LOSE . . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=LOSE_GAME
+LOSE_GAME. . . . . . . . . . . .  C SEG    0006H       REL=UNIT
+MAIN_MENU. . . . . . . . . . . .  C ADDR   0000H   R   SEG=MAIN_MENU_GAME
+MAIN_MENU_GAME . . . . . . . . .  C SEG    0029H       REL=UNIT
+MODE1. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=MODE1_GAME
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE    18
+
+MODE1_BYTE . . . . . . . . . . .  D ADDR   0000H   R   SEG=DT_MODE1_GAME
+MODE1_GAME . . . . . . . . . . .  C SEG    0053H       REL=UNIT
+MODE2. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=MODE2_GAME
+MODE2_GAME . . . . . . . . . . .  C SEG    001FH       REL=UNIT
+MODE3. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=MODE3_GAME
+MODE3_GAME . . . . . . . . . . .  C SEG    0033H       REL=UNIT
+MODE_SELECT. . . . . . . . . . .  C ADDR   0000H   R   SEG=MODE_SELECT_GAME
+MODE_SELECT_GAME . . . . . . . .  C SEG    0035H       REL=UNIT
+MODF . . . . . . . . . . . . . .  B ADDR   00F8H.5 A   
+MSTEN. . . . . . . . . . . . . .  B ADDR   00F8H.1 A   
+OSCICN . . . . . . . . . . . . .  D ADDR   00B2H   A   
+OSCXCN . . . . . . . . . . . . .  D ADDR   00B1H   A   
+OV . . . . . . . . . . . . . . .  B ADDR   00D0H.2 A   
+P. . . . . . . . . . . . . . . .  B ADDR   00D0H.0 A   
+P0 . . . . . . . . . . . . . . .  D ADDR   0080H   A   
+P0MDOUT. . . . . . . . . . . . .  D ADDR   00A4H   A   
+P1 . . . . . . . . . . . . . . .  D ADDR   0090H   A   
+P1MDIN . . . . . . . . . . . . .  D ADDR   00BDH   A   
+P1MDOUT. . . . . . . . . . . . .  D ADDR   00A5H   A   
+P2 . . . . . . . . . . . . . . .  D ADDR   00A0H   A   
+P2MDOUT. . . . . . . . . . . . .  D ADDR   00A6H   A   
+P3 . . . . . . . . . . . . . . .  D ADDR   00B0H   A   
+P3IF . . . . . . . . . . . . . .  D ADDR   00ADH   A   
+P3MDOUT. . . . . . . . . . . . .  D ADDR   00A7H   A   
+P4 . . . . . . . . . . . . . . .  D ADDR   0084H   A   
+P5 . . . . . . . . . . . . . . .  D ADDR   0085H   A   
+P6 . . . . . . . . . . . . . . .  D ADDR   0086H   A   
+P7 . . . . . . . . . . . . . . .  D ADDR   0096H   A   
+P74OUT . . . . . . . . . . . . .  D ADDR   00B5H   A   
+PCA0CN . . . . . . . . . . . . .  D ADDR   00D8H   A   
+PCA0CPH0 . . . . . . . . . . . .  D ADDR   00FAH   A   
+PCA0CPH1 . . . . . . . . . . . .  D ADDR   00FBH   A   
+PCA0CPH2 . . . . . . . . . . . .  D ADDR   00FCH   A   
+PCA0CPH3 . . . . . . . . . . . .  D ADDR   00FDH   A   
+PCA0CPH4 . . . . . . . . . . . .  D ADDR   00FEH   A   
+PCA0CPL0 . . . . . . . . . . . .  D ADDR   00EAH   A   
+PCA0CPL1 . . . . . . . . . . . .  D ADDR   00EBH   A   
+PCA0CPL2 . . . . . . . . . . . .  D ADDR   00ECH   A   
+PCA0CPL3 . . . . . . . . . . . .  D ADDR   00EDH   A   
+PCA0CPL4 . . . . . . . . . . . .  D ADDR   00EEH   A   
+PCA0CPM0 . . . . . . . . . . . .  D ADDR   00DAH   A   
+PCA0CPM1 . . . . . . . . . . . .  D ADDR   00DBH   A   
+PCA0CPM2 . . . . . . . . . . . .  D ADDR   00DCH   A   
+PCA0CPM3 . . . . . . . . . . . .  D ADDR   00DDH   A   
+PCA0CPM4 . . . . . . . . . . . .  D ADDR   00DEH   A   
+PCA0H. . . . . . . . . . . . . .  D ADDR   00F9H   A   
+PCA0L. . . . . . . . . . . . . .  D ADDR   00E9H   A   
+PCA0MD . . . . . . . . . . . . .  D ADDR   00D9H   A   
+PCON . . . . . . . . . . . . . .  D ADDR   0087H   A   
+PS . . . . . . . . . . . . . . .  B ADDR   00B8H.4 A   
+PSCTL. . . . . . . . . . . . . .  D ADDR   008FH   A   
+PSW. . . . . . . . . . . . . . .  D ADDR   00D0H   A   
+PT0. . . . . . . . . . . . . . .  B ADDR   00B8H.1 A   
+PT1. . . . . . . . . . . . . . .  B ADDR   00B8H.3 A   
+PT2. . . . . . . . . . . . . . .  B ADDR   00B8H.5 A   
+PX0. . . . . . . . . . . . . . .  B ADDR   00B8H.0 A   
+PX1. . . . . . . . . . . . . . .  B ADDR   00B8H.2 A   
+RAND . . . . . . . . . . . . . .  C ADDR   -----       EXT
+RANDOM_DIGITS. . . . . . . . . .  X ADDR   001EH   R   SEG=XD_GUESSING_GAME
+RB8. . . . . . . . . . . . . . .  B ADDR   0098H.2 A   
+RCAP2H . . . . . . . . . . . . .  D ADDR   00CBH   A   
+RCAP2L . . . . . . . . . . . . .  D ADDR   00CAH   A   
+RCAP4H . . . . . . . . . . . . .  D ADDR   00E5H   A   
+RCAP4L . . . . . . . . . . . . .  D ADDR   00E4H   A   
+RCLK . . . . . . . . . . . . . .  B ADDR   00C8H.5 A   
+REF0CN . . . . . . . . . . . . .  D ADDR   00D1H   A   
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE    19
+
+REN. . . . . . . . . . . . . . .  B ADDR   0098H.4 A   
+RI . . . . . . . . . . . . . . .  B ADDR   0098H.0 A   
+RS0. . . . . . . . . . . . . . .  B ADDR   00D0H.3 A   
+RS1. . . . . . . . . . . . . . .  B ADDR   00D0H.4 A   
+RSTSRC . . . . . . . . . . . . .  D ADDR   00EFH   A   
+RXOVRN . . . . . . . . . . . . .  B ADDR   00F8H.4 A   
+SADDR0 . . . . . . . . . . . . .  D ADDR   00A9H   A   
+SADDR1 . . . . . . . . . . . . .  D ADDR   00F3H   A   
+SADEN0 . . . . . . . . . . . . .  D ADDR   00B9H   A   
+SADEN1 . . . . . . . . . . . . .  D ADDR   00AEH   A   
+SBUF0. . . . . . . . . . . . . .  D ADDR   0099H   A   
+SBUF1. . . . . . . . . . . . . .  D ADDR   00F2H   A   
+SCON0. . . . . . . . . . . . . .  D ADDR   0098H   A   
+SCON1. . . . . . . . . . . . . .  D ADDR   00F1H   A   
+SI . . . . . . . . . . . . . . .  B ADDR   00C0H.3 A   
+SLVSEL . . . . . . . . . . . . .  B ADDR   00F8H.2 A   
+SM0. . . . . . . . . . . . . . .  B ADDR   0098H.7 A   
+SM1. . . . . . . . . . . . . . .  B ADDR   0098H.6 A   
+SM2. . . . . . . . . . . . . . .  B ADDR   0098H.5 A   
+SMB0ADR. . . . . . . . . . . . .  D ADDR   00C3H   A   
+SMB0CN . . . . . . . . . . . . .  D ADDR   00C0H   A   
+SMB0CR . . . . . . . . . . . . .  D ADDR   00CFH   A   
+SMB0DAT. . . . . . . . . . . . .  D ADDR   00C2H   A   
+SMB0STA. . . . . . . . . . . . .  D ADDR   00C1H   A   
+SMBFTE . . . . . . . . . . . . .  B ADDR   00C0H.1 A   
+SMBTOE . . . . . . . . . . . . .  B ADDR   00C0H.0 A   
+SP . . . . . . . . . . . . . . .  D ADDR   0081H   A   
+SPI0CFG. . . . . . . . . . . . .  D ADDR   009AH   A   
+SPI0CKR. . . . . . . . . . . . .  D ADDR   009DH   A   
+SPI0CN . . . . . . . . . . . . .  D ADDR   00F8H   A   
+SPI0DAT. . . . . . . . . . . . .  D ADDR   009BH   A   
+SPIEN. . . . . . . . . . . . . .  B ADDR   00F8H.0 A   
+SPIF . . . . . . . . . . . . . .  B ADDR   00F8H.7 A   
+STA. . . . . . . . . . . . . . .  B ADDR   00C0H.5 A   
+STATE. . . . . . . . . . . . . .  D ADDR   0000H   R   SEG=DT_GUESS_ONCE_GUESSING_GAME
+STATE1 . . . . . . . . . . . . .  D ADDR   0001H   R   SEG=DT_MODE1_GAME
+STO. . . . . . . . . . . . . . .  B ADDR   00C0H.4 A   
+T2CON. . . . . . . . . . . . . .  D ADDR   00C8H   A   
+T4CON. . . . . . . . . . . . . .  D ADDR   00C9H   A   
+TB8. . . . . . . . . . . . . . .  B ADDR   0098H.3 A   
+TCLK . . . . . . . . . . . . . .  B ADDR   00C8H.4 A   
+TCON . . . . . . . . . . . . . .  D ADDR   0088H   A   
+TEMP . . . . . . . . . . . . . .  B ADDR   0000H.1 R   SEG=BI_GUESS_ONCE_GUESSING_GAME
+TF0. . . . . . . . . . . . . . .  B ADDR   0088H.5 A   
+TF1. . . . . . . . . . . . . . .  B ADDR   0088H.7 A   
+TF2. . . . . . . . . . . . . . .  B ADDR   00C8H.7 A   
+TH0. . . . . . . . . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . . . . . . . . .  D ADDR   008DH   A   
+TH2. . . . . . . . . . . . . . .  D ADDR   00CDH   A   
+TH4. . . . . . . . . . . . . . .  D ADDR   00F5H   A   
+TI . . . . . . . . . . . . . . .  B ADDR   0098H.1 A   
+TL0. . . . . . . . . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . . . . . . . . .  D ADDR   008BH   A   
+TL2. . . . . . . . . . . . . . .  D ADDR   00CCH   A   
+TL4. . . . . . . . . . . . . . .  D ADDR   00F4H   A   
+TMOD . . . . . . . . . . . . . .  D ADDR   0089H   A   
+TMR3CN . . . . . . . . . . . . .  D ADDR   0091H   A   
+TMR3H. . . . . . . . . . . . . .  D ADDR   0095H   A   
+TMR3L. . . . . . . . . . . . . .  D ADDR   0094H   A   
+TMR3RLH. . . . . . . . . . . . .  D ADDR   0093H   A   
+TMR3RLL. . . . . . . . . . . . .  D ADDR   0092H   A   
+TR0. . . . . . . . . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . . . . . . . . .  B ADDR   0088H.6 A   
+TR2. . . . . . . . . . . . . . .  B ADDR   00C8H.2 A   
+TXBSY. . . . . . . . . . . . . .  B ADDR   00F8H.3 A   
+WCOL . . . . . . . . . . . . . .  B ADDR   00F8H.6 A   
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/25/2023 12:10:40 PAGE    20
+
+WDTCN. . . . . . . . . . . . . .  D ADDR   00FFH   A   
+WIN. . . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=WIN_GAME
+WIN_GAME . . . . . . . . . . . .  C SEG    0006H       REL=UNIT
+XBR0 . . . . . . . . . . . . . .  D ADDR   00E1H   A   
+XBR1 . . . . . . . . . . . . . .  D ADDR   00E2H   A   
+XBR2 . . . . . . . . . . . . . .  D ADDR   00E3H   A   
+XD_GUESSING_GAME . . . . . . . .  X SEG    005EH       REL=UNIT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

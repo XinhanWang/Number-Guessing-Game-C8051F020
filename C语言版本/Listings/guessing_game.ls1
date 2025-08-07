@@ -1,0 +1,1778 @@
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\guessing_game.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE .\Objects\guessing_game.src PR(.\Listings\guessing_game.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\Objects\guessing_game.SRC generated from: guessing_game.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        C:\Keil_v5\C51\BIN\C51.EXE guessing_game.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEX
+                             TEND PRINT(.\Listings\guessing_game.lst) TABS(2) SRC(.\Objects\guessing_game.SRC)
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    GUESSING_GAME
+                       8     
+  00DA                 9     CCF2    BIT     0D8H.2
+  009B                10     TB80    BIT     098H.3
+  009D                11     SPI0CKR DATA    09DH
+  00DB                12     CCF3    BIT     0D8H.3
+  0080                13     P0      DATA    080H
+  00F8                14     SPIEN   BIT     0F8H.0
+  00DC                15     CCF4    BIT     0D8H.4
+  009F                16     SM00    BIT     098H.7
+  0090                17     P1      DATA    090H
+  00C2                18     AA      BIT     0C0H.2
+  009E                19     SM10    BIT     098H.6
+  00FF                20     WDTCN   DATA    0FFH
+  00A0                21     P2      DATA    0A0H
+  009D                22     SM20    BIT     098H.5
+  00BC                23     ADC0CF  DATA    0BCH
+  00B0                24     P3      DATA    0B0H
+  00D6                25     AC      BIT     0D0H.6
+  00AB                26     ADC1CF  DATA    0ABH
+  0084                27     P4      DATA    084H
+  00E6                28     EIE1    DATA    0E6H
+  0085                29     P5      DATA    085H
+  00AF                30     EA      BIT     0A8H.7
+  00E7                31     EIE2    DATA    0E7H
+  0086                32     P6      DATA    086H
+  0096                33     P7      DATA    096H
+  008F                34     PSCTL   DATA    08FH
+  00F9                35     MSTEN   BIT     0F8H.1
+  00DF                36     CF      BIT     0D8H.7
+  00E8                37     ADC0CN  DATA    0E8H
+  00D4                38     DAC0CN  DATA    0D4H
+  00D7                39     DAC1CN  DATA    0D7H
+  00AA                40     ADC1CN  DATA    0AAH
+  00A4                41     P0MDOUT DATA    0A4H
+  00A5                42     P1MDOUT DATA    0A5H
+  00A8                43     IE      DATA    0A8H
+  00A6                44     P2MDOUT DATA    0A6H
+  00A7                45     P3MDOUT DATA    0A7H
+  0093                46     TMR3RLH DATA    093H
+  00F6                47     EIP1    DATA    0F6H
+  00F7                48     EIP2    DATA    0F7H
+  00FA                49     PCA0CPH0        DATA    0FAH
+  00FB                50     PCA0CPH1        DATA    0FBH
+  00AD                51     P3IF    DATA    0ADH
+  0092                52     TMR3RLL DATA    092H
+  00FC                53     PCA0CPH2        DATA    0FCH
+  00DE                54     CR      BIT     0D8H.6
+  00FD                55     PCA0CPH3        DATA    0FDH
+  00CE                56     EXF2    BIT     0C8H.6
+  009C                57     REN0    BIT     098H.4
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE     2
+
+  00FE                58     PCA0CPH4        DATA    0FEH
+  00EA                59     PCA0CPL0        DATA    0EAH
+  00A3                60     EMI0CF  DATA    0A3H
+  00EB                61     PCA0CPL1        DATA    0EBH
+  00DA                62     PCA0CPM0        DATA    0DAH
+  00D9                63     PCA0MD  DATA    0D9H
+  00D8                64     PCA0CN  DATA    0D8H
+  00EC                65     PCA0CPL2        DATA    0ECH
+  00DB                66     PCA0CPM1        DATA    0DBH
+  00ED                67     PCA0CPL3        DATA    0EDH
+  00DC                68     PCA0CPM2        DATA    0DCH
+  00B8                69     IP      DATA    0B8H
+  00EE                70     PCA0CPL4        DATA    0EEH
+  00DD                71     PCA0CPM3        DATA    0DDH
+  00DE                72     PCA0CPM4        DATA    0DEH
+  00FB                73     TXBSY   BIT     0F8H.3
+  00D7                74     CY      BIT     0D0H.7
+  00C3                75     SI      BIT     0C0H.3
+  00E1                76     XBR0    DATA    0E1H
+  00B9                77     SADEN0  DATA    0B9H
+  00E2                78     XBR1    DATA    0E2H
+  00AF                79     EMI0CN  DATA    0AFH
+  00AE                80     SADEN1  DATA    0AEH
+  00E3                81     XBR2    DATA    0E3H
+  00D1                82     REF0CN  DATA    0D1H
+  00A9                83     SADDR0  DATA    0A9H
+  00F3                84     SADDR1  DATA    0F3H
+  00BA                85     AMX0CF  DATA    0BAH
+  00ED                86     AD0INT  BIT     0E8H.5
+  00CB                87     RCAP2H  DATA    0CBH
+  00BC                88     PS      BIT     0B8H.4
+  0081                89     SP      DATA    081H
+  00E5                90     RCAP4H  DATA    0E5H
+  00A1                91     EMI0TC  DATA    0A1H
+  00D2                92     OV      BIT     0D0H.2
+  00C0                93     SMB0CN  DATA    0C0H
+  00CA                94     RCAP2L  DATA    0CAH
+  00FD                95     MODF    BIT     0F8H.5
+  00E4                96     RCAP4L  DATA    0E4H
+  00CF                97     SMB0CR  DATA    0CFH
+  009E                98     CPT0CN  DATA    09EH
+  00BD                99     P1MDIN  DATA    0BDH
+  009F               100     CPT1CN  DATA    09FH
+  00F8               101     SPI0CN  DATA    0F8H
+  0087               102     PCON    DATA    087H
+  00FF               103     SPIF    BIT     0F8H.7
+  00B5               104     P74OUT  DATA    0B5H
+  0089               105     TMOD    DATA    089H
+  0088               106     TCON    DATA    088H
+  00FE               107     WCOL    BIT     0F8H.6
+  00BB               108     AMX0SL  DATA    0BBH
+  00AC               109     AMX1SL  DATA    0ACH
+  0091               110     TMR3CN  DATA    091H
+  0089               111     IE0     BIT     088H.1
+  008B               112     IE1     BIT     088H.3
+  00F0               113     B       DATA    0F0H
+  00D3               114     DAC0H   DATA    0D3H
+  00BF               115     ADC0H   DATA    0BFH
+  00B2               116     OSCICN  DATA    0B2H
+  00D6               117     DAC1H   DATA    0D6H
+  00C1               118     SMBFTE  BIT     0C0H.1
+  00C7               119     BUSY    BIT     0C0H.7
+  00D2               120     DAC0L   DATA    0D2H
+  00BE               121     ADC0L   DATA    0BEH
+  00D5               122     DAC1L   DATA    0D5H
+  00A7               123     LCD_EN  BIT     0A0H.7
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE     3
+
+  00E0               124     ACC     DATA    0E0H
+  00AC               125     ES0     BIT     0A8H.4
+  00EF               126     AD0EN   BIT     0E8H.7
+  00C9               127     CT2     BIT     0C8H.1
+  00A9               128     ET0     BIT     0A8H.1
+  00AB               129     ET1     BIT     0A8H.3
+  008D               130     TF0     BIT     088H.5
+  00AD               131     ET2     BIT     0A8H.5
+  0098               132     RI0     BIT     098H.0
+  008F               133     TF1     BIT     088H.7
+  00CF               134     TF2     BIT     0C8H.7
+  00C0               135     SMBTOE  BIT     0C0H.0
+  008C               136     TH0     DATA    08CH
+  00A8               137     EX0     BIT     0A8H.0
+  0099               138     TI0     BIT     098H.1
+  0088               139     IT0     BIT     088H.0
+  00F9               140     PCA0H   DATA    0F9H
+  008D               141     TH1     DATA    08DH
+  00AA               142     EX1     BIT     0A8H.2
+  008A               143     IT1     BIT     088H.2
+  00CD               144     TH2     DATA    0CDH
+  00D0               145     P       BIT     0D0H.0
+  00F5               146     TH4     DATA    0F5H
+  00B1               147     OSCXCN  DATA    0B1H
+  008A               148     TL0     DATA    08AH
+  00E9               149     PCA0L   DATA    0E9H
+  008B               150     TL1     DATA    08BH
+  00CC               151     TL2     DATA    0CCH
+  00B9               152     PT0     BIT     0B8H.1
+  00F4               153     TL4     DATA    0F4H
+  00D3               154     RS0     BIT     0D0H.3
+  00BB               155     PT1     BIT     0B8H.3
+  00D4               156     RS1     BIT     0D0H.4
+  00BD               157     PT2     BIT     0B8H.5
+  008C               158     TR0     BIT     088H.4
+  00EE               159     AD0TM   BIT     0E8H.6
+  008E               160     TR1     BIT     088H.6
+  00CA               161     TR2     BIT     0C8H.2
+  00B8               162     PX0     BIT     0B8H.0
+  00A5               163     LCD_RS  BIT     0A0H.5
+  00BA               164     PX1     BIT     0B8H.2
+  00FA               165     SLVSEL  BIT     0F8H.2
+  0083               166     DPH     DATA    083H
+  00A6               167     LCD_RW  BIT     0A0H.6
+  00CD               168     RCLK0   BIT     0C8H.5
+  00C5               169     ADC0GTH DATA    0C5H
+  00CC               170     TCLK0   BIT     0C8H.4
+  0082               171     DPL     DATA    082H
+  00C4               172     ADC0GTL DATA    0C4H
+  0099               173     SBUF0   DATA    099H
+  00F2               174     SBUF1   DATA    0F2H
+  00C7               175     ADC0LTH DATA    0C7H
+  00CB               176     EXEN2   BIT     0C8H.3
+  00EF               177     RSTSRC  DATA    0EFH
+  00B7               178     FLACL   DATA    0B7H
+  00C8               179     CPRL2   BIT     0C8H.0
+  0098               180     SCON0   DATA    098H
+  00F1               181     SCON1   DATA    0F1H
+  00C6               182     ADC0LTL DATA    0C6H
+  00C8               183     T2CON   DATA    0C8H
+  00C5               184     STA     BIT     0C0H.5
+  00C9               185     T4CON   DATA    0C9H
+  00C3               186     SMB0ADR DATA    0C3H
+  00C2               187     SMB0DAT DATA    0C2H
+  009A               188     SPI0CFG DATA    09AH
+  0095               189     TMR3H   DATA    095H
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE     4
+
+  008E               190     CKCON   DATA    08EH
+  00FC               191     RXOVRN  BIT     0F8H.4
+  0080               192     D0      BIT     080H.0
+  0094               193     TMR3L   DATA    094H
+  0081               194     D1      BIT     080H.1
+  00E8               195     AD0LJST BIT     0E8H.0
+  0082               196     D2      BIT     080H.2
+  00D5               197     F0      BIT     0D0H.5
+  00B6               198     FLSCL   DATA    0B6H
+  0083               199     D3      BIT     080H.3
+  00EA               200     AD0CM0  BIT     0E8H.2
+  00D1               201     F1      BIT     0D0H.1
+  00C4               202     STO     BIT     0C0H.4
+  00C6               203     ENSMB   BIT     0C0H.6
+  0084               204     D4      BIT     080H.4
+  00EB               205     AD0CM1  BIT     0E8H.3
+  009B               206     SPI0DAT DATA    09BH
+  0085               207     D5      BIT     080H.5
+  0086               208     D6      BIT     080H.6
+  00E9               209     AD0WINT BIT     0E8H.1
+  009C               210     ADC1    DATA    09CH
+  0087               211     D7      BIT     080H.7
+  00EC               212     AD0BUSY BIT     0E8H.4
+  00D0               213     PSW     DATA    0D0H
+  00D8               214     CCF0    BIT     0D8H.0
+  009A               215     RB80    BIT     098H.2
+  00C1               216     SMB0STA DATA    0C1H
+  00D9               217     CCF1    BIT     0D8H.1
+                     218     ?PR?check_digits?GUESSING_GAME           SEGMENT CODE 
+                     219     ?PR?correct?GUESSING_GAME                SEGMENT CODE 
+                     220     ?PR?error?GUESSING_GAME                  SEGMENT CODE 
+                     221     ?PR?win?GUESSING_GAME                    SEGMENT CODE 
+                     222     ?PR?lose?GUESSING_GAME                   SEGMENT CODE 
+                     223     ?PR?guess_once?GUESSING_GAME             SEGMENT CODE 
+                     224     ?DT?guess_once?GUESSING_GAME             SEGMENT DATA OVERLAYABLE 
+                     225     ?BI?guess_once?GUESSING_GAME             SEGMENT BIT OVERLAYABLE 
+                     226     ?PR?guess_one_level?GUESSING_GAME        SEGMENT CODE 
+                     227     ?BI?guess_one_level?GUESSING_GAME        SEGMENT BIT OVERLAYABLE 
+                     228     ?PR?main_menu?GUESSING_GAME              SEGMENT CODE 
+                     229     ?PR?mode_select?GUESSING_GAME            SEGMENT CODE 
+                     230     ?PR?begin_select?GUESSING_GAME           SEGMENT CODE 
+                     231     ?PR?mode1?GUESSING_GAME                  SEGMENT CODE 
+                     232     ?DT?mode1?GUESSING_GAME                  SEGMENT DATA OVERLAYABLE 
+                     233     ?PR?mode2?GUESSING_GAME                  SEGMENT CODE 
+                     234     ?PR?mode3?GUESSING_GAME                  SEGMENT CODE 
+                     235     ?PR?acknowledgement?GUESSING_GAME        SEGMENT CODE 
+                     236     ?PR?gussing_game?GUESSING_GAME           SEGMENT CODE 
+                     237     ?PR?games?GUESSING_GAME                  SEGMENT CODE 
+                     238     ?C_INITSEG           SEGMENT CODE 
+                     239     ?CO?GUESSING_GAME    SEGMENT CODE 
+                     240     ?XD?GUESSING_GAME    SEGMENT XDATA 
+                     241     ?DT?GUESSING_GAME    SEGMENT DATA 
+                     242             EXTRN   CODE (display_error)
+                     243             EXTRN   CODE (display_input)
+                     244             EXTRN   CODE (display_lose)
+                     245             EXTRN   CODE (kscan)
+                     246             EXTRN   CODE (display_main_menu)
+                     247             EXTRN   CODE (input_digits)
+                     248             EXTRN   CODE (display_acknowledgement)
+                     249             EXTRN   CODE (input_display_time)
+                     250             EXTRN   XDATA (inputs)
+                     251             EXTRN   CODE (rand)
+                     252             EXTRN   CODE (display_win)
+                     253             EXTRN   CODE (input_bits)
+                     254             EXTRN   CODE (display_begin_select)
+                     255             EXTRN   CODE (display_random_digits)
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE     5
+
+                     256             EXTRN   CODE (display_correct)
+                     257             EXTRN   CODE (display_gussing_game)
+                     258             EXTRN   CODE (display_mode_select)
+                     259             EXTRN   CODE (f_or_e)
+                     260             EXTRN   CODE (display_time_select)
+                     261             EXTRN   CODE (display_bits_select)
+                     262             EXTRN   CODE (?C?SIDIV)
+                     263             PUBLIC  random_digits
+                     264             PUBLIC  bits
+                     265             PUBLIC  level_bits
+                     266             PUBLIC  display_time
+                     267             PUBLIC  level_display_time
+                     268             PUBLIC  digits
+                     269             PUBLIC  games
+                     270             PUBLIC  gussing_game
+                     271             PUBLIC  acknowledgement
+                     272             PUBLIC  mode3
+                     273             PUBLIC  mode2
+                     274             PUBLIC  mode1
+                     275             PUBLIC  begin_select
+                     276             PUBLIC  mode_select
+                     277             PUBLIC  main_menu
+                     278             PUBLIC  ?guess_one_level?BIT
+                     279             PUBLIC  guess_one_level
+                     280             PUBLIC  guess_once
+                     281             PUBLIC  lose
+                     282             PUBLIC  win
+                     283             PUBLIC  error
+                     284             PUBLIC  correct
+                     285             PUBLIC  check_digits
+                     286     
+----                 287             RSEG  ?DT?guess_once?GUESSING_GAME
+0000                 288     ?guess_once?BYTE:
+0000                 289           state?543:   DS   1
+                     290     
+----                 291             RSEG  ?BI?guess_once?GUESSING_GAME
+0000                 292     ?guess_once?BIT:
+0000                 293               a?541:   DBIT   1
+0001                 294             ORG  1
+0001                 295            temp?542:   DBIT   1
+                     296     
+----                 297             RSEG  ?BI?guess_one_level?GUESSING_GAME
+0000                 298     ?guess_one_level?BIT:
+0000                 299               b?644:   DBIT   1
+0001                 300             ORG  1
+0001                 301               a?645:   DBIT   1
+                     302     
+----                 303             RSEG  ?DT?mode1?GUESSING_GAME
+0000                 304     ?mode1?BYTE:
+0000                 305              i?1049:   DS   1
+0001                 306             ORG  1
+0001                 307          state?1050:   DS   1
+                     308     
+----                 309             RSEG  ?XD?GUESSING_GAME
+0000                 310     level_display_time:   DS   20
+0014                 311          level_bits:   DS   10
+001E                 312       random_digits:   DS   64
+                     313     
+----                 314             RSEG  ?DT?GUESSING_GAME
+0000                 315        display_time:   DS   2
+0002                 316                bits:   DS   1
+                     317     
+----                 318             RSEG  ?CO?GUESSING_GAME
+0000                 319     digits:
+0000 30313233        320             DB  '0' ,'1' ,'2' ,'3' ,'4' ,'5' ,'6' ,'7' ,'8' ,'9' 
+0004 34353637                
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE     6
+
+0008 3839                    
+000A 41424344        321             DB  'A' ,'B' ,'C' ,'D' ,'E' ,'F' ,000H
+000E 454600                  
+                     322     
+                     323     
+                     324     
+----                 325             RSEG  ?C_INITSEG
+0000 60              326             DB      060H
+0001 40              327             DB      040H
+0002 0000     F      328             DW      random_digits
+0004 00              329             DB      000H
+0005 00000000        330             DB  000H,000H,000H,000H,000H,000H,000H,000H,000H,000H
+0009 00000000                
+000D 0000                    
+000F 00000000        331             DB  000H,000H,000H,000H,000H,000H,000H,000H,000H,000H
+0013 00000000                
+0017 0000                    
+0019 00000000        332             DB  000H,000H,000H,000H,000H,000H,000H,000H,000H,000H
+001D 00000000                
+0021 0000                    
+0023 00000000        333             DB  000H,000H,000H,000H,000H,000H,000H,000H,000H,000H
+0027 00000000                
+002B 0000                    
+002D 00000000        334             DB  000H,000H,000H,000H,000H,000H,000H,000H,000H,000H
+0031 00000000                
+0035 0000                    
+0037 00000000        335             DB  000H,000H,000H,000H,000H,000H,000H,000H,000H,000H
+003B 00000000                
+003F 0000                    
+0041 000000          336             DB  000H,000H,000H
+                     337     
+                     338     
+0044 01              339             DB      001H
+0045 00       F      340             DB      bits
+0046 00              341             DB      000H
+                     342     
+0047 02              343             DB      002H
+0048 00       F      344             DB      display_time
+0049 0000            345             DW      00000H
+                     346     
+004B 4A              347             DB      04AH
+004C 0000     F      348             DW      level_bits
+004E 01              349             DB      001H
+004F 02              350             DB      002H
+0050 03              351             DB      003H
+0051 04              352             DB      004H
+0052 05              353             DB      005H
+0053 06              354             DB      006H
+0054 07              355             DB      007H
+0055 08              356             DB      008H
+0056 09              357             DB      009H
+0057 0A              358             DB      00AH
+                     359     
+0058 54              360             DB      054H
+0059 0000     F      361             DW      level_display_time
+005B 00C8            362             DW      000C8H
+005D 0190            363             DW      00190H
+005F 0258            364             DW      00258H
+0061 0320            365             DW      00320H
+0063 03E8            366             DW      003E8H
+0065 04B0            367             DW      004B0H
+0067 0578            368             DW      00578H
+0069 0640            369             DW      00640H
+006B 0708            370             DW      00708H
+006D 07D0            371             DW      007D0H
+                     372     
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE     7
+
+                     373     ; /*
+                     374     ;  * @Author: ÍõÐÄå«
+                     375     ;  * @Date: 2023-12-20 11:15:50
+                     376     ;  * @LastEditors: ÍõÐÄå«
+                     377     ;  * @LastEditTime: 2023-12-22 22:51:48
+                     378     ;  * @FilePath: \undefinedc:\Users\u2021\Desktop\×ÊÁÏ\´óÈ\µ¥Æ¬»ú\ÊµÑé\Ìá¸ßÊµÑé\CÓïÑÔ°æ±¾\gu
+                             essing_game.c
+                     379     ;  * @Description: ²ÂÊÓÎÏ·ÎÄ¼þ£¬°üº¬²ÂÊÓÎÏ·Ïà¹Øº¯Ê
+                     380     ;  * 
+                     381     ;  * Copyright (c) 2023 by ${ÍõÐÄå«}, All Rights Reserved. 
+                     382     ;  */
+                     383     ; #include "guessing_game.h" //°üº¬²ÂÊÓÎÏ·Ïà¹ØµÄÍ·ÎÄ¼þ
+                     384     ; unsigned char code digits[]="0123456789ABCDEF"; //¶¨ÒåÒ»¸ö³£Á¿Ê×édigits£¬ÓÃÀ´´æ´¢16½øÖÆµÄ
+                             Ê×ÖµÄASCIIÂë
+                     385     ; unsigned char xdata random_digits[64]={0}; //¶¨ÒåÒ»¸öÀ©Õ¹Ê¾ÝÊ×érandom_digits£¬ÓÃÀ´´æ´¢Ëæ»
+                             úµÄÊ×Ö£¬³õÊ¼»¯ÎªÈ«0
+                     386     ; unsigned char bits=0; //¶¨ÒåÒ»¸ö±äÁ¿bits£¬ÓÃÀ´´æ´¢ÊäÈëµÄÎ»Ê£¬³õÊ¼»¯Îª0
+                     387     ; unsigned int display_time=0; //¶¨ÒåÒ»¸ö±äÁ¿display_time£¬ÓÃÀ´´æ´¢ÏÔÊ¾µÄÊ±¼ä£¬³õÊ¼»¯Îª0
+                     388     ; unsigned char xdata level_bits[10]={1,2,3,4,5,6,7,8,9,10}; //¶¨ÒåÒ»¸öÀ©Õ¹Ê¾ÝÊ×élevel_bits
+                             £¬ÓÃÀ´´æ´¢²»Í¬¹Ø¿¨µÄÎ»Ê
+                     389     ; unsigned int xdata level_display_time[10]={200,400,600,800,1000,1200,1400,1600,1800,2000}
+                             ; //¶¨ÒåÒ»¸öÀ©Õ¹Ê¾ÝÊ×élevel_display_time£¬ÓÃÀ´´æ´¢²»Í¬¹Ø¿¨µÄÊ¾ÝÏÔÊ¾Ê±¼ä
+                     390     ; bit check_digits(void) //¶¨ÒåÒ»¸öº¯Êcheck_digits£¬ÓÃÀ´¼ì²éÓÃ»§ÊäÈëµÄÊ×ÖÊÇ·ñºÍËæ»úµÄÊ×ÖÏàÍ¬
+                     391     
+----                 392             RSEG  ?PR?check_digits?GUESSING_GAME
+0000                 393     check_digits:
+                     394             USING   0
+                     395                             ; SOURCE LINE # 18
+                     396     ; {
+                     397                             ; SOURCE LINE # 19
+                     398     ;       unsigned char i=0; //¶¨ÒåÒ»¸ö±äÁ¿i£¬ÓÃÀ´×÷ÎªÊ×éµÄË÷Ò£¬³õÊ¼»¯Îª0
+                     399                             ; SOURCE LINE # 20
+                     400     ;---- Variable 'i?040' assigned to Register 'R7' ----
+0000 E4              401             CLR     A
+0001 FF              402             MOV     R7,A
+                     403     ;       for(i=0;i<64;i++) //Ñ­»·64´Î
+                     404                             ; SOURCE LINE # 21
+0002                 405     ?C0001:
+                     406     ;       {
+                     407                             ; SOURCE LINE # 22
+                     408     ;               if(random_digits[i]!=inputs[i]) //Èç¹ûÊ×érandom_digitsµÄµÚi¸öÔªËØºÍÊ×éinput
+                             sµÄµÚi¸öÔªËØ²»ÏàµÈ
+                     409                             ; SOURCE LINE # 23
+0002 7400     F      410             MOV     A,#LOW (inputs)
+0004 2F              411             ADD     A,R7
+0005 F582            412             MOV     DPL,A
+0007 E4              413             CLR     A
+0008 3400     F      414             ADDC    A,#HIGH (inputs)
+000A F583            415             MOV     DPH,A
+000C E0              416             MOVX    A,@DPTR
+000D FE              417             MOV     R6,A
+000E 7400     F      418             MOV     A,#LOW (random_digits)
+0010 2F              419             ADD     A,R7
+0011 F582            420             MOV     DPL,A
+0013 E4              421             CLR     A
+0014 3400     F      422             ADDC    A,#HIGH (random_digits)
+0016 F583            423             MOV     DPH,A
+0018 E0              424             MOVX    A,@DPTR
+0019 B50604          425             CJNE    A,AR6,?C0002
+                     426     ;               {
+                     427                             ; SOURCE LINE # 24
+                     428     ;                       break; //Ìø³öÑ­»·
+                     429                             ; SOURCE LINE # 25
+                     430     ;               }
+                     431                             ; SOURCE LINE # 26
+                     432     ;       }
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE     8
+
+                     433                             ; SOURCE LINE # 27
+001C 0F              434             INC     R7
+001D BF40E2          435             CJNE    R7,#040H,?C0001
+0020                 436     ?C0002:
+                     437     ;       if(i==64) //Èç¹ûiµÈÓÚ64£¬±íÊ¾ËùÓÐµÄÔªËØ¶¼ÏàµÈ
+                     438                             ; SOURCE LINE # 28
+0020 BF4002          439             CJNE    R7,#040H,?C0005
+                     440     ;       {
+                     441                             ; SOURCE LINE # 29
+                     442     ;               return 1; //·µ»Ø1£¬±íÊ¾ÕÈ·
+                     443                             ; SOURCE LINE # 30
+0023 D3              444             SETB    C
+0024 22              445             RET     
+                     446     ;       }
+                     447                             ; SOURCE LINE # 31
+0025                 448     ?C0005:
+                     449     ;       else //·ñÔò
+                     450     ;       {
+                     451                             ; SOURCE LINE # 33
+                     452     ;               return 0; //·µ»Ø0£¬±íÊ¾´íÎó
+                     453                             ; SOURCE LINE # 34
+0025 C3              454             CLR     C
+                     455     ;       }
+                     456                             ; SOURCE LINE # 35
+                     457     ; }
+                     458                             ; SOURCE LINE # 36
+0026                 459     ?C0006:
+0026 22              460             RET     
+                     461     ; END OF check_digits
+                     462     
+                     463     ; bit correct(void) //¶¨ÒåÒ»¸öº¯Êcorrect£¬ÓÃÀ´ÏÔÊ¾ÕÈ·µÄ»­Ãæ£¬²¢µÈ´ÓÃ»§µÄÑ¡Ôñ
+                     464     
+----                 465             RSEG  ?PR?correct?GUESSING_GAME
+0000                 466     correct:
+                     467             USING   0
+                     468                             ; SOURCE LINE # 37
+                     469     ; {
+                     470                             ; SOURCE LINE # 38
+                     471     ;       display_correct(); //µ÷ÓÃdisplay_correctº¯Ê£¬ÏÔÊ¾ÕÈ·µÄ»­Ãæ
+                     472                             ; SOURCE LINE # 39
+0000 120000   F      473             LCALL   display_correct
+                     474     ;       return f_or_e(); //µ÷ÓÃf_or_eº¯Ê£¬·µ»ØÓÃ»§µÄÑ¡Ôñ£¬F±íÊ¾¼ÌÐø£¬E±íÊ¾·µ»Ø
+                     475                             ; SOURCE LINE # 40
+0003 020000   F      476             LJMP    f_or_e
+                     477     ; END OF correct
+                     478     
+                     479     ; }
+                     480     ; bit error(void) //¶¨ÒåÒ»¸öº¯Êerror£¬ÓÃÀ´ÏÔÊ¾´íÎóµÄ»­Ãæ£¬²¢µÈ´ÓÃ»§µÄÑ¡Ôñ
+                     481     
+----                 482             RSEG  ?PR?error?GUESSING_GAME
+0000                 483     error:
+                     484             USING   0
+                     485                             ; SOURCE LINE # 42
+                     486     ; {
+                     487                             ; SOURCE LINE # 43
+                     488     ;       display_error(); //µ÷ÓÃdisplay_errorº¯Ê£¬ÏÔÊ¾´íÎóµÄ»­Ãæ
+                     489                             ; SOURCE LINE # 44
+0000 120000   F      490             LCALL   display_error
+                     491     ;       return f_or_e(); //µ÷ÓÃf_or_eº¯Ê£¬·µ»ØÓÃ»§µÄÑ¡Ôñ£¬F±íÊ¾ÖØÐÂ¿ªÊ¼£¬E±íÊ¾·µ»Ø
+                     492                             ; SOURCE LINE # 45
+0003 020000   F      493             LJMP    f_or_e
+                     494     ; END OF error
+                     495     
+                     496     ; }
+                     497     ; bit win(void) //¶¨ÒåÒ»¸öº¯Êwin£¬ÓÃÀ´ÏÔÊ¾´³¹Ø³É¹¦µÄ»­Ãæ£¬²¢µÈ´ÓÃ»§µÄÑ¡Ôñ
+                     498     
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE     9
+
+----                 499             RSEG  ?PR?win?GUESSING_GAME
+0000                 500     win:
+                     501             USING   0
+                     502                             ; SOURCE LINE # 47
+                     503     ; {
+                     504                             ; SOURCE LINE # 48
+                     505     ;       display_win(); //µ÷ÓÃdisplay_winº¯Ê£¬ÏÔÊ¾´³¹Ø³É¹¦µÄ»­Ãæ
+                     506                             ; SOURCE LINE # 49
+0000 120000   F      507             LCALL   display_win
+                     508     ;       return f_or_e(); //µ÷ÓÃf_or_eº¯Ê£¬·µ»ØÓÃ»§µÄÑ¡Ôñ£¬F±íÊ¾ÔÙ´ÎÌôÕ½£¬E±íÊ¾·µ»Ø
+                     509                             ; SOURCE LINE # 50
+0003 020000   F      510             LJMP    f_or_e
+                     511     ; END OF win
+                     512     
+                     513     ; }
+                     514     ; bit lose(void) //¶¨ÒåÒ»¸öº¯Êlose£¬ÓÃÀ´ÏÔÊ¾´³¹ØÊ§°ÜµÄ»­Ãæ£¬²¢µÈ´ÓÃ»§µÄÑ¡Ôñ
+                     515     
+----                 516             RSEG  ?PR?lose?GUESSING_GAME
+0000                 517     lose:
+                     518             USING   0
+                     519                             ; SOURCE LINE # 52
+                     520     ; {
+                     521                             ; SOURCE LINE # 53
+                     522     ;       display_lose(); //µ÷ÓÃdisplay_loseº¯Ê£¬ÏÔÊ¾´³¹ØÊ§°ÜµÄ»­Ãæ
+                     523                             ; SOURCE LINE # 54
+0000 120000   F      524             LCALL   display_lose
+                     525     ;       return f_or_e(); //µ÷ÓÃf_or_eº¯Ê£¬·µ»ØÓÃ»§µÄÑ¡Ôñ£¬F±íÊ¾ÔÙ´ÎÌôÕ½£¬E±íÊ¾·µ»Ø
+                     526                             ; SOURCE LINE # 55
+0003 020000   F      527             LJMP    f_or_e
+                     528     ; END OF lose
+                     529     
+                     530     ; }
+                     531     ; unsigned char guess_once(void) //¶¨ÒåÒ»¸öº¯Êguess_once£¬ÓÃÀ´½øÐÐÒ»´Î²ÂÊÓÎÏ·
+                     532     
+----                 533             RSEG  ?PR?guess_once?GUESSING_GAME
+0000                 534     guess_once:
+                     535             USING   0
+                     536                             ; SOURCE LINE # 57
+                     537     ; {
+                     538                             ; SOURCE LINE # 58
+                     539     ;       bit a,temp; //¶¨ÒåÁ½¸öÎ»±äÁ¿aºÍtemp£¬ÓÃÀ´´æ´¢¼ì²é½á¹ûºÍÓÃ»§Ñ¡Ôñ
+                     540     ;       unsigned char state=0; //¶¨ÒåÒ»¸ö±äÁ¿state£¬ÓÃÀ´´æ´¢ÓÎÏ·×´Ì¬£¬³õÊ¼»¯Îª0
+                     541                             ; SOURCE LINE # 60
+0000 E4              542             CLR     A
+0001 F500     F      543             MOV     state?543,A
+                     544     ;       display_random_digits(); //µ÷ÓÃdisplay_random_digitsº¯Ê£¬ÏÔÊ¾Ëæ»úµÄÊ×Ö
+                     545                             ; SOURCE LINE # 61
+0003 120000   F      546             LCALL   display_random_digits
+                     547     ;       display_input(); //µ÷ÓÃdisplay_inputº¯Ê£¬ÏÔÊ¾ÊäÈëµÄ»­Ãæ
+                     548                             ; SOURCE LINE # 62
+0006 120000   F      549             LCALL   display_input
+                     550     ;       state=input_digits(); //µ÷ÓÃinput_digitsº¯Ê£¬ÊäÈëÊ×Ö£¬²¢¸³Öµ¸østate
+                     551                             ; SOURCE LINE # 63
+0009 120000   F      552             LCALL   input_digits
+000C E4              553             CLR     A
+000D 33              554             RLC     A
+000E F500     F      555             MOV     state?543,A
+                     556     ;       if(state==1) //Èç¹ûstateµÈÓÚ1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+                     557                             ; SOURCE LINE # 64
+0010 B40102          558             CJNE    A,#01H,?C0012
+                     559     ;       {
+                     560                             ; SOURCE LINE # 65
+                     561     ;               return state; //·µ»Østate
+                     562                             ; SOURCE LINE # 66
+0013 FF              563             MOV     R7,A
+0014 22              564             RET     
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    10
+
+                     565     ;       }
+                     566                             ; SOURCE LINE # 67
+0015                 567     ?C0012:
+                     568     ;       a=check_digits(); //µ÷ÓÃcheck_digitsº¯Ê£¬¼ì²éÊ×ÖÊÇ·ñÕÈ·£¬²¢¸³Öµ¸øa
+                     569                             ; SOURCE LINE # 68
+0015 120000   F      570             LCALL   check_digits
+0018 9200     F      571             MOV     a?541,C
+                     572     ;       if(a==1) //Èç¹ûaµÈÓÚ1£¬±íÊ¾ÕÈ·
+                     573                             ; SOURCE LINE # 69
+001A 30000D   F      574             JNB     a?541,?C0014
+                     575     ;       {
+                     576                             ; SOURCE LINE # 70
+                     577     ;               temp=correct(); //µ÷ÓÃcorrectº¯Ê£¬ÏÔÊ¾ÕÈ·µÄ»­Ãæ£¬²¢¸³Öµ¸øtemp
+                     578                             ; SOURCE LINE # 71
+001D 120000   F      579             LCALL   correct
+0020 9200     F      580             MOV     temp?542,C
+                     581     ;               if(temp) //Èç¹ûtempÎªÕæ£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+                     582                             ; SOURCE LINE # 72
+0022 300002   F      583             JNB     temp?542,?C0015
+                     584     ;               {
+                     585                             ; SOURCE LINE # 73
+                     586     ;                       state=1; //½«state¸³ÖµÎª1
+                     587                             ; SOURCE LINE # 74
+                     588     ;                       return state; //·µ»Østate
+                     589                             ; SOURCE LINE # 75
+0025 800B            590             SJMP    ?C0094
+                     591     ;               }
+                     592                             ; SOURCE LINE # 76
+0027                 593     ?C0015:
+                     594     ;               return 0; //·ñÔò·µ»Ø0£¬±íÊ¾¼ÌÐøÓÎÏ·
+                     595                             ; SOURCE LINE # 77
+0027 7F00            596             MOV     R7,#00H
+0029 22              597             RET     
+                     598     ;       }
+                     599                             ; SOURCE LINE # 78
+002A                 600     ?C0014:
+                     601     ;       else //Èç¹ûaµÈÓÚ0£¬±íÊ¾´íÎó
+                     602     ;       {
+                     603                             ; SOURCE LINE # 80
+                     604     ;               temp=error(); //µ÷ÓÃerrorº¯Ê£¬ÏÔÊ¾´íÎóµÄ»­Ãæ£¬²¢¸³Öµ¸øtemp
+                     605                             ; SOURCE LINE # 81
+002A 120000   F      606             LCALL   error
+002D 9200     F      607             MOV     temp?542,C
+                     608     ;               if(temp) //Èç¹ûtempÎªÕæ£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+                     609                             ; SOURCE LINE # 82
+002F 300006   F      610             JNB     temp?542,?C0017
+                     611     ;               {
+                     612                             ; SOURCE LINE # 83
+                     613     ;                       state=1; //½«state¸³ÖµÎª1
+                     614                             ; SOURCE LINE # 84
+0032                 615     ?C0094:
+0032 750001   F      616             MOV     state?543,#01H
+                     617     ;                       return state; //·µ»Østate
+                     618                             ; SOURCE LINE # 85
+0035 AF00     F      619             MOV     R7,state?543
+0037 22              620             RET     
+                     621     ;               }
+                     622                             ; SOURCE LINE # 86
+0038                 623     ?C0017:
+                     624     ;               return 2; //·ñÔò·µ»Ø2£¬±íÊ¾ÖØÐÂ¿ªÊ¼
+                     625                             ; SOURCE LINE # 87
+0038 7F02            626             MOV     R7,#02H
+                     627     ;       }
+                     628                             ; SOURCE LINE # 88
+                     629     ; }
+                     630                             ; SOURCE LINE # 89
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    11
+
+003A                 631     ?C0013:
+003A 22              632             RET     
+                     633     ; END OF guess_once
+                     634     
+                     635     ; unsigned char guess_one_level(bit b) //¶¨ÒåÒ»¸öº¯Êguess_one_level£¬´«ÈëÒ»¸öÎ»±äÁ¿b£¬ÓÃÀ´½
+                             øÐÐÒ»´Î´³¹ØÓÎÏ·
+                     636     
+----                 637             RSEG  ?PR?guess_one_level?GUESSING_GAME
+0000                 638     guess_one_level:
+                     639             USING   0
+                     640                             ; SOURCE LINE # 90
+                     641     ; {
+                     642                             ; SOURCE LINE # 91
+                     643     ;       bit a; //¶¨ÒåÒ»¸öÎ»±äÁ¿a£¬ÓÃÀ´´æ´¢¼ì²é½á¹û
+                     644     ;       unsigned char state=0; //¶¨ÒåÒ»¸ö±äÁ¿state£¬ÓÃÀ´´æ´¢ÓÎÏ·×´Ì¬£¬³õÊ¼»¯Îª0
+                     645                             ; SOURCE LINE # 93
+                     646     ;---- Variable 'state?646' assigned to Register 'R5' ----
+0000 E4              647             CLR     A
+0001 FD              648             MOV     R5,A
+                     649     ;       display_random_digits(); //µ÷ÓÃdisplay_random_digitsº¯Ê£¬ÏÔÊ¾Ëæ»úµÄÊ×Ö
+                     650                             ; SOURCE LINE # 94
+0002 120000   F      651             LCALL   display_random_digits
+                     652     ;       display_input(); //µ÷ÓÃdisplay_inputº¯Ê£¬ÏÔÊ¾ÊäÈëµÄ»­Ãæ
+                     653                             ; SOURCE LINE # 95
+0005 120000   F      654             LCALL   display_input
+                     655     ;       state=input_digits(); //µ÷ÓÃinput_digitsº¯Ê£¬ÊäÈëÊ×Ö£¬²¢¸³Öµ¸østate
+                     656                             ; SOURCE LINE # 96
+0008 120000   F      657             LCALL   input_digits
+000B E4              658             CLR     A
+000C 33              659             RLC     A
+000D FD              660             MOV     R5,A
+                     661     ;       if(state==1) //Èç¹ûstateµÈÓÚ1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+                     662                             ; SOURCE LINE # 97
+000E BD0102          663             CJNE    R5,#01H,?C0018
+                     664     ;       {
+                     665                             ; SOURCE LINE # 98
+                     666     ;               return state; //·µ»Østate
+                     667                             ; SOURCE LINE # 99
+0011 FF              668             MOV     R7,A
+0012 22              669             RET     
+                     670     ;       }
+                     671                             ; SOURCE LINE # 100
+0013                 672     ?C0018:
+                     673     ;       a=check_digits(); //µ÷ÓÃcheck_digitsº¯Ê£¬¼ì²éÊ×ÖÊÇ·ñÕÈ·£¬²¢¸³Öµ¸øa
+                     674                             ; SOURCE LINE # 101
+0013 120000   F      675             LCALL   check_digits
+0016 9200     F      676             MOV     a?645,C
+                     677     ;       if(a==1) //Èç¹ûaµÈÓÚ1£¬±íÊ¾ÕÈ·
+                     678                             ; SOURCE LINE # 102
+0018 30001F   F      679             JNB     a?645,?C0020
+                     680     ;       {
+                     681                             ; SOURCE LINE # 103
+                     682     ;               if(b==0) //Èç¹ûbµÈÓÚ0£¬±íÊ¾²»ÊÇ×îºóÒ»¹Ø
+                     683                             ; SOURCE LINE # 104
+001B 20000E   F      684             JB      b?644,?C0021
+                     685     ;               {
+                     686                             ; SOURCE LINE # 105
+                     687     ;                       state=correct(); //µ÷ÓÃcorrectº¯Ê£¬ÏÔÊ¾ÕÈ·µÄ»­Ãæ£¬²¢¸³Öµ¸østate
+                     688                             ; SOURCE LINE # 106
+001E 120000   F      689             LCALL   correct
+0021 E4              690             CLR     A
+0022 33              691             RLC     A
+0023 FD              692             MOV     R5,A
+                     693     ;                       if(state==1) //Èç¹ûstateµÈÓÚ1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+                     694                             ; SOURCE LINE # 107
+0024 BD0102          695             CJNE    R5,#01H,?C0022
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    12
+
+                     696     ;                       {
+                     697                             ; SOURCE LINE # 108
+                     698     ;                               return state; //·µ»Østate
+                     699                             ; SOURCE LINE # 109
+0027 FF              700             MOV     R7,A
+0028 22              701             RET     
+                     702     ;                       }
+                     703                             ; SOURCE LINE # 110
+0029                 704     ?C0022:
+                     705     ;                       else //·ñÔò
+                     706     ;                       {
+                     707                             ; SOURCE LINE # 112
+                     708     ;                               return 2; //·µ»Ø2£¬±íÊ¾¼ÌÐøÓÎÏ·
+                     709                             ; SOURCE LINE # 113
+0029 7F02            710             MOV     R7,#02H
+002B 22              711             RET     
+                     712     ;                       }
+                     713                             ; SOURCE LINE # 114
+                     714     ;               }
+                     715                             ; SOURCE LINE # 115
+002C                 716     ?C0021:
+                     717     ;               else //Èç¹ûbµÈÓÚ1£¬±íÊ¾ÊÇ×îºóÒ»¹Ø
+                     718     ;               {
+                     719                             ; SOURCE LINE # 117
+                     720     ;                       state=win(); //µ÷ÓÃwinº¯Ê£¬ÏÔÊ¾´³¹Ø³É¹¦µÄ»­Ãæ£¬²¢¸³Öµ¸østate
+                     721                             ; SOURCE LINE # 118
+002C 120000   F      722             LCALL   win
+002F E4              723             CLR     A
+0030 33              724             RLC     A
+0031 FD              725             MOV     R5,A
+                     726     ;                       if(state==1) //Èç¹ûstateµÈÓÚ1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+                     727                             ; SOURCE LINE # 119
+0032 BD0102          728             CJNE    R5,#01H,?C0025
+                     729     ;                       {
+                     730                             ; SOURCE LINE # 120
+                     731     ;                               return state; //·µ»Østate
+                     732                             ; SOURCE LINE # 121
+0035 FF              733             MOV     R7,A
+0036 22              734             RET     
+                     735     ;                       }
+                     736                             ; SOURCE LINE # 122
+0037                 737     ?C0025:
+                     738     ;                       else //·ñÔò
+                     739     ;                       {
+                     740                             ; SOURCE LINE # 124
+                     741     ;                               return 0; //·µ»Ø0£¬±íÊ¾ÔÙ´ÎÌôÕ½
+                     742                             ; SOURCE LINE # 125
+0037 7F00            743             MOV     R7,#00H
+0039 22              744             RET     
+                     745     ;                       }
+                     746                             ; SOURCE LINE # 126
+                     747     ;               }
+                     748                             ; SOURCE LINE # 127
+                     749     ;       }
+                     750                             ; SOURCE LINE # 128
+003A                 751     ?C0020:
+                     752     ;       else //Èç¹ûaµÈÓÚ0£¬±íÊ¾´íÎó
+                     753     ;       {
+                     754                             ; SOURCE LINE # 130
+                     755     ;               state=lose(); //µ÷ÓÃloseº¯Ê£¬ÏÔÊ¾´³¹ØÊ§°ÜµÄ»­Ãæ£¬²¢¸³Öµ¸østate
+                     756                             ; SOURCE LINE # 131
+003A 120000   F      757             LCALL   lose
+003D E4              758             CLR     A
+003E 33              759             RLC     A
+                     760     ;               return state; //·µ»Østate
+                     761                             ; SOURCE LINE # 132
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    13
+
+003F FF              762             MOV     R7,A
+                     763     ;       }
+                     764                             ; SOURCE LINE # 133
+                     765     ; }
+                     766                             ; SOURCE LINE # 134
+0040                 767     ?C0019:
+0040 22              768             RET     
+                     769     ; END OF guess_one_level
+                     770     
+                     771     ; unsigned char main_menu(void) //¶¨ÒåÒ»¸öº¯Êmain_menu£¬ÓÃÀ´ÏÔÊ¾Ö÷²Ëµ¥£¬²¢·µ»ØÓÃ»§µÄÑ¡Ôñ
+                     772     
+----                 773             RSEG  ?PR?main_menu?GUESSING_GAME
+0000                 774     main_menu:
+                     775             USING   0
+                     776                             ; SOURCE LINE # 135
+                     777     ; {
+                     778                             ; SOURCE LINE # 136
+                     779     ;       unsigned char temp; //¶¨ÒåÒ»¸ö±äÁ¿temp£¬ÓÃÀ´´æ´¢ÓÃ»§µÄÑ¡Ôñ
+                     780     ;       display_main_menu(); //µ÷ÓÃdisplay_main_menuº¯Ê£¬ÏÔÊ¾Ö÷²Ëµ¥
+                     781                             ; SOURCE LINE # 138
+0000 120000   F      782             LCALL   display_main_menu
+0003                 783     ?C0028:
+                     784     ;       while(1) //ÎÞÏÞÑ­»·
+                     785                             ; SOURCE LINE # 139
+                     786     ;       {
+                     787                             ; SOURCE LINE # 140
+                     788     ;               temp=kscan(); //µ÷ÓÃkscanº¯Ê£¬É¨Ãè¼üÅÌÊäÈë£¬²¢¸³Öµ¸øtemp
+                     789                             ; SOURCE LINE # 141
+0003 120000   F      790             LCALL   kscan
+                     791     ;---- Variable 'temp?747' assigned to Register 'R7' ----
+                     792     ;               if(temp==0|temp==1|temp==14) //Èç¹ûtempµÈÓÚ0»ò1»ò14£¬±íÊ¾ÓÐÐ§µÄÑ¡Ôñ
+                     793                             ; SOURCE LINE # 142
+0006 BF0104          794             CJNE    R7,#01H,?C0031
+0009 7E01            795             MOV     R6,#01H
+000B 8002            796             SJMP    ?C0032
+000D                 797     ?C0031:
+000D 7E00            798             MOV     R6,#00H
+000F                 799     ?C0032:
+000F EF              800             MOV     A,R7
+0010 7004            801             JNZ     ?C0033
+0012 7D01            802             MOV     R5,#01H
+0014 8002            803             SJMP    ?C0034
+0016                 804     ?C0033:
+0016 7D00            805             MOV     R5,#00H
+0018                 806     ?C0034:
+0018 ED              807             MOV     A,R5
+0019 4E              808             ORL     A,R6
+001A FE              809             MOV     R6,A
+001B BF0E04          810             CJNE    R7,#0EH,?C0035
+001E 7D01            811             MOV     R5,#01H
+0020 8002            812             SJMP    ?C0036
+0022                 813     ?C0035:
+0022 7D00            814             MOV     R5,#00H
+0024                 815     ?C0036:
+0024 ED              816             MOV     A,R5
+0025 4E              817             ORL     A,R6
+0026 60DB            818             JZ      ?C0028
+                     819     ;               {
+                     820                             ; SOURCE LINE # 143
+                     821     ;                       break; //Ìø³öÑ­»·
+                     822                             ; SOURCE LINE # 144
+                     823     ;               }
+                     824                             ; SOURCE LINE # 145
+                     825     ;       }
+                     826                             ; SOURCE LINE # 146
+0028                 827     ?C0029:
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    14
+
+                     828     ;       return temp; //·µ»Øtemp
+                     829                             ; SOURCE LINE # 147
+                     830     ; }
+                     831                             ; SOURCE LINE # 148
+0028 22              832             RET     
+                     833     ; END OF main_menu
+                     834     
+                     835     ; unsigned char mode_select(void) //¶¨ÒåÒ»¸öº¯Êmode_select£¬ÓÃÀ´ÏÔÊ¾Ä£Ê½Ñ¡Ôñ£¬²¢·µ»ØÓÃ»§µÄÑ
+                             ¡Ôñ
+                     836     
+----                 837             RSEG  ?PR?mode_select?GUESSING_GAME
+0000                 838     mode_select:
+                     839             USING   0
+                     840                             ; SOURCE LINE # 149
+                     841     ; {
+                     842                             ; SOURCE LINE # 150
+                     843     ;       unsigned char temp; //¶¨ÒåÒ»¸ö±äÁ¿temp£¬ÓÃÀ´´æ´¢ÓÃ»§µÄÑ¡Ôñ
+                     844     ;       display_mode_select(); //µ÷ÓÃdisplay_mode_selectº¯Ê£¬ÏÔÊ¾Ä£Ê½Ñ¡Ôñ
+                     845                             ; SOURCE LINE # 152
+0000 120000   F      846             LCALL   display_mode_select
+0003                 847     ?C0038:
+                     848     ;       while(1) //ÎÞÏÞÑ­»·
+                     849                             ; SOURCE LINE # 153
+                     850     ;       {
+                     851                             ; SOURCE LINE # 154
+                     852     ;               temp=kscan(); //µ÷ÓÃkscanº¯Ê£¬É¨Ãè¼üÅÌÊäÈë£¬²¢¸³Öµ¸øtemp
+                     853                             ; SOURCE LINE # 155
+0003 120000   F      854             LCALL   kscan
+                     855     ;---- Variable 'temp?848' assigned to Register 'R7' ----
+                     856     ;               if(temp==0|temp==1|temp==2|temp==14) //Èç¹ûtempµÈÓÚ0»ò1»ò2»ò14£¬±íÊ¾ÓÐÐ§µÄÑ
+                             ¡Ôñ
+                     857                             ; SOURCE LINE # 156
+0006 BF0104          858             CJNE    R7,#01H,?C0041
+0009 7E01            859             MOV     R6,#01H
+000B 8002            860             SJMP    ?C0042
+000D                 861     ?C0041:
+000D 7E00            862             MOV     R6,#00H
+000F                 863     ?C0042:
+000F EF              864             MOV     A,R7
+0010 7004            865             JNZ     ?C0043
+0012 7D01            866             MOV     R5,#01H
+0014 8002            867             SJMP    ?C0044
+0016                 868     ?C0043:
+0016 7D00            869             MOV     R5,#00H
+0018                 870     ?C0044:
+0018 ED              871             MOV     A,R5
+0019 4E              872             ORL     A,R6
+001A FE              873             MOV     R6,A
+001B BF0204          874             CJNE    R7,#02H,?C0045
+001E 7D01            875             MOV     R5,#01H
+0020 8002            876             SJMP    ?C0046
+0022                 877     ?C0045:
+0022 7D00            878             MOV     R5,#00H
+0024                 879     ?C0046:
+0024 ED              880             MOV     A,R5
+0025 4E              881             ORL     A,R6
+0026 FE              882             MOV     R6,A
+0027 BF0E04          883             CJNE    R7,#0EH,?C0047
+002A 7D01            884             MOV     R5,#01H
+002C 8002            885             SJMP    ?C0048
+002E                 886     ?C0047:
+002E 7D00            887             MOV     R5,#00H
+0030                 888     ?C0048:
+0030 ED              889             MOV     A,R5
+0031 4E              890             ORL     A,R6
+0032 60CF            891             JZ      ?C0038
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    15
+
+                     892     ;               {
+                     893                             ; SOURCE LINE # 157
+                     894     ;                       break; //Ìø³öÑ­»·
+                     895                             ; SOURCE LINE # 158
+                     896     ;               }
+                     897                             ; SOURCE LINE # 159
+                     898     ;       }
+                     899                             ; SOURCE LINE # 160
+0034                 900     ?C0039:
+                     901     ;       return temp; //·µ»Øtemp
+                     902                             ; SOURCE LINE # 161
+                     903     ; }
+                     904                             ; SOURCE LINE # 162
+0034 22              905             RET     
+                     906     ; END OF mode_select
+                     907     
+                     908     ; bit begin_select(void) //¶¨ÒåÒ»¸öº¯Êbegin_select£¬ÓÃÀ´ÏÔÊ¾¿ªÊ¼Ñ¡Ôñ£¬²¢·µ»ØÓÃ»§µÄÑ¡Ôñ
+                     909     
+----                 910             RSEG  ?PR?begin_select?GUESSING_GAME
+0000                 911     begin_select:
+                     912             USING   0
+                     913                             ; SOURCE LINE # 163
+                     914     ; {
+                     915                             ; SOURCE LINE # 164
+                     916     ;       display_begin_select(); //µ÷ÓÃdisplay_begin_selectº¯Ê£¬ÏÔÊ¾¿ªÊ¼Ñ¡Ôñ
+                     917                             ; SOURCE LINE # 165
+0000 120000   F      918             LCALL   display_begin_select
+                     919     ;       return f_or_e(); //µ÷ÓÃf_or_eº¯Ê£¬·µ»ØÓÃ»§µÄÑ¡Ôñ£¬F±íÊ¾¿ªÊ¼ÓÎÏ·£¬E±íÊ¾·µ»Ø
+                     920                             ; SOURCE LINE # 166
+0003 020000   F      921             LJMP    f_or_e
+                     922     ; END OF begin_select
+                     923     
+                     924     ; }
+                     925     ; void mode1(void) //¶¨ÒåÒ»¸öº¯Êmode1£¬ÓÃÀ´½øÐÐ´³¹ØÄ£Ê½µÄÓÎÏ·
+                     926     
+----                 927             RSEG  ?PR?mode1?GUESSING_GAME
+0000                 928     mode1:
+                     929             USING   0
+                     930                             ; SOURCE LINE # 168
+                     931     ; {
+                     932                             ; SOURCE LINE # 169
+                     933     ;       unsigned char i=0; //¶¨ÒåÒ»¸ö±äÁ¿i£¬ÓÃÀ´×÷Îª¹Ø¿¨µÄË÷Ò£¬³õÊ¼»¯Îª0
+                     934                             ; SOURCE LINE # 170
+0000 E4              935             CLR     A
+0001 F500     F      936             MOV     i?1049,A
+0003                 937     ?C0051:
+                     938     ;       unsigned char state; //¶¨ÒåÒ»¸ö±äÁ¿state£¬ÓÃÀ´´æ´¢ÓÎÏ·×´Ì¬
+                     939     ;       while(1) //ÎÞÏÞÑ­»·
+                     940                             ; SOURCE LINE # 172
+                     941     ;       {
+                     942                             ; SOURCE LINE # 173
+                     943     ;       for(i=0;i<10;i++) //Ñ­»·10´Î£¬±íÊ¾10¸ö¹Ø¿¨
+                     944                             ; SOURCE LINE # 174
+0003 E4              945             CLR     A
+0004 F500     F      946             MOV     i?1049,A
+0006                 947     ?C0053:
+                     948     ;       {
+                     949                             ; SOURCE LINE # 175
+                     950     ;               bits=level_bits[i]; //½«Ê×élevel_bitsµÄµÚi¸öÔªËØ¸³Öµ¸øbits£¬±íÊ¾µ±Ç°¹Ø¿¨µÄÎ
+                             »Ê
+                     951                             ; SOURCE LINE # 176
+0006 7400     F      952             MOV     A,#LOW (level_bits)
+0008 2500     F      953             ADD     A,i?1049
+000A F582            954             MOV     DPL,A
+000C E4              955             CLR     A
+000D 3400     F      956             ADDC    A,#HIGH (level_bits)
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    16
+
+000F F583            957             MOV     DPH,A
+0011 E0              958             MOVX    A,@DPTR
+0012 F500     F      959             MOV     bits,A
+                     960     ;               display_time=level_display_time[i]; //½«Ê×élevel_display_timeµÄµÚi¸öÔªËØ¸³Ö
+                             µ¸ødisplay_time£¬±íÊ¾µ±Ç°¹Ø¿¨µÄÏÔÊ¾Ê±¼ä
+                     961                             ; SOURCE LINE # 177
+0014 E500     F      962             MOV     A,i?1049
+0016 25E0            963             ADD     A,ACC
+0018 2400     F      964             ADD     A,#LOW (level_display_time)
+001A F582            965             MOV     DPL,A
+001C E4              966             CLR     A
+001D 3400     F      967             ADDC    A,#HIGH (level_display_time)
+001F F583            968             MOV     DPH,A
+0021 E0              969             MOVX    A,@DPTR
+0022 F500     F      970             MOV     display_time,A
+0024 A3              971             INC     DPTR
+0025 E0              972             MOVX    A,@DPTR
+0026 F500     F      973             MOV     display_time+01H,A
+                     974     ;               if(begin_select()) //µ÷ÓÃbegin_selectº¯Ê£¬ÏÔÊ¾¿ªÊ¼Ñ¡Ôñ£¬²¢ÅÐ¶ÏÓÃ»§µÄÑ¡Ôñ
+                     975                             ; SOURCE LINE # 178
+0028 120000   F      976             LCALL   begin_select
+002B 4025            977             JC      ?C0057
+                     978     ;               {
+                     979                             ; SOURCE LINE # 179
+                     980     ;                       return; //Èç¹ûÓÃ»§Ñ¡Ôñ·µ»Ø£¬½áÊøº¯Ê
+                     981     ;               }
+                     982                             ; SOURCE LINE # 181
+                     983     ;               state=guess_one_level(i==9); //µ÷ÓÃguess_one_levelº¯Ê£¬´«ÈëiÊÇ·ñµÈÓÚ9£¬±íÊ¾
+                             ÊÇ·ñÊÇ×îºóÒ»¹Ø£¬²¢¸³Öµ¸østate
+                     984                             ; SOURCE LINE # 182
+002D E500     F      985             MOV     A,i?1049
+002F B40903          986             CJNE    A,#09H,?C0058
+0032 D3              987             SETB    C
+0033 8001            988             SJMP    ?C0059
+0035                 989     ?C0058:
+0035 C3              990             CLR     C
+0036                 991     ?C0059:
+0036 9200     F      992             MOV     ?guess_one_level?BIT,C
+0038 120000   F      993             LCALL   guess_one_level
+003B 8F00     F      994             MOV     state?1050,R7
+                     995     ;               if(state==1) //Èç¹ûstateµÈÓÚ1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+                     996                             ; SOURCE LINE # 183
+003D E500     F      997             MOV     A,state?1050
+003F 6401            998             XRL     A,#01H
+0041 600F            999             JZ      ?C0057
+                    1000     ;               {               
+                    1001                             ; SOURCE LINE # 184
+                    1002     ;                       return; //½áÊøº¯Ê
+                    1003     ;               }
+                    1004                             ; SOURCE LINE # 186
+                    1005     ;               if(state==0) //Èç¹ûstateµÈÓÚ0£¬±íÊ¾ÓÃ»§Ñ¡ÔñÔÙ´ÎÌôÕ½
+                    1006                             ; SOURCE LINE # 187
+0043 E500     F     1007             MOV     A,state?1050
+0045 60BC           1008             JZ      ?C0051
+                    1009     ;               {               
+                    1010                             ; SOURCE LINE # 188
+                    1011     ;                       break; //Ìø³öÑ­»·£¬ÖØÐÂ¿ªÊ¼ÓÎÏ·
+                    1012                             ; SOURCE LINE # 189
+                    1013     ;               }
+                    1014                             ; SOURCE LINE # 190
+                    1015     ;       }
+                    1016                             ; SOURCE LINE # 191
+0047 0500     F     1017             INC     i?1049
+0049 E500     F     1018             MOV     A,i?1049
+004B C3             1019             CLR     C
+004C 940A           1020             SUBB    A,#0AH
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    17
+
+004E 40B6           1021             JC      ?C0053
+0050 80B1           1022             SJMP    ?C0051
+                    1023     ;       }
+                    1024                             ; SOURCE LINE # 192
+                    1025     ; }
+                    1026                             ; SOURCE LINE # 193
+0052                1027     ?C0057:
+0052 22             1028             RET     
+                    1029     ; END OF mode1
+                    1030     
+                    1031     ; void mode2(void) //¶¨ÒåÒ»¸öº¯Êmode2£¬ÓÃÀ´½øÐÐÁ·Ï°Ä£Ê½µÄÓÎÏ·
+                    1032     
+----                1033             RSEG  ?PR?mode2?GUESSING_GAME
+0000                1034     mode2:
+                    1035             USING   0
+                    1036                             ; SOURCE LINE # 194
+                    1037     ; {
+                    1038                             ; SOURCE LINE # 195
+                    1039     ;       while(1) //ÎÞÏÞÑ­»·
+                    1040                             ; SOURCE LINE # 196
+                    1041     ;       {
+                    1042                             ; SOURCE LINE # 197
+                    1043     ;       display_bits_select(); //µ÷ÓÃdisplay_bits_selectº¯Ê£¬ÏÔÊ¾Î»ÊÑ¡Ôñ
+                    1044                             ; SOURCE LINE # 198
+0000 120000   F     1045             LCALL   display_bits_select
+                    1046     ;       if(input_bits()==1) //µ÷ÓÃinput_bitsº¯Ê£¬ÊäÈëÎ»Ê£¬²¢ÅÐ¶Ï·µ»ØÖµ
+                    1047                             ; SOURCE LINE # 199
+0003 120000   F     1048             LCALL   input_bits
+0006 4016           1049             JC      ?C0065
+                    1050     ;       {
+                    1051                             ; SOURCE LINE # 200
+                    1052     ;               return; //Èç¹û·µ»Ø1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø£¬½áÊøº¯Ê
+                    1053     ;       }
+                    1054                             ; SOURCE LINE # 202
+                    1055     ;       display_time_select(); //µ÷ÓÃdisplay_time_selectº¯Ê£¬ÏÔÊ¾Ê±¼äÑ¡Ôñ
+                    1056                             ; SOURCE LINE # 203
+0008 120000   F     1057             LCALL   display_time_select
+                    1058     ;       if(input_display_time()==1) //µ÷ÓÃinput_display_timeº¯Ê£¬ÊäÈëÊ±¼ä£¬²¢ÅÐ¶Ï·µ»ØÖµ
+                    1059                             ; SOURCE LINE # 204
+000B 120000   F     1060             LCALL   input_display_time
+000E 400E           1061             JC      ?C0065
+                    1062     ;       {
+                    1063                             ; SOURCE LINE # 205
+                    1064     ;               return; //Èç¹û·µ»Ø1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø£¬½áÊøº¯Ê
+                    1065     ;       }
+                    1066                             ; SOURCE LINE # 207
+                    1067     ;       display_begin_select(); //µ÷ÓÃdisplay_begin_selectº¯Ê£¬ÏÔÊ¾¿ªÊ¼Ñ¡Ôñ
+                    1068                             ; SOURCE LINE # 208
+0010 120000   F     1069             LCALL   display_begin_select
+0013                1070     ?C0067:
+                    1071     ;       while(1) //ÎÞÏÞÑ­»·
+                    1072                             ; SOURCE LINE # 209
+                    1073     ;       {
+                    1074                             ; SOURCE LINE # 210
+                    1075     ;       if(begin_select()) //µ÷ÓÃbegin_selectº¯Ê£¬ÏÔÊ¾¿ªÊ¼Ñ¡Ôñ£¬²¢ÅÐ¶ÏÓÃ»§µÄÑ¡Ôñ
+                    1076                             ; SOURCE LINE # 211
+0013 120000   F     1077             LCALL   begin_select
+0016 4006           1078             JC      ?C0065
+                    1079     ;       {
+                    1080                             ; SOURCE LINE # 212
+                    1081     ;               return; //Èç¹ûÓÃ»§Ñ¡Ôñ·µ»Ø£¬½áÊøº¯Ê
+                    1082     ;       }
+                    1083                             ; SOURCE LINE # 214
+                    1084     ;       if(guess_once()==1) //µ÷ÓÃguess_onceº¯Ê£¬½øÐÐÒ»´Î²ÂÊÓÎÏ·£¬²¢ÅÐ¶Ï·µ»ØÖµ
+                    1085                             ; SOURCE LINE # 215
+0018 120000   F     1086             LCALL   guess_once
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    18
+
+001B BF01F5         1087             CJNE    R7,#01H,?C0067
+                    1088     ;       {               
+                    1089                             ; SOURCE LINE # 216
+                    1090     ;               return; //Èç¹û·µ»Ø1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø£¬½áÊøº¯Ê
+                    1091     ;       }
+                    1092                             ; SOURCE LINE # 218
+                    1093     ;       }
+                    1094                             ; SOURCE LINE # 219
+                    1095     ;       }
+                    1096                             ; SOURCE LINE # 220
+                    1097     ; }
+                    1098                             ; SOURCE LINE # 221
+001E                1099     ?C0065:
+001E 22             1100             RET     
+                    1101     ; END OF mode2
+                    1102     
+                    1103     ; void mode3(void) //¶¨ÒåÒ»¸öº¯Êmode3£¬ÓÃÀ´½øÐÐËæ»úÄ£Ê½µÄÓÎÏ·
+                    1104     
+----                1105             RSEG  ?PR?mode3?GUESSING_GAME
+0000                1106     mode3:
+                    1107             USING   0
+                    1108                             ; SOURCE LINE # 222
+                    1109     ; {
+                    1110                             ; SOURCE LINE # 223
+0000                1111     ?C0071:
+                    1112     ;       while(1) //ÎÞÏÞÑ­»·
+                    1113                             ; SOURCE LINE # 224
+                    1114     ;       {
+                    1115                             ; SOURCE LINE # 225
+                    1116     ;       bits=1+rand()%8; //½«1¼ÓÉÏ0µ½7µÄËæ»úÊ¸³Öµ¸øbits£¬±íÊ¾Ëæ»úµÄÎ»Ê
+                    1117                             ; SOURCE LINE # 226
+0000 120000   F     1118             LCALL   rand
+0003 7C00           1119             MOV     R4,#00H
+0005 7D08           1120             MOV     R5,#08H
+0007 120000   F     1121             LCALL   ?C?SIDIV
+000A ED             1122             MOV     A,R5
+000B 04             1123             INC     A
+000C F500     F     1124             MOV     bits,A
+                    1125     ;       display_time=bits*200+rand()%101; //½«bits³ËÒÔ200¼ÓÉÏ0µ½100µÄËæ»úÊ¸³Öµ¸ødisplay_tim
+                             e£¬±íÊ¾Ëæ»úµÄÏÔÊ¾Ê±¼ä
+                    1126                             ; SOURCE LINE # 227
+000E 120000   F     1127             LCALL   rand
+0011 7C00           1128             MOV     R4,#00H
+0013 7D65           1129             MOV     R5,#065H
+0015 120000   F     1130             LCALL   ?C?SIDIV
+0018 E500     F     1131             MOV     A,bits
+001A 75F0C8         1132             MOV     B,#0C8H
+001D A4             1133             MUL     AB
+001E AEF0           1134             MOV     R6,B
+0020 2D             1135             ADD     A,R5
+0021 F500     F     1136             MOV     display_time+01H,A
+0023 EE             1137             MOV     A,R6
+0024 3C             1138             ADDC    A,R4
+0025 F500     F     1139             MOV     display_time,A
+                    1140     ;       if(begin_select()) //µ÷ÓÃbegin_selectº¯Ê£¬ÏÔÊ¾¿ªÊ¼Ñ¡Ôñ£¬²¢ÅÐ¶ÏÓÃ»§µÄÑ¡Ôñ
+                    1141                             ; SOURCE LINE # 228
+0027 120000   F     1142             LCALL   begin_select
+002A 4006           1143             JC      ?C0074
+                    1144     ;       {
+                    1145                             ; SOURCE LINE # 229
+                    1146     ;               return; //Èç¹ûÓÃ»§Ñ¡Ôñ·µ»Ø£¬½áÊøº¯Ê
+                    1147     ;       }
+                    1148                             ; SOURCE LINE # 231
+                    1149     ;       if(guess_once()==1) //µ÷ÓÃguess_onceº¯Ê£¬½øÐÐÒ»´Î²ÂÊÓÎÏ·£¬²¢ÅÐ¶Ï·µ»ØÖµ
+                    1150                             ; SOURCE LINE # 232
+002C 120000   F     1151             LCALL   guess_once
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    19
+
+002F BF01CE         1152             CJNE    R7,#01H,?C0071
+                    1153     ;       {               
+                    1154                             ; SOURCE LINE # 233
+                    1155     ;               return; //Èç¹û·µ»Ø1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø£¬½áÊøº¯Ê
+                    1156     ;       }
+                    1157                             ; SOURCE LINE # 235
+                    1158     ;       }
+                    1159                             ; SOURCE LINE # 236
+                    1160     ; }
+                    1161                             ; SOURCE LINE # 237
+0032                1162     ?C0074:
+0032 22             1163             RET     
+                    1164     ; END OF mode3
+                    1165     
+                    1166     ; void acknowledgement(void) //¶¨ÒåÒ»¸öº¯Êacknowledgement£¬ÓÃÀ´ÏÔÊ¾ÖÂÐ»µÄ»­Ãæ
+                    1167     
+----                1168             RSEG  ?PR?acknowledgement?GUESSING_GAME
+0000                1169     acknowledgement:
+                    1170             USING   0
+                    1171                             ; SOURCE LINE # 238
+                    1172     ; {
+                    1173                             ; SOURCE LINE # 239
+                    1174     ;       display_acknowledgement(); //µ÷ÓÃdisplay_acknowledgementº¯Ê£¬ÏÔÊ¾ÖÂÐ»µÄ»­Ãæ
+                    1175                             ; SOURCE LINE # 240
+0000 020000   F     1176             LJMP    display_acknowledgement
+                    1177     ; END OF acknowledgement
+                    1178     
+                    1179     ; }
+                    1180     ; void gussing_game(void) //¶¨ÒåÒ»¸öº¯Êgussing_game£¬ÓÃÀ´½øÐÐ²ÂÊÓÎÏ·
+                    1181     
+----                1182             RSEG  ?PR?gussing_game?GUESSING_GAME
+0000                1183     gussing_game:
+                    1184             USING   0
+                    1185                             ; SOURCE LINE # 242
+                    1186     ; {
+                    1187                             ; SOURCE LINE # 243
+0000                1188     ?C0077:
+                    1189     ;       unsigned char mode; //¶¨ÒåÒ»¸ö±äÁ¿mode£¬ÓÃÀ´´æ´¢ÓÎÏ·Ä£Ê½
+                    1190     ;       while(1) //ÎÞÏÞÑ­»·
+                    1191                             ; SOURCE LINE # 245
+                    1192     ;       {
+                    1193                             ; SOURCE LINE # 246
+                    1194     ;               mode=mode_select(); //µ÷ÓÃmode_selectº¯Ê£¬ÏÔÊ¾Ä£Ê½Ñ¡Ôñ£¬²¢¸³Öµ¸ømode
+                    1195                             ; SOURCE LINE # 247
+0000 120000   F     1196             LCALL   mode_select
+                    1197     ;---- Variable 'mode?1451' assigned to Register 'R7' ----
+                    1198     ;               if(mode==14) //Èç¹ûmodeµÈÓÚ14£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+                    1199                             ; SOURCE LINE # 248
+0003 EF             1200             MOV     A,R7
+0004 640E           1201             XRL     A,#0EH
+0006 601A           1202             JZ      ?C0085
+                    1203     ;               {
+                    1204                             ; SOURCE LINE # 249
+                    1205     ;                       break; //Ìø³öÑ­»·
+                    1206                             ; SOURCE LINE # 250
+                    1207     ;               }       
+                    1208                             ; SOURCE LINE # 251
+                    1209     ;               switch(mode) //¸ù¾ÝmodeµÄÖµÑ¡Ôñ²»Í¬µÄ·ÖÖ§
+                    1210                             ; SOURCE LINE # 252
+0008 EF             1211             MOV     A,R7
+0009 14             1212             DEC     A
+000A 600C           1213             JZ      ?C0082
+000C 14             1214             DEC     A
+000D 600E           1215             JZ      ?C0083
+000F 2402           1216             ADD     A,#02H
+0011 70ED           1217             JNZ     ?C0077
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    20
+
+                    1218     ;               {
+                    1219                             ; SOURCE LINE # 253
+                    1220     ;                       case 0: 
+                    1221                             ; SOURCE LINE # 254
+0013                1222     ?C0081:
+                    1223     ;                               mode1(); //Èç¹ûmodeµÈÓÚ0£¬µ÷ÓÃmode1º¯Ê£¬½øÐÐ´³¹ØÄ£Ê½µÄÓÎÏ·
+                    1224                             ; SOURCE LINE # 255
+0013 120000   F     1225             LCALL   mode1
+                    1226     ;                               break;
+                    1227                             ; SOURCE LINE # 256
+0016 80E8           1228             SJMP    ?C0077
+                    1229     ;                       case 1: 
+                    1230                             ; SOURCE LINE # 257
+0018                1231     ?C0082:
+                    1232     ;                               mode2(); //Èç¹ûmodeµÈÓÚ1£¬µ÷ÓÃmode2º¯Ê£¬½øÐÐÁ·Ï°Ä£Ê½µÄÓÎÏ·
+                    1233                             ; SOURCE LINE # 258
+0018 120000   F     1234             LCALL   mode2
+                    1235     ;                               break;
+                    1236                             ; SOURCE LINE # 259
+001B 80E3           1237             SJMP    ?C0077
+                    1238     ;                       case 2: 
+                    1239                             ; SOURCE LINE # 260
+001D                1240     ?C0083:
+                    1241     ;                               mode3(); //Èç¹ûmodeµÈÓÚ2£¬µ÷ÓÃmode3º¯Ê£¬½øÐÐËæ»úÄ£Ê½µÄÓÎÏ·
+                    1242                             ; SOURCE LINE # 261
+001D 120000   F     1243             LCALL   mode3
+                    1244     ;                               break;
+                    1245                             ; SOURCE LINE # 262
+0020 80DE           1246             SJMP    ?C0077
+                    1247     ;                       default:
+                    1248                             ; SOURCE LINE # 263
+                    1249     ;                               break;
+                    1250                             ; SOURCE LINE # 264
+                    1251     ;               }
+                    1252                             ; SOURCE LINE # 265
+                    1253     ;       }
+                    1254                             ; SOURCE LINE # 266
+                    1255     ; }
+                    1256                             ; SOURCE LINE # 267
+0022                1257     ?C0085:
+0022 22             1258             RET     
+                    1259     ; END OF gussing_game
+                    1260     
+                    1261     ; void games(void) //¶¨ÒåÒ»¸öº¯Êgames£¬ÓÃÀ´½øÐÐÓÎÏ·
+                    1262     
+----                1263             RSEG  ?PR?games?GUESSING_GAME
+0000                1264     games:
+                    1265             USING   0
+                    1266                             ; SOURCE LINE # 268
+                    1267     ; {
+                    1268                             ; SOURCE LINE # 269
+                    1269     ;       unsigned char menu; //¶¨ÒåÒ»¸ö±äÁ¿menu£¬ÓÃÀ´´æ´¢Ö÷²Ëµ¥µÄÑ¡Ôñ
+                    1270     ;       display_gussing_game(); //µ÷ÓÃdisplay_gussing_gameº¯Ê£¬ÏÔÊ¾²ÂÊÓÎÏ·µÄLOGO
+                    1271                             ; SOURCE LINE # 271
+0000 120000   F     1272             LCALL   display_gussing_game
+0003                1273     ?C0086:
+                    1274     ;       while(1) //ÎÞÏÞÑ­»·
+                    1275                             ; SOURCE LINE # 272
+                    1276     ;       {
+                    1277                             ; SOURCE LINE # 273
+                    1278     ;               menu=main_menu(); //µ÷ÓÃmain_menuº¯Ê£¬ÏÔÊ¾Ö÷²Ëµ¥£¬²¢¸³Öµ¸ømenu
+                    1279                             ; SOURCE LINE # 274
+0003 120000   F     1280             LCALL   main_menu
+                    1281     ;---- Variable 'menu?1552' assigned to Register 'R7' ----
+                    1282     ;               if(menu==14) //Èç¹ûmenuµÈÓÚ14£¬±íÊ¾ÓÃ»§Ñ¡ÔñÍË³ö
+                    1283                             ; SOURCE LINE # 275
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    21
+
+0006 EF             1284             MOV     A,R7
+0007 640E           1285             XRL     A,#0EH
+0009 6011           1286             JZ      ?C0093
+                    1287     ;               {
+                    1288                             ; SOURCE LINE # 276
+                    1289     ;                       break; //Ìø³öÑ­»·
+                    1290                             ; SOURCE LINE # 277
+                    1291     ;               }       
+                    1292                             ; SOURCE LINE # 278
+                    1293     ;       switch(menu) //¸ù¾ÝmenuµÄÖµÑ¡Ôñ²»Í¬µÄ·ÖÖ§
+                    1294                             ; SOURCE LINE # 279
+000B EF             1295             MOV     A,R7
+000C 14             1296             DEC     A
+000D 6008           1297             JZ      ?C0091
+000F 04             1298             INC     A
+0010 70F1           1299             JNZ     ?C0086
+                    1300     ;       {
+                    1301                             ; SOURCE LINE # 280
+                    1302     ;               case 0: 
+                    1303                             ; SOURCE LINE # 281
+0012                1304     ?C0090:
+                    1305     ;                       gussing_game(); //Èç¹ûmenuµÈÓÚ0£¬µ÷ÓÃgussing_gameº¯Ê£¬½øÐÐ²ÂÊÓÎÏ·
+                    1306                             ; SOURCE LINE # 282
+0012 120000   F     1307             LCALL   gussing_game
+                    1308     ;                       break;
+                    1309                             ; SOURCE LINE # 283
+0015 80EC           1310             SJMP    ?C0086
+                    1311     ;               case 1: 
+                    1312                             ; SOURCE LINE # 284
+0017                1313     ?C0091:
+                    1314     ;                       acknowledgement(); //Èç¹ûmenuµÈÓÚ1£¬µ÷ÓÃacknowledgementº¯Ê£¬ÏÔÊ¾ÖÂÐ
+                             »µÄ»­Ãæ
+                    1315                             ; SOURCE LINE # 285
+0017 120000   F     1316             LCALL   acknowledgement
+                    1317     ;                       break;
+                    1318                             ; SOURCE LINE # 286
+001A 80E7           1319             SJMP    ?C0086
+                    1320     ;               default:
+                    1321                             ; SOURCE LINE # 287
+                    1322     ;                       break;
+                    1323                             ; SOURCE LINE # 288
+                    1324     ;       }
+                    1325                             ; SOURCE LINE # 289
+                    1326     ;       }
+                    1327                             ; SOURCE LINE # 290
+                    1328     ; }
+                    1329                             ; SOURCE LINE # 291
+001C                1330     ?C0093:
+001C 22             1331             RET     
+                    1332     ; END OF games
+                    1333     
+                    1334             END
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    22
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                            T Y P E  V A L U E   ATTRIBUTES
+
+?BI?GUESS_ONCE?GUESSING_GAME. . .  B SEG    0002H       REL=UNIT
+?BI?GUESS_ONE_LEVEL?GUESSING_GAME  B SEG    0002H       REL=UNIT
+?C0001. . . . . . . . . . . . . .  C ADDR   0002H   R   SEG=?PR?CHECK_DIGITS?GUESSING_GAME
+?C0002. . . . . . . . . . . . . .  C ADDR   0020H   R   SEG=?PR?CHECK_DIGITS?GUESSING_GAME
+?C0005. . . . . . . . . . . . . .  C ADDR   0025H   R   SEG=?PR?CHECK_DIGITS?GUESSING_GAME
+?C0006. . . . . . . . . . . . . .  C ADDR   0026H   R   SEG=?PR?CHECK_DIGITS?GUESSING_GAME
+?C0012. . . . . . . . . . . . . .  C ADDR   0015H   R   SEG=?PR?GUESS_ONCE?GUESSING_GAME
+?C0013. . . . . . . . . . . . . .  C ADDR   003AH   R   SEG=?PR?GUESS_ONCE?GUESSING_GAME
+?C0014. . . . . . . . . . . . . .  C ADDR   002AH   R   SEG=?PR?GUESS_ONCE?GUESSING_GAME
+?C0015. . . . . . . . . . . . . .  C ADDR   0027H   R   SEG=?PR?GUESS_ONCE?GUESSING_GAME
+?C0017. . . . . . . . . . . . . .  C ADDR   0038H   R   SEG=?PR?GUESS_ONCE?GUESSING_GAME
+?C0018. . . . . . . . . . . . . .  C ADDR   0013H   R   SEG=?PR?GUESS_ONE_LEVEL?GUESSING_GAME
+?C0019. . . . . . . . . . . . . .  C ADDR   0040H   R   SEG=?PR?GUESS_ONE_LEVEL?GUESSING_GAME
+?C0020. . . . . . . . . . . . . .  C ADDR   003AH   R   SEG=?PR?GUESS_ONE_LEVEL?GUESSING_GAME
+?C0021. . . . . . . . . . . . . .  C ADDR   002CH   R   SEG=?PR?GUESS_ONE_LEVEL?GUESSING_GAME
+?C0022. . . . . . . . . . . . . .  C ADDR   0029H   R   SEG=?PR?GUESS_ONE_LEVEL?GUESSING_GAME
+?C0025. . . . . . . . . . . . . .  C ADDR   0037H   R   SEG=?PR?GUESS_ONE_LEVEL?GUESSING_GAME
+?C0028. . . . . . . . . . . . . .  C ADDR   0003H   R   SEG=?PR?MAIN_MENU?GUESSING_GAME
+?C0029. . . . . . . . . . . . . .  C ADDR   0028H   R   SEG=?PR?MAIN_MENU?GUESSING_GAME
+?C0031. . . . . . . . . . . . . .  C ADDR   000DH   R   SEG=?PR?MAIN_MENU?GUESSING_GAME
+?C0032. . . . . . . . . . . . . .  C ADDR   000FH   R   SEG=?PR?MAIN_MENU?GUESSING_GAME
+?C0033. . . . . . . . . . . . . .  C ADDR   0016H   R   SEG=?PR?MAIN_MENU?GUESSING_GAME
+?C0034. . . . . . . . . . . . . .  C ADDR   0018H   R   SEG=?PR?MAIN_MENU?GUESSING_GAME
+?C0035. . . . . . . . . . . . . .  C ADDR   0022H   R   SEG=?PR?MAIN_MENU?GUESSING_GAME
+?C0036. . . . . . . . . . . . . .  C ADDR   0024H   R   SEG=?PR?MAIN_MENU?GUESSING_GAME
+?C0038. . . . . . . . . . . . . .  C ADDR   0003H   R   SEG=?PR?MODE_SELECT?GUESSING_GAME
+?C0039. . . . . . . . . . . . . .  C ADDR   0034H   R   SEG=?PR?MODE_SELECT?GUESSING_GAME
+?C0041. . . . . . . . . . . . . .  C ADDR   000DH   R   SEG=?PR?MODE_SELECT?GUESSING_GAME
+?C0042. . . . . . . . . . . . . .  C ADDR   000FH   R   SEG=?PR?MODE_SELECT?GUESSING_GAME
+?C0043. . . . . . . . . . . . . .  C ADDR   0016H   R   SEG=?PR?MODE_SELECT?GUESSING_GAME
+?C0044. . . . . . . . . . . . . .  C ADDR   0018H   R   SEG=?PR?MODE_SELECT?GUESSING_GAME
+?C0045. . . . . . . . . . . . . .  C ADDR   0022H   R   SEG=?PR?MODE_SELECT?GUESSING_GAME
+?C0046. . . . . . . . . . . . . .  C ADDR   0024H   R   SEG=?PR?MODE_SELECT?GUESSING_GAME
+?C0047. . . . . . . . . . . . . .  C ADDR   002EH   R   SEG=?PR?MODE_SELECT?GUESSING_GAME
+?C0048. . . . . . . . . . . . . .  C ADDR   0030H   R   SEG=?PR?MODE_SELECT?GUESSING_GAME
+?C0051. . . . . . . . . . . . . .  C ADDR   0003H   R   SEG=?PR?MODE1?GUESSING_GAME
+?C0053. . . . . . . . . . . . . .  C ADDR   0006H   R   SEG=?PR?MODE1?GUESSING_GAME
+?C0057. . . . . . . . . . . . . .  C ADDR   0052H   R   SEG=?PR?MODE1?GUESSING_GAME
+?C0058. . . . . . . . . . . . . .  C ADDR   0035H   R   SEG=?PR?MODE1?GUESSING_GAME
+?C0059. . . . . . . . . . . . . .  C ADDR   0036H   R   SEG=?PR?MODE1?GUESSING_GAME
+?C0065. . . . . . . . . . . . . .  C ADDR   001EH   R   SEG=?PR?MODE2?GUESSING_GAME
+?C0067. . . . . . . . . . . . . .  C ADDR   0013H   R   SEG=?PR?MODE2?GUESSING_GAME
+?C0071. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?MODE3?GUESSING_GAME
+?C0074. . . . . . . . . . . . . .  C ADDR   0032H   R   SEG=?PR?MODE3?GUESSING_GAME
+?C0077. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?GUSSING_GAME?GUESSING_GAME
+?C0081. . . . . . . . . . . . . .  C ADDR   0013H   R   SEG=?PR?GUSSING_GAME?GUESSING_GAME
+?C0082. . . . . . . . . . . . . .  C ADDR   0018H   R   SEG=?PR?GUSSING_GAME?GUESSING_GAME
+?C0083. . . . . . . . . . . . . .  C ADDR   001DH   R   SEG=?PR?GUSSING_GAME?GUESSING_GAME
+?C0085. . . . . . . . . . . . . .  C ADDR   0022H   R   SEG=?PR?GUSSING_GAME?GUESSING_GAME
+?C0086. . . . . . . . . . . . . .  C ADDR   0003H   R   SEG=?PR?GAMES?GUESSING_GAME
+?C0090. . . . . . . . . . . . . .  C ADDR   0012H   R   SEG=?PR?GAMES?GUESSING_GAME
+?C0091. . . . . . . . . . . . . .  C ADDR   0017H   R   SEG=?PR?GAMES?GUESSING_GAME
+?C0093. . . . . . . . . . . . . .  C ADDR   001CH   R   SEG=?PR?GAMES?GUESSING_GAME
+?C0094. . . . . . . . . . . . . .  C ADDR   0032H   R   SEG=?PR?GUESS_ONCE?GUESSING_GAME
+?C?SIDIV. . . . . . . . . . . . .  C ADDR   -----       EXT
+?CO?GUESSING_GAME . . . . . . . .  C SEG    0011H       REL=UNIT
+?C_INITSEG. . . . . . . . . . . .  C SEG    006FH       REL=UNIT
+?DT?GUESSING_GAME . . . . . . . .  D SEG    0003H       REL=UNIT
+?DT?GUESS_ONCE?GUESSING_GAME. . .  D SEG    0001H       REL=UNIT
+?DT?MODE1?GUESSING_GAME . . . . .  D SEG    0002H       REL=UNIT
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    23
+
+?GUESS_ONCE?BIT . . . . . . . . .  B ADDR   0000H.0 R   SEG=?BI?GUESS_ONCE?GUESSING_GAME
+?GUESS_ONCE?BYTE. . . . . . . . .  D ADDR   0000H   R   SEG=?DT?GUESS_ONCE?GUESSING_GAME
+?GUESS_ONE_LEVEL?BIT. . . . . . .  B ADDR   0000H.0 R   SEG=?BI?GUESS_ONE_LEVEL?GUESSING_GAME
+?MODE1?BYTE . . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?MODE1?GUESSING_GAME
+?PR?ACKNOWLEDGEMENT?GUESSING_GAME  C SEG    0003H       REL=UNIT
+?PR?BEGIN_SELECT?GUESSING_GAME. .  C SEG    0006H       REL=UNIT
+?PR?CHECK_DIGITS?GUESSING_GAME. .  C SEG    0027H       REL=UNIT
+?PR?CORRECT?GUESSING_GAME . . . .  C SEG    0006H       REL=UNIT
+?PR?ERROR?GUESSING_GAME . . . . .  C SEG    0006H       REL=UNIT
+?PR?GAMES?GUESSING_GAME . . . . .  C SEG    001DH       REL=UNIT
+?PR?GUESS_ONCE?GUESSING_GAME. . .  C SEG    003BH       REL=UNIT
+?PR?GUESS_ONE_LEVEL?GUESSING_GAME  C SEG    0041H       REL=UNIT
+?PR?GUSSING_GAME?GUESSING_GAME. .  C SEG    0023H       REL=UNIT
+?PR?LOSE?GUESSING_GAME. . . . . .  C SEG    0006H       REL=UNIT
+?PR?MAIN_MENU?GUESSING_GAME . . .  C SEG    0029H       REL=UNIT
+?PR?MODE1?GUESSING_GAME . . . . .  C SEG    0053H       REL=UNIT
+?PR?MODE2?GUESSING_GAME . . . . .  C SEG    001FH       REL=UNIT
+?PR?MODE3?GUESSING_GAME . . . . .  C SEG    0033H       REL=UNIT
+?PR?MODE_SELECT?GUESSING_GAME . .  C SEG    0035H       REL=UNIT
+?PR?WIN?GUESSING_GAME . . . . . .  C SEG    0006H       REL=UNIT
+?XD?GUESSING_GAME . . . . . . . .  X SEG    005EH       REL=UNIT
+A?541 . . . . . . . . . . . . . .  B ADDR   0000H.0 R   SEG=?BI?GUESS_ONCE?GUESSING_GAME
+A?645 . . . . . . . . . . . . . .  B ADDR   0000H.1 R   SEG=?BI?GUESS_ONE_LEVEL?GUESSING_GAME
+AA. . . . . . . . . . . . . . . .  B ADDR   00C0H.2 A   
+AC. . . . . . . . . . . . . . . .  B ADDR   00D0H.6 A   
+ACC . . . . . . . . . . . . . . .  D ADDR   00E0H   A   
+ACKNOWLEDGEMENT . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?ACKNOWLEDGEMENT?GUESSING_GAME
+AD0BUSY . . . . . . . . . . . . .  B ADDR   00E8H.4 A   
+AD0CM0. . . . . . . . . . . . . .  B ADDR   00E8H.2 A   
+AD0CM1. . . . . . . . . . . . . .  B ADDR   00E8H.3 A   
+AD0EN . . . . . . . . . . . . . .  B ADDR   00E8H.7 A   
+AD0INT. . . . . . . . . . . . . .  B ADDR   00E8H.5 A   
+AD0LJST . . . . . . . . . . . . .  B ADDR   00E8H.0 A   
+AD0TM . . . . . . . . . . . . . .  B ADDR   00E8H.6 A   
+AD0WINT . . . . . . . . . . . . .  B ADDR   00E8H.1 A   
+ADC0CF. . . . . . . . . . . . . .  D ADDR   00BCH   A   
+ADC0CN. . . . . . . . . . . . . .  D ADDR   00E8H   A   
+ADC0GTH . . . . . . . . . . . . .  D ADDR   00C5H   A   
+ADC0GTL . . . . . . . . . . . . .  D ADDR   00C4H   A   
+ADC0H . . . . . . . . . . . . . .  D ADDR   00BFH   A   
+ADC0L . . . . . . . . . . . . . .  D ADDR   00BEH   A   
+ADC0LTH . . . . . . . . . . . . .  D ADDR   00C7H   A   
+ADC0LTL . . . . . . . . . . . . .  D ADDR   00C6H   A   
+ADC1. . . . . . . . . . . . . . .  D ADDR   009CH   A   
+ADC1CF. . . . . . . . . . . . . .  D ADDR   00ABH   A   
+ADC1CN. . . . . . . . . . . . . .  D ADDR   00AAH   A   
+AMX0CF. . . . . . . . . . . . . .  D ADDR   00BAH   A   
+AMX0SL. . . . . . . . . . . . . .  D ADDR   00BBH   A   
+AMX1SL. . . . . . . . . . . . . .  D ADDR   00ACH   A   
+AR6 . . . . . . . . . . . . . . .  D ADDR   0006H   A   
+B . . . . . . . . . . . . . . . .  D ADDR   00F0H   A   
+B?644 . . . . . . . . . . . . . .  B ADDR   0000H.0 R   SEG=?BI?GUESS_ONE_LEVEL?GUESSING_GAME
+BEGIN_SELECT. . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?BEGIN_SELECT?GUESSING_GAME
+BITS. . . . . . . . . . . . . . .  D ADDR   0002H   R   SEG=?DT?GUESSING_GAME
+BUSY. . . . . . . . . . . . . . .  B ADDR   00C0H.7 A   
+CCF0. . . . . . . . . . . . . . .  B ADDR   00D8H.0 A   
+CCF1. . . . . . . . . . . . . . .  B ADDR   00D8H.1 A   
+CCF2. . . . . . . . . . . . . . .  B ADDR   00D8H.2 A   
+CCF3. . . . . . . . . . . . . . .  B ADDR   00D8H.3 A   
+CCF4. . . . . . . . . . . . . . .  B ADDR   00D8H.4 A   
+CF. . . . . . . . . . . . . . . .  B ADDR   00D8H.7 A   
+CHECK_DIGITS. . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?CHECK_DIGITS?GUESSING_GAME
+CKCON . . . . . . . . . . . . . .  D ADDR   008EH   A   
+CORRECT . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?CORRECT?GUESSING_GAME
+CPRL2 . . . . . . . . . . . . . .  B ADDR   00C8H.0 A   
+CPT0CN. . . . . . . . . . . . . .  D ADDR   009EH   A   
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    24
+
+CPT1CN. . . . . . . . . . . . . .  D ADDR   009FH   A   
+CR. . . . . . . . . . . . . . . .  B ADDR   00D8H.6 A   
+CT2 . . . . . . . . . . . . . . .  B ADDR   00C8H.1 A   
+CY. . . . . . . . . . . . . . . .  B ADDR   00D0H.7 A   
+D0. . . . . . . . . . . . . . . .  B ADDR   0080H.0 A   
+D1. . . . . . . . . . . . . . . .  B ADDR   0080H.1 A   
+D2. . . . . . . . . . . . . . . .  B ADDR   0080H.2 A   
+D3. . . . . . . . . . . . . . . .  B ADDR   0080H.3 A   
+D4. . . . . . . . . . . . . . . .  B ADDR   0080H.4 A   
+D5. . . . . . . . . . . . . . . .  B ADDR   0080H.5 A   
+D6. . . . . . . . . . . . . . . .  B ADDR   0080H.6 A   
+D7. . . . . . . . . . . . . . . .  B ADDR   0080H.7 A   
+DAC0CN. . . . . . . . . . . . . .  D ADDR   00D4H   A   
+DAC0H . . . . . . . . . . . . . .  D ADDR   00D3H   A   
+DAC0L . . . . . . . . . . . . . .  D ADDR   00D2H   A   
+DAC1CN. . . . . . . . . . . . . .  D ADDR   00D7H   A   
+DAC1H . . . . . . . . . . . . . .  D ADDR   00D6H   A   
+DAC1L . . . . . . . . . . . . . .  D ADDR   00D5H   A   
+DIGITS. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?CO?GUESSING_GAME
+DISPLAY_ACKNOWLEDGEMENT . . . . .  C ADDR   -----       EXT
+DISPLAY_BEGIN_SELECT. . . . . . .  C ADDR   -----       EXT
+DISPLAY_BITS_SELECT . . . . . . .  C ADDR   -----       EXT
+DISPLAY_CORRECT . . . . . . . . .  C ADDR   -----       EXT
+DISPLAY_ERROR . . . . . . . . . .  C ADDR   -----       EXT
+DISPLAY_GUSSING_GAME. . . . . . .  C ADDR   -----       EXT
+DISPLAY_INPUT . . . . . . . . . .  C ADDR   -----       EXT
+DISPLAY_LOSE. . . . . . . . . . .  C ADDR   -----       EXT
+DISPLAY_MAIN_MENU . . . . . . . .  C ADDR   -----       EXT
+DISPLAY_MODE_SELECT . . . . . . .  C ADDR   -----       EXT
+DISPLAY_RANDOM_DIGITS . . . . . .  C ADDR   -----       EXT
+DISPLAY_TIME. . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?GUESSING_GAME
+DISPLAY_TIME_SELECT . . . . . . .  C ADDR   -----       EXT
+DISPLAY_WIN . . . . . . . . . . .  C ADDR   -----       EXT
+DPH . . . . . . . . . . . . . . .  D ADDR   0083H   A   
+DPL . . . . . . . . . . . . . . .  D ADDR   0082H   A   
+EA. . . . . . . . . . . . . . . .  B ADDR   00A8H.7 A   
+EIE1. . . . . . . . . . . . . . .  D ADDR   00E6H   A   
+EIE2. . . . . . . . . . . . . . .  D ADDR   00E7H   A   
+EIP1. . . . . . . . . . . . . . .  D ADDR   00F6H   A   
+EIP2. . . . . . . . . . . . . . .  D ADDR   00F7H   A   
+EMI0CF. . . . . . . . . . . . . .  D ADDR   00A3H   A   
+EMI0CN. . . . . . . . . . . . . .  D ADDR   00AFH   A   
+EMI0TC. . . . . . . . . . . . . .  D ADDR   00A1H   A   
+ENSMB . . . . . . . . . . . . . .  B ADDR   00C0H.6 A   
+ERROR . . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?ERROR?GUESSING_GAME
+ES0 . . . . . . . . . . . . . . .  B ADDR   00A8H.4 A   
+ET0 . . . . . . . . . . . . . . .  B ADDR   00A8H.1 A   
+ET1 . . . . . . . . . . . . . . .  B ADDR   00A8H.3 A   
+ET2 . . . . . . . . . . . . . . .  B ADDR   00A8H.5 A   
+EX0 . . . . . . . . . . . . . . .  B ADDR   00A8H.0 A   
+EX1 . . . . . . . . . . . . . . .  B ADDR   00A8H.2 A   
+EXEN2 . . . . . . . . . . . . . .  B ADDR   00C8H.3 A   
+EXF2. . . . . . . . . . . . . . .  B ADDR   00C8H.6 A   
+F0. . . . . . . . . . . . . . . .  B ADDR   00D0H.5 A   
+F1. . . . . . . . . . . . . . . .  B ADDR   00D0H.1 A   
+FLACL . . . . . . . . . . . . . .  D ADDR   00B7H   A   
+FLSCL . . . . . . . . . . . . . .  D ADDR   00B6H   A   
+F_OR_E. . . . . . . . . . . . . .  C ADDR   -----       EXT
+GAMES . . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?GAMES?GUESSING_GAME
+GUESSING_GAME . . . . . . . . . .  N NUMB   -----       
+GUESS_ONCE. . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?GUESS_ONCE?GUESSING_GAME
+GUESS_ONE_LEVEL . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?GUESS_ONE_LEVEL?GUESSING_GAME
+GUSSING_GAME. . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?GUSSING_GAME?GUESSING_GAME
+I?1049. . . . . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?MODE1?GUESSING_GAME
+IE. . . . . . . . . . . . . . . .  D ADDR   00A8H   A   
+IE0 . . . . . . . . . . . . . . .  B ADDR   0088H.1 A   
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    25
+
+IE1 . . . . . . . . . . . . . . .  B ADDR   0088H.3 A   
+INPUTS. . . . . . . . . . . . . .  X ADDR   -----       EXT
+INPUT_BITS. . . . . . . . . . . .  C ADDR   -----       EXT
+INPUT_DIGITS. . . . . . . . . . .  C ADDR   -----       EXT
+INPUT_DISPLAY_TIME. . . . . . . .  C ADDR   -----       EXT
+IP. . . . . . . . . . . . . . . .  D ADDR   00B8H   A   
+IT0 . . . . . . . . . . . . . . .  B ADDR   0088H.0 A   
+IT1 . . . . . . . . . . . . . . .  B ADDR   0088H.2 A   
+KSCAN . . . . . . . . . . . . . .  C ADDR   -----       EXT
+LCD_EN. . . . . . . . . . . . . .  B ADDR   00A0H.7 A   
+LCD_RS. . . . . . . . . . . . . .  B ADDR   00A0H.5 A   
+LCD_RW. . . . . . . . . . . . . .  B ADDR   00A0H.6 A   
+LEVEL_BITS. . . . . . . . . . . .  X ADDR   0014H   R   SEG=?XD?GUESSING_GAME
+LEVEL_DISPLAY_TIME. . . . . . . .  X ADDR   0000H   R   SEG=?XD?GUESSING_GAME
+LOSE. . . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?LOSE?GUESSING_GAME
+MAIN_MENU . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?MAIN_MENU?GUESSING_GAME
+MODE1 . . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?MODE1?GUESSING_GAME
+MODE2 . . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?MODE2?GUESSING_GAME
+MODE3 . . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?MODE3?GUESSING_GAME
+MODE_SELECT . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?MODE_SELECT?GUESSING_GAME
+MODF. . . . . . . . . . . . . . .  B ADDR   00F8H.5 A   
+MSTEN . . . . . . . . . . . . . .  B ADDR   00F8H.1 A   
+OSCICN. . . . . . . . . . . . . .  D ADDR   00B2H   A   
+OSCXCN. . . . . . . . . . . . . .  D ADDR   00B1H   A   
+OV. . . . . . . . . . . . . . . .  B ADDR   00D0H.2 A   
+P . . . . . . . . . . . . . . . .  B ADDR   00D0H.0 A   
+P0. . . . . . . . . . . . . . . .  D ADDR   0080H   A   
+P0MDOUT . . . . . . . . . . . . .  D ADDR   00A4H   A   
+P1. . . . . . . . . . . . . . . .  D ADDR   0090H   A   
+P1MDIN. . . . . . . . . . . . . .  D ADDR   00BDH   A   
+P1MDOUT . . . . . . . . . . . . .  D ADDR   00A5H   A   
+P2. . . . . . . . . . . . . . . .  D ADDR   00A0H   A   
+P2MDOUT . . . . . . . . . . . . .  D ADDR   00A6H   A   
+P3. . . . . . . . . . . . . . . .  D ADDR   00B0H   A   
+P3IF. . . . . . . . . . . . . . .  D ADDR   00ADH   A   
+P3MDOUT . . . . . . . . . . . . .  D ADDR   00A7H   A   
+P4. . . . . . . . . . . . . . . .  D ADDR   0084H   A   
+P5. . . . . . . . . . . . . . . .  D ADDR   0085H   A   
+P6. . . . . . . . . . . . . . . .  D ADDR   0086H   A   
+P7. . . . . . . . . . . . . . . .  D ADDR   0096H   A   
+P74OUT. . . . . . . . . . . . . .  D ADDR   00B5H   A   
+PCA0CN. . . . . . . . . . . . . .  D ADDR   00D8H   A   
+PCA0CPH0. . . . . . . . . . . . .  D ADDR   00FAH   A   
+PCA0CPH1. . . . . . . . . . . . .  D ADDR   00FBH   A   
+PCA0CPH2. . . . . . . . . . . . .  D ADDR   00FCH   A   
+PCA0CPH3. . . . . . . . . . . . .  D ADDR   00FDH   A   
+PCA0CPH4. . . . . . . . . . . . .  D ADDR   00FEH   A   
+PCA0CPL0. . . . . . . . . . . . .  D ADDR   00EAH   A   
+PCA0CPL1. . . . . . . . . . . . .  D ADDR   00EBH   A   
+PCA0CPL2. . . . . . . . . . . . .  D ADDR   00ECH   A   
+PCA0CPL3. . . . . . . . . . . . .  D ADDR   00EDH   A   
+PCA0CPL4. . . . . . . . . . . . .  D ADDR   00EEH   A   
+PCA0CPM0. . . . . . . . . . . . .  D ADDR   00DAH   A   
+PCA0CPM1. . . . . . . . . . . . .  D ADDR   00DBH   A   
+PCA0CPM2. . . . . . . . . . . . .  D ADDR   00DCH   A   
+PCA0CPM3. . . . . . . . . . . . .  D ADDR   00DDH   A   
+PCA0CPM4. . . . . . . . . . . . .  D ADDR   00DEH   A   
+PCA0H . . . . . . . . . . . . . .  D ADDR   00F9H   A   
+PCA0L . . . . . . . . . . . . . .  D ADDR   00E9H   A   
+PCA0MD. . . . . . . . . . . . . .  D ADDR   00D9H   A   
+PCON. . . . . . . . . . . . . . .  D ADDR   0087H   A   
+PS. . . . . . . . . . . . . . . .  B ADDR   00B8H.4 A   
+PSCTL . . . . . . . . . . . . . .  D ADDR   008FH   A   
+PSW . . . . . . . . . . . . . . .  D ADDR   00D0H   A   
+PT0 . . . . . . . . . . . . . . .  B ADDR   00B8H.1 A   
+PT1 . . . . . . . . . . . . . . .  B ADDR   00B8H.3 A   
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    26
+
+PT2 . . . . . . . . . . . . . . .  B ADDR   00B8H.5 A   
+PX0 . . . . . . . . . . . . . . .  B ADDR   00B8H.0 A   
+PX1 . . . . . . . . . . . . . . .  B ADDR   00B8H.2 A   
+RAND. . . . . . . . . . . . . . .  C ADDR   -----       EXT
+RANDOM_DIGITS . . . . . . . . . .  X ADDR   001EH   R   SEG=?XD?GUESSING_GAME
+RB80. . . . . . . . . . . . . . .  B ADDR   0098H.2 A   
+RCAP2H. . . . . . . . . . . . . .  D ADDR   00CBH   A   
+RCAP2L. . . . . . . . . . . . . .  D ADDR   00CAH   A   
+RCAP4H. . . . . . . . . . . . . .  D ADDR   00E5H   A   
+RCAP4L. . . . . . . . . . . . . .  D ADDR   00E4H   A   
+RCLK0 . . . . . . . . . . . . . .  B ADDR   00C8H.5 A   
+REF0CN. . . . . . . . . . . . . .  D ADDR   00D1H   A   
+REN0. . . . . . . . . . . . . . .  B ADDR   0098H.4 A   
+RI0 . . . . . . . . . . . . . . .  B ADDR   0098H.0 A   
+RS0 . . . . . . . . . . . . . . .  B ADDR   00D0H.3 A   
+RS1 . . . . . . . . . . . . . . .  B ADDR   00D0H.4 A   
+RSTSRC. . . . . . . . . . . . . .  D ADDR   00EFH   A   
+RXOVRN. . . . . . . . . . . . . .  B ADDR   00F8H.4 A   
+SADDR0. . . . . . . . . . . . . .  D ADDR   00A9H   A   
+SADDR1. . . . . . . . . . . . . .  D ADDR   00F3H   A   
+SADEN0. . . . . . . . . . . . . .  D ADDR   00B9H   A   
+SADEN1. . . . . . . . . . . . . .  D ADDR   00AEH   A   
+SBUF0 . . . . . . . . . . . . . .  D ADDR   0099H   A   
+SBUF1 . . . . . . . . . . . . . .  D ADDR   00F2H   A   
+SCON0 . . . . . . . . . . . . . .  D ADDR   0098H   A   
+SCON1 . . . . . . . . . . . . . .  D ADDR   00F1H   A   
+SI. . . . . . . . . . . . . . . .  B ADDR   00C0H.3 A   
+SLVSEL. . . . . . . . . . . . . .  B ADDR   00F8H.2 A   
+SM00. . . . . . . . . . . . . . .  B ADDR   0098H.7 A   
+SM10. . . . . . . . . . . . . . .  B ADDR   0098H.6 A   
+SM20. . . . . . . . . . . . . . .  B ADDR   0098H.5 A   
+SMB0ADR . . . . . . . . . . . . .  D ADDR   00C3H   A   
+SMB0CN. . . . . . . . . . . . . .  D ADDR   00C0H   A   
+SMB0CR. . . . . . . . . . . . . .  D ADDR   00CFH   A   
+SMB0DAT . . . . . . . . . . . . .  D ADDR   00C2H   A   
+SMB0STA . . . . . . . . . . . . .  D ADDR   00C1H   A   
+SMBFTE. . . . . . . . . . . . . .  B ADDR   00C0H.1 A   
+SMBTOE. . . . . . . . . . . . . .  B ADDR   00C0H.0 A   
+SP. . . . . . . . . . . . . . . .  D ADDR   0081H   A   
+SPI0CFG . . . . . . . . . . . . .  D ADDR   009AH   A   
+SPI0CKR . . . . . . . . . . . . .  D ADDR   009DH   A   
+SPI0CN. . . . . . . . . . . . . .  D ADDR   00F8H   A   
+SPI0DAT . . . . . . . . . . . . .  D ADDR   009BH   A   
+SPIEN . . . . . . . . . . . . . .  B ADDR   00F8H.0 A   
+SPIF. . . . . . . . . . . . . . .  B ADDR   00F8H.7 A   
+STA . . . . . . . . . . . . . . .  B ADDR   00C0H.5 A   
+STATE?1050. . . . . . . . . . . .  D ADDR   0001H   R   SEG=?DT?MODE1?GUESSING_GAME
+STATE?543 . . . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?GUESS_ONCE?GUESSING_GAME
+STO . . . . . . . . . . . . . . .  B ADDR   00C0H.4 A   
+T2CON . . . . . . . . . . . . . .  D ADDR   00C8H   A   
+T4CON . . . . . . . . . . . . . .  D ADDR   00C9H   A   
+TB80. . . . . . . . . . . . . . .  B ADDR   0098H.3 A   
+TCLK0 . . . . . . . . . . . . . .  B ADDR   00C8H.4 A   
+TCON. . . . . . . . . . . . . . .  D ADDR   0088H   A   
+TEMP?542. . . . . . . . . . . . .  B ADDR   0000H.1 R   SEG=?BI?GUESS_ONCE?GUESSING_GAME
+TF0 . . . . . . . . . . . . . . .  B ADDR   0088H.5 A   
+TF1 . . . . . . . . . . . . . . .  B ADDR   0088H.7 A   
+TF2 . . . . . . . . . . . . . . .  B ADDR   00C8H.7 A   
+TH0 . . . . . . . . . . . . . . .  D ADDR   008CH   A   
+TH1 . . . . . . . . . . . . . . .  D ADDR   008DH   A   
+TH2 . . . . . . . . . . . . . . .  D ADDR   00CDH   A   
+TH4 . . . . . . . . . . . . . . .  D ADDR   00F5H   A   
+TI0 . . . . . . . . . . . . . . .  B ADDR   0098H.1 A   
+TL0 . . . . . . . . . . . . . . .  D ADDR   008AH   A   
+TL1 . . . . . . . . . . . . . . .  D ADDR   008BH   A   
+TL2 . . . . . . . . . . . . . . .  D ADDR   00CCH   A   
+A51 MACRO ASSEMBLER  GUESSING_GAME                                                        12/22/2023 22:57:54 PAGE    27
+
+TL4 . . . . . . . . . . . . . . .  D ADDR   00F4H   A   
+TMOD. . . . . . . . . . . . . . .  D ADDR   0089H   A   
+TMR3CN. . . . . . . . . . . . . .  D ADDR   0091H   A   
+TMR3H . . . . . . . . . . . . . .  D ADDR   0095H   A   
+TMR3L . . . . . . . . . . . . . .  D ADDR   0094H   A   
+TMR3RLH . . . . . . . . . . . . .  D ADDR   0093H   A   
+TMR3RLL . . . . . . . . . . . . .  D ADDR   0092H   A   
+TR0 . . . . . . . . . . . . . . .  B ADDR   0088H.4 A   
+TR1 . . . . . . . . . . . . . . .  B ADDR   0088H.6 A   
+TR2 . . . . . . . . . . . . . . .  B ADDR   00C8H.2 A   
+TXBSY . . . . . . . . . . . . . .  B ADDR   00F8H.3 A   
+WCOL. . . . . . . . . . . . . . .  B ADDR   00F8H.6 A   
+WDTCN . . . . . . . . . . . . . .  D ADDR   00FFH   A   
+WIN . . . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?WIN?GUESSING_GAME
+XBR0. . . . . . . . . . . . . . .  D ADDR   00E1H   A   
+XBR1. . . . . . . . . . . . . . .  D ADDR   00E2H   A   
+XBR2. . . . . . . . . . . . . . .  D ADDR   00E3H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

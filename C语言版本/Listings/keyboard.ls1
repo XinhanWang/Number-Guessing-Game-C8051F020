@@ -1,0 +1,2311 @@
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\keyboard.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE .\Objects\keyboard.src PR(.\Listings\keyboard.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\Objects\keyboard.SRC generated from: keyboard.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        C:\Keil_v5\C51\BIN\C51.EXE keyboard.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND 
+                             PRINT(.\Listings\keyboard.lst) TABS(2) SRC(.\Objects\keyboard.SRC)
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    KEYBOARD
+                       8     
+  00DA                 9     CCF2    BIT     0D8H.2
+  009B                10     TB80    BIT     098H.3
+  009D                11     SPI0CKR DATA    09DH
+  00DB                12     CCF3    BIT     0D8H.3
+  0080                13     P0      DATA    080H
+  00F8                14     SPIEN   BIT     0F8H.0
+  00DC                15     CCF4    BIT     0D8H.4
+  009F                16     SM00    BIT     098H.7
+  0090                17     P1      DATA    090H
+  00C2                18     AA      BIT     0C0H.2
+  009E                19     SM10    BIT     098H.6
+  00FF                20     WDTCN   DATA    0FFH
+  00A0                21     P2      DATA    0A0H
+  009D                22     SM20    BIT     098H.5
+  00BC                23     ADC0CF  DATA    0BCH
+  00B0                24     P3      DATA    0B0H
+  00D6                25     AC      BIT     0D0H.6
+  00AB                26     ADC1CF  DATA    0ABH
+  0084                27     P4      DATA    084H
+  00E6                28     EIE1    DATA    0E6H
+  0085                29     P5      DATA    085H
+  00AF                30     EA      BIT     0A8H.7
+  00E7                31     EIE2    DATA    0E7H
+  0086                32     P6      DATA    086H
+  0096                33     P7      DATA    096H
+  008F                34     PSCTL   DATA    08FH
+  00F9                35     MSTEN   BIT     0F8H.1
+  00DF                36     CF      BIT     0D8H.7
+  00E8                37     ADC0CN  DATA    0E8H
+  00D4                38     DAC0CN  DATA    0D4H
+  00D7                39     DAC1CN  DATA    0D7H
+  00AA                40     ADC1CN  DATA    0AAH
+  00A4                41     P0MDOUT DATA    0A4H
+  00A5                42     P1MDOUT DATA    0A5H
+  00A8                43     IE      DATA    0A8H
+  00A6                44     P2MDOUT DATA    0A6H
+  00A7                45     P3MDOUT DATA    0A7H
+  0093                46     TMR3RLH DATA    093H
+  00F6                47     EIP1    DATA    0F6H
+  00F7                48     EIP2    DATA    0F7H
+  00FA                49     PCA0CPH0        DATA    0FAH
+  00FB                50     PCA0CPH1        DATA    0FBH
+  00AD                51     P3IF    DATA    0ADH
+  0092                52     TMR3RLL DATA    092H
+  00FC                53     PCA0CPH2        DATA    0FCH
+  00DE                54     CR      BIT     0D8H.6
+  00FD                55     PCA0CPH3        DATA    0FDH
+  00CE                56     EXF2    BIT     0C8H.6
+  009C                57     REN0    BIT     098H.4
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE     2
+
+  00FE                58     PCA0CPH4        DATA    0FEH
+  00EA                59     PCA0CPL0        DATA    0EAH
+  00A3                60     EMI0CF  DATA    0A3H
+  00EB                61     PCA0CPL1        DATA    0EBH
+  00DA                62     PCA0CPM0        DATA    0DAH
+  00D9                63     PCA0MD  DATA    0D9H
+  00D8                64     PCA0CN  DATA    0D8H
+  00EC                65     PCA0CPL2        DATA    0ECH
+  00DB                66     PCA0CPM1        DATA    0DBH
+  00ED                67     PCA0CPL3        DATA    0EDH
+  00DC                68     PCA0CPM2        DATA    0DCH
+  00B8                69     IP      DATA    0B8H
+  00EE                70     PCA0CPL4        DATA    0EEH
+  00DD                71     PCA0CPM3        DATA    0DDH
+  00DE                72     PCA0CPM4        DATA    0DEH
+  00FB                73     TXBSY   BIT     0F8H.3
+  00D7                74     CY      BIT     0D0H.7
+  00C3                75     SI      BIT     0C0H.3
+  00E1                76     XBR0    DATA    0E1H
+  00B9                77     SADEN0  DATA    0B9H
+  00E2                78     XBR1    DATA    0E2H
+  00AF                79     EMI0CN  DATA    0AFH
+  00AE                80     SADEN1  DATA    0AEH
+  00E3                81     XBR2    DATA    0E3H
+  00D1                82     REF0CN  DATA    0D1H
+  00A9                83     SADDR0  DATA    0A9H
+  00F3                84     SADDR1  DATA    0F3H
+  00BA                85     AMX0CF  DATA    0BAH
+  00ED                86     AD0INT  BIT     0E8H.5
+  00CB                87     RCAP2H  DATA    0CBH
+  00BC                88     PS      BIT     0B8H.4
+  0081                89     SP      DATA    081H
+  00E5                90     RCAP4H  DATA    0E5H
+  00A1                91     EMI0TC  DATA    0A1H
+  00D2                92     OV      BIT     0D0H.2
+  00C0                93     SMB0CN  DATA    0C0H
+  00CA                94     RCAP2L  DATA    0CAH
+  00FD                95     MODF    BIT     0F8H.5
+  00E4                96     RCAP4L  DATA    0E4H
+  00CF                97     SMB0CR  DATA    0CFH
+  009E                98     CPT0CN  DATA    09EH
+  00BD                99     P1MDIN  DATA    0BDH
+  009F               100     CPT1CN  DATA    09FH
+  00F8               101     SPI0CN  DATA    0F8H
+  0087               102     PCON    DATA    087H
+  00FF               103     SPIF    BIT     0F8H.7
+  00B5               104     P74OUT  DATA    0B5H
+  0089               105     TMOD    DATA    089H
+  0088               106     TCON    DATA    088H
+  00FE               107     WCOL    BIT     0F8H.6
+  00BB               108     AMX0SL  DATA    0BBH
+  00AC               109     AMX1SL  DATA    0ACH
+  0091               110     TMR3CN  DATA    091H
+  0089               111     IE0     BIT     088H.1
+  008B               112     IE1     BIT     088H.3
+  00F0               113     B       DATA    0F0H
+  00D3               114     DAC0H   DATA    0D3H
+  00BF               115     ADC0H   DATA    0BFH
+  00B2               116     OSCICN  DATA    0B2H
+  00D6               117     DAC1H   DATA    0D6H
+  00C1               118     SMBFTE  BIT     0C0H.1
+  00C7               119     BUSY    BIT     0C0H.7
+  00D2               120     DAC0L   DATA    0D2H
+  00BE               121     ADC0L   DATA    0BEH
+  00D5               122     DAC1L   DATA    0D5H
+  00A7               123     LCD_EN  BIT     0A0H.7
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE     3
+
+  00E0               124     ACC     DATA    0E0H
+  00AC               125     ES0     BIT     0A8H.4
+  00EF               126     AD0EN   BIT     0E8H.7
+  00C9               127     CT2     BIT     0C8H.1
+  00A9               128     ET0     BIT     0A8H.1
+  00AB               129     ET1     BIT     0A8H.3
+  008D               130     TF0     BIT     088H.5
+  00AD               131     ET2     BIT     0A8H.5
+  0098               132     RI0     BIT     098H.0
+  008F               133     TF1     BIT     088H.7
+  00CF               134     TF2     BIT     0C8H.7
+  00C0               135     SMBTOE  BIT     0C0H.0
+  008C               136     TH0     DATA    08CH
+  00A8               137     EX0     BIT     0A8H.0
+  0099               138     TI0     BIT     098H.1
+  0088               139     IT0     BIT     088H.0
+  00F9               140     PCA0H   DATA    0F9H
+  008D               141     TH1     DATA    08DH
+  00AA               142     EX1     BIT     0A8H.2
+  008A               143     IT1     BIT     088H.2
+  00CD               144     TH2     DATA    0CDH
+  00D0               145     P       BIT     0D0H.0
+  00F5               146     TH4     DATA    0F5H
+  00B1               147     OSCXCN  DATA    0B1H
+  008A               148     TL0     DATA    08AH
+  00E9               149     PCA0L   DATA    0E9H
+  008B               150     TL1     DATA    08BH
+  00CC               151     TL2     DATA    0CCH
+  00B9               152     PT0     BIT     0B8H.1
+  00F4               153     TL4     DATA    0F4H
+  00D3               154     RS0     BIT     0D0H.3
+  00BB               155     PT1     BIT     0B8H.3
+  00D4               156     RS1     BIT     0D0H.4
+  00BD               157     PT2     BIT     0B8H.5
+  008C               158     TR0     BIT     088H.4
+  00EE               159     AD0TM   BIT     0E8H.6
+  008E               160     TR1     BIT     088H.6
+  00CA               161     TR2     BIT     0C8H.2
+  00B8               162     PX0     BIT     0B8H.0
+  00A5               163     LCD_RS  BIT     0A0H.5
+  00BA               164     PX1     BIT     0B8H.2
+  00FA               165     SLVSEL  BIT     0F8H.2
+  0083               166     DPH     DATA    083H
+  00A6               167     LCD_RW  BIT     0A0H.6
+  00CD               168     RCLK0   BIT     0C8H.5
+  00C5               169     ADC0GTH DATA    0C5H
+  00CC               170     TCLK0   BIT     0C8H.4
+  0082               171     DPL     DATA    082H
+  00C4               172     ADC0GTL DATA    0C4H
+  0099               173     SBUF0   DATA    099H
+  00F2               174     SBUF1   DATA    0F2H
+  00C7               175     ADC0LTH DATA    0C7H
+  00CB               176     EXEN2   BIT     0C8H.3
+  00EF               177     RSTSRC  DATA    0EFH
+  00B7               178     FLACL   DATA    0B7H
+  00C8               179     CPRL2   BIT     0C8H.0
+  0098               180     SCON0   DATA    098H
+  00F1               181     SCON1   DATA    0F1H
+  00C6               182     ADC0LTL DATA    0C6H
+  00C8               183     T2CON   DATA    0C8H
+  00C5               184     STA     BIT     0C0H.5
+  00C9               185     T4CON   DATA    0C9H
+  00C3               186     SMB0ADR DATA    0C3H
+  00C2               187     SMB0DAT DATA    0C2H
+  009A               188     SPI0CFG DATA    09AH
+  0095               189     TMR3H   DATA    095H
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE     4
+
+  008E               190     CKCON   DATA    08EH
+  00FC               191     RXOVRN  BIT     0F8H.4
+  0080               192     D0      BIT     080H.0
+  0094               193     TMR3L   DATA    094H
+  0081               194     D1      BIT     080H.1
+  00E8               195     AD0LJST BIT     0E8H.0
+  0082               196     D2      BIT     080H.2
+  00D5               197     F0      BIT     0D0H.5
+  00B6               198     FLSCL   DATA    0B6H
+  0083               199     D3      BIT     080H.3
+  00EA               200     AD0CM0  BIT     0E8H.2
+  00D1               201     F1      BIT     0D0H.1
+  00C4               202     STO     BIT     0C0H.4
+  00C6               203     ENSMB   BIT     0C0H.6
+  0084               204     D4      BIT     080H.4
+  00EB               205     AD0CM1  BIT     0E8H.3
+  009B               206     SPI0DAT DATA    09BH
+  0085               207     D5      BIT     080H.5
+  0086               208     D6      BIT     080H.6
+  00E9               209     AD0WINT BIT     0E8H.1
+  009C               210     ADC1    DATA    09CH
+  0087               211     D7      BIT     080H.7
+  00EC               212     AD0BUSY BIT     0E8H.4
+  00D0               213     PSW     DATA    0D0H
+  00D8               214     CCF0    BIT     0D8H.0
+  009A               215     RB80    BIT     098H.2
+  00C1               216     SMB0STA DATA    0C1H
+  00D9               217     CCF1    BIT     0D8H.1
+                     218     ?PR?kscan?KEYBOARD   SEGMENT CODE 
+                     219     ?DT?kscan?KEYBOARD   SEGMENT DATA OVERLAYABLE 
+                     220     ?PR?f_or_e?KEYBOARD  SEGMENT CODE 
+                     221     ?PR?input_digits?KEYBOARD                SEGMENT CODE 
+                     222     ?DT?input_digits?KEYBOARD                SEGMENT DATA OVERLAYABLE 
+                     223     ?BI?input_digits?KEYBOARD                SEGMENT BIT OVERLAYABLE 
+                     224     ?PR?input_bits?KEYBOARD                  SEGMENT CODE 
+                     225     ?DT?input_bits?KEYBOARD                  SEGMENT DATA OVERLAYABLE 
+                     226     ?BI?input_bits?KEYBOARD                  SEGMENT BIT OVERLAYABLE 
+                     227     ?PR?input_display_time?KEYBOARD          SEGMENT CODE 
+                     228     ?DT?input_display_time?KEYBOARD          SEGMENT DATA OVERLAYABLE 
+                     229     ?BI?input_display_time?KEYBOARD          SEGMENT BIT OVERLAYABLE 
+                     230     ?PR?wait_input?KEYBOARD                  SEGMENT CODE 
+                     231     ?BI?wait_input?KEYBOARD                  SEGMENT BIT OVERLAYABLE 
+                     232     ?PR?wrong_input_bits?KEYBOARD            SEGMENT CODE 
+                     233     ?PR?wrong_display_time?KEYBOARD          SEGMENT CODE 
+                     234     ?CO?KEYBOARD         SEGMENT CODE 
+                     235     ?XD?KEYBOARD         SEGMENT XDATA 
+                     236             EXTRN   CODE (digits)
+                     237             EXTRN   CODE (clear)
+                     238             EXTRN   DATA (display_time)
+                     239             EXTRN   CODE (display_wrong_input_display_time)
+                     240             EXTRN   CODE (_print_char)
+                     241             EXTRN   DATA (bits)
+                     242             EXTRN   CODE (display_wrong_input_bits)
+                     243             EXTRN   CODE (_delay_ms)
+                     244             EXTRN   CODE (?C?CCASE)
+                     245             EXTRN   CODE (?C?COPY)
+                     246             EXTRN   CODE (?C?LMUL)
+                     247             EXTRN   CODE (?C?ULCMP)
+                     248             PUBLIC  inputs
+                     249             PUBLIC  wrong_display_time
+                     250             PUBLIC  wrong_input_bits
+                     251             PUBLIC  wait_input
+                     252             PUBLIC  input_display_time
+                     253             PUBLIC  input_bits
+                     254             PUBLIC  input_digits
+                     255             PUBLIC  f_or_e
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE     5
+
+                     256             PUBLIC  kscan
+                     257     
+----                 258             RSEG  ?DT?kscan?KEYBOARD
+0000                 259     ?kscan?BYTE:
+0000                 260            keyl?041:   DS   1
+0001                 261             ORG  1
+0001                 262            temp?043:   DS   1
+                     263     
+----                 264             RSEG  ?DT?input_digits?KEYBOARD
+0000                 265     ?input_digits?BYTE:
+0000                 266               i?245:   DS   1
+0001                 267             ORG  1
+0001                 268           digit?246:   DS   1
+                     269     
+----                 270             RSEG  ?BI?input_digits?KEYBOARD
+0000                 271     ?input_digits?BIT:
+0000                 272           state?247:   DBIT   1
+                     273     
+----                 274             RSEG  ?DT?input_display_time?KEYBOARD
+0000                 275     ?input_display_time?BYTE:
+0000                 276               i?452:   DS   1
+0001                 277             ORG  1
+0001                 278               j?453:   DS   1
+0002                 279             ORG  2
+0002                 280           digit?454:   DS   1
+0003                 281             ORG  3
+0003                 282               a?455:   DS   5
+0008                 283             ORG  8
+0008                 284            temp?456:   DS   4
+                     285     
+----                 286             RSEG  ?BI?input_display_time?KEYBOARD
+0000                 287     ?input_display_time?BIT:
+0000                 288           state?457:   DBIT   1
+                     289     
+----                 290             RSEG  ?DT?input_bits?KEYBOARD
+0000                 291     ?input_bits?BYTE:
+0000                 292               i?348:   DS   1
+0001                 293             ORG  1
+0001                 294           digit?349:   DS   1
+0002                 295             ORG  2
+0002                 296               a?350:   DS   2
+                     297     
+----                 298             RSEG  ?BI?input_bits?KEYBOARD
+0000                 299     ?input_bits?BIT:
+0000                 300           state?351:   DBIT   1
+                     301     
+----                 302             RSEG  ?BI?wait_input?KEYBOARD
+0000                 303     ?wait_input?BIT:
+0000                 304           state?558:   DBIT   1
+                     305     
+----                 306             RSEG  ?XD?KEYBOARD
+0000                 307              inputs:   DS   64
+                     308     
+----                 309             RSEG  ?CO?KEYBOARD
+0000                 310     _?ix1000:
+0000 00              311             DB      000H
+0001 00              312             DB  000H
+                     313     
+                     314     
+0002                 315     _?ix1001:
+0002 00              316             DB      000H
+0003 00000000        317             DB  000H,000H,000H,000H
+                     318     
+                     319     
+                     320     ; /*
+                     321     ;  * @Author: ÍõÐÄå«
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE     6
+
+                     322     ;  * @Date: 2023-11-23 22:02:43
+                     323     ;  * @LastEditors: ÍõÐÄå«
+                     324     ;  * @LastEditTime: 2023-12-22 22:53:18
+                     325     ;  * @FilePath: \undefinedc:\Users\u2021\Desktop\×ÊÁÏ\´óÈ\µ¥Æ¬»ú\ÊµÑé\Ìá¸ßÊµÑé\CÓïÑÔ°æ±¾\ke
+                             yboard.c
+                     326     ;  * @Description: ¼üÅÌ´¦ÀíÍ·ÎÄ¼þ£¬°üº¬¼üÅÌ¼ì²â¡¢Ê¾ÝÊäÈëÏà¹Øº¯Ê
+                     327     ;  * 
+                     328     ;  * Copyright (c) 2023 by ${ÍõÐÄå«}, All Rights Reserved. 
+                     329     ;  */
+                     330     ; //°üº¬¼üÅÌÏà¹ØµÄÍ·ÎÄ¼þ
+                     331     ; #include "keyboard.h"
+                     332     ; //¶¨ÒåÒ»¸ö³¤¶ÈÎª64µÄÎÞ·ûºÅ×Ö·ûÊ×é£¬ÓÃÓÚ´æ´¢ÊäÈëµÄÊ×Ö
+                     333     ; unsigned char xdata inputs[64];
+                     334     ; //¶¨ÒåÒ»¸öº¯Ê£¬ÓÃÓÚÉ¨Ãè¼üÅÌ°´¼ü£¬²¢·µ»Ø°´¼ü¶ÔÓ¦µÄÖµ
+                     335     ; unsigned char kscan(void)
+                     336     
+----                 337             RSEG  ?PR?kscan?KEYBOARD
+0000                 338     kscan:
+                     339             USING   0
+                     340                             ; SOURCE LINE # 16
+                     341     ; {
+                     342                             ; SOURCE LINE # 17
+                     343     ;       //¶¨ÒåËÄ¸öÎÞ·ûºÅ×Ö·û±äÁ¿£¬ÓÃÓÚ´æ´¢°´¼üµÄ¸ßµÍÎ»¡¢°´¼üÀàÐÍºÍÁÙÊ±Öµ
+                     344     ;       unsigned char data keyh,keyl,keytp,temp;
+                     345     ;       //ÉèÖÃP1¶Ë¿ÚµÄ¸ßËÄÎ»ÎªÍÆÍìÊä³öÄ£Ê½
+                     346     ;       P1MDOUT=0xF0;
+                     347                             ; SOURCE LINE # 21
+0000 75A5F0          348             MOV     P1MDOUT,#0F0H
+                     349     ;       //ÉèÖÃP1¶Ë¿ÚµÄµÍËÄÎ»Îª¸ßµçÆ½£¬×öÊäÈë
+                     350     ;       P1=0X0F; 
+                     351                             ; SOURCE LINE # 23
+0003 75900F          352             MOV     P1,#0FH
+0006                 353     ?C0001:
+                     354     ;       //ÎÞÏÞÑ­»·£¬Ö±µ½¼ì²âµ½°´¼ü
+                     355     ;       while(1)
+                     356                             ; SOURCE LINE # 25
+                     357     ;       {
+                     358                             ; SOURCE LINE # 26
+                     359     ;       //Èç¹ûP1¶Ë¿ÚµÄµÍËÄÎ»²»È«Îª¸ßµçÆ½£¬ËµÃ÷ÓÐ°´¼ü°´ÏÂ
+                     360     ;       if(P1!=0X0F)
+                     361                             ; SOURCE LINE # 28
+0006 E590            362             MOV     A,P1
+0008 640F            363             XRL     A,#0FH
+000A 60FA            364             JZ      ?C0001
+                     365     ;       {       
+                     366                             ; SOURCE LINE # 29
+                     367     ;               //ÑÓÊ±10ºÁÃë£¬Ïû³¶¶¶¯
+                     368     ;               delay_ms(10);
+                     369                             ; SOURCE LINE # 31
+000C 7F0A            370             MOV     R7,#0AH
+000E 7E00            371             MOV     R6,#00H
+0010 7D00            372             MOV     R5,#00H
+0012 7C00            373             MOV     R4,#00H
+0014 120000   F      374             LCALL   _delay_ms
+                     375     ;               //ÔÙ´Î¼ì²âP1¶Ë¿ÚµÄµÍËÄÎ»£¬Èç¹ûÈÔÈ»²»È«Îª¸ßµçÆ½£¬ËµÃ÷°´¼üÓÐÐ§
+                     376     ;               if(P1!=0x0f)
+                     377                             ; SOURCE LINE # 33
+0017 E590            378             MOV     A,P1
+0019 640F            379             XRL     A,#0FH
+001B 60E9            380             JZ      ?C0001
+                     381     ;               {
+                     382                             ; SOURCE LINE # 34
+                     383     ;                       //½«P1¶Ë¿ÚµÄµÍËÄÎ»¸³Öµ¸økeyl£¬×÷Îª°´¼üµÄµÍÎ»
+                     384     ;                       keyl=P1;
+                     385                             ; SOURCE LINE # 36
+001D 859000   F      386             MOV     keyl?041,P1
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE     7
+
+                     387     ;                       //Ìø³öÑ­»·
+                     388     ;                       break;
+                     389                             ; SOURCE LINE # 38
+                     390     ;               }
+                     391                             ; SOURCE LINE # 39
+                     392     ;       }
+                     393                             ; SOURCE LINE # 40
+                     394     ;       }
+                     395                             ; SOURCE LINE # 41
+                     396     ;               //ÉèÖÃP1¶Ë¿ÚµÄµÍËÄÎ»ÎªÊä³öÄ£Ê½
+                     397     ;               P1MDOUT=0x0F;
+                     398                             ; SOURCE LINE # 43
+0020 75A50F          399             MOV     P1MDOUT,#0FH
+                     400     ;               //ÉèÖÃP1¶Ë¿ÚµÄ¸ßËÄÎ»Îª¸ßµçÆ½£¬×öÊäÈë
+                     401     ;               P1=0xf0;
+                     402                             ; SOURCE LINE # 45
+0023 7590F0          403             MOV     P1,#0F0H
+                     404     ;               //ÑÓÊ±10ºÁÃë£¬Ïû³¶¶¶¯
+                     405     ;               delay_ms(10);
+                     406                             ; SOURCE LINE # 47
+0026 7F0A            407             MOV     R7,#0AH
+0028 7E00            408             MOV     R6,#00H
+002A 7D00            409             MOV     R5,#00H
+002C 7C00            410             MOV     R4,#00H
+002E 120000   F      411             LCALL   _delay_ms
+                     412     ;               //½«P1¶Ë¿ÚµÄ¸ßËÄÎ»¸³Öµ¸økeyh£¬×÷Îª°´¼üµÄ¸ßÎ»
+                     413     ;               keyh=P1;
+                     414                             ; SOURCE LINE # 49
+                     415     ;---- Variable 'keyh?040' assigned to Register 'R7' ----
+0031 AF90            416             MOV     R7,P1
+                     417     ;               //½«°´¼üµÄ¸ßµÍÎ»½øÐÐ»òÔËËã£¬µÃµ½°´¼üÀàÐÍ
+                     418     ;               keytp=keyh|keyl;
+                     419                             ; SOURCE LINE # 51
+0033 E500     F      420             MOV     A,keyl?041
+0035 4F              421             ORL     A,R7
+                     422     ;---- Variable 'keytp?042' assigned to Register 'R7' ----
+                     423     ;               //¸ù¾Ý°´¼üÀàÐÍ£¬ÓÃswitchÓï¾äÅÐ¶Ï°´¼ü¶ÔÓ¦µÄÖµ
+                     424     ;               switch(keytp)
+                     425                             ; SOURCE LINE # 53
+0036 120000   F      426             LCALL   ?C?CCASE
+0039 0000     F      427             DW      ?C0009
+003B 77              428             DB      077H
+003C 0000     F      429             DW      ?C0013
+003E 7B              430             DB      07BH
+003F 0000     F      431             DW      ?C0017
+0041 7D              432             DB      07DH
+0042 0000     F      433             DW      ?C0021
+0044 7E              434             DB      07EH
+0045 0000     F      435             DW      ?C0008
+0047 B7              436             DB      0B7H
+0048 0000     F      437             DW      ?C0012
+004A BB              438             DB      0BBH
+004B 0000     F      439             DW      ?C0016
+004D BD              440             DB      0BDH
+004E 0000     F      441             DW      ?C0020
+0050 BE              442             DB      0BEH
+0051 0000     F      443             DW      ?C0007
+0053 D7              444             DB      0D7H
+0054 0000     F      445             DW      ?C0011
+0056 DB              446             DB      0DBH
+0057 0000     F      447             DW      ?C0015
+0059 DD              448             DB      0DDH
+005A 0000     F      449             DW      ?C0019
+005C DE              450             DB      0DEH
+005D 0000     F      451             DW      ?C0006
+005F E7              452             DB      0E7H
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE     8
+
+0060 0000     F      453             DW      ?C0010
+0062 EB              454             DB      0EBH
+0063 0000     F      455             DW      ?C0014
+0065 ED              456             DB      0EDH
+0066 0000     F      457             DW      ?C0018
+0068 EE              458             DB      0EEH
+0069 0000            459             DW      00H
+006B 0000     F      460             DW      ?C0005
+                     461     ;               {
+                     462                             ; SOURCE LINE # 54
+                     463     ;                       //Èç¹û°´¼üÀàÐÍÎª0xe7£¬¶ÔÓ¦µÄÖµÎª0
+                     464     ;                       case 0xe7: temp=0;break;
+                     465                             ; SOURCE LINE # 56
+006D                 466     ?C0006:
+006D E4              467             CLR     A
+006E F500     F      468             MOV     temp?043,A
+0070 8049            469             SJMP    ?C0005
+                     470     ;                       //Èç¹û°´¼üÀàÐÍÎª0xd7£¬¶ÔÓ¦µÄÖµÎª1
+                     471     ;                       case 0xd7: temp=1;break;
+                     472                             ; SOURCE LINE # 58
+0072                 473     ?C0007:
+0072 750001   F      474             MOV     temp?043,#01H
+0075 8044            475             SJMP    ?C0005
+                     476     ;                       //Èç¹û°´¼üÀàÐÍÎª0xb7£¬¶ÔÓ¦µÄÖµÎª2
+                     477     ;                       case 0xb7: temp=2;break;
+                     478                             ; SOURCE LINE # 60
+0077                 479     ?C0008:
+0077 750002   F      480             MOV     temp?043,#02H
+007A 803F            481             SJMP    ?C0005
+                     482     ;                       //Èç¹û°´¼üÀàÐÍÎª0x77£¬¶ÔÓ¦µÄÖµÎª3
+                     483     ;                       case 0x77: temp=3;break;
+                     484                             ; SOURCE LINE # 62
+007C                 485     ?C0009:
+007C 750003   F      486             MOV     temp?043,#03H
+007F 803A            487             SJMP    ?C0005
+                     488     ;                       //Èç¹û°´¼üÀàÐÍÎª0xeb£¬¶ÔÓ¦µÄÖµÎª4
+                     489     ;                       case 0xeb: temp=4;break;
+                     490                             ; SOURCE LINE # 64
+0081                 491     ?C0010:
+0081 750004   F      492             MOV     temp?043,#04H
+0084 8035            493             SJMP    ?C0005
+                     494     ;                       //Èç¹û°´¼üÀàÐÍÎª0xdb£¬¶ÔÓ¦µÄÖµÎª5
+                     495     ;                       case 0xdb: temp=5;break;
+                     496                             ; SOURCE LINE # 66
+0086                 497     ?C0011:
+0086 750005   F      498             MOV     temp?043,#05H
+0089 8030            499             SJMP    ?C0005
+                     500     ;                       //Èç¹û°´¼üÀàÐÍÎª0xbb£¬¶ÔÓ¦µÄÖµÎª6
+                     501     ;                       case 0xbb: temp=6;break;
+                     502                             ; SOURCE LINE # 68
+008B                 503     ?C0012:
+008B 750006   F      504             MOV     temp?043,#06H
+008E 802B            505             SJMP    ?C0005
+                     506     ;                       //Èç¹û°´¼üÀàÐÍÎª0x7b£¬¶ÔÓ¦µÄÖµÎª7
+                     507     ;                       case 0x7b: temp=7;break;
+                     508                             ; SOURCE LINE # 70
+0090                 509     ?C0013:
+0090 750007   F      510             MOV     temp?043,#07H
+0093 8026            511             SJMP    ?C0005
+                     512     ;                       //Èç¹û°´¼üÀàÐÍÎª0xed£¬¶ÔÓ¦µÄÖµÎª8
+                     513     ;                       case 0xed: temp=8;break;
+                     514                             ; SOURCE LINE # 72
+0095                 515     ?C0014:
+0095 750008   F      516             MOV     temp?043,#08H
+0098 8021            517             SJMP    ?C0005
+                     518     ;                       //Èç¹û°´¼üÀàÐÍÎª0xdd£¬¶ÔÓ¦µÄÖµÎª9
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE     9
+
+                     519     ;                       case 0xdd: temp=9;break;
+                     520                             ; SOURCE LINE # 74
+009A                 521     ?C0015:
+009A 750009   F      522             MOV     temp?043,#09H
+009D 801C            523             SJMP    ?C0005
+                     524     ;                       //Èç¹û°´¼üÀàÐÍÎª0xbd£¬¶ÔÓ¦µÄÖµÎª10
+                     525     ;                       case 0xbd: temp=10;break;
+                     526                             ; SOURCE LINE # 76
+009F                 527     ?C0016:
+009F 75000A   F      528             MOV     temp?043,#0AH
+00A2 8017            529             SJMP    ?C0005
+                     530     ;                       //Èç¹û°´¼üÀàÐÍÎª0x7d£¬¶ÔÓ¦µÄÖµÎª11
+                     531     ;                       case 0x7d: temp=11;break;
+                     532                             ; SOURCE LINE # 78
+00A4                 533     ?C0017:
+00A4 75000B   F      534             MOV     temp?043,#0BH
+00A7 8012            535             SJMP    ?C0005
+                     536     ;                       //Èç¹û°´¼üÀàÐÍÎª0xee£¬¶ÔÓ¦µÄÖµÎª12
+                     537     ;                       case 0xee: temp=12;break;
+                     538                             ; SOURCE LINE # 80
+00A9                 539     ?C0018:
+00A9 75000C   F      540             MOV     temp?043,#0CH
+00AC 800D            541             SJMP    ?C0005
+                     542     ;                       //Èç¹û°´¼üÀàÐÍÎª0xde£¬¶ÔÓ¦µÄÖµÎª13
+                     543     ;                 case 0xde: temp=13;break;
+                     544                             ; SOURCE LINE # 82
+00AE                 545     ?C0019:
+00AE 75000D   F      546             MOV     temp?043,#0DH
+00B1 8008            547             SJMP    ?C0005
+                     548     ;                       //Èç¹û°´¼üÀàÐÍÎª0xbe£¬¶ÔÓ¦µÄÖµÎª14
+                     549     ;                       case 0xbe: temp=14;break;
+                     550                             ; SOURCE LINE # 84
+00B3                 551     ?C0020:
+00B3 75000E   F      552             MOV     temp?043,#0EH
+00B6 8003            553             SJMP    ?C0005
+                     554     ;                       //Èç¹û°´¼üÀàÐÍÎª0x7e£¬¶ÔÓ¦µÄÖµÎª15
+                     555     ;                       case 0x7e: temp=15;break;
+                     556                             ; SOURCE LINE # 86
+00B8                 557     ?C0021:
+00B8 75000F   F      558             MOV     temp?043,#0FH
+                     559     ;                       //Èç¹û°´¼üÀàÐÍ²»ÔÚÒÔÉÏ·¶Î§ÄÚ£¬²»×öÈÎºÎ²Ù×÷
+                     560     ;                       default:break;
+                     561                             ; SOURCE LINE # 88
+                     562     ;               }
+                     563                             ; SOURCE LINE # 89
+00BB                 564     ?C0005:
+                     565     ;       //ÉèÖÃP1¶Ë¿ÚµÄ¸ßËÄÎ»ÎªÊä³öÄ£Ê½
+                     566     ;       P1MDOUT=0xF0;
+                     567                             ; SOURCE LINE # 91
+00BB 75A5F0          568             MOV     P1MDOUT,#0F0H
+                     569     ;       //ÉèÖÃP1¶Ë¿ÚµÄµÍËÄÎ»Îª¸ßµçÆ½£¬×öÊäÈë
+                     570     ;       P1=0X0F; 
+                     571                             ; SOURCE LINE # 93
+00BE 75900F          572             MOV     P1,#0FH
+00C1                 573     ?C0023:
+                     574     ;       //ÎÞÏÞÑ­»·£¬Ö±µ½¼ì²âµ½°´¼üËÉ¿ª
+                     575     ;       while(1)
+                     576                             ; SOURCE LINE # 95
+                     577     ;       {
+                     578                             ; SOURCE LINE # 96
+                     579     ;       //Èç¹ûP1¶Ë¿ÚµÄµÍËÄÎ»È«Îª¸ßµçÆ½£¬ËµÃ÷°´¼üËÉ¿ª
+                     580     ;       if(P1==0X0F)
+                     581                             ; SOURCE LINE # 98
+00C1 E590            582             MOV     A,P1
+00C3 B40FFB          583             CJNE    A,#0FH,?C0023
+                     584     ;       {       
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    10
+
+                     585                             ; SOURCE LINE # 99
+                     586     ;               //ÑÓÊ±10ºÁÃë£¬Ïû³¶¶¶¯
+                     587     ;               delay_ms(10);
+                     588                             ; SOURCE LINE # 101
+00C6 7F0A            589             MOV     R7,#0AH
+00C8 7E00            590             MOV     R6,#00H
+00CA 7D00            591             MOV     R5,#00H
+00CC 7C00            592             MOV     R4,#00H
+00CE 120000   F      593             LCALL   _delay_ms
+                     594     ;              
+                     595     ;               //ÔÙ´Î¼ì²âP1¶Ë¿ÚµÄµÍËÄÎ»£¬Èç¹ûÈÔÈ»È«Îª¸ßµçÆ½£¬ËµÃ÷°´¼üËÉ¿ªÓÐÐ§
+                     596     ;               if(P1==0x0f)
+                     597                             ; SOURCE LINE # 104
+00D1 E590            598             MOV     A,P1
+00D3 B40FEB          599             CJNE    A,#0FH,?C0023
+                     600     ;               {
+                     601                             ; SOURCE LINE # 105
+                     602     ;                       //Ìø³öÑ­»·
+                     603     ;                       break;
+                     604                             ; SOURCE LINE # 107
+                     605     ;               }
+                     606                             ; SOURCE LINE # 108
+                     607     ;       }
+                     608                             ; SOURCE LINE # 109
+                     609     ;       }
+                     610                             ; SOURCE LINE # 110
+00D6                 611     ?C0024:
+                     612     ;       //·µ»Ø°´¼ü¶ÔÓ¦µÄÖµ
+                     613     ;       return temp;
+                     614                             ; SOURCE LINE # 112
+00D6 AF00     F      615             MOV     R7,temp?043
+                     616     ; }
+                     617                             ; SOURCE LINE # 113
+00D8 22              618             RET     
+                     619     ; END OF kscan
+                     620     
+                     621     ; //¶¨ÒåÒ»¸öº¯Ê£¬ÓÃÓÚÅÐ¶ÏÊäÈëÊÇF»¹ÊÇE
+                     622     ; bit f_or_e(void)
+                     623     
+----                 624             RSEG  ?PR?f_or_e?KEYBOARD
+0000                 625     f_or_e:
+                     626             USING   0
+                     627                             ; SOURCE LINE # 115
+                     628     ; {
+                     629                             ; SOURCE LINE # 116
+0000                 630     ?C0028:
+                     631     ;       //¶¨ÒåÒ»¸öÎÞ·ûºÅ×Ö·û±äÁ¿£¬ÓÃÓÚ´æ´¢°´¼ü¶ÔÓ¦µÄÖµ
+                     632     ;       unsigned temp;
+                     633     ;       //ÎÞÏÞÑ­»·£¬Ö±µ½¼ì²âµ½ÓÐÐ§°´¼ü
+                     634     ;       while(1)
+                     635                             ; SOURCE LINE # 120
+                     636     ;       {
+                     637                             ; SOURCE LINE # 121
+                     638     ;               //µ÷ÓÃkscanº¯Ê£¬»ñÈ¡°´¼ü¶ÔÓ¦µÄÖµ
+                     639     ;               temp=kscan();
+                     640                             ; SOURCE LINE # 123
+0000 120000   F      641             LCALL   kscan
+0003 7E00            642             MOV     R6,#00H
+                     643     ;---- Variable 'temp?144' assigned to Register 'R6/R7' ----
+                     644     ;               //Èç¹û°´¼ü¶ÔÓ¦µÄÖµÎª15(F)£¬Ò»°ãÇé¿ö±íÊ¾¼ÌÐø£¬·µ»Ø0
+                     645     ;               if(temp==15)
+                     646                             ; SOURCE LINE # 125
+0005 EF              647             MOV     A,R7
+0006 640F            648             XRL     A,#0FH
+0008 7002            649             JNZ     ?C0030
+                     650     ;               {
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    11
+
+                     651                             ; SOURCE LINE # 126
+                     652     ;                       //·µ»Ø0
+                     653     ;                       return 0;
+                     654                             ; SOURCE LINE # 128
+000A C3              655             CLR     C
+000B 22              656             RET     
+                     657     ;               }
+                     658                             ; SOURCE LINE # 129
+000C                 659     ?C0030:
+                     660     ;               //Èç¹û°´¼ü¶ÔÓ¦µÄÖµÎª14(E)£¬±íÊ¾ÍË³ö£¬·µ»Ø0
+                     661     ;               else if(temp==14)
+                     662                             ; SOURCE LINE # 131
+000C EF              663             MOV     A,R7
+000D 640E            664             XRL     A,#0EH
+000F 4E              665             ORL     A,R6
+0010 70EE            666             JNZ     ?C0028
+                     667     ;               {
+                     668                             ; SOURCE LINE # 132
+                     669     ;                       //·µ»Ø1
+                     670     ;                       return 1;
+                     671                             ; SOURCE LINE # 134
+0012 D3              672             SETB    C
+                     673     ;               }
+                     674                             ; SOURCE LINE # 135
+                     675     ;       }
+                     676                             ; SOURCE LINE # 136
+                     677     ; }
+                     678                             ; SOURCE LINE # 137
+0013                 679     ?C0031:
+0013 22              680             RET     
+                     681     ; END OF f_or_e
+                     682     
+                     683     ; //¶¨ÒåÒ»¸öº¯Ê£¬ÓÃÓÚÊäÈëÊ×Ö£¬²¢´æ´¢ÔÚinputsÊ×éÖÐ
+                     684     ; bit input_digits(void)
+                     685     
+----                 686             RSEG  ?PR?input_digits?KEYBOARD
+0000                 687     input_digits:
+                     688             USING   0
+                     689                             ; SOURCE LINE # 139
+                     690     ; {
+                     691                             ; SOURCE LINE # 140
+                     692     ;       //¶¨ÒåÁ½¸öÎÞ·ûºÅ×Ö·û±äÁ¿£¬ÓÃÓÚ´æ´¢Ñ­»·¼ÆÊºÍ°´¼ü¶ÔÓ¦µÄÖµ
+                     693     ;       unsigned char i,digit=0;
+                     694                             ; SOURCE LINE # 142
+0000 E4              695             CLR     A
+0001 F500     F      696             MOV     digit?246,A
+                     697     ;       //¶¨ÒåÒ»¸öÎ»±äÁ¿£¬ÓÃÓÚ´æ´¢ÊÇ·ñ¼ÌÐø»òÍË³öµÄ×´Ì¬
+                     698     ;       bit state=0;
+                     699                             ; SOURCE LINE # 144
+0003 C200     F      700             CLR     state?247
+                     701     ;       //µ÷ÓÃwait_inputº¯Ê£¬µÈ´ÊäÈë£¬²¢»ñÈ¡×´Ì¬
+                     702     ;       state=wait_input();
+                     703                             ; SOURCE LINE # 146
+0005 120000   F      704             LCALL   wait_input
+0008 9200     F      705             MOV     state?247,C
+                     706     ;       //Èç¹û×´Ì¬Îª1£¬±íÊ¾ÍË³ö(ÊäÈëÁËE)
+                     707     ;       if(state==1)
+                     708                             ; SOURCE LINE # 148
+000A 300002   F      709             JNB     state?247,?C0036
+                     710     ;       {
+                     711                             ; SOURCE LINE # 149
+                     712     ;               //·µ»Ø1
+                     713     ;               return 1;
+                     714                             ; SOURCE LINE # 151
+000D D3              715             SETB    C
+000E 22              716             RET     
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    12
+
+                     717     ;       }
+                     718                             ; SOURCE LINE # 152
+000F                 719     ?C0036:
+                     720     ;       //ÎÞÏÞÑ­»·£¬Ö±µ½¼ì²âµ½ÓÐÐ§ÊäÈë
+                     721     ;       while(1)
+                     722                             ; SOURCE LINE # 154
+                     723     ;       {
+                     724                             ; SOURCE LINE # 155
+                     725     ;       //µ÷ÓÃclearº¯Ê£¬ÇåÆÁ
+                     726     ;       clear();
+                     727                             ; SOURCE LINE # 157
+000F 120000   F      728             LCALL   clear
+                     729     ;       //ÓÃÑ­»·Óï¾ä£¬½«inputsÊ×éµÄËùÓÐÔªËØ³õÊ¼»¯Îª0
+                     730     ;       for(i=0;i<64;i++)
+                     731                             ; SOURCE LINE # 159
+0012 E4              732             CLR     A
+0013 F500     F      733             MOV     i?245,A
+0015                 734     ?C0038:
+                     735     ;       {
+                     736                             ; SOURCE LINE # 160
+                     737     ;               inputs[i]=0;
+                     738                             ; SOURCE LINE # 161
+0015 7400     F      739             MOV     A,#LOW (inputs)
+0017 2500     F      740             ADD     A,i?245
+0019 F582            741             MOV     DPL,A
+001B E4              742             CLR     A
+001C 3400     F      743             ADDC    A,#HIGH (inputs)
+001E F583            744             MOV     DPH,A
+0020 E4              745             CLR     A
+0021 F0              746             MOVX    @DPTR,A
+                     747     ;       }
+                     748                             ; SOURCE LINE # 162
+0022 0500     F      749             INC     i?245
+0024 E500     F      750             MOV     A,i?245
+0026 B440EC          751             CJNE    A,#040H,?C0038
+0029                 752     ?C0039:
+                     753     ;       //ÓÃÑ­»·Óï¾ä£¬´Ó¼üÅÌ»ñÈ¡ÊäÈëµÄÊ×Ö£¬²¢´æ´¢ÔÚinputsÊ×éÖÐ
+                     754     ;       for(i=0;i<65;i++)
+                     755                             ; SOURCE LINE # 164
+0029 E4              756             CLR     A
+002A F500     F      757             MOV     i?245,A
+002C                 758     ?C0041:
+002C E500     F      759             MOV     A,i?245
+002E C3              760             CLR     C
+002F 9441            761             SUBB    A,#041H
+0031 50DC            762             JNC     ?C0036
+                     763     ;       {
+                     764                             ; SOURCE LINE # 165
+                     765     ;               //µ÷ÓÃkscanº¯Ê£¬»ñÈ¡°´¼ü¶ÔÓ¦µÄÖµ
+                     766     ;               digit=kscan();
+                     767                             ; SOURCE LINE # 167
+0033 120000   F      768             LCALL   kscan
+0036 8F00     F      769             MOV     digit?246,R7
+                     770     ;               //Èç¹ûÑ­»·¼ÆÊÐ¡ÓÚ64£¬ÇÒ°´¼ü¶ÔÓ¦µÄÖµÔÚ0µ½9Ö®¼ä£¬±íÊ¾ÊäÈëµÄÊÇÊ×Ö
+                     771     ;               if(i<64&digit>=0&digit<=9)
+                     772                             ; SOURCE LINE # 169
+0038 E500     F      773             MOV     A,digit?246
+003A C3              774             CLR     C
+003B 9400            775             SUBB    A,#00H
+003D 4004            776             JC      ?C0045
+003F 7F01            777             MOV     R7,#01H
+0041 8002            778             SJMP    ?C0046
+0043                 779     ?C0045:
+0043 7F00            780             MOV     R7,#00H
+0045                 781     ?C0046:
+0045 E500     F      782             MOV     A,i?245
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    13
+
+0047 C3              783             CLR     C
+0048 9440            784             SUBB    A,#040H
+004A 5004            785             JNC     ?C0047
+004C 7E01            786             MOV     R6,#01H
+004E 8002            787             SJMP    ?C0048
+0050                 788     ?C0047:
+0050 7E00            789             MOV     R6,#00H
+0052                 790     ?C0048:
+0052 EE              791             MOV     A,R6
+0053 5F              792             ANL     A,R7
+0054 FF              793             MOV     R7,A
+0055 E500     F      794             MOV     A,digit?246
+0057 D3              795             SETB    C
+0058 9409            796             SUBB    A,#09H
+005A 5004            797             JNC     ?C0049
+005C 7E01            798             MOV     R6,#01H
+005E 8002            799             SJMP    ?C0050
+0060                 800     ?C0049:
+0060 7E00            801             MOV     R6,#00H
+0062                 802     ?C0050:
+0062 EE              803             MOV     A,R6
+0063 5F              804             ANL     A,R7
+0064 6041            805             JZ      ?C0044
+                     806     ;               {
+                     807                             ; SOURCE LINE # 170
+                     808     ;                       //½«°´¼ü¶ÔÓ¦µÄÖµ×ª»»ÎªASCIIÂë£¬´æ´¢ÔÚinputsÊ×éÖÐ
+                     809     ;                       digit=inputs[i]=digits[digit];
+                     810                             ; SOURCE LINE # 172
+0066 E500     F      811             MOV     A,digit?246
+0068 900000   F      812             MOV     DPTR,#digits
+006B 93              813             MOVC    A,@A+DPTR
+006C FF              814             MOV     R7,A
+006D 7400     F      815             MOV     A,#LOW (inputs)
+006F 2500     F      816             ADD     A,i?245
+0071 F582            817             MOV     DPL,A
+0073 E4              818             CLR     A
+0074 3400     F      819             ADDC    A,#HIGH (inputs)
+0076 F583            820             MOV     DPH,A
+0078 EF              821             MOV     A,R7
+0079 F0              822             MOVX    @DPTR,A
+007A F500     F      823             MOV     digit?246,A
+                     824     ;                       //¸ù¾ÝÑ­»·¼ÆÊ£¬µ÷ÓÃprint_charº¯Ê£¬ÔÚ²»Í¬µÄÎ»ÖÃÏÔÊ¾ÊäÈëµÄÊ×Ö
+                     825     ;                       if(i==16)
+                     826                             ; SOURCE LINE # 174
+007C E500     F      827             MOV     A,i?245
+007E B41006          828             CJNE    A,#010H,?C0051
+                     829     ;                               {
+                     830                             ; SOURCE LINE # 175
+                     831     ;                                       print_char(0,2,digit);
+                     832                             ; SOURCE LINE # 176
+0081 AB00     F      833             MOV     R3,digit?246
+0083 7D02            834             MOV     R5,#02H
+                     835     ;                               }
+                     836                             ; SOURCE LINE # 177
+0085 8009            837             SJMP    ?C0169
+0087                 838     ?C0051:
+                     839     ;                       else if(i==32)
+                     840                             ; SOURCE LINE # 178
+0087 E500     F      841             MOV     A,i?245
+0089 B42007          842             CJNE    A,#020H,?C0053
+                     843     ;                               {
+                     844                             ; SOURCE LINE # 179
+                     845     ;                                       print_char(0,3,digit);
+                     846                             ; SOURCE LINE # 180
+008C AB00     F      847             MOV     R3,digit?246
+008E 7D03            848             MOV     R5,#03H
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    14
+
+0090                 849     ?C0169:
+0090 E4              850             CLR     A
+                     851     ;                               }
+                     852                             ; SOURCE LINE # 181
+0091 800E            853             SJMP    ?C0170
+0093                 854     ?C0053:
+                     855     ;                       else if(i==48)
+                     856                             ; SOURCE LINE # 182
+0093 E500     F      857             MOV     A,i?245
+0095 AB00     F      858             MOV     R3,digit?246
+0097 B43005          859             CJNE    A,#030H,?C0055
+                     860     ;                               {
+                     861                             ; SOURCE LINE # 183
+                     862     ;                                       print_char(0,4,digit);
+                     863                             ; SOURCE LINE # 184
+009A 7D04            864             MOV     R5,#04H
+009C E4              865             CLR     A
+                     866     ;                               }
+                     867                             ; SOURCE LINE # 185
+009D 8002            868             SJMP    ?C0168
+009F                 869     ?C0055:
+                     870     ;                       else
+                     871     ;                               {
+                     872                             ; SOURCE LINE # 187
+                     873     ;                                       print_char(0,0,digit);
+                     874                             ; SOURCE LINE # 188
+009F E4              875             CLR     A
+00A0 FD              876             MOV     R5,A
+00A1                 877     ?C0168:
+00A1                 878     ?C0170:
+00A1 FF              879             MOV     R7,A
+00A2 120000   F      880             LCALL   _print_char
+                     881     ;                               }
+                     882                             ; SOURCE LINE # 189
+                     883     ;               }
+                     884                             ; SOURCE LINE # 190
+00A5 8046            885             SJMP    ?C0043
+00A7                 886     ?C0044:
+                     887     ;               //Èç¹ûÑ­»·¼ÆÊ´óÓÚ0£¬ÇÒ°´¼ü¶ÔÓ¦µÄÖµÎª15£¬±íÊ¾ÊäÈë½áÊø
+                     888     ;               else if(i>0&digit==15)
+                     889                             ; SOURCE LINE # 192
+00A7 E500     F      890             MOV     A,digit?246
+00A9 B40F04          891             CJNE    A,#0FH,?C0059
+00AC 7F01            892             MOV     R7,#01H
+00AE 8002            893             SJMP    ?C0060
+00B0                 894     ?C0059:
+00B0 7F00            895             MOV     R7,#00H
+00B2                 896     ?C0060:
+00B2 E500     F      897             MOV     A,i?245
+00B4 D3              898             SETB    C
+00B5 9400            899             SUBB    A,#00H
+00B7 4004            900             JC      ?C0061
+00B9 7E01            901             MOV     R6,#01H
+00BB 8002            902             SJMP    ?C0062
+00BD                 903     ?C0061:
+00BD 7E00            904             MOV     R6,#00H
+00BF                 905     ?C0062:
+00BF EE              906             MOV     A,R6
+00C0 5F              907             ANL     A,R7
+00C1 6002            908             JZ      ?C0058
+                     909     ;               {
+                     910                             ; SOURCE LINE # 193
+                     911     ;                       //·µ»Ø0
+                     912     ;                       return 0;
+                     913                             ; SOURCE LINE # 195
+00C3 C3              914             CLR     C
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    15
+
+00C4 22              915             RET     
+                     916     ;               }
+                     917                             ; SOURCE LINE # 196
+00C5                 918     ?C0058:
+                     919     ;               //Èç¹û°´¼ü¶ÔÓ¦µÄÖµÎª14£¬±íÊ¾ÍË³ö
+                     920     ;               else if(digit==14)
+                     921                             ; SOURCE LINE # 198
+00C5 E500     F      922             MOV     A,digit?246
+00C7 B40E02          923             CJNE    A,#0EH,?C0064
+                     924     ;               {
+                     925                             ; SOURCE LINE # 199
+                     926     ;                       //·µ»Ø1
+                     927     ;                       return 1;
+                     928                             ; SOURCE LINE # 201
+00CA D3              929             SETB    C
+00CB 22              930             RET     
+                     931     ;               }
+                     932                             ; SOURCE LINE # 202
+00CC                 933     ?C0064:
+                     934     ;               //Èç¹ûÑ­»·¼ÆÊ´óÓÚ0£¬ÇÒ°´¼ü¶ÔÓ¦µÄÖµÎª13£¬±íÊ¾ÖØÐÂÊäÈë
+                     935     ;               else if(i>0&digit==13)
+                     936                             ; SOURCE LINE # 204
+00CC E500     F      937             MOV     A,digit?246
+00CE B40D04          938             CJNE    A,#0DH,?C0067
+00D1 7F01            939             MOV     R7,#01H
+00D3 8002            940             SJMP    ?C0068
+00D5                 941     ?C0067:
+00D5 7F00            942             MOV     R7,#00H
+00D7                 943     ?C0068:
+00D7 E500     F      944             MOV     A,i?245
+00D9 D3              945             SETB    C
+00DA 9400            946             SUBB    A,#00H
+00DC 4004            947             JC      ?C0069
+00DE 7E01            948             MOV     R6,#01H
+00E0 8002            949             SJMP    ?C0070
+00E2                 950     ?C0069:
+00E2 7E00            951             MOV     R6,#00H
+00E4                 952     ?C0070:
+00E4 EE              953             MOV     A,R6
+00E5 5F              954             ANL     A,R7
+00E6 6003            955             JZ      $ + 5H
+00E8 020000   F      956             LJMP    ?C0036
+                     957     ;                               {
+                     958                             ; SOURCE LINE # 205
+                     959     ;                                       break;
+                     960                             ; SOURCE LINE # 206
+                     961     ;                               }
+                     962                             ; SOURCE LINE # 207
+                     963     ;               //Èç¹ûÒÔÉÏÌõ¼þ¶¼²»Âú×ã£¬±íÊ¾ÊäÈëÎÞÐ§£¬Ñ­»·¼ÆÊ²»±ä
+                     964     ;               else
+                     965     ;               {
+                     966                             ; SOURCE LINE # 210
+                     967     ;                       i--;
+                     968                             ; SOURCE LINE # 211
+00EB 1500     F      969             DEC     i?245
+                     970     ;               }
+                     971                             ; SOURCE LINE # 212
+                     972     ;       }
+                     973                             ; SOURCE LINE # 213
+00ED                 974     ?C0043:
+00ED 0500     F      975             INC     i?245
+00EF 020000   F      976             LJMP    ?C0041
+                     977     ; END OF input_digits
+                     978     
+                     979     ;       }
+                     980     ; }
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    16
+
+                     981     ; //¶¨ÒåÒ»¸öº¯Ê£¬ÓÃÓÚÊäÈëÎ»Ê£¬²¢´æ´¢ÔÚbits±äÁ¿ÖÐ
+                     982     ; bit input_bits(void)
+                     983     
+----                 984             RSEG  ?PR?input_bits?KEYBOARD
+0000                 985     input_bits:
+                     986             USING   0
+                     987                             ; SOURCE LINE # 217
+                     988     ; {
+                     989                             ; SOURCE LINE # 218
+                     990     ;       //¶¨ÒåÁ½¸öÎÞ·ûºÅ×Ö·û±äÁ¿£¬ÓÃÓÚ´æ´¢Ñ­»·¼ÆÊºÍ°´¼ü¶ÔÓ¦µÄÖµ
+                     991     ;       unsigned char i,digit=0;
+                     992                             ; SOURCE LINE # 220
+0000 E4              993             CLR     A
+0001 F500     F      994             MOV     digit?349,A
+                     995     ;       //¶¨ÒåÒ»¸ö³¤¶ÈÎª2µÄÎÞ·ûºÅ×Ö·ûÊ×é£¬ÓÃÓÚ´æ´¢ÊäÈëµÄÎ»Ê
+                     996     ;       unsigned char a[2]={0};
+                     997                             ; SOURCE LINE # 222
+0003 7800     F      998             MOV     R0,#LOW (a?350)
+0005 7C00     F      999             MOV     R4,#HIGH (a?350)
+0007 FD             1000             MOV     R5,A
+0008 7BFF           1001             MOV     R3,#0FFH
+000A 7A00     F     1002             MOV     R2,#HIGH (_?ix1000)
+000C 7900     F     1003             MOV     R1,#LOW (_?ix1000)
+000E FE             1004             MOV     R6,A
+000F 7F02           1005             MOV     R7,#02H
+0011 120000   F     1006             LCALL   ?C?COPY
+                    1007     ;       //¶¨ÒåÒ»¸öÎ»±äÁ¿£¬ÓÃÓÚ´æ´¢ÊÇ·ñ¼ÌÐø»òÍË³öµÄ×´Ì¬
+                    1008     ;       bit state=0;
+                    1009                             ; SOURCE LINE # 224
+0014 C200     F     1010             CLR     state?351
+                    1011     ;       //µ÷ÓÃwait_inputº¯Ê£¬µÈ´ÊäÈë£¬²¢»ñÈ¡×´Ì¬
+                    1012     ;       state=wait_input();
+                    1013                             ; SOURCE LINE # 226
+0016 120000   F     1014             LCALL   wait_input
+0019 9200     F     1015             MOV     state?351,C
+                    1016     ;       //Èç¹û×´Ì¬Îª1£¬±íÊ¾ÍË³ö
+                    1017     ;       if(state==1)
+                    1018                             ; SOURCE LINE # 228
+001B 300002   F     1019             JNB     state?351,?C0074
+                    1020     ;       {
+                    1021                             ; SOURCE LINE # 229
+                    1022     ;               //·µ»Ø1
+                    1023     ;               return 1;
+                    1024                             ; SOURCE LINE # 231
+001E D3             1025             SETB    C
+001F 22             1026             RET     
+                    1027     ;       }
+                    1028                             ; SOURCE LINE # 232
+0020                1029     ?C0074:
+                    1030     ;       //ÎÞÏÞÑ­»·£¬Ö±µ½¼ì²âµ½ÓÐÐ§ÊäÈë
+                    1031     ;       while(1)
+                    1032                             ; SOURCE LINE # 234
+                    1033     ;       {
+                    1034                             ; SOURCE LINE # 235
+                    1035     ;       //µ÷ÓÃclearº¯Ê£¬ÇåÆÁ
+                    1036     ;       clear();
+                    1037                             ; SOURCE LINE # 237
+0020 120000   F     1038             LCALL   clear
+                    1039     ;       //ÓÃÑ­»·Óï¾ä£¬½«aÊ×éµÄËùÓÐÔªËØ³õÊ¼»¯Îª0
+                    1040     ;       for(i=0;i<2;i++)
+                    1041                             ; SOURCE LINE # 239
+0023 E4             1042             CLR     A
+0024 F500     F     1043             MOV     i?348,A
+0026                1044     ?C0076:
+                    1045     ;       {
+                    1046                             ; SOURCE LINE # 240
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    17
+
+                    1047     ;               a[i]=0;
+                    1048                             ; SOURCE LINE # 241
+0026 7400     F     1049             MOV     A,#LOW (a?350)
+0028 2500     F     1050             ADD     A,i?348
+002A F8             1051             MOV     R0,A
+002B E4             1052             CLR     A
+002C F6             1053             MOV     @R0,A
+                    1054     ;       }
+                    1055                             ; SOURCE LINE # 242
+002D 0500     F     1056             INC     i?348
+002F E500     F     1057             MOV     A,i?348
+0031 B402F2         1058             CJNE    A,#02H,?C0076
+0034                1059     ?C0077:
+                    1060     ;       //ÓÃÑ­»·Óï¾ä£¬´Ó¼üÅÌ»ñÈ¡ÊäÈëµÄÎ»Ê£¬²¢´æ´¢ÔÚaÊ×éÖÐ
+                    1061     ;       for(i=0;i<3;i++)
+                    1062                             ; SOURCE LINE # 244
+0034 E4             1063             CLR     A
+0035 F500     F     1064             MOV     i?348,A
+0037                1065     ?C0079:
+0037 E500     F     1066             MOV     A,i?348
+0039 C3             1067             CLR     C
+003A 9403           1068             SUBB    A,#03H
+003C 50E2           1069             JNC     ?C0074
+                    1070     ;       {
+                    1071                             ; SOURCE LINE # 245
+                    1072     ;               //µ÷ÓÃkscanº¯Ê£¬»ñÈ¡°´¼ü¶ÔÓ¦µÄÖµ
+                    1073     ;               digit=kscan();
+                    1074                             ; SOURCE LINE # 247
+003E 120000   F     1075             LCALL   kscan
+0041 8F00     F     1076             MOV     digit?349,R7
+                    1077     ;               //Èç¹ûÑ­»·¼ÆÊÐ¡ÓÚ2£¬ÇÒ°´¼ü¶ÔÓ¦µÄÖµÔÚ0µ½9Ö®¼ä£¬±íÊ¾ÊäÈëµÄÊÇÊ×Ö
+                    1078     ;               if(i<2&digit>=0&digit<=9)
+                    1079                             ; SOURCE LINE # 249
+0043 E500     F     1080             MOV     A,digit?349
+0045 C3             1081             CLR     C
+0046 9400           1082             SUBB    A,#00H
+0048 4004           1083             JC      ?C0083
+004A 7F01           1084             MOV     R7,#01H
+004C 8002           1085             SJMP    ?C0084
+004E                1086     ?C0083:
+004E 7F00           1087             MOV     R7,#00H
+0050                1088     ?C0084:
+0050 E500     F     1089             MOV     A,i?348
+0052 C3             1090             CLR     C
+0053 9402           1091             SUBB    A,#02H
+0055 5004           1092             JNC     ?C0085
+0057 7E01           1093             MOV     R6,#01H
+0059 8002           1094             SJMP    ?C0086
+005B                1095     ?C0085:
+005B 7E00           1096             MOV     R6,#00H
+005D                1097     ?C0086:
+005D EE             1098             MOV     A,R6
+005E 5F             1099             ANL     A,R7
+005F FF             1100             MOV     R7,A
+0060 E500     F     1101             MOV     A,digit?349
+0062 D3             1102             SETB    C
+0063 9409           1103             SUBB    A,#09H
+0065 5004           1104             JNC     ?C0087
+0067 7E01           1105             MOV     R6,#01H
+0069 8002           1106             SJMP    ?C0088
+006B                1107     ?C0087:
+006B 7E00           1108             MOV     R6,#00H
+006D                1109     ?C0088:
+006D EE             1110             MOV     A,R6
+006E 5F             1111             ANL     A,R7
+006F 6015           1112             JZ      ?C0082
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    18
+
+                    1113     ;               {
+                    1114                             ; SOURCE LINE # 250
+                    1115     ;                       //½«°´¼ü¶ÔÓ¦µÄÖµ´æ´¢ÔÚaÊ×éÖÐ
+                    1116     ;                       a[i]=digit;
+                    1117                             ; SOURCE LINE # 252
+0071 7400     F     1118             MOV     A,#LOW (a?350)
+0073 2500     F     1119             ADD     A,i?348
+0075 F8             1120             MOV     R0,A
+0076 A600     F     1121             MOV     @R0,digit?349
+                    1122     ;                       //µ÷ÓÃprint_charº¯Ê£¬ÔÚÖ¸¶¨Î»ÖÃÏÔÊ¾ÊäÈëµÄÊ×Ö
+                    1123     ;                       print_char(0,0,digit+48);
+                    1124                             ; SOURCE LINE # 254
+0078 E500     F     1125             MOV     A,digit?349
+007A 2430           1126             ADD     A,#030H
+007C FB             1127             MOV     R3,A
+007D E4             1128             CLR     A
+007E FD             1129             MOV     R5,A
+007F FF             1130             MOV     R7,A
+0080 120000   F     1131             LCALL   _print_char
+                    1132     ;               }
+                    1133                             ; SOURCE LINE # 255
+0083 020000   F     1134             LJMP    ?C0081
+0086                1135     ?C0082:
+                    1136     ;               //Èç¹ûÑ­»·¼ÆÊ´óÓÚ0£¬ÇÒ°´¼ü¶ÔÓ¦µÄÖµÎª15£¬±íÊ¾ÊäÈë½áÊø
+                    1137     ;               else if(i>0&digit==15)
+                    1138                             ; SOURCE LINE # 257
+0086 E500     F     1139             MOV     A,digit?349
+0088 B40F04         1140             CJNE    A,#0FH,?C0091
+008B 7F01           1141             MOV     R7,#01H
+008D 8002           1142             SJMP    ?C0092
+008F                1143     ?C0091:
+008F 7F00           1144             MOV     R7,#00H
+0091                1145     ?C0092:
+0091 E500     F     1146             MOV     A,i?348
+0093 D3             1147             SETB    C
+0094 9400           1148             SUBB    A,#00H
+0096 4004           1149             JC      ?C0093
+0098 7E01           1150             MOV     R6,#01H
+009A 8002           1151             SJMP    ?C0094
+009C                1152     ?C0093:
+009C 7E00           1153             MOV     R6,#00H
+009E                1154     ?C0094:
+009E EE             1155             MOV     A,R6
+009F 5F             1156             ANL     A,R7
+00A0 603D           1157             JZ      ?C0090
+                    1158     ;               {
+                    1159                             ; SOURCE LINE # 258
+                    1160     ;                       //½«aÊ×éÖÐµÄÁ½¸öÊ×Ö×éºÏ³ÉÒ»¸öÎ»Ê£¬´æ´¢ÔÚÈ«¾Ö±äÁ¿bitsÖÐ
+                    1161     ;                       if(i==1)
+                    1162                             ; SOURCE LINE # 260
+00A2 E500     F     1163             MOV     A,i?348
+00A4 B40105         1164             CJNE    A,#01H,?C0095
+                    1165     ;                       {
+                    1166                             ; SOURCE LINE # 261
+                    1167     ;                               bits=a[0];
+                    1168                             ; SOURCE LINE # 262
+00A7 850000   F     1169             MOV     bits,a?350
+                    1170     ;                       }
+                    1171                             ; SOURCE LINE # 263
+00AA 800A           1172             SJMP    ?C0096
+00AC                1173     ?C0095:
+                    1174     ;                       else
+                    1175     ;                       {
+                    1176                             ; SOURCE LINE # 265
+                    1177     ;                       bits=a[0]*10+a[1];
+                    1178                             ; SOURCE LINE # 266
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    19
+
+00AC E500     F     1179             MOV     A,a?350
+00AE 75F00A         1180             MOV     B,#0AH
+00B1 A4             1181             MUL     AB
+00B2 2500     F     1182             ADD     A,a?350+01H
+00B4 F500     F     1183             MOV     bits,A
+                    1184     ;                       }
+                    1185                             ; SOURCE LINE # 267
+00B6                1186     ?C0096:
+                    1187     ;                       //Èç¹ûbits±äÁ¿µÄÖµÔÚ1µ½64Ö®¼ä£¬±íÊ¾ÊäÈëµÄÎ»ÊÓÐÐ§
+                    1188     ;                       if(bits>=1&bits<=64)
+                    1189                             ; SOURCE LINE # 269
+00B6 E500     F     1190             MOV     A,bits
+00B8 D3             1191             SETB    C
+00B9 9440           1192             SUBB    A,#040H
+00BB 5004           1193             JNC     ?C0098
+00BD 7F01           1194             MOV     R7,#01H
+00BF 8002           1195             SJMP    ?C0099
+00C1                1196     ?C0098:
+00C1 7F00           1197             MOV     R7,#00H
+00C3                1198     ?C0099:
+00C3 E500     F     1199             MOV     A,bits
+00C5 C3             1200             CLR     C
+00C6 9401           1201             SUBB    A,#01H
+00C8 4004           1202             JC      ?C0100
+00CA 7E01           1203             MOV     R6,#01H
+00CC 8002           1204             SJMP    ?C0101
+00CE                1205     ?C0100:
+00CE 7E00           1206             MOV     R6,#00H
+00D0                1207     ?C0101:
+00D0 EE             1208             MOV     A,R6
+00D1 5F             1209             ANL     A,R7
+00D2 6002           1210             JZ      ?C0097
+                    1211     ;                       {
+                    1212                             ; SOURCE LINE # 270
+                    1213     ;                       //·µ»Ø0
+                    1214     ;                       return 0;
+                    1215                             ; SOURCE LINE # 272
+00D4 C3             1216             CLR     C
+00D5 22             1217             RET     
+                    1218     ;                       }
+                    1219                             ; SOURCE LINE # 273
+00D6                1220     ?C0097:
+                    1221     ;                       //Èç¹ûbits±äÁ¿µÄÖµ²»ÔÚ1µ½64Ö®¼ä£¬±íÊ¾ÊäÈëµÄÎ»ÊÎÞÐ§
+                    1222     ;                       else
+                    1223     ;                       {
+                    1224                             ; SOURCE LINE # 276
+                    1225     ;                               //µ÷ÓÃwrong_input_bitsº¯Ê£¬ÏÔÊ¾´íÎóÐÅÏ¢£¬²¢»ñÈ¡×´Ì¬
+                    1226     ;                               if(wrong_input_bits())
+                    1227                             ; SOURCE LINE # 278
+00D6 120000   F     1228             LCALL   wrong_input_bits
+00D9 4003           1229             JC      $ + 5H
+00DB 020000   F     1230             LJMP    ?C0074
+                    1231     ;                               {
+                    1232                             ; SOURCE LINE # 279
+                    1233     ;                                       //Èç¹û×´Ì¬Îª1£¬±íÊ¾ÍË³ö
+                    1234     ;                                       return 1;
+                    1235                             ; SOURCE LINE # 281
+00DE 22             1236             RET     
+                    1237     ;                               }
+                    1238                             ; SOURCE LINE # 282
+                    1239     ;                               //Èç¹û×´Ì¬Îª0£¬±íÊ¾¼ÌÐø
+                    1240     ;                               else
+                    1241     ;                               {
+                    1242                             ; SOURCE LINE # 285
+                    1243     ;                                       //Ìø³öÑ­»·
+                    1244     ;                                       break;
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    20
+
+                    1245                             ; SOURCE LINE # 287
+                    1246     ;                               }
+                    1247                             ; SOURCE LINE # 288
+                    1248     ;                       }
+                    1249                             ; SOURCE LINE # 289
+                    1250     ;               }
+                    1251                             ; SOURCE LINE # 290
+00DF                1252     ?C0090:
+                    1253     ;               //Èç¹û°´¼ü¶ÔÓ¦µÄÖµÎª14£¬±íÊ¾ÍË³ö
+                    1254     ;               else if(digit==14)
+                    1255                             ; SOURCE LINE # 292
+00DF E500     F     1256             MOV     A,digit?349
+00E1 B40E02         1257             CJNE    A,#0EH,?C0106
+                    1258     ;               {
+                    1259                             ; SOURCE LINE # 293
+                    1260     ;                       //·µ»Ø1
+                    1261     ;                       return 1;
+                    1262                             ; SOURCE LINE # 295
+00E4 D3             1263             SETB    C
+00E5 22             1264             RET     
+                    1265     ;               }
+                    1266                             ; SOURCE LINE # 296
+00E6                1267     ?C0106:
+                    1268     ;               //Èç¹ûÑ­»·¼ÆÊ´óÓÚ0£¬ÇÒ°´¼ü¶ÔÓ¦µÄÖµÎª13£¬±íÊ¾ÖØÐÂÊäÈë
+                    1269     ;               else if(i>0&digit==13)
+                    1270                             ; SOURCE LINE # 298
+00E6 E500     F     1271             MOV     A,digit?349
+00E8 B40D04         1272             CJNE    A,#0DH,?C0109
+00EB 7F01           1273             MOV     R7,#01H
+00ED 8002           1274             SJMP    ?C0110
+00EF                1275     ?C0109:
+00EF 7F00           1276             MOV     R7,#00H
+00F1                1277     ?C0110:
+00F1 E500     F     1278             MOV     A,i?348
+00F3 D3             1279             SETB    C
+00F4 9400           1280             SUBB    A,#00H
+00F6 4004           1281             JC      ?C0111
+00F8 7E01           1282             MOV     R6,#01H
+00FA 8002           1283             SJMP    ?C0112
+00FC                1284     ?C0111:
+00FC 7E00           1285             MOV     R6,#00H
+00FE                1286     ?C0112:
+00FE EE             1287             MOV     A,R6
+00FF 5F             1288             ANL     A,R7
+0100 6003           1289             JZ      $ + 5H
+0102 020000   F     1290             LJMP    ?C0074
+                    1291     ;               {
+                    1292                             ; SOURCE LINE # 299
+                    1293     ;                       break;
+                    1294                             ; SOURCE LINE # 300
+                    1295     ;               }
+                    1296                             ; SOURCE LINE # 301
+                    1297     ;               //Èç¹ûÒÔÉÏÌõ¼þ¶¼²»Âú×ã£¬±íÊ¾ÊäÈëÎÞÐ§£¬Ñ­»·¼ÆÊ²»±ä
+                    1298     ;               else
+                    1299     ;               {
+                    1300                             ; SOURCE LINE # 304
+                    1301     ;                       i--;
+                    1302                             ; SOURCE LINE # 305
+0105 1500     F     1303             DEC     i?348
+                    1304     ;               }
+                    1305                             ; SOURCE LINE # 306
+                    1306     ;       }
+                    1307                             ; SOURCE LINE # 307
+0107                1308     ?C0081:
+0107 0500     F     1309             INC     i?348
+0109 020000   F     1310             LJMP    ?C0079
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    21
+
+                    1311     ; END OF input_bits
+                    1312     
+                    1313     ;       }
+                    1314     ; }
+                    1315     ; //¶¨ÒåÒ»¸öº¯Ê£¬ÓÃÓÚÊäÈëÏÔÊ¾Ê±¼ä£¬²¢´æ´¢ÔÚdisplay_time±äÁ¿ÖÐ
+                    1316     ; bit input_display_time(void)
+                    1317     
+----                1318             RSEG  ?PR?input_display_time?KEYBOARD
+0000                1319     input_display_time:
+                    1320             USING   0
+                    1321                             ; SOURCE LINE # 311
+                    1322     ; {
+                    1323                             ; SOURCE LINE # 312
+                    1324     ;       //¶¨ÒåÁ½¸öÎÞ·ûºÅ×Ö·û±äÁ¿£¬ÓÃÓÚ´æ´¢Ñ­»·¼ÆÊºÍ°´¼ü¶ÔÓ¦µÄÖµ
+                    1325     ;       unsigned char i,j,digit=0;
+                    1326                             ; SOURCE LINE # 314
+0000 E4             1327             CLR     A
+0001 F500     F     1328             MOV     digit?454,A
+                    1329     ;       //¶¨ÒåÒ»¸ö³¤¶ÈÎª5µÄÎÞ·ûºÅ×Ö·ûÊ×é£¬ÓÃÓÚ´æ´¢ÊäÈëµÄÏÔÊ¾Ê±¼ä
+                    1330     ;       unsigned char a[5]={0};
+                    1331                             ; SOURCE LINE # 316
+0003 7800     F     1332             MOV     R0,#LOW (a?455)
+0005 7C00     F     1333             MOV     R4,#HIGH (a?455)
+0007 FD             1334             MOV     R5,A
+0008 7BFF           1335             MOV     R3,#0FFH
+000A 7A00     F     1336             MOV     R2,#HIGH (_?ix1001)
+000C 7900     F     1337             MOV     R1,#LOW (_?ix1001)
+000E FE             1338             MOV     R6,A
+000F 7F05           1339             MOV     R7,#05H
+0011 120000   F     1340             LCALL   ?C?COPY
+                    1341     ;       //¶¨ÒåÒ»¸öÎÞ·ûºÅ³¤ÕûÊ±äÁ¿£¬ÓÃÓÚ´æ´¢ÊäÈëµÄÏÔÊ¾Ê±¼ä
+                    1342     ;       unsigned long temp;
+                    1343     ;       //¶¨ÒåÒ»¸öÎ»±äÁ¿£¬ÓÃÓÚ´æ´¢ÊÇ·ñ¼ÌÐø»òÍË³öµÄ×´Ì¬
+                    1344     ;       bit state=0;
+                    1345                             ; SOURCE LINE # 320
+0014 C200     F     1346             CLR     state?457
+                    1347     ;       //µ÷ÓÃwait_inputº¯Ê£¬µÈ´ÊäÈë£¬²¢»ñÈ¡×´Ì¬
+                    1348     ;       state=wait_input();
+                    1349                             ; SOURCE LINE # 322
+0016 120000   F     1350             LCALL   wait_input
+0019 9200     F     1351             MOV     state?457,C
+                    1352     ;       //Èç¹û×´Ì¬Îª1£¬±íÊ¾ÍË³ö
+                    1353     ;       if(state==1)
+                    1354                             ; SOURCE LINE # 324
+001B 300002   F     1355             JNB     state?457,?C0116
+                    1356     ;       {
+                    1357                             ; SOURCE LINE # 325
+                    1358     ;               //·µ»Ø1
+                    1359     ;               return 1;
+                    1360                             ; SOURCE LINE # 327
+001E D3             1361             SETB    C
+001F 22             1362             RET     
+                    1363     ;       }
+                    1364                             ; SOURCE LINE # 328
+0020                1365     ?C0116:
+                    1366     ;       //ÎÞÏÞÑ­»·£¬Ö±µ½¼ì²âµ½ÓÐÐ§ÊäÈë
+                    1367     ;       while(1)
+                    1368                             ; SOURCE LINE # 330
+                    1369     ;       {
+                    1370                             ; SOURCE LINE # 331
+                    1371     ;       //µ÷ÓÃclearº¯Ê£¬ÇåÆÁ
+                    1372     ;       clear();
+                    1373                             ; SOURCE LINE # 333
+0020 120000   F     1374             LCALL   clear
+                    1375     ;       //ÓÃÑ­»·Óï¾ä£¬½«aÊ×éµÄËùÓÐÔªËØ³õÊ¼»¯Îª0
+                    1376     ;       for(i=0;i<5;i++)
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    22
+
+                    1377                             ; SOURCE LINE # 335
+0023 E4             1378             CLR     A
+0024 F500     F     1379             MOV     i?452,A
+0026                1380     ?C0118:
+                    1381     ;       {
+                    1382                             ; SOURCE LINE # 336
+                    1383     ;               a[i]=0;
+                    1384                             ; SOURCE LINE # 337
+0026 7400     F     1385             MOV     A,#LOW (a?455)
+0028 2500     F     1386             ADD     A,i?452
+002A F8             1387             MOV     R0,A
+002B E4             1388             CLR     A
+002C F6             1389             MOV     @R0,A
+                    1390     ;       }
+                    1391                             ; SOURCE LINE # 338
+002D 0500     F     1392             INC     i?452
+002F E500     F     1393             MOV     A,i?452
+0031 B405F2         1394             CJNE    A,#05H,?C0118
+0034                1395     ?C0119:
+                    1396     ;       //ÓÃÑ­»·Óï¾ä£¬´Ó¼üÅÌ»ñÈ¡ÊäÈëµÄÏÔÊ¾Ê±¼ä£¬²¢´æ´¢ÔÚaÊ×éÖÐ
+                    1397     ;       for(i=0;i<6;i++)
+                    1398                             ; SOURCE LINE # 340
+0034 E4             1399             CLR     A
+0035 F500     F     1400             MOV     i?452,A
+0037                1401     ?C0121:
+0037 E500     F     1402             MOV     A,i?452
+0039 C3             1403             CLR     C
+003A 9406           1404             SUBB    A,#06H
+003C 50E2           1405             JNC     ?C0116
+                    1406     ;       {
+                    1407                             ; SOURCE LINE # 341
+                    1408     ;               //µ÷ÓÃkscanº¯Ê£¬»ñÈ¡°´¼ü¶ÔÓ¦µÄÖµ
+                    1409     ;               digit=kscan();
+                    1410                             ; SOURCE LINE # 343
+003E 120000   F     1411             LCALL   kscan
+0041 8F00     F     1412             MOV     digit?454,R7
+                    1413     ;               //Èç¹ûÑ­»·¼ÆÊÐ¡ÓÚ5£¬ÇÒ°´¼ü¶ÔÓ¦µÄÖµÔÚ0µ½9Ö®¼ä£¬±íÊ¾ÊäÈëµÄÊÇÊ×Ö
+                    1414     ;               if(i<5&digit>=0&digit<=9)
+                    1415                             ; SOURCE LINE # 345
+0043 E500     F     1416             MOV     A,digit?454
+0045 C3             1417             CLR     C
+0046 9400           1418             SUBB    A,#00H
+0048 4004           1419             JC      ?C0125
+004A 7F01           1420             MOV     R7,#01H
+004C 8002           1421             SJMP    ?C0126
+004E                1422     ?C0125:
+004E 7F00           1423             MOV     R7,#00H
+0050                1424     ?C0126:
+0050 E500     F     1425             MOV     A,i?452
+0052 C3             1426             CLR     C
+0053 9405           1427             SUBB    A,#05H
+0055 5004           1428             JNC     ?C0127
+0057 7E01           1429             MOV     R6,#01H
+0059 8002           1430             SJMP    ?C0128
+005B                1431     ?C0127:
+005B 7E00           1432             MOV     R6,#00H
+005D                1433     ?C0128:
+005D EE             1434             MOV     A,R6
+005E 5F             1435             ANL     A,R7
+005F FF             1436             MOV     R7,A
+0060 E500     F     1437             MOV     A,digit?454
+0062 D3             1438             SETB    C
+0063 9409           1439             SUBB    A,#09H
+0065 5004           1440             JNC     ?C0129
+0067 7E01           1441             MOV     R6,#01H
+0069 8002           1442             SJMP    ?C0130
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    23
+
+006B                1443     ?C0129:
+006B 7E00           1444             MOV     R6,#00H
+006D                1445     ?C0130:
+006D EE             1446             MOV     A,R6
+006E 5F             1447             ANL     A,R7
+006F 6015           1448             JZ      ?C0124
+                    1449     ;               {
+                    1450                             ; SOURCE LINE # 346
+                    1451     ;                       //½«°´¼ü¶ÔÓ¦µÄÖµ´æ´¢ÔÚaÊ×éÖÐ
+                    1452     ;                       a[i]=digit;
+                    1453                             ; SOURCE LINE # 348
+0071 7400     F     1454             MOV     A,#LOW (a?455)
+0073 2500     F     1455             ADD     A,i?452
+0075 F8             1456             MOV     R0,A
+0076 A600     F     1457             MOV     @R0,digit?454
+                    1458     ;                       //µ÷ÓÃprint_charº¯Ê£¬ÔÚÖ¸¶¨Î»ÖÃÏÔÊ¾ÊäÈëµÄÊ×Ö
+                    1459     ;                       print_char(0,0,digit+48);
+                    1460                             ; SOURCE LINE # 350
+0078 E500     F     1461             MOV     A,digit?454
+007A 2430           1462             ADD     A,#030H
+007C FB             1463             MOV     R3,A
+007D E4             1464             CLR     A
+007E FD             1465             MOV     R5,A
+007F FF             1466             MOV     R7,A
+0080 120000   F     1467             LCALL   _print_char
+                    1468     ;               }
+                    1469                             ; SOURCE LINE # 351
+0083 020000   F     1470             LJMP    ?C0123
+0086                1471     ?C0124:
+                    1472     ;               //Èç¹ûÑ­»·¼ÆÊ´óÓÚ0£¬ÇÒ°´¼ü¶ÔÓ¦µÄÖµÎª15£¬±íÊ¾ÊäÈë½áÊø
+                    1473     ;               else if(i>0&digit==15)
+                    1474                             ; SOURCE LINE # 353
+0086 E500     F     1475             MOV     A,digit?454
+0088 B40F04         1476             CJNE    A,#0FH,?C0133
+008B 7F01           1477             MOV     R7,#01H
+008D 8002           1478             SJMP    ?C0134
+008F                1479     ?C0133:
+008F 7F00           1480             MOV     R7,#00H
+0091                1481     ?C0134:
+0091 E500     F     1482             MOV     A,i?452
+0093 D3             1483             SETB    C
+0094 9400           1484             SUBB    A,#00H
+0096 4004           1485             JC      ?C0135
+0098 7E01           1486             MOV     R6,#01H
+009A 8002           1487             SJMP    ?C0136
+009C                1488     ?C0135:
+009C 7E00           1489             MOV     R6,#00H
+009E                1490     ?C0136:
+009E EE             1491             MOV     A,R6
+009F 5F             1492             ANL     A,R7
+00A0 7003           1493             JNZ     $ + 5H
+00A2 020000   F     1494             LJMP    ?C0132
+                    1495     ;               {
+                    1496                             ; SOURCE LINE # 354
+                    1497     ;                       //½«aÊ×éÖÐµÄÎå¸öÊ×Ö×éºÏ³ÉÒ»¸öÏÔÊ¾Ê±¼ä£¬´æ´¢ÔÚtemp±äÁ¿ÖÐ
+                    1498     ;                       temp=0;
+                    1499                             ; SOURCE LINE # 356
+00A5 E4             1500             CLR     A
+00A6 F500     F     1501             MOV     temp?456+03H,A
+00A8 F500     F     1502             MOV     temp?456+02H,A
+00AA F500     F     1503             MOV     temp?456+01H,A
+00AC F500     F     1504             MOV     temp?456,A
+                    1505     ;                       for(j=0;j<i;j++)
+                    1506                             ; SOURCE LINE # 357
+00AE F500     F     1507             MOV     j?453,A
+00B0                1508     ?C0137:
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    24
+
+00B0 E500     F     1509             MOV     A,j?453
+00B2 C3             1510             CLR     C
+00B3 9500     F     1511             SUBB    A,i?452
+00B5 503A           1512             JNC     ?C0138
+                    1513     ;                       {
+                    1514                             ; SOURCE LINE # 358
+                    1515     ;                               temp=10*temp+a[j];
+                    1516                             ; SOURCE LINE # 359
+00B7 E4             1517             CLR     A
+00B8 7F0A           1518             MOV     R7,#0AH
+00BA FE             1519             MOV     R6,A
+00BB FD             1520             MOV     R5,A
+00BC FC             1521             MOV     R4,A
+00BD AB00     F     1522             MOV     R3,temp?456+03H
+00BF AA00     F     1523             MOV     R2,temp?456+02H
+00C1 A900     F     1524             MOV     R1,temp?456+01H
+00C3 A800     F     1525             MOV     R0,temp?456
+00C5 120000   F     1526             LCALL   ?C?LMUL
+00C8 C004           1527             PUSH    AR4
+00CA A905           1528             MOV     R1,AR5
+00CC AA06           1529             MOV     R2,AR6
+00CE AB07           1530             MOV     R3,AR7
+00D0 7400     F     1531             MOV     A,#LOW (a?455)
+00D2 2500     F     1532             ADD     A,j?453
+00D4 F8             1533             MOV     R0,A
+00D5 E6             1534             MOV     A,@R0
+00D6 FF             1535             MOV     R7,A
+00D7 E4             1536             CLR     A
+00D8 FC             1537             MOV     R4,A
+00D9 FD             1538             MOV     R5,A
+00DA FE             1539             MOV     R6,A
+00DB D000           1540             POP     AR0
+00DD EB             1541             MOV     A,R3
+00DE 2F             1542             ADD     A,R7
+00DF F500     F     1543             MOV     temp?456+03H,A
+00E1 EE             1544             MOV     A,R6
+00E2 3A             1545             ADDC    A,R2
+00E3 F500     F     1546             MOV     temp?456+02H,A
+00E5 ED             1547             MOV     A,R5
+00E6 39             1548             ADDC    A,R1
+00E7 F500     F     1549             MOV     temp?456+01H,A
+00E9 EC             1550             MOV     A,R4
+00EA 38             1551             ADDC    A,R0
+00EB F500     F     1552             MOV     temp?456,A
+                    1553     ;                       }
+                    1554                             ; SOURCE LINE # 360
+00ED 0500     F     1555             INC     j?453
+00EF 80BF           1556             SJMP    ?C0137
+00F1                1557     ?C0138:
+                    1558     ;                       //Èç¹ûtemp±äÁ¿µÄÖµÔÚ50µ½65535Ö®¼ä£¬±íÊ¾ÊäÈëµÄÏÔÊ¾Ê±¼äÓÐÐ§
+                    1559     ;                       if(temp>=50&temp<=65535)
+                    1560                             ; SOURCE LINE # 362
+00F1 E4             1561             CLR     A
+00F2 7FFF           1562             MOV     R7,#0FFH
+00F4 7EFF           1563             MOV     R6,#0FFH
+00F6 FD             1564             MOV     R5,A
+00F7 FC             1565             MOV     R4,A
+00F8 AB00     F     1566             MOV     R3,temp?456+03H
+00FA AA00     F     1567             MOV     R2,temp?456+02H
+00FC A900     F     1568             MOV     R1,temp?456+01H
+00FE A800     F     1569             MOV     R0,temp?456
+0100 D3             1570             SETB    C
+0101 120000   F     1571             LCALL   ?C?ULCMP
+0104 5006           1572             JNC     ?C0141
+0106 7F01           1573             MOV     R7,#01H
+0108 C007           1574             PUSH    AR7
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    25
+
+010A 8004           1575             SJMP    ?C0142
+010C                1576     ?C0141:
+010C 7F00           1577             MOV     R7,#00H
+010E C007           1578             PUSH    AR7
+0110                1579     ?C0142:
+0110 E4             1580             CLR     A
+0111 7F32           1581             MOV     R7,#032H
+0113 FE             1582             MOV     R6,A
+0114 FD             1583             MOV     R5,A
+0115 FC             1584             MOV     R4,A
+0116 AB00     F     1585             MOV     R3,temp?456+03H
+0118 AA00     F     1586             MOV     R2,temp?456+02H
+011A A900     F     1587             MOV     R1,temp?456+01H
+011C A800     F     1588             MOV     R0,temp?456
+011E C3             1589             CLR     C
+011F 120000   F     1590             LCALL   ?C?ULCMP
+0122 4004           1591             JC      ?C0143
+0124 7E01           1592             MOV     R6,#01H
+0126 8002           1593             SJMP    ?C0144
+0128                1594     ?C0143:
+0128 7E00           1595             MOV     R6,#00H
+012A                1596     ?C0144:
+012A D0E0           1597             POP     ACC
+012C 5E             1598             ANL     A,R6
+012D 6008           1599             JZ      ?C0140
+                    1600     ;                       {
+                    1601                             ; SOURCE LINE # 363
+                    1602     ;                               //½«temp±äÁ¿µÄÖµ¸³¸ødisplay_time±äÁ¿
+                    1603     ;                               display_time=temp;
+                    1604                             ; SOURCE LINE # 365
+012F 850000   F     1605             MOV     display_time,temp?456+02H
+0132 850000   F     1606             MOV     display_time+01H,temp?456+03H
+                    1607     ;                               //·µ»Ø0
+                    1608     ;                               return 0;
+                    1609                             ; SOURCE LINE # 367
+0135 C3             1610             CLR     C
+0136 22             1611             RET     
+                    1612     ;                       }
+                    1613                             ; SOURCE LINE # 368
+0137                1614     ?C0140:
+                    1615     ;                       //Èç¹ûtemp±äÁ¿µÄÖµ²»ÔÚ50µ½65535Ö®¼ä£¬±íÊ¾ÊäÈëµÄÏÔÊ¾Ê±¼äÎÞÐ§
+                    1616     ;                       else
+                    1617     ;                       {
+                    1618                             ; SOURCE LINE # 371
+                    1619     ;                               //µ÷ÓÃwrong_display_timeº¯Ê£¬ÏÔÊ¾´íÎóÐÅÏ¢£¬²¢»ñÈ¡×´Ì¬
+                    1620     ;                               if(wrong_display_time())
+                    1621                             ; SOURCE LINE # 373
+0137 120000   F     1622             LCALL   wrong_display_time
+013A 4003           1623             JC      $ + 5H
+013C 020000   F     1624             LJMP    ?C0116
+                    1625     ;                               {
+                    1626                             ; SOURCE LINE # 374
+                    1627     ;                                       //Èç¹û×´Ì¬Îª1£¬±íÊ¾ÍË³ö
+                    1628     ;                                       return 1;
+                    1629                             ; SOURCE LINE # 376
+013F 22             1630             RET     
+                    1631     ;                               }
+                    1632                             ; SOURCE LINE # 377
+                    1633     ;                               //Èç¹û×´Ì¬Îª0£¬±íÊ¾¼ÌÐø
+                    1634     ;                               else
+                    1635     ;                               {
+                    1636                             ; SOURCE LINE # 380
+                    1637     ;                                       //Ìø³öÑ­»·
+                    1638     ;                                       break;
+                    1639                             ; SOURCE LINE # 382
+                    1640     ;                               }
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    26
+
+                    1641                             ; SOURCE LINE # 383
+                    1642     ;                       }
+                    1643                             ; SOURCE LINE # 384
+                    1644     ;               }
+                    1645                             ; SOURCE LINE # 385
+0140                1646     ?C0132:
+                    1647     ;               //Èç¹û°´¼ü¶ÔÓ¦µÄÖµÎª14£¬±íÊ¾ÍË³ö
+                    1648     ;               else if(digit==14)
+                    1649                             ; SOURCE LINE # 387
+0140 E500     F     1650             MOV     A,digit?454
+0142 B40E02         1651             CJNE    A,#0EH,?C0149
+                    1652     ;               {
+                    1653                             ; SOURCE LINE # 388
+                    1654     ;                       //·µ»Ø1
+                    1655     ;                       return 1;
+                    1656                             ; SOURCE LINE # 390
+0145 D3             1657             SETB    C
+0146 22             1658             RET     
+                    1659     ;               }
+                    1660                             ; SOURCE LINE # 391
+0147                1661     ?C0149:
+                    1662     ;               //Èç¹ûÑ­»·¼ÆÊ´óÓÚ0£¬ÇÒ°´¼ü¶ÔÓ¦µÄÖµÎª13£¬±íÊ¾ÖØÐÂÊäÈë
+                    1663     ;               else if(i>0&digit==13)
+                    1664                             ; SOURCE LINE # 393
+0147 E500     F     1665             MOV     A,digit?454
+0149 B40D04         1666             CJNE    A,#0DH,?C0152
+014C 7F01           1667             MOV     R7,#01H
+014E 8002           1668             SJMP    ?C0153
+0150                1669     ?C0152:
+0150 7F00           1670             MOV     R7,#00H
+0152                1671     ?C0153:
+0152 E500     F     1672             MOV     A,i?452
+0154 D3             1673             SETB    C
+0155 9400           1674             SUBB    A,#00H
+0157 4004           1675             JC      ?C0154
+0159 7E01           1676             MOV     R6,#01H
+015B 8002           1677             SJMP    ?C0155
+015D                1678     ?C0154:
+015D 7E00           1679             MOV     R6,#00H
+015F                1680     ?C0155:
+015F EE             1681             MOV     A,R6
+0160 5F             1682             ANL     A,R7
+0161 6003           1683             JZ      $ + 5H
+0163 020000   F     1684             LJMP    ?C0116
+                    1685     ;               {
+                    1686                             ; SOURCE LINE # 394
+                    1687     ;                       break;
+                    1688                             ; SOURCE LINE # 395
+                    1689     ;               }
+                    1690                             ; SOURCE LINE # 396
+                    1691     ;               //Èç¹ûÒÔÉÏÌõ¼þ¶¼²»Âú×ã£¬±íÊ¾ÊäÈëÎÞÐ§£¬Ñ­»·¼ÆÊ²»±ä
+                    1692     ;               else
+                    1693     ;               {
+                    1694                             ; SOURCE LINE # 399
+                    1695     ;                       i--;
+                    1696                             ; SOURCE LINE # 400
+0166 1500     F     1697             DEC     i?452
+                    1698     ;               }
+                    1699                             ; SOURCE LINE # 401
+                    1700     ;       }
+                    1701                             ; SOURCE LINE # 402
+0168                1702     ?C0123:
+0168 0500     F     1703             INC     i?452
+016A 020000   F     1704             LJMP    ?C0121
+                    1705     ; END OF input_display_time
+                    1706     
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    27
+
+                    1707     ;       }
+                    1708     ; }
+                    1709     ; //¶¨ÒåÒ»¸öº¯Ê£¬ÓÃÓÚµÈ´ÊäÈë£¬²¢·µ»ØÊÇ·ñ¼ÌÐø»òÍË³öµÄ×´Ì¬
+                    1710     ; bit wait_input(void)
+                    1711     
+----                1712             RSEG  ?PR?wait_input?KEYBOARD
+0000                1713     wait_input:
+                    1714             USING   0
+                    1715                             ; SOURCE LINE # 406
+                    1716     ; {
+                    1717                             ; SOURCE LINE # 407
+                    1718     ;       //¶¨ÒåÒ»¸öÎ»±äÁ¿£¬ÓÃÓÚ´æ´¢×´Ì¬
+                    1719     ;       bit state=0;
+                    1720                             ; SOURCE LINE # 409
+0000 C200     F     1721             CLR     state?558
+0002                1722     ?C0157:
+                    1723     ;       //¶¨ÒåÒ»¸öÎÞ·ûºÅ×Ö·û±äÁ¿£¬ÓÃÓÚ´æ´¢°´¼ü¶ÔÓ¦µÄÖµ
+                    1724     ;       unsigned char temp;
+                    1725     ;       //ÎÞÏÞÑ­»·£¬Ö±µ½¼ì²âµ½ÓÐÐ§°´¼ü
+                    1726     ;       while(1)
+                    1727                             ; SOURCE LINE # 413
+                    1728     ;       {
+                    1729                             ; SOURCE LINE # 414
+                    1730     ;               //µ÷ÓÃkscanº¯Ê£¬»ñÈ¡°´¼ü¶ÔÓ¦µÄÖµ
+                    1731     ;               temp=kscan();
+                    1732                             ; SOURCE LINE # 416
+0002 120000   F     1733             LCALL   kscan
+                    1734     ;---- Variable 'temp?559' assigned to Register 'R7' ----
+                    1735     ;               //Èç¹û°´¼ü¶ÔÓ¦µÄÖµÔÚ0µ½15Ö®¼ä£¬±íÊ¾ÊäÈëÓÐÐ§
+                    1736     ;               if(temp>=0&temp<=15)
+                    1737                             ; SOURCE LINE # 418
+0005 EF             1738             MOV     A,R7
+0006 D3             1739             SETB    C
+0007 940F           1740             SUBB    A,#0FH
+0009 5004           1741             JNC     ?C0160
+000B 7E01           1742             MOV     R6,#01H
+000D 8002           1743             SJMP    ?C0161
+000F                1744     ?C0160:
+000F 7E00           1745             MOV     R6,#00H
+0011                1746     ?C0161:
+0011 EF             1747             MOV     A,R7
+0012 C3             1748             CLR     C
+0013 9400           1749             SUBB    A,#00H
+0015 4004           1750             JC      ?C0162
+0017 7D01           1751             MOV     R5,#01H
+0019 8002           1752             SJMP    ?C0163
+001B                1753     ?C0162:
+001B 7D00           1754             MOV     R5,#00H
+001D                1755     ?C0163:
+001D ED             1756             MOV     A,R5
+001E 5E             1757             ANL     A,R6
+001F 60E1           1758             JZ      ?C0157
+                    1759     ;               {
+                    1760                             ; SOURCE LINE # 419
+                    1761     ;                       //Èç¹û°´¼ü¶ÔÓ¦µÄÖµÎª14£¬±íÊ¾ÍË³ö£¬×´Ì¬Îª1
+                    1762     ;                       if(temp==14)
+                    1763                             ; SOURCE LINE # 421
+0021 BF0E02         1764             CJNE    R7,#0EH,?C0164
+                    1765     ;                       {
+                    1766                             ; SOURCE LINE # 422
+                    1767     ;                               state=1;
+                    1768                             ; SOURCE LINE # 423
+0024 D200     F     1769             SETB    state?558
+                    1770     ;                       }
+                    1771                             ; SOURCE LINE # 424
+0026                1772     ?C0164:
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    28
+
+                    1773     ;                       //·µ»Ø×´Ì¬
+                    1774     ;                       return state;
+                    1775                             ; SOURCE LINE # 426
+0026 A200     F     1776             MOV     C,state?558
+                    1777     ;               }
+                    1778                             ; SOURCE LINE # 427
+                    1779     ;       }
+                    1780                             ; SOURCE LINE # 428
+                    1781     ; }
+                    1782                             ; SOURCE LINE # 429
+0028 22             1783             RET     
+                    1784     ; END OF wait_input
+                    1785     
+                    1786     ; //¶¨ÒåÒ»¸öº¯Ê£¬ÓÃÓÚÏÔÊ¾ÊäÈëÎ»Ê´íÎóµÄÐÅÏ¢£¬²¢·µ»ØÊÇ·ñ¼ÌÐø»òÍË³öµÄ×´Ì¬
+                    1787     ; bit wrong_input_bits(void)
+                    1788     
+----                1789             RSEG  ?PR?wrong_input_bits?KEYBOARD
+0000                1790     wrong_input_bits:
+                    1791             USING   0
+                    1792                             ; SOURCE LINE # 431
+                    1793     ; {
+                    1794                             ; SOURCE LINE # 432
+                    1795     ;       //µ÷ÓÃdisplay_wrong_input_bitsº¯Ê£¬ÏÔÊ¾´íÎóÐÅÏ¢
+                    1796     ;       display_wrong_input_bits();
+                    1797                             ; SOURCE LINE # 434
+0000 120000   F     1798             LCALL   display_wrong_input_bits
+                    1799     ;       //µ÷ÓÃf_or_eº¯Ê£¬ÅÐ¶ÏÊÇ·ñ¼ÌÐø»òÍË³ö£¬²¢·µ»Ø×´Ì¬
+                    1800     ;       return f_or_e();
+                    1801                             ; SOURCE LINE # 436
+0003 020000   F     1802             LJMP    f_or_e
+                    1803     ; END OF wrong_input_bits
+                    1804     
+                    1805     ; }
+                    1806     ; //¶¨ÒåÒ»¸öº¯Ê£¬ÓÃÓÚÏÔÊ¾ÊäÈëÏÔÊ¾Ê±¼ä´íÎóµÄÐÅÏ¢£¬²¢·µ»ØÊÇ·ñ¼ÌÐø»òÍË³öµÄ×´Ì¬
+                    1807     ; bit wrong_display_time(void)
+                    1808     
+----                1809             RSEG  ?PR?wrong_display_time?KEYBOARD
+0000                1810     wrong_display_time:
+                    1811             USING   0
+                    1812                             ; SOURCE LINE # 439
+                    1813     ; {
+                    1814                             ; SOURCE LINE # 440
+                    1815     ;       //µ÷ÓÃdisplay_wrong_input_display_timeº¯Ê£¬ÏÔÊ¾´íÎóÐÅÏ¢
+                    1816     ;       display_wrong_input_display_time();
+                    1817                             ; SOURCE LINE # 442
+0000 120000   F     1818             LCALL   display_wrong_input_display_time
+                    1819     ;       //µ÷ÓÃf_or_eº¯Ê£¬ÅÐ¶ÏÊÇ·ñ¼ÌÐø»òÍË³ö£¬²¢·µ»Ø×´Ì¬
+                    1820     ;       return f_or_e();
+                    1821                             ; SOURCE LINE # 444
+0003 020000   F     1822             LJMP    f_or_e
+                    1823     ; END OF wrong_display_time
+                    1824     
+                    1825             END
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    29
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                           T Y P E  V A L U E   ATTRIBUTES
+
+?BI?INPUT_BITS?KEYBOARD. . . . .  B SEG    0001H       REL=UNIT
+?BI?INPUT_DIGITS?KEYBOARD. . . .  B SEG    0001H       REL=UNIT
+?BI?INPUT_DISPLAY_TIME?KEYBOARD.  B SEG    0001H       REL=UNIT
+?BI?WAIT_INPUT?KEYBOARD. . . . .  B SEG    0001H       REL=UNIT
+?C0001 . . . . . . . . . . . . .  C ADDR   0006H   R   SEG=?PR?KSCAN?KEYBOARD
+?C0005 . . . . . . . . . . . . .  C ADDR   00BBH   R   SEG=?PR?KSCAN?KEYBOARD
+?C0006 . . . . . . . . . . . . .  C ADDR   006DH   R   SEG=?PR?KSCAN?KEYBOARD
+?C0007 . . . . . . . . . . . . .  C ADDR   0072H   R   SEG=?PR?KSCAN?KEYBOARD
+?C0008 . . . . . . . . . . . . .  C ADDR   0077H   R   SEG=?PR?KSCAN?KEYBOARD
+?C0009 . . . . . . . . . . . . .  C ADDR   007CH   R   SEG=?PR?KSCAN?KEYBOARD
+?C0010 . . . . . . . . . . . . .  C ADDR   0081H   R   SEG=?PR?KSCAN?KEYBOARD
+?C0011 . . . . . . . . . . . . .  C ADDR   0086H   R   SEG=?PR?KSCAN?KEYBOARD
+?C0012 . . . . . . . . . . . . .  C ADDR   008BH   R   SEG=?PR?KSCAN?KEYBOARD
+?C0013 . . . . . . . . . . . . .  C ADDR   0090H   R   SEG=?PR?KSCAN?KEYBOARD
+?C0014 . . . . . . . . . . . . .  C ADDR   0095H   R   SEG=?PR?KSCAN?KEYBOARD
+?C0015 . . . . . . . . . . . . .  C ADDR   009AH   R   SEG=?PR?KSCAN?KEYBOARD
+?C0016 . . . . . . . . . . . . .  C ADDR   009FH   R   SEG=?PR?KSCAN?KEYBOARD
+?C0017 . . . . . . . . . . . . .  C ADDR   00A4H   R   SEG=?PR?KSCAN?KEYBOARD
+?C0018 . . . . . . . . . . . . .  C ADDR   00A9H   R   SEG=?PR?KSCAN?KEYBOARD
+?C0019 . . . . . . . . . . . . .  C ADDR   00AEH   R   SEG=?PR?KSCAN?KEYBOARD
+?C0020 . . . . . . . . . . . . .  C ADDR   00B3H   R   SEG=?PR?KSCAN?KEYBOARD
+?C0021 . . . . . . . . . . . . .  C ADDR   00B8H   R   SEG=?PR?KSCAN?KEYBOARD
+?C0023 . . . . . . . . . . . . .  C ADDR   00C1H   R   SEG=?PR?KSCAN?KEYBOARD
+?C0024 . . . . . . . . . . . . .  C ADDR   00D6H   R   SEG=?PR?KSCAN?KEYBOARD
+?C0028 . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?F_OR_E?KEYBOARD
+?C0030 . . . . . . . . . . . . .  C ADDR   000CH   R   SEG=?PR?F_OR_E?KEYBOARD
+?C0031 . . . . . . . . . . . . .  C ADDR   0013H   R   SEG=?PR?F_OR_E?KEYBOARD
+?C0036 . . . . . . . . . . . . .  C ADDR   000FH   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0038 . . . . . . . . . . . . .  C ADDR   0015H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0039 . . . . . . . . . . . . .  C ADDR   0029H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0041 . . . . . . . . . . . . .  C ADDR   002CH   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0043 . . . . . . . . . . . . .  C ADDR   00EDH   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0044 . . . . . . . . . . . . .  C ADDR   00A7H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0045 . . . . . . . . . . . . .  C ADDR   0043H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0046 . . . . . . . . . . . . .  C ADDR   0045H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0047 . . . . . . . . . . . . .  C ADDR   0050H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0048 . . . . . . . . . . . . .  C ADDR   0052H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0049 . . . . . . . . . . . . .  C ADDR   0060H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0050 . . . . . . . . . . . . .  C ADDR   0062H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0051 . . . . . . . . . . . . .  C ADDR   0087H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0053 . . . . . . . . . . . . .  C ADDR   0093H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0055 . . . . . . . . . . . . .  C ADDR   009FH   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0058 . . . . . . . . . . . . .  C ADDR   00C5H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0059 . . . . . . . . . . . . .  C ADDR   00B0H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0060 . . . . . . . . . . . . .  C ADDR   00B2H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0061 . . . . . . . . . . . . .  C ADDR   00BDH   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0062 . . . . . . . . . . . . .  C ADDR   00BFH   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0064 . . . . . . . . . . . . .  C ADDR   00CCH   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0067 . . . . . . . . . . . . .  C ADDR   00D5H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0068 . . . . . . . . . . . . .  C ADDR   00D7H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0069 . . . . . . . . . . . . .  C ADDR   00E2H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0070 . . . . . . . . . . . . .  C ADDR   00E4H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0074 . . . . . . . . . . . . .  C ADDR   0020H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0076 . . . . . . . . . . . . .  C ADDR   0026H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0077 . . . . . . . . . . . . .  C ADDR   0034H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0079 . . . . . . . . . . . . .  C ADDR   0037H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0081 . . . . . . . . . . . . .  C ADDR   0107H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0082 . . . . . . . . . . . . .  C ADDR   0086H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0083 . . . . . . . . . . . . .  C ADDR   004EH   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0084 . . . . . . . . . . . . .  C ADDR   0050H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    30
+
+?C0085 . . . . . . . . . . . . .  C ADDR   005BH   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0086 . . . . . . . . . . . . .  C ADDR   005DH   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0087 . . . . . . . . . . . . .  C ADDR   006BH   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0088 . . . . . . . . . . . . .  C ADDR   006DH   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0090 . . . . . . . . . . . . .  C ADDR   00DFH   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0091 . . . . . . . . . . . . .  C ADDR   008FH   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0092 . . . . . . . . . . . . .  C ADDR   0091H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0093 . . . . . . . . . . . . .  C ADDR   009CH   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0094 . . . . . . . . . . . . .  C ADDR   009EH   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0095 . . . . . . . . . . . . .  C ADDR   00ACH   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0096 . . . . . . . . . . . . .  C ADDR   00B6H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0097 . . . . . . . . . . . . .  C ADDR   00D6H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0098 . . . . . . . . . . . . .  C ADDR   00C1H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0099 . . . . . . . . . . . . .  C ADDR   00C3H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0100 . . . . . . . . . . . . .  C ADDR   00CEH   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0101 . . . . . . . . . . . . .  C ADDR   00D0H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0106 . . . . . . . . . . . . .  C ADDR   00E6H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0109 . . . . . . . . . . . . .  C ADDR   00EFH   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0110 . . . . . . . . . . . . .  C ADDR   00F1H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0111 . . . . . . . . . . . . .  C ADDR   00FCH   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0112 . . . . . . . . . . . . .  C ADDR   00FEH   R   SEG=?PR?INPUT_BITS?KEYBOARD
+?C0116 . . . . . . . . . . . . .  C ADDR   0020H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0118 . . . . . . . . . . . . .  C ADDR   0026H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0119 . . . . . . . . . . . . .  C ADDR   0034H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0121 . . . . . . . . . . . . .  C ADDR   0037H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0123 . . . . . . . . . . . . .  C ADDR   0168H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0124 . . . . . . . . . . . . .  C ADDR   0086H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0125 . . . . . . . . . . . . .  C ADDR   004EH   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0126 . . . . . . . . . . . . .  C ADDR   0050H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0127 . . . . . . . . . . . . .  C ADDR   005BH   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0128 . . . . . . . . . . . . .  C ADDR   005DH   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0129 . . . . . . . . . . . . .  C ADDR   006BH   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0130 . . . . . . . . . . . . .  C ADDR   006DH   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0132 . . . . . . . . . . . . .  C ADDR   0140H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0133 . . . . . . . . . . . . .  C ADDR   008FH   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0134 . . . . . . . . . . . . .  C ADDR   0091H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0135 . . . . . . . . . . . . .  C ADDR   009CH   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0136 . . . . . . . . . . . . .  C ADDR   009EH   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0137 . . . . . . . . . . . . .  C ADDR   00B0H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0138 . . . . . . . . . . . . .  C ADDR   00F1H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0140 . . . . . . . . . . . . .  C ADDR   0137H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0141 . . . . . . . . . . . . .  C ADDR   010CH   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0142 . . . . . . . . . . . . .  C ADDR   0110H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0143 . . . . . . . . . . . . .  C ADDR   0128H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0144 . . . . . . . . . . . . .  C ADDR   012AH   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0149 . . . . . . . . . . . . .  C ADDR   0147H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0152 . . . . . . . . . . . . .  C ADDR   0150H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0153 . . . . . . . . . . . . .  C ADDR   0152H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0154 . . . . . . . . . . . . .  C ADDR   015DH   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0155 . . . . . . . . . . . . .  C ADDR   015FH   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+?C0157 . . . . . . . . . . . . .  C ADDR   0002H   R   SEG=?PR?WAIT_INPUT?KEYBOARD
+?C0160 . . . . . . . . . . . . .  C ADDR   000FH   R   SEG=?PR?WAIT_INPUT?KEYBOARD
+?C0161 . . . . . . . . . . . . .  C ADDR   0011H   R   SEG=?PR?WAIT_INPUT?KEYBOARD
+?C0162 . . . . . . . . . . . . .  C ADDR   001BH   R   SEG=?PR?WAIT_INPUT?KEYBOARD
+?C0163 . . . . . . . . . . . . .  C ADDR   001DH   R   SEG=?PR?WAIT_INPUT?KEYBOARD
+?C0164 . . . . . . . . . . . . .  C ADDR   0026H   R   SEG=?PR?WAIT_INPUT?KEYBOARD
+?C0168 . . . . . . . . . . . . .  C ADDR   00A1H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0169 . . . . . . . . . . . . .  C ADDR   0090H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C0170 . . . . . . . . . . . . .  C ADDR   00A1H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+?C?CCASE . . . . . . . . . . . .  C ADDR   -----       EXT
+?C?COPY. . . . . . . . . . . . .  C ADDR   -----       EXT
+?C?LMUL. . . . . . . . . . . . .  C ADDR   -----       EXT
+?C?ULCMP . . . . . . . . . . . .  C ADDR   -----       EXT
+?CO?KEYBOARD . . . . . . . . . .  C SEG    0007H       REL=UNIT
+?DT?INPUT_BITS?KEYBOARD. . . . .  D SEG    0004H       REL=UNIT
+?DT?INPUT_DIGITS?KEYBOARD. . . .  D SEG    0002H       REL=UNIT
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    31
+
+?DT?INPUT_DISPLAY_TIME?KEYBOARD.  D SEG    000CH       REL=UNIT
+?DT?KSCAN?KEYBOARD . . . . . . .  D SEG    0002H       REL=UNIT
+?INPUT_BITS?BIT. . . . . . . . .  B ADDR   0000H.0 R   SEG=?BI?INPUT_BITS?KEYBOARD
+?INPUT_BITS?BYTE . . . . . . . .  D ADDR   0000H   R   SEG=?DT?INPUT_BITS?KEYBOARD
+?INPUT_DIGITS?BIT. . . . . . . .  B ADDR   0000H.0 R   SEG=?BI?INPUT_DIGITS?KEYBOARD
+?INPUT_DIGITS?BYTE . . . . . . .  D ADDR   0000H   R   SEG=?DT?INPUT_DIGITS?KEYBOARD
+?INPUT_DISPLAY_TIME?BIT. . . . .  B ADDR   0000H.0 R   SEG=?BI?INPUT_DISPLAY_TIME?KEYBOARD
+?INPUT_DISPLAY_TIME?BYTE . . . .  D ADDR   0000H   R   SEG=?DT?INPUT_DISPLAY_TIME?KEYBOARD
+?KSCAN?BYTE. . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?KSCAN?KEYBOARD
+?PR?F_OR_E?KEYBOARD. . . . . . .  C SEG    0014H       REL=UNIT
+?PR?INPUT_BITS?KEYBOARD. . . . .  C SEG    010CH       REL=UNIT
+?PR?INPUT_DIGITS?KEYBOARD. . . .  C SEG    00F2H       REL=UNIT
+?PR?INPUT_DISPLAY_TIME?KEYBOARD.  C SEG    016DH       REL=UNIT
+?PR?KSCAN?KEYBOARD . . . . . . .  C SEG    00D9H       REL=UNIT
+?PR?WAIT_INPUT?KEYBOARD. . . . .  C SEG    0029H       REL=UNIT
+?PR?WRONG_DISPLAY_TIME?KEYBOARD.  C SEG    0006H       REL=UNIT
+?PR?WRONG_INPUT_BITS?KEYBOARD. .  C SEG    0006H       REL=UNIT
+?WAIT_INPUT?BIT. . . . . . . . .  B ADDR   0000H.0 R   SEG=?BI?WAIT_INPUT?KEYBOARD
+?XD?KEYBOARD . . . . . . . . . .  X SEG    0040H       REL=UNIT
+A?350. . . . . . . . . . . . . .  D ADDR   0002H   R   SEG=?DT?INPUT_BITS?KEYBOARD
+A?455. . . . . . . . . . . . . .  D ADDR   0003H   R   SEG=?DT?INPUT_DISPLAY_TIME?KEYBOARD
+AA . . . . . . . . . . . . . . .  B ADDR   00C0H.2 A   
+AC . . . . . . . . . . . . . . .  B ADDR   00D0H.6 A   
+ACC. . . . . . . . . . . . . . .  D ADDR   00E0H   A   
+AD0BUSY. . . . . . . . . . . . .  B ADDR   00E8H.4 A   
+AD0CM0 . . . . . . . . . . . . .  B ADDR   00E8H.2 A   
+AD0CM1 . . . . . . . . . . . . .  B ADDR   00E8H.3 A   
+AD0EN. . . . . . . . . . . . . .  B ADDR   00E8H.7 A   
+AD0INT . . . . . . . . . . . . .  B ADDR   00E8H.5 A   
+AD0LJST. . . . . . . . . . . . .  B ADDR   00E8H.0 A   
+AD0TM. . . . . . . . . . . . . .  B ADDR   00E8H.6 A   
+AD0WINT. . . . . . . . . . . . .  B ADDR   00E8H.1 A   
+ADC0CF . . . . . . . . . . . . .  D ADDR   00BCH   A   
+ADC0CN . . . . . . . . . . . . .  D ADDR   00E8H   A   
+ADC0GTH. . . . . . . . . . . . .  D ADDR   00C5H   A   
+ADC0GTL. . . . . . . . . . . . .  D ADDR   00C4H   A   
+ADC0H. . . . . . . . . . . . . .  D ADDR   00BFH   A   
+ADC0L. . . . . . . . . . . . . .  D ADDR   00BEH   A   
+ADC0LTH. . . . . . . . . . . . .  D ADDR   00C7H   A   
+ADC0LTL. . . . . . . . . . . . .  D ADDR   00C6H   A   
+ADC1 . . . . . . . . . . . . . .  D ADDR   009CH   A   
+ADC1CF . . . . . . . . . . . . .  D ADDR   00ABH   A   
+ADC1CN . . . . . . . . . . . . .  D ADDR   00AAH   A   
+AMX0CF . . . . . . . . . . . . .  D ADDR   00BAH   A   
+AMX0SL . . . . . . . . . . . . .  D ADDR   00BBH   A   
+AMX1SL . . . . . . . . . . . . .  D ADDR   00ACH   A   
+AR0. . . . . . . . . . . . . . .  D ADDR   0000H   A   
+AR4. . . . . . . . . . . . . . .  D ADDR   0004H   A   
+AR5. . . . . . . . . . . . . . .  D ADDR   0005H   A   
+AR6. . . . . . . . . . . . . . .  D ADDR   0006H   A   
+AR7. . . . . . . . . . . . . . .  D ADDR   0007H   A   
+B. . . . . . . . . . . . . . . .  D ADDR   00F0H   A   
+BITS . . . . . . . . . . . . . .  D ADDR   -----       EXT
+BUSY . . . . . . . . . . . . . .  B ADDR   00C0H.7 A   
+CCF0 . . . . . . . . . . . . . .  B ADDR   00D8H.0 A   
+CCF1 . . . . . . . . . . . . . .  B ADDR   00D8H.1 A   
+CCF2 . . . . . . . . . . . . . .  B ADDR   00D8H.2 A   
+CCF3 . . . . . . . . . . . . . .  B ADDR   00D8H.3 A   
+CCF4 . . . . . . . . . . . . . .  B ADDR   00D8H.4 A   
+CF . . . . . . . . . . . . . . .  B ADDR   00D8H.7 A   
+CKCON. . . . . . . . . . . . . .  D ADDR   008EH   A   
+CLEAR. . . . . . . . . . . . . .  C ADDR   -----       EXT
+CPRL2. . . . . . . . . . . . . .  B ADDR   00C8H.0 A   
+CPT0CN . . . . . . . . . . . . .  D ADDR   009EH   A   
+CPT1CN . . . . . . . . . . . . .  D ADDR   009FH   A   
+CR . . . . . . . . . . . . . . .  B ADDR   00D8H.6 A   
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    32
+
+CT2. . . . . . . . . . . . . . .  B ADDR   00C8H.1 A   
+CY . . . . . . . . . . . . . . .  B ADDR   00D0H.7 A   
+D0 . . . . . . . . . . . . . . .  B ADDR   0080H.0 A   
+D1 . . . . . . . . . . . . . . .  B ADDR   0080H.1 A   
+D2 . . . . . . . . . . . . . . .  B ADDR   0080H.2 A   
+D3 . . . . . . . . . . . . . . .  B ADDR   0080H.3 A   
+D4 . . . . . . . . . . . . . . .  B ADDR   0080H.4 A   
+D5 . . . . . . . . . . . . . . .  B ADDR   0080H.5 A   
+D6 . . . . . . . . . . . . . . .  B ADDR   0080H.6 A   
+D7 . . . . . . . . . . . . . . .  B ADDR   0080H.7 A   
+DAC0CN . . . . . . . . . . . . .  D ADDR   00D4H   A   
+DAC0H. . . . . . . . . . . . . .  D ADDR   00D3H   A   
+DAC0L. . . . . . . . . . . . . .  D ADDR   00D2H   A   
+DAC1CN . . . . . . . . . . . . .  D ADDR   00D7H   A   
+DAC1H. . . . . . . . . . . . . .  D ADDR   00D6H   A   
+DAC1L. . . . . . . . . . . . . .  D ADDR   00D5H   A   
+DIGIT?246. . . . . . . . . . . .  D ADDR   0001H   R   SEG=?DT?INPUT_DIGITS?KEYBOARD
+DIGIT?349. . . . . . . . . . . .  D ADDR   0001H   R   SEG=?DT?INPUT_BITS?KEYBOARD
+DIGIT?454. . . . . . . . . . . .  D ADDR   0002H   R   SEG=?DT?INPUT_DISPLAY_TIME?KEYBOARD
+DIGITS . . . . . . . . . . . . .  C ADDR   -----       EXT
+DISPLAY_TIME . . . . . . . . . .  D ADDR   -----       EXT
+DISPLAY_WRONG_INPUT_BITS . . . .  C ADDR   -----       EXT
+DISPLAY_WRONG_INPUT_DISPLAY_TIME  C ADDR   -----       EXT
+DPH. . . . . . . . . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . . . . . . . . .  D ADDR   0082H   A   
+EA . . . . . . . . . . . . . . .  B ADDR   00A8H.7 A   
+EIE1 . . . . . . . . . . . . . .  D ADDR   00E6H   A   
+EIE2 . . . . . . . . . . . . . .  D ADDR   00E7H   A   
+EIP1 . . . . . . . . . . . . . .  D ADDR   00F6H   A   
+EIP2 . . . . . . . . . . . . . .  D ADDR   00F7H   A   
+EMI0CF . . . . . . . . . . . . .  D ADDR   00A3H   A   
+EMI0CN . . . . . . . . . . . . .  D ADDR   00AFH   A   
+EMI0TC . . . . . . . . . . . . .  D ADDR   00A1H   A   
+ENSMB. . . . . . . . . . . . . .  B ADDR   00C0H.6 A   
+ES0. . . . . . . . . . . . . . .  B ADDR   00A8H.4 A   
+ET0. . . . . . . . . . . . . . .  B ADDR   00A8H.1 A   
+ET1. . . . . . . . . . . . . . .  B ADDR   00A8H.3 A   
+ET2. . . . . . . . . . . . . . .  B ADDR   00A8H.5 A   
+EX0. . . . . . . . . . . . . . .  B ADDR   00A8H.0 A   
+EX1. . . . . . . . . . . . . . .  B ADDR   00A8H.2 A   
+EXEN2. . . . . . . . . . . . . .  B ADDR   00C8H.3 A   
+EXF2 . . . . . . . . . . . . . .  B ADDR   00C8H.6 A   
+F0 . . . . . . . . . . . . . . .  B ADDR   00D0H.5 A   
+F1 . . . . . . . . . . . . . . .  B ADDR   00D0H.1 A   
+FLACL. . . . . . . . . . . . . .  D ADDR   00B7H   A   
+FLSCL. . . . . . . . . . . . . .  D ADDR   00B6H   A   
+F_OR_E . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?F_OR_E?KEYBOARD
+I?245. . . . . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?INPUT_DIGITS?KEYBOARD
+I?348. . . . . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?INPUT_BITS?KEYBOARD
+I?452. . . . . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?INPUT_DISPLAY_TIME?KEYBOARD
+IE . . . . . . . . . . . . . . .  D ADDR   00A8H   A   
+IE0. . . . . . . . . . . . . . .  B ADDR   0088H.1 A   
+IE1. . . . . . . . . . . . . . .  B ADDR   0088H.3 A   
+INPUTS . . . . . . . . . . . . .  X ADDR   0000H   R   SEG=?XD?KEYBOARD
+INPUT_BITS . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?INPUT_BITS?KEYBOARD
+INPUT_DIGITS . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?INPUT_DIGITS?KEYBOARD
+INPUT_DISPLAY_TIME . . . . . . .  C ADDR   0000H   R   SEG=?PR?INPUT_DISPLAY_TIME?KEYBOARD
+IP . . . . . . . . . . . . . . .  D ADDR   00B8H   A   
+IT0. . . . . . . . . . . . . . .  B ADDR   0088H.0 A   
+IT1. . . . . . . . . . . . . . .  B ADDR   0088H.2 A   
+J?453. . . . . . . . . . . . . .  D ADDR   0001H   R   SEG=?DT?INPUT_DISPLAY_TIME?KEYBOARD
+KEYBOARD . . . . . . . . . . . .  N NUMB   -----       
+KEYL?041 . . . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?KSCAN?KEYBOARD
+KSCAN. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?KSCAN?KEYBOARD
+LCD_EN . . . . . . . . . . . . .  B ADDR   00A0H.7 A   
+LCD_RS . . . . . . . . . . . . .  B ADDR   00A0H.5 A   
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    33
+
+LCD_RW . . . . . . . . . . . . .  B ADDR   00A0H.6 A   
+MODF . . . . . . . . . . . . . .  B ADDR   00F8H.5 A   
+MSTEN. . . . . . . . . . . . . .  B ADDR   00F8H.1 A   
+OSCICN . . . . . . . . . . . . .  D ADDR   00B2H   A   
+OSCXCN . . . . . . . . . . . . .  D ADDR   00B1H   A   
+OV . . . . . . . . . . . . . . .  B ADDR   00D0H.2 A   
+P. . . . . . . . . . . . . . . .  B ADDR   00D0H.0 A   
+P0 . . . . . . . . . . . . . . .  D ADDR   0080H   A   
+P0MDOUT. . . . . . . . . . . . .  D ADDR   00A4H   A   
+P1 . . . . . . . . . . . . . . .  D ADDR   0090H   A   
+P1MDIN . . . . . . . . . . . . .  D ADDR   00BDH   A   
+P1MDOUT. . . . . . . . . . . . .  D ADDR   00A5H   A   
+P2 . . . . . . . . . . . . . . .  D ADDR   00A0H   A   
+P2MDOUT. . . . . . . . . . . . .  D ADDR   00A6H   A   
+P3 . . . . . . . . . . . . . . .  D ADDR   00B0H   A   
+P3IF . . . . . . . . . . . . . .  D ADDR   00ADH   A   
+P3MDOUT. . . . . . . . . . . . .  D ADDR   00A7H   A   
+P4 . . . . . . . . . . . . . . .  D ADDR   0084H   A   
+P5 . . . . . . . . . . . . . . .  D ADDR   0085H   A   
+P6 . . . . . . . . . . . . . . .  D ADDR   0086H   A   
+P7 . . . . . . . . . . . . . . .  D ADDR   0096H   A   
+P74OUT . . . . . . . . . . . . .  D ADDR   00B5H   A   
+PCA0CN . . . . . . . . . . . . .  D ADDR   00D8H   A   
+PCA0CPH0 . . . . . . . . . . . .  D ADDR   00FAH   A   
+PCA0CPH1 . . . . . . . . . . . .  D ADDR   00FBH   A   
+PCA0CPH2 . . . . . . . . . . . .  D ADDR   00FCH   A   
+PCA0CPH3 . . . . . . . . . . . .  D ADDR   00FDH   A   
+PCA0CPH4 . . . . . . . . . . . .  D ADDR   00FEH   A   
+PCA0CPL0 . . . . . . . . . . . .  D ADDR   00EAH   A   
+PCA0CPL1 . . . . . . . . . . . .  D ADDR   00EBH   A   
+PCA0CPL2 . . . . . . . . . . . .  D ADDR   00ECH   A   
+PCA0CPL3 . . . . . . . . . . . .  D ADDR   00EDH   A   
+PCA0CPL4 . . . . . . . . . . . .  D ADDR   00EEH   A   
+PCA0CPM0 . . . . . . . . . . . .  D ADDR   00DAH   A   
+PCA0CPM1 . . . . . . . . . . . .  D ADDR   00DBH   A   
+PCA0CPM2 . . . . . . . . . . . .  D ADDR   00DCH   A   
+PCA0CPM3 . . . . . . . . . . . .  D ADDR   00DDH   A   
+PCA0CPM4 . . . . . . . . . . . .  D ADDR   00DEH   A   
+PCA0H. . . . . . . . . . . . . .  D ADDR   00F9H   A   
+PCA0L. . . . . . . . . . . . . .  D ADDR   00E9H   A   
+PCA0MD . . . . . . . . . . . . .  D ADDR   00D9H   A   
+PCON . . . . . . . . . . . . . .  D ADDR   0087H   A   
+PS . . . . . . . . . . . . . . .  B ADDR   00B8H.4 A   
+PSCTL. . . . . . . . . . . . . .  D ADDR   008FH   A   
+PSW. . . . . . . . . . . . . . .  D ADDR   00D0H   A   
+PT0. . . . . . . . . . . . . . .  B ADDR   00B8H.1 A   
+PT1. . . . . . . . . . . . . . .  B ADDR   00B8H.3 A   
+PT2. . . . . . . . . . . . . . .  B ADDR   00B8H.5 A   
+PX0. . . . . . . . . . . . . . .  B ADDR   00B8H.0 A   
+PX1. . . . . . . . . . . . . . .  B ADDR   00B8H.2 A   
+RB80 . . . . . . . . . . . . . .  B ADDR   0098H.2 A   
+RCAP2H . . . . . . . . . . . . .  D ADDR   00CBH   A   
+RCAP2L . . . . . . . . . . . . .  D ADDR   00CAH   A   
+RCAP4H . . . . . . . . . . . . .  D ADDR   00E5H   A   
+RCAP4L . . . . . . . . . . . . .  D ADDR   00E4H   A   
+RCLK0. . . . . . . . . . . . . .  B ADDR   00C8H.5 A   
+REF0CN . . . . . . . . . . . . .  D ADDR   00D1H   A   
+REN0 . . . . . . . . . . . . . .  B ADDR   0098H.4 A   
+RI0. . . . . . . . . . . . . . .  B ADDR   0098H.0 A   
+RS0. . . . . . . . . . . . . . .  B ADDR   00D0H.3 A   
+RS1. . . . . . . . . . . . . . .  B ADDR   00D0H.4 A   
+RSTSRC . . . . . . . . . . . . .  D ADDR   00EFH   A   
+RXOVRN . . . . . . . . . . . . .  B ADDR   00F8H.4 A   
+SADDR0 . . . . . . . . . . . . .  D ADDR   00A9H   A   
+SADDR1 . . . . . . . . . . . . .  D ADDR   00F3H   A   
+SADEN0 . . . . . . . . . . . . .  D ADDR   00B9H   A   
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    34
+
+SADEN1 . . . . . . . . . . . . .  D ADDR   00AEH   A   
+SBUF0. . . . . . . . . . . . . .  D ADDR   0099H   A   
+SBUF1. . . . . . . . . . . . . .  D ADDR   00F2H   A   
+SCON0. . . . . . . . . . . . . .  D ADDR   0098H   A   
+SCON1. . . . . . . . . . . . . .  D ADDR   00F1H   A   
+SI . . . . . . . . . . . . . . .  B ADDR   00C0H.3 A   
+SLVSEL . . . . . . . . . . . . .  B ADDR   00F8H.2 A   
+SM00 . . . . . . . . . . . . . .  B ADDR   0098H.7 A   
+SM10 . . . . . . . . . . . . . .  B ADDR   0098H.6 A   
+SM20 . . . . . . . . . . . . . .  B ADDR   0098H.5 A   
+SMB0ADR. . . . . . . . . . . . .  D ADDR   00C3H   A   
+SMB0CN . . . . . . . . . . . . .  D ADDR   00C0H   A   
+SMB0CR . . . . . . . . . . . . .  D ADDR   00CFH   A   
+SMB0DAT. . . . . . . . . . . . .  D ADDR   00C2H   A   
+SMB0STA. . . . . . . . . . . . .  D ADDR   00C1H   A   
+SMBFTE . . . . . . . . . . . . .  B ADDR   00C0H.1 A   
+SMBTOE . . . . . . . . . . . . .  B ADDR   00C0H.0 A   
+SP . . . . . . . . . . . . . . .  D ADDR   0081H   A   
+SPI0CFG. . . . . . . . . . . . .  D ADDR   009AH   A   
+SPI0CKR. . . . . . . . . . . . .  D ADDR   009DH   A   
+SPI0CN . . . . . . . . . . . . .  D ADDR   00F8H   A   
+SPI0DAT. . . . . . . . . . . . .  D ADDR   009BH   A   
+SPIEN. . . . . . . . . . . . . .  B ADDR   00F8H.0 A   
+SPIF . . . . . . . . . . . . . .  B ADDR   00F8H.7 A   
+STA. . . . . . . . . . . . . . .  B ADDR   00C0H.5 A   
+STATE?247. . . . . . . . . . . .  B ADDR   0000H.0 R   SEG=?BI?INPUT_DIGITS?KEYBOARD
+STATE?351. . . . . . . . . . . .  B ADDR   0000H.0 R   SEG=?BI?INPUT_BITS?KEYBOARD
+STATE?457. . . . . . . . . . . .  B ADDR   0000H.0 R   SEG=?BI?INPUT_DISPLAY_TIME?KEYBOARD
+STATE?558. . . . . . . . . . . .  B ADDR   0000H.0 R   SEG=?BI?WAIT_INPUT?KEYBOARD
+STO. . . . . . . . . . . . . . .  B ADDR   00C0H.4 A   
+T2CON. . . . . . . . . . . . . .  D ADDR   00C8H   A   
+T4CON. . . . . . . . . . . . . .  D ADDR   00C9H   A   
+TB80 . . . . . . . . . . . . . .  B ADDR   0098H.3 A   
+TCLK0. . . . . . . . . . . . . .  B ADDR   00C8H.4 A   
+TCON . . . . . . . . . . . . . .  D ADDR   0088H   A   
+TEMP?043 . . . . . . . . . . . .  D ADDR   0001H   R   SEG=?DT?KSCAN?KEYBOARD
+TEMP?456 . . . . . . . . . . . .  D ADDR   0008H   R   SEG=?DT?INPUT_DISPLAY_TIME?KEYBOARD
+TF0. . . . . . . . . . . . . . .  B ADDR   0088H.5 A   
+TF1. . . . . . . . . . . . . . .  B ADDR   0088H.7 A   
+TF2. . . . . . . . . . . . . . .  B ADDR   00C8H.7 A   
+TH0. . . . . . . . . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . . . . . . . . .  D ADDR   008DH   A   
+TH2. . . . . . . . . . . . . . .  D ADDR   00CDH   A   
+TH4. . . . . . . . . . . . . . .  D ADDR   00F5H   A   
+TI0. . . . . . . . . . . . . . .  B ADDR   0098H.1 A   
+TL0. . . . . . . . . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . . . . . . . . .  D ADDR   008BH   A   
+TL2. . . . . . . . . . . . . . .  D ADDR   00CCH   A   
+TL4. . . . . . . . . . . . . . .  D ADDR   00F4H   A   
+TMOD . . . . . . . . . . . . . .  D ADDR   0089H   A   
+TMR3CN . . . . . . . . . . . . .  D ADDR   0091H   A   
+TMR3H. . . . . . . . . . . . . .  D ADDR   0095H   A   
+TMR3L. . . . . . . . . . . . . .  D ADDR   0094H   A   
+TMR3RLH. . . . . . . . . . . . .  D ADDR   0093H   A   
+TMR3RLL. . . . . . . . . . . . .  D ADDR   0092H   A   
+TR0. . . . . . . . . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . . . . . . . . .  B ADDR   0088H.6 A   
+TR2. . . . . . . . . . . . . . .  B ADDR   00C8H.2 A   
+TXBSY. . . . . . . . . . . . . .  B ADDR   00F8H.3 A   
+WAIT_INPUT . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?WAIT_INPUT?KEYBOARD
+WCOL . . . . . . . . . . . . . .  B ADDR   00F8H.6 A   
+WDTCN. . . . . . . . . . . . . .  D ADDR   00FFH   A   
+WRONG_DISPLAY_TIME . . . . . . .  C ADDR   0000H   R   SEG=?PR?WRONG_DISPLAY_TIME?KEYBOARD
+WRONG_INPUT_BITS . . . . . . . .  C ADDR   0000H   R   SEG=?PR?WRONG_INPUT_BITS?KEYBOARD
+XBR0 . . . . . . . . . . . . . .  D ADDR   00E1H   A   
+XBR1 . . . . . . . . . . . . . .  D ADDR   00E2H   A   
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/22/2023 22:57:53 PAGE    35
+
+XBR2 . . . . . . . . . . . . . .  D ADDR   00E3H   A   
+_?IX1000 . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?CO?KEYBOARD
+_?IX1001 . . . . . . . . . . . .  C ADDR   0002H   R   SEG=?CO?KEYBOARD
+_DELAY_MS. . . . . . . . . . . .  C ADDR   -----       EXT
+_PRINT_CHAR. . . . . . . . . . .  C ADDR   -----       EXT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

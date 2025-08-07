@@ -1,0 +1,764 @@
+/*
+ * @Author: 王心瀚
+ * @Date: 2023-12-22 12:39:22
+ * @LastEditors: 王心瀚
+ * @LastEditTime: 2023-12-22 23:04:32
+ * @FilePath: \undefinedc:\Users\u2021\Desktop\资料\大三\单片机\实验\提高实验\汇编版本\DISPLAY.asm
+ * @Description: 显示文件，包含显示相关函数
+ * 
+ * Copyright (c) 2023 by ${王心瀚}, All Rights Reserved. 
+ */
+$NOMOD51
+NAME	DISPLAY
+$include(DISPLAY.inc) ;
+	RSEG  DT_display_random_digits_DISPLAY
+display_random_digits_BYTE:
+         i:   DS   1
+     digit:   DS   1
+	RSEG  DT_print_acknowledgement_DISPLAY
+print_acknowledgement_BYTE:
+         i1:   DS   2
+	RSEG  DT_display_picture_DISPLAY
+_display_picture_BYTE:
+        ptr:   DS   3
+	RSEG  CO_DISPLAY
+SC_0:
+	DB  0B2H,0C2H,0CAH,0FDH,0D3H,0CEH,0CFH,0B7H,000H
+SC_9:
+	DB  ' ' ,'G' ,'u' ,'e' ,'s' ,'s' ,'i' ,'n' ,'g' ,' ' 
+	DB  'g' ,'a' ,'m' ,'e' ,000H
+SC_24:
+	DB  '0' ,':' ,0BDH,0F8H,0C8H,0EBH,0D3H,0CEH,0CFH,0B7H
+	DB  000H
+SC_35:
+	DB  '1' ,':' ,0D6H,0C2H,0D0H,0BBH,000H
+SC_42:
+	DB  0B0H,0B4H,0CAH,0FDH,0D7H,0D6H,0BCH,0FCH,0D1H,0A1H
+	DB  0D4H,0F1H,0C4H,0A3H,0CAH,0BDH,000H
+SC_59:
+	DB  '0' ,':' ,0B4H,0B3H,0B9H,0D8H,0C4H,0A3H,0CAH,0BDH
+	DB  000H
+SC_70:
+	DB  '1' ,':' ,0C1H,0B7H,0CFH,0B0H,0C4H,0A3H,0CAH,0BDH
+	DB  000H
+SC_81:
+	DB  '2' ,':' ,0CBH,0E6H,0BBH,0FAH,0C4H,0A3H,0CAH,0BDH
+	DB  000H
+SC_92:
+	DB  0B0H,0B4H,0CAH,0FDH,0D7H,0D6H,0BCH,0FCH,0CAH,0E4H
+	DB  0C8H,0EBH,0CEH,0BBH,0CAH,0FDH,000H
+SC_109:
+	DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0C8H,0B7H,0C8H,0CFH
+	DB  000H
+SC_120:
+	DB  0B0H,0B4H,'E' ,' ' ,0BCH,0FCH,0B7H,0B5H,0BBH,0D8H
+	DB  000H
+SC_131:
+	DB  0B0H,0B4H,'D' ,' ' ,0BCH,0FCH,0D6H,0D8H,0CAH,0E4H
+	DB  000H
+SC_142:
+	DB  0B0H,0B4H,0CAH,0FDH,0D7H,0D6H,0BCH,0FCH,0CAH,0E4H
+	DB  0C8H,0EBH,0CAH,0B1H,0BCH,0E4H,000H
+SC_159:
+	DB  0C4H,0E3H,0D7H,0BCH,0B1H,0B8H,0BAH,0C3H,0C1H,0CBH
+	DB  0C2H,0F0H,0A3H,0BFH,000H
+SC_174:
+	DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0BFH,0AAH,0CAH,0BCH
+	DB  0D3H,0CEH,0CFH,0B7H,000H
+SC_189:
+	DB  0B0H,0B4H,0CAH,0FDH,0D7H,0D6H,0BCH,0FCH,0CAH,0E4H
+	DB  0C8H,0EBH,0CAH,0FDH,0D7H,0D6H,000H
+SC_206:
+	DB  '*' ,'*' ,0B9H,0A7H,0CFH,0B2H,0C4H,0E3H,0B2H,0C2H
+	DB  0B6H,0D4H,0C1H,0CBH,'*' ,'*' ,000H
+SC_223:
+	DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0BCH,0CCH,0D0H,0F8H
+	DB  0D3H,0CEH,0CFH,0B7H,000H
+SC_238:
+	DB  '*' ,'*' ,'*' ,'*' ,'*' ,'*' ,'*' ,'*' ,'*' ,'*' 
+	DB  '*' ,'*' ,'*' ,'*' ,'*' ,'*' ,000H
+SC_255:
+	DB  0BAH,0DCH,0BFH,0C9H,0CFH,0A7H,0C4H,0E3H,0B2H,0C2H
+	DB  0B4H,0EDH,0C1H,0CBH,'#' ,'#' ,000H
+SC_272:
+	DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0D6H,0D8H,0D0H,0C2H
+	DB  0BFH,0AAH,0CAH,0BCH,000H
+SC_287:
+	DB  '#' ,'#' ,'#' ,'#' ,'#' ,'#' ,'#' ,'#' ,'#' ,'#' 
+	DB  '#' ,'#' ,'#' ,'#' ,'#' ,'#' ,000H
+SC_304:
+	DB  0B9H,0A7H,0CFH,0B2H,0C4H,0E3H,0B4H,0B3H,0B9H,0D8H
+	DB  0B3H,0C9H,0B9H,0A6H,'*' ,'*' ,000H
+SC_321:
+	DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0D4H,0D9H,0B4H,0CEH
+	DB  0CCH,0F4H,0D5H,0BDH,000H
+SC_336:
+	DB  0BAH,0DCH,0BFH,0C9H,0CFH,0A7H,0B4H,0B3H,0B9H,0D8H
+	DB  0CAH,0A7H,0B0H,0DCH,'#' ,'#' ,000H
+SC_353:
+	DB  0CAH,0E4H,0C8H,0EBH,0CEH,0BBH,0CAH,0FDH,0B7H,0C7H
+	DB  0B7H,0A8H,000H
+SC_366:
+	DB  '1' ,'<' ,'=' ,' ' ,0CAH,0E4H,0C8H,0EBH,0CEH,0BBH
+	DB  0CAH,0FDH,'<' ,'=' ,'6' ,'4' ,000H
+SC_383:
+	DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0D6H,0D8H,0CAH,0E4H
+	DB  000H
+SC_394:
+	DB  0CAH,0E4H,0C8H,0EBH,0CFH,0D4H,0CAH,0BEH,0CAH,0B1H
+	DB  0BCH,0E4H,0B7H,0C7H,0B7H,0A8H,000H
+SC_411:
+	DB  '5' ,'0' ,'<' ,'=' ,0CAH,0B1H,0BCH,0E4H,'<' ,'=' 
+	DB  '6' ,'5' ,'5' ,'3' ,'5' ,000H
+acknowledgements:
+	DB  0B7H,0C7H,0B3H,0A3H,0B8H,0D0H,0D0H,0BBH,0C4H,0DCH
+	DB  0D3H,0D0H,0D5H,0E2H,0B4H,0CEH,0BBH,0FAH,0BBH,0E1H
+	DB  0D7H,0F6H,0CCH,0E1H,0B8H,0DFH,0CAH,0B5H,0D1H,0E9H
+	DB  0A3H,0ACH,0CCH,0E1H,0B8H,0DFH,0CAH,0B5H,0D1H,0E9H
+	DB  0BDH,0D3H,0BDH,0FCH,0D5H,0E6H,0CAH,0B5H,0B5H,0C4H
+	DB  0B9H,0A4H,0B3H,0CCH,0CFH,0EEH,0C4H,0BFH,0A3H,0ACH
+	DB  0D3H,0D0H,0D2H,0BBH,0B6H,0A8H,0B5H,0C4H,0C4H,0D1H
+	DB  0B6H,0C8H,0A3H,0ACH,0B5H,0ABH,0CAH,0C7H,0CEH,0D2H
+	DB  0BFH,0CBH,0B7H,0FEH,0D6H,0D6H,0D6H,0D6H,0C0H,0A7H
+	DB  0C4H,0D1H,0A3H,0ACH,0CBH,0B3H,0C0H,0FBH,0B8H,0DFH
+	DB  0D6H,0CAH,0C1H,0BFH,0B5H,0D8H,0CDH,0EAH,0B3H,0C9H
+	DB  0C1H,0CBH,0B2H,0C2H,0CAH,0FDH,0D3H,0CEH,0CFH,0B7H
+	DB  0CFH,0EEH,0C4H,0BFH,0A3H,0ACH,0CCH,0E1H,0B8H,0DFH
+	DB  0C1H,0CBH,0CEH,0D2H,0B5H,0C4H,'C' ,' ' ,0D3H,0EFH
+	DB  0D1H,0D4H,0BAH,0CDH,0BBH,0E3H,0B1H,0E0H,0D3H,0EFH
+	DB  0D1H,0D4H,0B1H,0E0H,0B3H,0CCH,0C4H,0DCH,0C1H,0A6H
+	DB  0A3H,0ACH,0BCH,0D3H,0C9H,0EEH,0C1H,0CBH,0B6H,0D4H
+	DB  0B5H,0A5H,0C6H,0ACH,0BBH,0FAH,0BAH,0CDH,0C7H,0B6H
+	DB  0C8H,0EBH,0CAH,0BDH,0CFH,0B5H,0CDH,0B3H,0B5H,0C4H
+	DB  0C0H,0EDH,0BDH,0E2H,0A3H,0ACH,0B8H,0D0H,0D0H,0BBH
+	DB  0C2H,0DEH,0C0H,0CFH,0CAH,0A6H,0BAH,0CDH,0D6H,0FAH
+	DB  0BDH,0CCH,0B5H,0C4H,0D6H,0B8H,0B5H,0BCH,0A3H,0A1H
+	DB  0A3H,0A1H,' ' ,' ' ,'M' ,'A' ,'D' ,'E' ,' ' ,'B' 
+	DB  'Y' ,' ' ,0CDH,0F5H,0D0H,0C4H,0E5H,0ABH,' ' ,' ' 
+	DB  '2' ,'0' ,'2' ,'3' ,0C4H,0EAH,'1' ,'2' ,0D4H,0C2H
+	DB  '2' ,'3' ,0C8H,0D5H,' ' ,' ' ,'T' ,'h' ,'a' ,'n' 
+	DB  'k' ,' ' ,'y' ,'o' ,'u' ,' ' ,'a' ,'g' ,'a' ,'i' 
+	DB  'n' ,'!' ,000H
+	RSEG  display_startup_logo_DISPLAY
+display_startup_logo:
+	USING	0
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (hust)
+	MOV  	R1,#LOW (hust)
+	LCALL	_display_picture
+	MOV  	R7,#0E8H
+	MOV  	R6,#03H
+	MOV  	R5,#00H
+	MOV  	R4,#00H
+	LCALL	_delay_ms
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (sft)
+	MOV  	R1,#LOW (sft)
+	LCALL	_display_picture
+	MOV  	R7,#0E8H
+	MOV  	R6,#03H
+	MOV  	R5,#00H
+	MOV  	R4,#00H
+	LJMP 	_delay_ms
+	RSEG  display_gussing_game_DISPLAY
+display_gussing_game:
+	USING	0
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (csyx)
+	MOV  	R1,#LOW (csyx)
+	LCALL	_display_picture
+	MOV  	R7,#0DCH
+	MOV  	R6,#05H
+	MOV  	R5,#00H
+	MOV  	R4,#00H
+	LJMP 	_delay_ms
+	RSEG  print_acknowledgement_DISPLAY
+print_acknowledgement:
+	USING	0
+	CLR  	A
+	MOV  	i1,A
+	MOV  	i1+01H,A
+	MOV  	i1,A
+	MOV  	i1+01H,A
+DISPLAY0003:
+	MOV  	A,i1+01H
+	ANL  	A,#03FH
+	JNZ  	DISPLAY0006
+	LCALL	clear
+DISPLAY0006:
+	MOV  	A,#LOW (acknowledgements)
+	ADD  	A,i1+01H
+	MOV  	DPL,A
+	MOV  	A,#HIGH (acknowledgements)
+	ADDC 	A,i1
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	MOV  	R3,A
+	JZ   	DISPLAY0014
+	MOV  	A,i1+01H
+	ANL  	A,#03FH
+	XRL  	A,#010H
+	JNZ  	DISPLAY0008
+	MOV  	R5,#02H
+	SJMP 	DISPLAY0045
+DISPLAY0008:
+	MOV  	A,i1+01H
+	ANL  	A,#03FH
+	XRL  	A,#020H
+	JNZ  	DISPLAY0010
+	MOV  	A,#LOW (acknowledgements)
+	ADD  	A,i1+01H
+	MOV  	DPL,A
+	MOV  	A,#HIGH (acknowledgements)
+	ADDC 	A,i1
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	MOV  	R3,A
+	MOV  	R5,#03H
+	CLR  	A
+DISPLAY0044:
+	SJMP 	DISPLAY0045
+DISPLAY0010:
+	MOV  	A,i1+01H
+	ANL  	A,#03FH
+	XRL  	A,#030H
+	JNZ  	DISPLAY0012
+	MOV  	A,#LOW (acknowledgements)
+	ADD  	A,i1+01H
+	MOV  	DPL,A
+	MOV  	A,#HIGH (acknowledgements)
+	ADDC 	A,i1
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	MOV  	R3,A
+	MOV  	R5,#04H
+	CLR  	A
+	SJMP 	DISPLAY0043
+DISPLAY0012:
+	MOV  	A,#LOW (acknowledgements)
+	ADD  	A,i1+01H
+	MOV  	DPL,A
+	MOV  	A,#HIGH (acknowledgements)
+	ADDC 	A,i1
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	MOV  	R3,A
+	CLR  	A
+	MOV  	R5,A
+DISPLAY0043:
+DISPLAY0045:
+	MOV  	R7,A
+	LCALL	_print_char
+DISPLAY0009:
+	MOV  	R7,#064H
+	MOV  	R6,#00H
+	MOV  	R5,#00H
+	MOV  	R4,#00H
+	LCALL	_delay_ms
+	INC  	i1+01H
+	MOV  	A,i1+01H
+	JNZ  	DISPLAY0042
+	INC  	i1
+DISPLAY0042:
+	LJMP 	DISPLAY0003
+DISPLAY0014:
+	RET  	
+	RSEG  display_acknowledgement_DISPLAY
+display_acknowledgement:
+	USING	0
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (zhu)
+	MOV  	R1,#LOW (zhu)
+	LCALL	_display_picture
+	MOV  	R7,#0E8H
+	MOV  	R6,#03H
+	MOV  	R5,#00H
+	MOV  	R4,#00H
+	LCALL	_delay_ms
+	LCALL	print_acknowledgement
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (xxdj)
+	MOV  	R1,#LOW (xxdj)
+	LCALL	_display_picture
+	MOV  	R7,#0E8H
+	MOV  	R6,#03H
+	MOV  	R5,#00H
+	MOV  	R4,#00H
+	LJMP 	_delay_ms
+	RSEG  _display_picture_DISPLAY
+_display_picture:
+	USING	0
+	MOV  	ptr,R3
+	MOV  	ptr+01H,R2
+	MOV  	ptr+02H,R1
+	LCALL	clear
+	MOV  	R3,ptr
+	MOV  	R2,ptr+01H
+	MOV  	R1,ptr+02H
+	LJMP 	_Draw_PM
+	RSEG  display_main_menu_DISPLAY
+display_main_menu:
+	USING	0
+	LCALL	clear
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_0)
+	MOV  	R1,#LOW (SC_0)
+	MOV  	R5,#01H
+	MOV  	R7,#02H
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_9)
+	MOV  	R1,#LOW (SC_9)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_24)
+	MOV  	R1,#LOW (SC_24)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_35)
+	MOV  	R1,#LOW (SC_35)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+	RSEG  display_mode_select_DISPLAY
+display_mode_select:
+	USING	0
+	LCALL	clear
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_42)
+	MOV  	R1,#LOW (SC_42)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_59)
+	MOV  	R1,#LOW (SC_59)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_70)
+	MOV  	R1,#LOW (SC_70)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_81)
+	MOV  	R1,#LOW (SC_81)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+	RSEG  display_bits_select_DISPLAY
+display_bits_select:
+	USING	0
+	LCALL	clear
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_92)
+	MOV  	R1,#LOW (SC_92)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_109)
+	MOV  	R1,#LOW (SC_109)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_120)
+	MOV  	R1,#LOW (SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_131)
+	MOV  	R1,#LOW (SC_131)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+	RSEG  display_time_select_DISPLAY
+display_time_select:
+	USING	0
+	LCALL	clear
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_142)
+	MOV  	R1,#LOW (SC_142)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_109)
+	MOV  	R1,#LOW (SC_109)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_120)
+	MOV  	R1,#LOW (SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_131)
+	MOV  	R1,#LOW (SC_131)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+	RSEG  display_begin_select_DISPLAY
+display_begin_select:
+	USING	0
+	LCALL	clear
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_159)
+	MOV  	R1,#LOW (SC_159)
+	MOV  	R5,#01H
+	MOV  	R7,#01H
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_174)
+	MOV  	R1,#LOW (SC_174)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_120)
+	MOV  	R1,#LOW (SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+	RSEG  display_input_DISPLAY
+display_input:
+	USING	0
+	LCALL	clear
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_189)
+	MOV  	R1,#LOW (SC_189)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_109)
+	MOV  	R1,#LOW (SC_109)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_120)
+	MOV  	R1,#LOW (SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_131)
+	MOV  	R1,#LOW (SC_131)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+	RSEG  display_correct_DISPLAY
+display_correct:
+	USING	0
+	LCALL	clear
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_206)
+	MOV  	R1,#LOW (SC_206)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_223)
+	MOV  	R1,#LOW (SC_223)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_120)
+	MOV  	R1,#LOW (SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_238)
+	MOV  	R1,#LOW (SC_238)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+	RSEG  display_error_DISPLAY
+display_error:
+	USING	0
+	LCALL	clear
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_255)
+	MOV  	R1,#LOW (SC_255)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_272)
+	MOV  	R1,#LOW (SC_272)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_120)
+	MOV  	R1,#LOW (SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_287)
+	MOV  	R1,#LOW (SC_287)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+	RSEG  display_win_DISPLAY
+display_win:
+	USING	0
+	LCALL	clear
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_304)
+	MOV  	R1,#LOW (SC_304)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_321)
+	MOV  	R1,#LOW (SC_321)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_120)
+	MOV  	R1,#LOW (SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_238)
+	MOV  	R1,#LOW (SC_238)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+	RSEG  display_lose_DISPLAY
+display_lose:
+	USING	0
+	LCALL	clear
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_336)
+	MOV  	R1,#LOW (SC_336)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_321)
+	MOV  	R1,#LOW (SC_321)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_120)
+	MOV  	R1,#LOW (SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_287)
+	MOV  	R1,#LOW (SC_287)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+	RSEG  display_random_digits_DISPLAY
+display_random_digits:
+	USING	0
+	CLR  	A
+	MOV  	digit,A
+	MOV  	i,A
+DISPLAY0027:
+	MOV  	A,#LOW (random_digits)
+	ADD  	A,i
+	MOV  	DPL,A
+	CLR  	A
+	ADDC 	A,#HIGH (random_digits)
+	MOV  	DPH,A
+	CLR  	A
+	MOVX 	@DPTR,A
+	INC  	i
+	MOV  	A,i
+	CJNE 	A,#040H,DISPLAY0027
+DISPLAY0028:
+	LCALL	clear
+	CLR  	A
+	MOV  	i,A
+DISPLAY0030:
+	MOV  	A,i
+	CLR  	C
+	SUBB 	A,bits
+	JNC  	DISPLAY0031
+	LCALL	rand
+	MOV  	R4,#00H
+	MOV  	R5,#0AH
+	LCALL	?C?SIDIV
+	MOV  	A,#LOW (digits)
+	ADD  	A,R5
+	MOV  	DPL,A
+	MOV  	A,#HIGH (digits)
+	ADDC 	A,R4
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	MOV  	R7,A
+	MOV  	digit,A
+	MOV  	A,#LOW (random_digits)
+	ADD  	A,i
+	MOV  	DPL,A
+	CLR  	A
+	ADDC 	A,#HIGH (random_digits)
+	MOV  	DPH,A
+	MOV  	A,R7
+	MOVX 	@DPTR,A
+	MOV  	A,i
+	CJNE 	A,#010H,DISPLAY0033
+	MOV  	R3,digit
+	MOV  	R5,#02H
+	SJMP 	DISPLAY0047
+DISPLAY0033:
+	MOV  	A,i
+	CJNE 	A,#020H,DISPLAY0035
+	MOV  	R3,digit
+	MOV  	R5,#03H
+DISPLAY0047:
+	CLR  	A
+	SJMP 	DISPLAY0048
+DISPLAY0035:
+	MOV  	A,i
+	MOV  	R3,digit
+	CJNE 	A,#030H,DISPLAY0037
+	MOV  	R5,#04H
+	CLR  	A
+	SJMP 	DISPLAY0046
+DISPLAY0037:
+	CLR  	A
+	MOV  	R5,A
+DISPLAY0046:
+DISPLAY0048:
+	MOV  	R7,A
+	LCALL	_print_char
+DISPLAY0032:
+	INC  	i
+	SJMP 	DISPLAY0030
+DISPLAY0031:
+	MOV  	R6,display_time
+	MOV  	R7,display_time+01H
+	CLR  	A
+	MOV  	R4,A
+	MOV  	R5,A
+	LJMP 	_delay_ms
+	RSEG  display_wrong_input_bits_DISPLAY
+display_wrong_input_bits:
+	USING	0
+	LCALL	clear
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_353)
+	MOV  	R1,#LOW (SC_353)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_366)
+	MOV  	R1,#LOW (SC_366)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_383)
+	MOV  	R1,#LOW (SC_383)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_120)
+	MOV  	R1,#LOW (SC_120)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+	RSEG  display_wrong_input_display_time_DISPLAY
+display_wrong_input_display_time:
+	USING	0
+	LCALL	clear
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_394)
+	MOV  	R1,#LOW (SC_394)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_411)
+	MOV  	R1,#LOW (SC_411)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_383)
+	MOV  	R1,#LOW (SC_383)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (SC_120)
+	MOV  	R1,#LOW (SC_120)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+	END

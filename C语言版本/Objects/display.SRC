@@ -1,0 +1,1472 @@
+; .\Objects\display.SRC generated from: display.c
+; COMPILER INVOKED BY:
+;        C:\Keil_v5\C51\BIN\C51.EXE display.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\display.lst) TABS(2) SRC(.\Objects\display.SRC)
+
+$NOMOD51
+
+NAME	DISPLAY
+
+CCF2	BIT	0D8H.2
+TB80	BIT	098H.3
+SPI0CKR	DATA	09DH
+CCF3	BIT	0D8H.3
+P0	DATA	080H
+SPIEN	BIT	0F8H.0
+CCF4	BIT	0D8H.4
+SM00	BIT	098H.7
+P1	DATA	090H
+AA	BIT	0C0H.2
+SM10	BIT	098H.6
+WDTCN	DATA	0FFH
+P2	DATA	0A0H
+SM20	BIT	098H.5
+ADC0CF	DATA	0BCH
+P3	DATA	0B0H
+AC	BIT	0D0H.6
+ADC1CF	DATA	0ABH
+P4	DATA	084H
+EIE1	DATA	0E6H
+P5	DATA	085H
+EA	BIT	0A8H.7
+EIE2	DATA	0E7H
+P6	DATA	086H
+P7	DATA	096H
+PSCTL	DATA	08FH
+MSTEN	BIT	0F8H.1
+CF	BIT	0D8H.7
+ADC0CN	DATA	0E8H
+DAC0CN	DATA	0D4H
+DAC1CN	DATA	0D7H
+ADC1CN	DATA	0AAH
+P0MDOUT	DATA	0A4H
+P1MDOUT	DATA	0A5H
+IE	DATA	0A8H
+P2MDOUT	DATA	0A6H
+P3MDOUT	DATA	0A7H
+TMR3RLH	DATA	093H
+EIP1	DATA	0F6H
+EIP2	DATA	0F7H
+PCA0CPH0	DATA	0FAH
+PCA0CPH1	DATA	0FBH
+P3IF	DATA	0ADH
+TMR3RLL	DATA	092H
+PCA0CPH2	DATA	0FCH
+CR	BIT	0D8H.6
+PCA0CPH3	DATA	0FDH
+EXF2	BIT	0C8H.6
+REN0	BIT	098H.4
+PCA0CPH4	DATA	0FEH
+PCA0CPL0	DATA	0EAH
+EMI0CF	DATA	0A3H
+PCA0CPL1	DATA	0EBH
+PCA0CPM0	DATA	0DAH
+PCA0MD	DATA	0D9H
+PCA0CN	DATA	0D8H
+PCA0CPL2	DATA	0ECH
+PCA0CPM1	DATA	0DBH
+PCA0CPL3	DATA	0EDH
+PCA0CPM2	DATA	0DCH
+IP	DATA	0B8H
+PCA0CPL4	DATA	0EEH
+PCA0CPM3	DATA	0DDH
+PCA0CPM4	DATA	0DEH
+TXBSY	BIT	0F8H.3
+CY	BIT	0D0H.7
+SI	BIT	0C0H.3
+XBR0	DATA	0E1H
+SADEN0	DATA	0B9H
+XBR1	DATA	0E2H
+EMI0CN	DATA	0AFH
+SADEN1	DATA	0AEH
+XBR2	DATA	0E3H
+REF0CN	DATA	0D1H
+SADDR0	DATA	0A9H
+SADDR1	DATA	0F3H
+AMX0CF	DATA	0BAH
+AD0INT	BIT	0E8H.5
+RCAP2H	DATA	0CBH
+PS	BIT	0B8H.4
+SP	DATA	081H
+RCAP4H	DATA	0E5H
+EMI0TC	DATA	0A1H
+OV	BIT	0D0H.2
+SMB0CN	DATA	0C0H
+RCAP2L	DATA	0CAH
+MODF	BIT	0F8H.5
+RCAP4L	DATA	0E4H
+SMB0CR	DATA	0CFH
+CPT0CN	DATA	09EH
+P1MDIN	DATA	0BDH
+CPT1CN	DATA	09FH
+SPI0CN	DATA	0F8H
+PCON	DATA	087H
+SPIF	BIT	0F8H.7
+P74OUT	DATA	0B5H
+TMOD	DATA	089H
+TCON	DATA	088H
+WCOL	BIT	0F8H.6
+AMX0SL	DATA	0BBH
+AMX1SL	DATA	0ACH
+TMR3CN	DATA	091H
+IE0	BIT	088H.1
+IE1	BIT	088H.3
+B	DATA	0F0H
+DAC0H	DATA	0D3H
+ADC0H	DATA	0BFH
+OSCICN	DATA	0B2H
+DAC1H	DATA	0D6H
+SMBFTE	BIT	0C0H.1
+BUSY	BIT	0C0H.7
+DAC0L	DATA	0D2H
+ADC0L	DATA	0BEH
+DAC1L	DATA	0D5H
+LCD_EN	BIT	0A0H.7
+ACC	DATA	0E0H
+ES0	BIT	0A8H.4
+AD0EN	BIT	0E8H.7
+CT2	BIT	0C8H.1
+ET0	BIT	0A8H.1
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+ET2	BIT	0A8H.5
+RI0	BIT	098H.0
+TF1	BIT	088H.7
+TF2	BIT	0C8H.7
+SMBTOE	BIT	0C0H.0
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+TI0	BIT	098H.1
+IT0	BIT	088H.0
+PCA0H	DATA	0F9H
+TH1	DATA	08DH
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+TH2	DATA	0CDH
+P	BIT	0D0H.0
+TH4	DATA	0F5H
+OSCXCN	DATA	0B1H
+TL0	DATA	08AH
+PCA0L	DATA	0E9H
+TL1	DATA	08BH
+TL2	DATA	0CCH
+PT0	BIT	0B8H.1
+TL4	DATA	0F4H
+RS0	BIT	0D0H.3
+PT1	BIT	0B8H.3
+RS1	BIT	0D0H.4
+PT2	BIT	0B8H.5
+TR0	BIT	088H.4
+AD0TM	BIT	0E8H.6
+TR1	BIT	088H.6
+TR2	BIT	0C8H.2
+PX0	BIT	0B8H.0
+LCD_RS	BIT	0A0H.5
+PX1	BIT	0B8H.2
+SLVSEL	BIT	0F8H.2
+DPH	DATA	083H
+LCD_RW	BIT	0A0H.6
+RCLK0	BIT	0C8H.5
+ADC0GTH	DATA	0C5H
+TCLK0	BIT	0C8H.4
+DPL	DATA	082H
+ADC0GTL	DATA	0C4H
+SBUF0	DATA	099H
+SBUF1	DATA	0F2H
+ADC0LTH	DATA	0C7H
+EXEN2	BIT	0C8H.3
+RSTSRC	DATA	0EFH
+FLACL	DATA	0B7H
+CPRL2	BIT	0C8H.0
+SCON0	DATA	098H
+SCON1	DATA	0F1H
+ADC0LTL	DATA	0C6H
+T2CON	DATA	0C8H
+STA	BIT	0C0H.5
+T4CON	DATA	0C9H
+SMB0ADR	DATA	0C3H
+SMB0DAT	DATA	0C2H
+SPI0CFG	DATA	09AH
+TMR3H	DATA	095H
+CKCON	DATA	08EH
+RXOVRN	BIT	0F8H.4
+D0	BIT	080H.0
+TMR3L	DATA	094H
+D1	BIT	080H.1
+AD0LJST	BIT	0E8H.0
+D2	BIT	080H.2
+F0	BIT	0D0H.5
+FLSCL	DATA	0B6H
+D3	BIT	080H.3
+AD0CM0	BIT	0E8H.2
+F1	BIT	0D0H.1
+STO	BIT	0C0H.4
+ENSMB	BIT	0C0H.6
+D4	BIT	080H.4
+AD0CM1	BIT	0E8H.3
+SPI0DAT	DATA	09BH
+D5	BIT	080H.5
+D6	BIT	080H.6
+AD0WINT	BIT	0E8H.1
+ADC1	DATA	09CH
+D7	BIT	080H.7
+AD0BUSY	BIT	0E8H.4
+PSW	DATA	0D0H
+CCF0	BIT	0D8H.0
+RB80	BIT	098H.2
+SMB0STA	DATA	0C1H
+CCF1	BIT	0D8H.1
+?PR?display_startup_logo?DISPLAY         SEGMENT CODE 
+?PR?display_gussing_game?DISPLAY         SEGMENT CODE 
+?PR?print_acknowledgement?DISPLAY        SEGMENT CODE 
+?DT?print_acknowledgement?DISPLAY        SEGMENT DATA OVERLAYABLE 
+?PR?display_acknowledgement?DISPLAY      SEGMENT CODE 
+?PR?_display_picture?DISPLAY             SEGMENT CODE 
+?DT?_display_picture?DISPLAY             SEGMENT DATA OVERLAYABLE 
+?PR?display_main_menu?DISPLAY            SEGMENT CODE 
+?PR?display_mode_select?DISPLAY          SEGMENT CODE 
+?PR?display_bits_select?DISPLAY          SEGMENT CODE 
+?PR?display_time_select?DISPLAY          SEGMENT CODE 
+?PR?display_begin_select?DISPLAY         SEGMENT CODE 
+?PR?display_input?DISPLAY                SEGMENT CODE 
+?PR?display_correct?DISPLAY              SEGMENT CODE 
+?PR?display_error?DISPLAY                SEGMENT CODE 
+?PR?display_win?DISPLAY                  SEGMENT CODE 
+?PR?display_lose?DISPLAY                 SEGMENT CODE 
+?PR?display_random_digits?DISPLAY        SEGMENT CODE 
+?DT?display_random_digits?DISPLAY        SEGMENT DATA OVERLAYABLE 
+?PR?display_wrong_input_bits?DISPLAY     SEGMENT CODE 
+?PR?display_wrong_input_display_time?DISPLAY SEGMENT CODE 
+?CO?DISPLAY          SEGMENT CODE 
+	EXTRN	CODE (digits)
+	EXTRN	CODE (clear)
+	EXTRN	DATA (display_time)
+	EXTRN	CODE (_Draw_PM)
+	EXTRN	CODE (rand)
+	EXTRN	CODE (_print)
+	EXTRN	CODE (_print_char)
+	EXTRN	DATA (bits)
+	EXTRN	CODE (xxdj)
+	EXTRN	CODE (hust)
+	EXTRN	CODE (csyx)
+	EXTRN	CODE (sft)
+	EXTRN	CODE (_delay_ms)
+	EXTRN	CODE (zhu)
+	EXTRN	XDATA (random_digits)
+	EXTRN	CODE (?C?SIDIV)
+	PUBLIC	acknowledgements
+	PUBLIC	display_wrong_input_display_time
+	PUBLIC	display_wrong_input_bits
+	PUBLIC	display_random_digits
+	PUBLIC	display_lose
+	PUBLIC	display_win
+	PUBLIC	display_error
+	PUBLIC	display_correct
+	PUBLIC	display_input
+	PUBLIC	display_begin_select
+	PUBLIC	display_time_select
+	PUBLIC	display_bits_select
+	PUBLIC	display_mode_select
+	PUBLIC	display_main_menu
+	PUBLIC	_display_picture
+	PUBLIC	display_acknowledgement
+	PUBLIC	print_acknowledgement
+	PUBLIC	display_gussing_game
+	PUBLIC	display_startup_logo
+
+	RSEG  ?DT?display_random_digits?DISPLAY
+?display_random_digits?BYTE:
+         i?1542:   DS   1
+	ORG  1
+     digit?1543:   DS   1
+
+	RSEG  ?DT?print_acknowledgement?DISPLAY
+?print_acknowledgement?BYTE:
+          i?240:   DS   2
+
+	RSEG  ?DT?_display_picture?DISPLAY
+?_display_picture?BYTE:
+        ptr?441:   DS   3
+
+	RSEG  ?CO?DISPLAY
+?SC_0:
+	DB  0B2H,0C2H,0CAH,0FDH,0D3H,0CEH,0CFH,0B7H,000H
+
+?SC_9:
+	DB  ' ' ,'G' ,'u' ,'e' ,'s' ,'s' ,'i' ,'n' ,'g' ,' ' 
+	DB  'g' ,'a' ,'m' ,'e' ,000H
+
+?SC_24:
+	DB  '0' ,':' ,0BDH,0F8H,0C8H,0EBH,0D3H,0CEH,0CFH,0B7H
+	DB  000H
+
+?SC_35:
+	DB  '1' ,':' ,0D6H,0C2H,0D0H,0BBH,000H
+
+?SC_42:
+	DB  0B0H,0B4H,0CAH,0FDH,0D7H,0D6H,0BCH,0FCH,0D1H,0A1H
+	DB  0D4H,0F1H,0C4H,0A3H,0CAH,0BDH,000H
+
+?SC_59:
+	DB  '0' ,':' ,0B4H,0B3H,0B9H,0D8H,0C4H,0A3H,0CAH,0BDH
+	DB  000H
+
+?SC_70:
+	DB  '1' ,':' ,0C1H,0B7H,0CFH,0B0H,0C4H,0A3H,0CAH,0BDH
+	DB  000H
+
+?SC_81:
+	DB  '2' ,':' ,0CBH,0E6H,0BBH,0FAH,0C4H,0A3H,0CAH,0BDH
+	DB  000H
+
+?SC_92:
+	DB  0B0H,0B4H,0CAH,0FDH,0D7H,0D6H,0BCH,0FCH,0CAH,0E4H
+	DB  0C8H,0EBH,0CEH,0BBH,0CAH,0FDH,000H
+
+?SC_109:
+	DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0C8H,0B7H,0C8H,0CFH
+	DB  000H
+
+?SC_120:
+	DB  0B0H,0B4H,'E' ,' ' ,0BCH,0FCH,0B7H,0B5H,0BBH,0D8H
+	DB  000H
+
+?SC_131:
+	DB  0B0H,0B4H,'D' ,' ' ,0BCH,0FCH,0D6H,0D8H,0CAH,0E4H
+	DB  000H
+
+?SC_142:
+	DB  0B0H,0B4H,0CAH,0FDH,0D7H,0D6H,0BCH,0FCH,0CAH,0E4H
+	DB  0C8H,0EBH,0CAH,0B1H,0BCH,0E4H,000H
+
+?SC_159:
+	DB  0C4H,0E3H,0D7H,0BCH,0B1H,0B8H,0BAH,0C3H,0C1H,0CBH
+	DB  0C2H,0F0H,0A3H,0BFH,000H
+
+?SC_174:
+	DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0BFH,0AAH,0CAH,0BCH
+	DB  0D3H,0CEH,0CFH,0B7H,000H
+
+?SC_189:
+	DB  0B0H,0B4H,0CAH,0FDH,0D7H,0D6H,0BCH,0FCH,0CAH,0E4H
+	DB  0C8H,0EBH,0CAH,0FDH,0D7H,0D6H,000H
+
+?SC_206:
+	DB  '*' ,'*' ,0B9H,0A7H,0CFH,0B2H,0C4H,0E3H,0B2H,0C2H
+	DB  0B6H,0D4H,0C1H,0CBH,'*' ,'*' ,000H
+
+?SC_223:
+	DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0BCH,0CCH,0D0H,0F8H
+	DB  0D3H,0CEH,0CFH,0B7H,000H
+
+?SC_238:
+	DB  '*' ,'*' ,'*' ,'*' ,'*' ,'*' ,'*' ,'*' ,'*' ,'*' 
+	DB  '*' ,'*' ,'*' ,'*' ,'*' ,'*' ,000H
+
+?SC_255:
+	DB  0BAH,0DCH,0BFH,0C9H,0CFH,0A7H,0C4H,0E3H,0B2H,0C2H
+	DB  0B4H,0EDH,0C1H,0CBH,'#' ,'#' ,000H
+
+?SC_272:
+	DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0D6H,0D8H,0D0H,0C2H
+	DB  0BFH,0AAH,0CAH,0BCH,000H
+
+?SC_287:
+	DB  '#' ,'#' ,'#' ,'#' ,'#' ,'#' ,'#' ,'#' ,'#' ,'#' 
+	DB  '#' ,'#' ,'#' ,'#' ,'#' ,'#' ,000H
+
+?SC_304:
+	DB  0B9H,0A7H,0CFH,0B2H,0C4H,0E3H,0B4H,0B3H,0B9H,0D8H
+	DB  0B3H,0C9H,0B9H,0A6H,'*' ,'*' ,000H
+
+?SC_321:
+	DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0D4H,0D9H,0B4H,0CEH
+	DB  0CCH,0F4H,0D5H,0BDH,000H
+
+?SC_336:
+	DB  0BAH,0DCH,0BFH,0C9H,0CFH,0A7H,0B4H,0B3H,0B9H,0D8H
+	DB  0CAH,0A7H,0B0H,0DCH,'#' ,'#' ,000H
+
+?SC_353:
+	DB  0CAH,0E4H,0C8H,0EBH,0CEH,0BBH,0CAH,0FDH,0B7H,0C7H
+	DB  0B7H,0A8H,000H
+
+?SC_366:
+	DB  '1' ,'<' ,'=' ,' ' ,0CAH,0E4H,0C8H,0EBH,0CEH,0BBH
+	DB  0CAH,0FDH,'<' ,'=' ,'6' ,'4' ,000H
+
+?SC_383:
+	DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0D6H,0D8H,0CAH,0E4H
+	DB  000H
+
+?SC_394:
+	DB  0CAH,0E4H,0C8H,0EBH,0CFH,0D4H,0CAH,0BEH,0CAH,0B1H
+	DB  0BCH,0E4H,0B7H,0C7H,0B7H,0A8H,000H
+
+?SC_411:
+	DB  '5' ,'0' ,'<' ,'=' ,0CAH,0B1H,0BCH,0E4H,'<' ,'=' 
+	DB  '6' ,'5' ,'5' ,'3' ,'5' ,000H
+
+acknowledgements:
+	DB  0B7H,0C7H,0B3H,0A3H,0B8H,0D0H,0D0H,0BBH,0C4H,0DCH
+	DB  0D3H,0D0H,0D5H,0E2H,0B4H,0CEH,0BBH,0FAH,0BBH,0E1H
+	DB  0D7H,0F6H,0CCH,0E1H,0B8H,0DFH,0CAH,0B5H,0D1H,0E9H
+	DB  0A3H,0ACH,0CCH,0E1H,0B8H,0DFH,0CAH,0B5H,0D1H,0E9H
+	DB  0BDH,0D3H,0BDH,0FCH,0D5H,0E6H,0CAH,0B5H,0B5H,0C4H
+	DB  0B9H,0A4H,0B3H,0CCH,0CFH,0EEH,0C4H,0BFH,0A3H,0ACH
+	DB  0D3H,0D0H,0D2H,0BBH,0B6H,0A8H,0B5H,0C4H,0C4H,0D1H
+	DB  0B6H,0C8H,0A3H,0ACH,0B5H,0ABH,0CAH,0C7H,0CEH,0D2H
+	DB  0BFH,0CBH,0B7H,0FEH,0D6H,0D6H,0D6H,0D6H,0C0H,0A7H
+	DB  0C4H,0D1H,0A3H,0ACH,0CBH,0B3H,0C0H,0FBH,0B8H,0DFH
+	DB  0D6H,0CAH,0C1H,0BFH,0B5H,0D8H,0CDH,0EAH,0B3H,0C9H
+	DB  0C1H,0CBH,0B2H,0C2H,0CAH,0FDH,0D3H,0CEH,0CFH,0B7H
+	DB  0CFH,0EEH,0C4H,0BFH,0A3H,0ACH,0CCH,0E1H,0B8H,0DFH
+	DB  0C1H,0CBH,0CEH,0D2H,0B5H,0C4H,'C' ,' ' ,0D3H,0EFH
+	DB  0D1H,0D4H,0BAH,0CDH,0BBH,0E3H,0B1H,0E0H,0D3H,0EFH
+	DB  0D1H,0D4H,0B1H,0E0H,0B3H,0CCH,0C4H,0DCH,0C1H,0A6H
+	DB  0A3H,0ACH,0BCH,0D3H,0C9H,0EEH,0C1H,0CBH,0B6H,0D4H
+	DB  0B5H,0A5H,0C6H,0ACH,0BBH,0FAH,0BAH,0CDH,0C7H,0B6H
+	DB  0C8H,0EBH,0CAH,0BDH,0CFH,0B5H,0CDH,0B3H,0B5H,0C4H
+	DB  0C0H,0EDH,0BDH,0E2H,0A3H,0ACH,0B8H,0D0H,0D0H,0BBH
+	DB  0C2H,0DEH,0C0H,0CFH,0CAH,0A6H,0BAH,0CDH,0D6H,0FAH
+	DB  0BDH,0CCH,0B5H,0C4H,0D6H,0B8H,0B5H,0BCH,0A3H,0A1H
+	DB  0A3H,0A1H,' ' ,' ' ,'M' ,'A' ,'D' ,'E' ,' ' ,'B' 
+	DB  'Y' ,' ' ,0CDH,0F5H,0D0H,0C4H,0E5H,0ABH,' ' ,' ' 
+	DB  '2' ,'0' ,'2' ,'3' ,0C4H,0EAH,'1' ,'2' ,0D4H,0C2H
+	DB  '2' ,'3' ,0C8H,0D5H,' ' ,' ' ,'T' ,'h' ,'a' ,'n' 
+	DB  'k' ,' ' ,'y' ,'o' ,'u' ,' ' ,'a' ,'g' ,'a' ,'i' 
+	DB  'n' ,'!' ,000H
+
+
+; /*
+;  * @Author: 王心瀚
+;  * @Date: 2023-12-20 09:55:18
+;  * @LastEditors: 王心瀚
+;  * @LastEditTime: 2023-12-22 22:50:19
+;  * @FilePath: \undefinedc:\Users\u2021\Desktop\资料\大三\单片机\实验\提高实验\C语言版本\display.c
+;  * @Description: 显示文件，包含显示相关函数
+;  * 
+;  * Copyright (c) 2023 by ${王心瀚}, All Rights Reserved. 
+;  */
+; #include "display.h" //包含显示相关的头文件
+; unsigned char code acknowledgements[]="非常感谢能有这次机会做提高实验，提高实验接近真实的工程项目，有一定的难度，但是我克服种种困难，顺利高质量地完成了猜数\xfd游戏项目，提高了我的C 语言和汇编语言编程能力，加深了对单片机和嵌入式系统的理解，感谢罗老师和助教的指导！！  MADE BY 王心瀚  2023年12月23日  Thank you again!"; //定义一个常量数组acknowledgements，用来存储致谢的内容
+; void display_startup_logo(void) //定义一个函数display_startup_logo，用来显示启动的LOGO
+
+	RSEG  ?PR?display_startup_logo?DISPLAY
+display_startup_logo:
+	USING	0
+			; SOURCE LINE # 13
+; {
+			; SOURCE LINE # 14
+; 	display_picture(hust); //调用display_picture函数，传入hust常量指针，显示华中科技大学的LOGO(HUST)
+			; SOURCE LINE # 15
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (hust)
+	MOV  	R1,#LOW (hust)
+	LCALL	_display_picture
+; 	delay_ms(1000); //调用delay_ms函数，传入1000，延时1000毫秒
+			; SOURCE LINE # 16
+	MOV  	R7,#0E8H
+	MOV  	R6,#03H
+	MOV  	R5,#00H
+	MOV  	R4,#00H
+	LCALL	_delay_ms
+; 	display_picture(sft); //调用display_picture函数，传入sft常量指针，显示未来技术学院的L院徽
+			; SOURCE LINE # 17
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (sft)
+	MOV  	R1,#LOW (sft)
+	LCALL	_display_picture
+; 	delay_ms(1000); //调用delay_ms函数，传入1000，延时1000毫秒
+			; SOURCE LINE # 18
+	MOV  	R7,#0E8H
+	MOV  	R6,#03H
+	MOV  	R5,#00H
+	MOV  	R4,#00H
+	LJMP 	_delay_ms
+; END OF display_startup_logo
+
+; }
+; void display_gussing_game(void) //定义一个函数display_gussing_game，用来显示猜数游戏的LOGO
+
+	RSEG  ?PR?display_gussing_game?DISPLAY
+display_gussing_game:
+	USING	0
+			; SOURCE LINE # 20
+; {
+			; SOURCE LINE # 21
+; 	display_picture(csyx); //调用display_picture函数，传入csyx常量指针，显示猜数游戏的LOGO
+			; SOURCE LINE # 22
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (csyx)
+	MOV  	R1,#LOW (csyx)
+	LCALL	_display_picture
+; 	delay_ms(1500); //调用delay_ms函数，传入1500，延时1500毫秒
+			; SOURCE LINE # 23
+	MOV  	R7,#0DCH
+	MOV  	R6,#05H
+	MOV  	R5,#00H
+	MOV  	R4,#00H
+	LJMP 	_delay_ms
+; END OF display_gussing_game
+
+; }
+; void print_acknowledgement(void) //定义一个函数print_acknowledgement，用来打印致谢的内容
+
+	RSEG  ?PR?print_acknowledgement?DISPLAY
+print_acknowledgement:
+	USING	0
+			; SOURCE LINE # 25
+; {
+			; SOURCE LINE # 26
+; 	unsigned int i=0; //定义一个变量i，用来作为数组的索引，初始化为0
+			; SOURCE LINE # 27
+	CLR  	A
+	MOV  	i?240,A
+	MOV  	i?240+01H,A
+; 	for(i=0;;i++) //无限循环
+			; SOURCE LINE # 28
+	MOV  	i?240,A
+	MOV  	i?240+01H,A
+?C0003:
+; 	{
+			; SOURCE LINE # 29
+; 		if(i%64==0) //如果i能被64整除
+			; SOURCE LINE # 30
+	MOV  	A,i?240+01H
+	ANL  	A,#03FH
+	JNZ  	?C0006
+; 		{
+			; SOURCE LINE # 31
+; 			clear(); //调用clear函数，清空屏幕
+			; SOURCE LINE # 32
+	LCALL	clear
+; 		}
+			; SOURCE LINE # 33
+?C0006:
+; 		if(acknowledgements[i]==0) //如果数组的第i个元素为0
+			; SOURCE LINE # 34
+	MOV  	A,#LOW (acknowledgements)
+	ADD  	A,i?240+01H
+	MOV  	DPL,A
+	MOV  	A,#HIGH (acknowledgements)
+	ADDC 	A,i?240
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	MOV  	R3,A
+	JZ   	?C0014
+; 		{
+			; SOURCE LINE # 35
+; 			break; //跳出循环
+			; SOURCE LINE # 36
+; 		}
+			; SOURCE LINE # 37
+; 		if(i%64==16) //如果i对64取余为16
+			; SOURCE LINE # 38
+	MOV  	A,i?240+01H
+	ANL  	A,#03FH
+	XRL  	A,#010H
+	JNZ  	?C0008
+; 		{
+			; SOURCE LINE # 39
+; 			print_char(0,2,acknowledgements[i]); //调用print_char函数，传入0,2,acknowledgements[i]，在第0列第2行打印数组的第i个元素
+			; SOURCE LINE # 40
+	MOV  	R5,#02H
+; 		}
+			; SOURCE LINE # 41
+	SJMP 	?C0045
+?C0008:
+; 		else if(i%64==32) //如果i对64取余为32
+			; SOURCE LINE # 42
+	MOV  	A,i?240+01H
+	ANL  	A,#03FH
+	XRL  	A,#020H
+	JNZ  	?C0010
+; 		{
+			; SOURCE LINE # 43
+; 			print_char(0,3,acknowledgements[i]); //调用print_char函数，传入0,3,acknowledgements[i]，在第0列第3行打印数组的第i个元素
+			; SOURCE LINE # 44
+	MOV  	A,#LOW (acknowledgements)
+	ADD  	A,i?240+01H
+	MOV  	DPL,A
+	MOV  	A,#HIGH (acknowledgements)
+	ADDC 	A,i?240
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	MOV  	R3,A
+	MOV  	R5,#03H
+	CLR  	A
+?C0044:
+; 		}
+			; SOURCE LINE # 45
+	SJMP 	?C0045
+?C0010:
+; 		else if(i%64==48) //如果i对64取余为48
+			; SOURCE LINE # 46
+	MOV  	A,i?240+01H
+	ANL  	A,#03FH
+	XRL  	A,#030H
+	JNZ  	?C0012
+; 		{
+			; SOURCE LINE # 47
+; 			print_char(0,4,acknowledgements[i]); //调用print_char函数，传入0,4,acknowledgements[i]，在第0列第4行打印数组的第i个元素
+			; SOURCE LINE # 48
+	MOV  	A,#LOW (acknowledgements)
+	ADD  	A,i?240+01H
+	MOV  	DPL,A
+	MOV  	A,#HIGH (acknowledgements)
+	ADDC 	A,i?240
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	MOV  	R3,A
+	MOV  	R5,#04H
+	CLR  	A
+; 		}
+			; SOURCE LINE # 49
+	SJMP 	?C0043
+?C0012:
+; 		else //其他情况
+; 		{
+			; SOURCE LINE # 51
+; 			print_char(0,0,acknowledgements[i]); //调用print_char函数，传入0,0,acknowledgements[i]，在上一次输出之后打印数组的第i个元素
+			; SOURCE LINE # 52
+	MOV  	A,#LOW (acknowledgements)
+	ADD  	A,i?240+01H
+	MOV  	DPL,A
+	MOV  	A,#HIGH (acknowledgements)
+	ADDC 	A,i?240
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	MOV  	R3,A
+	CLR  	A
+	MOV  	R5,A
+?C0043:
+?C0045:
+	MOV  	R7,A
+	LCALL	_print_char
+; 		}
+			; SOURCE LINE # 53
+?C0009:
+; 		delay_ms(100); //调用delay_ms函数，传入100，延时100毫秒
+			; SOURCE LINE # 54
+	MOV  	R7,#064H
+	MOV  	R6,#00H
+	MOV  	R5,#00H
+	MOV  	R4,#00H
+	LCALL	_delay_ms
+; 	}
+			; SOURCE LINE # 55
+	INC  	i?240+01H
+	MOV  	A,i?240+01H
+	JNZ  	?C0042
+	INC  	i?240
+?C0042:
+	LJMP 	?C0003
+; }
+			; SOURCE LINE # 56
+?C0014:
+	RET  	
+; END OF print_acknowledgement
+
+; void display_acknowledgement(void) //定义一个函数display_acknowledgement，用来显示致谢的画面
+
+	RSEG  ?PR?display_acknowledgement?DISPLAY
+display_acknowledgement:
+	USING	0
+			; SOURCE LINE # 57
+; {
+			; SOURCE LINE # 58
+; 	display_picture(zhu); //调用display_picture函数，传入zhu常量指针，显示可爱的小猪的图片
+			; SOURCE LINE # 59
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (zhu)
+	MOV  	R1,#LOW (zhu)
+	LCALL	_display_picture
+; 	delay_ms(1000); //调用delay_ms函数，传入1000，延时1000毫秒
+			; SOURCE LINE # 60
+	MOV  	R7,#0E8H
+	MOV  	R6,#03H
+	MOV  	R5,#00H
+	MOV  	R4,#00H
+	LCALL	_delay_ms
+; 	print_acknowledgement(); //调用print_acknowledgement函数，打印致谢的内容
+			; SOURCE LINE # 61
+	LCALL	print_acknowledgement
+; 	display_picture(xxdj); //调用display_picture函数，传入xxdj常量指针，显示谢谢大家的图片
+			; SOURCE LINE # 62
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (xxdj)
+	MOV  	R1,#LOW (xxdj)
+	LCALL	_display_picture
+; 	delay_ms(1000); //调用delay_ms函数，传入1000，延时1000毫秒
+			; SOURCE LINE # 63
+	MOV  	R7,#0E8H
+	MOV  	R6,#03H
+	MOV  	R5,#00H
+	MOV  	R4,#00H
+	LJMP 	_delay_ms
+; END OF display_acknowledgement
+
+; }
+; void display_picture(const unsigned  char *ptr) //定义一个函数display_picture，传入一个常量字符指针ptr，用来显示图片
+
+	RSEG  ?PR?_display_picture?DISPLAY
+_display_picture:
+	USING	0
+			; SOURCE LINE # 65
+	MOV  	ptr?441,R3
+	MOV  	ptr?441+01H,R2
+	MOV  	ptr?441+02H,R1
+; {
+			; SOURCE LINE # 66
+; 	clear(); //调用clear函数，清空屏幕
+			; SOURCE LINE # 67
+	LCALL	clear
+; 	Draw_PM(ptr); //调用Draw_PM函数，传入ptr，绘制图片      
+			; SOURCE LINE # 68
+	MOV  	R3,ptr?441
+	MOV  	R2,ptr?441+01H
+	MOV  	R1,ptr?441+02H
+	LJMP 	_Draw_PM
+; END OF _display_picture
+
+; }
+; void display_main_menu(void) //定义一个函数display_main_menu，用来显示主菜单
+
+	RSEG  ?PR?display_main_menu?DISPLAY
+display_main_menu:
+	USING	0
+			; SOURCE LINE # 70
+; {
+			; SOURCE LINE # 71
+; 	clear(); //调用clear函数，清空屏幕
+			; SOURCE LINE # 72
+	LCALL	clear
+; 	print(2,1,"猜数\xfd游戏"); //调用print函数，传入2,1,"猜数\xfd游戏"，在第2列第1行打印"猜数游戏"
+			; SOURCE LINE # 73
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_0)
+	MOV  	R1,#LOW (?SC_0)
+	MOV  	R5,#01H
+	MOV  	R7,#02H
+	LCALL	_print
+; 	print(0,2," Guessing game"); //调用print函数，传入0,2," Guessing game"，在第0列第2行打印" Guessing game"
+			; SOURCE LINE # 74
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_9)
+	MOV  	R1,#LOW (?SC_9)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,3,"0:进入游戏"); //调用print函数，传入0,3,"0:进入游戏"，在第0列第3行打印"0:进入游戏"
+			; SOURCE LINE # 75
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_24)
+	MOV  	R1,#LOW (?SC_24)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,4,"1:致谢"); //调用print函数，传入0,4,"1:致谢"，在第0列第4行打印"1:致谢"
+			; SOURCE LINE # 76
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_35)
+	MOV  	R1,#LOW (?SC_35)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+; END OF display_main_menu
+
+; }
+; void display_mode_select(void) //定义一个函数display_mode_select，用来显示模式选择
+
+	RSEG  ?PR?display_mode_select?DISPLAY
+display_mode_select:
+	USING	0
+			; SOURCE LINE # 78
+; {
+			; SOURCE LINE # 79
+; 	clear(); //调用clear函数，清空屏幕
+			; SOURCE LINE # 80
+	LCALL	clear
+; 	print(0,1,"按数\xfd字键选择模式"); //调用print函数，传入0,1,"按数\xfd字键选择模式"，在第0列第1行打印"按数字键选择模式"
+			; SOURCE LINE # 81
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_42)
+	MOV  	R1,#LOW (?SC_42)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,2,"0:闯关模式"); //调用print函数，传入0,2,"0:闯关模式"，在第0列第2行打印"0:闯关模式"
+			; SOURCE LINE # 82
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_59)
+	MOV  	R1,#LOW (?SC_59)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,3,"1:练习模式"); //调用print函数，传入0,3,"1:练习模式"，在第0列第3行打印"1:练习模式"
+			; SOURCE LINE # 83
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_70)
+	MOV  	R1,#LOW (?SC_70)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,4,"2:随机模式"); //调用print函数，传入0,4,"2:随机模式"，在第0列第4行打印"2:随机模式"
+			; SOURCE LINE # 84
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_81)
+	MOV  	R1,#LOW (?SC_81)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+; END OF display_mode_select
+
+; }
+; void display_bits_select(void) //定义一个函数display_bits_select，用来显示位数\xfd选择
+
+	RSEG  ?PR?display_bits_select?DISPLAY
+display_bits_select:
+	USING	0
+			; SOURCE LINE # 86
+; {
+			; SOURCE LINE # 87
+; 	clear(); //调用clear函数，清空屏幕
+			; SOURCE LINE # 88
+	LCALL	clear
+; 	print(0,1,"按数\xfd字键输入位数\xfd"); //调用print函数，传入0,1,"按数\xfd字键输入位数\xfd"，在第0列第1行打印"按数字键输入位数"
+			; SOURCE LINE # 89
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_92)
+	MOV  	R1,#LOW (?SC_92)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,2,"按F 键确认"); //调用print函数，传入0,2,"按F 键确认"，在第0列第2行打印"按F 键确认"
+			; SOURCE LINE # 90
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_109)
+	MOV  	R1,#LOW (?SC_109)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,3,"按E 键返回"); //调用print函数，传入0,3,"按E 键返回"，在第0列第3行打印"按E 键返回"
+			; SOURCE LINE # 91
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_120)
+	MOV  	R1,#LOW (?SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,4,"按D 键重输"); //调用print函数，传入0,4,"按D 键重输"，在第0列第4行打印"按D 键重输"
+			; SOURCE LINE # 92
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_131)
+	MOV  	R1,#LOW (?SC_131)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+; END OF display_bits_select
+
+; }
+; void display_time_select(void) //定义一个函数display_time_select，用来显示时间选择
+
+	RSEG  ?PR?display_time_select?DISPLAY
+display_time_select:
+	USING	0
+			; SOURCE LINE # 94
+; {
+			; SOURCE LINE # 95
+; 	clear(); //调用clear函数，清空屏幕
+			; SOURCE LINE # 96
+	LCALL	clear
+; 	print(0,1,"按数\xfd字键输入时间"); //调用print函数，传入0,1,"按数\xfd字键输入时间"，在第0列第1行打印"按数字键输入时间"
+			; SOURCE LINE # 97
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_142)
+	MOV  	R1,#LOW (?SC_142)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,2,"按F 键确认"); //调用print函数，传入0,2,"按F 键确认"，在第0列第2行打印"按F 键确认"
+			; SOURCE LINE # 98
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_109)
+	MOV  	R1,#LOW (?SC_109)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,3,"按E 键返回"); //调用print函数，传入0,3,"按E 键返回"，在第0列第3行打印"按E 键返回"
+			; SOURCE LINE # 99
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_120)
+	MOV  	R1,#LOW (?SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,4,"按D 键重输"); //调用print函数，传入0,4,"按D 键重输"，在第0列第4行打印"按D 键重输"
+			; SOURCE LINE # 100
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_131)
+	MOV  	R1,#LOW (?SC_131)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+; END OF display_time_select
+
+; }
+; void display_begin_select(void) //定义一个函数display_begin_select，用来显示开始选择
+
+	RSEG  ?PR?display_begin_select?DISPLAY
+display_begin_select:
+	USING	0
+			; SOURCE LINE # 102
+; {
+			; SOURCE LINE # 103
+; 	clear(); //调用clear函数，清空屏幕
+			; SOURCE LINE # 104
+	LCALL	clear
+; 	print(1,1,"你准备好了吗？"); //调用print函数，传入1,1,"你准备好了吗？"，在第1列第1行打印"你准备好了吗？"
+			; SOURCE LINE # 105
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_159)
+	MOV  	R1,#LOW (?SC_159)
+	MOV  	R5,#01H
+	MOV  	R7,#01H
+	LCALL	_print
+; 	print(0,2,"按F 键开始游戏"); //调用print函数，传入0,2,"按F 键开始游戏"，在第0列第2行打印"按F 键开始游戏"
+			; SOURCE LINE # 106
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_174)
+	MOV  	R1,#LOW (?SC_174)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,3,"按E 键返回"); //调用print函数，传入0,3,"按E 键返回"，在第0列第3行打印"按E 键返回"
+			; SOURCE LINE # 107
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_120)
+	MOV  	R1,#LOW (?SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+; END OF display_begin_select
+
+; }
+; void display_input(void) //定义一个函数display_input，用来显示输入
+
+	RSEG  ?PR?display_input?DISPLAY
+display_input:
+	USING	0
+			; SOURCE LINE # 109
+; {
+			; SOURCE LINE # 110
+; 	clear(); //调用clear函数，清空屏幕
+			; SOURCE LINE # 111
+	LCALL	clear
+; 	print(0,1,"按数\xfd字键输入数\xfd字"); //调用print函数，传入0,1,"按数\xfd字键输入数\xfd字"，在第0列第1行打印"按数字键输入数字"
+			; SOURCE LINE # 112
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_189)
+	MOV  	R1,#LOW (?SC_189)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,2,"按F 键确认"); //调用print函数，传入0,2,"按F 键确认"，在第0列第2行打印"按F 键确认"
+			; SOURCE LINE # 113
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_109)
+	MOV  	R1,#LOW (?SC_109)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,3,"按E 键返回"); //调用print函数，传入0,3,"按E 键返回"，在第0列第3行打印"按E 键返回"
+			; SOURCE LINE # 114
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_120)
+	MOV  	R1,#LOW (?SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,4,"按D 键重输"); //调用print函数，传入0,4,"按D 键重输"，在第0列第4行打印"按D 键重输"
+			; SOURCE LINE # 115
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_131)
+	MOV  	R1,#LOW (?SC_131)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+; END OF display_input
+
+; }
+; void display_correct(void) //定义一个函数display_correct，用来显示正确
+
+	RSEG  ?PR?display_correct?DISPLAY
+display_correct:
+	USING	0
+			; SOURCE LINE # 117
+; {
+			; SOURCE LINE # 118
+; 	clear(); //调用clear函数，清空屏幕
+			; SOURCE LINE # 119
+	LCALL	clear
+; 	print(0,1,"**恭喜你猜对了**"); //调用print函数，传入0,1,"**恭喜你猜对了**"，在第0列第1行打印"**恭喜你猜对了**"
+			; SOURCE LINE # 120
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_206)
+	MOV  	R1,#LOW (?SC_206)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,2,"按F 键继续游戏"); //调用print函数，传入0,2,"按F 键继续游戏"，在第0列第2行打印"按F 键继续游戏"
+			; SOURCE LINE # 121
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_223)
+	MOV  	R1,#LOW (?SC_223)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,3,"按E 键返回"); //调用print函数，传入0,3,"按E 键返回"，在第0列第3行打印"按E 键返回"
+			; SOURCE LINE # 122
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_120)
+	MOV  	R1,#LOW (?SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,4,"****************"); //调用print函数，传入0,4,"****************"，在第0列第4行打印"****************"
+			; SOURCE LINE # 123
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_238)
+	MOV  	R1,#LOW (?SC_238)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+; END OF display_correct
+
+; }
+; void display_error(void) //定义一个函数display_error，用来显示错误
+
+	RSEG  ?PR?display_error?DISPLAY
+display_error:
+	USING	0
+			; SOURCE LINE # 125
+; {
+			; SOURCE LINE # 126
+; 	clear(); //调用clear函数，清空屏幕
+			; SOURCE LINE # 127
+	LCALL	clear
+; 	print(0,1,"很可惜你猜错了##"); //调用print函数，传入0,1,"很可惜你猜错了##"，在第0列第1行打印"很可惜你猜错了##"
+			; SOURCE LINE # 128
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_255)
+	MOV  	R1,#LOW (?SC_255)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,2,"按F 键重新开始"); //调用print函数，传入0,2,"按F 键重新开始"，在第0列第2行打印"按F 键重新开始"
+			; SOURCE LINE # 129
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_272)
+	MOV  	R1,#LOW (?SC_272)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,3,"按E 键返回"); //调用print函数，传入0,3,"按E 键返回"，在第0列第3行打印"按E 键返回"
+			; SOURCE LINE # 130
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_120)
+	MOV  	R1,#LOW (?SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,4,"################"); //调用print函数，传入0,4,"################"，在第0列第4行打印"################"
+			; SOURCE LINE # 131
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_287)
+	MOV  	R1,#LOW (?SC_287)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+; END OF display_error
+
+; }
+; void display_win(void) //定义一个函数display_win，用来显示闯关成功
+
+	RSEG  ?PR?display_win?DISPLAY
+display_win:
+	USING	0
+			; SOURCE LINE # 133
+; {
+			; SOURCE LINE # 134
+; 	clear(); //调用clear函数，清空屏幕
+			; SOURCE LINE # 135
+	LCALL	clear
+; 	print(0,1,"恭喜你闯关成功**"); //调用print函数，传入0,1,"恭喜你闯关成功**"，在第0列第1行打印"恭喜你闯关成功**"
+			; SOURCE LINE # 136
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_304)
+	MOV  	R1,#LOW (?SC_304)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,2,"按F 键再次挑战"); //调用print函数，传入0,2,"按F 键再次挑战"，在第0列第2行打印"按F 键再次挑战"
+			; SOURCE LINE # 137
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_321)
+	MOV  	R1,#LOW (?SC_321)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,3,"按E 键返回"); //调用print函数，传入0,3,"按E 键返回"，在第0列第3行打印"按E 键返回"
+			; SOURCE LINE # 138
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_120)
+	MOV  	R1,#LOW (?SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,4,"****************"); //调用print函数，传入0,4,"****************"，在第0列第4行打印"****************"
+			; SOURCE LINE # 139
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_238)
+	MOV  	R1,#LOW (?SC_238)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+; END OF display_win
+
+; }
+; void display_lose(void) //定义一个函数display_lose，用来显示闯关失败
+
+	RSEG  ?PR?display_lose?DISPLAY
+display_lose:
+	USING	0
+			; SOURCE LINE # 141
+; {
+			; SOURCE LINE # 142
+; 	clear(); //调用clear函数，清空屏幕
+			; SOURCE LINE # 143
+	LCALL	clear
+; 	print(0,1,"很可惜闯关失败##"); //调用print函数，传入0,1,"很可惜闯关失败##"，在第0列第1行打印"很可惜闯关失败##"
+			; SOURCE LINE # 144
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_336)
+	MOV  	R1,#LOW (?SC_336)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,2,"按F 键再次挑战"); //调用print函数，传入0,2,"按F 键再次挑战"，在第0列第2行打印"按F 键再次挑战"
+			; SOURCE LINE # 145
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_321)
+	MOV  	R1,#LOW (?SC_321)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,3,"按E 键返回"); //调用print函数，传入0,3,"按E 键返回"，在第0列第3行打印"按E 键返回"
+			; SOURCE LINE # 146
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_120)
+	MOV  	R1,#LOW (?SC_120)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,4,"################"); //调用print函数，传入0,4,"################"，在第0列第4行打印"################"
+			; SOURCE LINE # 147
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_287)
+	MOV  	R1,#LOW (?SC_287)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+; END OF display_lose
+
+; }
+; void display_random_digits(void) //定义一个函数display_random_digits，用来显示随机的数字
+
+	RSEG  ?PR?display_random_digits?DISPLAY
+display_random_digits:
+	USING	0
+			; SOURCE LINE # 149
+; {
+			; SOURCE LINE # 150
+; 	unsigned char i,digit=0; //定义两个变量i和digit，用来作为数组的索引和数字，初始化为0
+			; SOURCE LINE # 151
+	CLR  	A
+	MOV  	digit?1543,A
+; 	for(i=0;i<64;i++) //循环64次
+			; SOURCE LINE # 152
+	MOV  	i?1542,A
+?C0027:
+; 	{
+			; SOURCE LINE # 153
+; 		random_digits[i]=0; //将数组random_digits的第i个元素赋值为0
+			; SOURCE LINE # 154
+	MOV  	A,#LOW (random_digits)
+	ADD  	A,i?1542
+	MOV  	DPL,A
+	CLR  	A
+	ADDC 	A,#HIGH (random_digits)
+	MOV  	DPH,A
+	CLR  	A
+	MOVX 	@DPTR,A
+; 	}
+			; SOURCE LINE # 155
+	INC  	i?1542
+	MOV  	A,i?1542
+	CJNE 	A,#040H,?C0027
+?C0028:
+; 	clear(); //调用clear函数，清空屏幕
+			; SOURCE LINE # 156
+	LCALL	clear
+; 	for(i=0;i<bits;i++) //循环bits次
+			; SOURCE LINE # 157
+	CLR  	A
+	MOV  	i?1542,A
+?C0030:
+	MOV  	A,i?1542
+	CLR  	C
+	SUBB 	A,bits
+	JNC  	?C0031
+; 	{
+			; SOURCE LINE # 158
+; 		random_digits[i]=digit=digits[rand()%10]; //将数组random_digits的第i个元素赋值为digit，digit赋值为数组digits的随机一个元素，表示一个0-9的数字(ASCII码)
+			; SOURCE LINE # 159
+	LCALL	rand
+	MOV  	R4,#00H
+	MOV  	R5,#0AH
+	LCALL	?C?SIDIV
+	MOV  	A,#LOW (digits)
+	ADD  	A,R5
+	MOV  	DPL,A
+	MOV  	A,#HIGH (digits)
+	ADDC 	A,R4
+	MOV  	DPH,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	MOV  	R7,A
+	MOV  	digit?1543,A
+	MOV  	A,#LOW (random_digits)
+	ADD  	A,i?1542
+	MOV  	DPL,A
+	CLR  	A
+	ADDC 	A,#HIGH (random_digits)
+	MOV  	DPH,A
+	MOV  	A,R7
+	MOVX 	@DPTR,A
+; 		if(i==16) //如果i等于16
+			; SOURCE LINE # 160
+	MOV  	A,i?1542
+	CJNE 	A,#010H,?C0033
+; 		{
+			; SOURCE LINE # 161
+; 			print_char(0,2,digit); //调用print_char函数，传入0,2,digit，在第0列第2行打印digit
+			; SOURCE LINE # 162
+	MOV  	R3,digit?1543
+	MOV  	R5,#02H
+; 		}
+			; SOURCE LINE # 163
+	SJMP 	?C0047
+?C0033:
+; 		else if(i==32) //如果i等于32
+			; SOURCE LINE # 164
+	MOV  	A,i?1542
+	CJNE 	A,#020H,?C0035
+; 		{
+			; SOURCE LINE # 165
+; 			print_char(0,3,digit); //调用print_char函数，传入0,3,digit，在第0列第3行打印digit
+			; SOURCE LINE # 166
+	MOV  	R3,digit?1543
+	MOV  	R5,#03H
+?C0047:
+	CLR  	A
+; 		}
+			; SOURCE LINE # 167
+	SJMP 	?C0048
+?C0035:
+; 		else if(i==48) //如果i等于48
+			; SOURCE LINE # 168
+	MOV  	A,i?1542
+	MOV  	R3,digit?1543
+	CJNE 	A,#030H,?C0037
+; 		{
+			; SOURCE LINE # 169
+; 			print_char(0,4,digit); //调用print_char函数，传入0,4,digit，在第0列第4行打印digit
+			; SOURCE LINE # 170
+	MOV  	R5,#04H
+	CLR  	A
+; 		}
+			; SOURCE LINE # 171
+	SJMP 	?C0046
+?C0037:
+; 		else //其他情况
+; 		{
+			; SOURCE LINE # 173
+; 			print_char(0,0,digit); //调用print_char函数，传入0,0,digit，在第0列第0行打印digit
+			; SOURCE LINE # 174
+	CLR  	A
+	MOV  	R5,A
+?C0046:
+?C0048:
+	MOV  	R7,A
+	LCALL	_print_char
+; 		}
+			; SOURCE LINE # 175
+; 	}
+			; SOURCE LINE # 176
+?C0032:
+	INC  	i?1542
+	SJMP 	?C0030
+?C0031:
+; 	delay_ms(display_time); //调用delay_ms函数，传入display_time，延时display_time
+			; SOURCE LINE # 177
+	MOV  	R6,display_time
+	MOV  	R7,display_time+01H
+	CLR  	A
+	MOV  	R4,A
+	MOV  	R5,A
+	LJMP 	_delay_ms
+; END OF display_random_digits
+
+; }
+; void display_wrong_input_bits(void) //定义一个函数display_wrong_input_bits，用来显示输入位数非法
+
+	RSEG  ?PR?display_wrong_input_bits?DISPLAY
+display_wrong_input_bits:
+	USING	0
+			; SOURCE LINE # 179
+; {
+			; SOURCE LINE # 180
+; 	clear(); //调用clear函数，清空屏幕
+			; SOURCE LINE # 181
+	LCALL	clear
+; 	print(0,1,"输入位数\xfd非法"); //调用print函数，传入0,1,"输入位数\xfd非法"，在第0列第1行打印"输入位数非法"
+			; SOURCE LINE # 182
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_353)
+	MOV  	R1,#LOW (?SC_353)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,2,"1<= 输入位数\xfd<=64"); //调用print函数，传入0,2,"1<= 输入位数\xfd<=64"，在第0列第2行打印"1<= 输入位数<=64"
+			; SOURCE LINE # 183
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_366)
+	MOV  	R1,#LOW (?SC_366)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,3,"按F 键重输"); //调用print函数，传入0,3,"按F 键重输"，在第0列第3行打印"按F 键重输"
+			; SOURCE LINE # 184
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_383)
+	MOV  	R1,#LOW (?SC_383)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,4,"按E 键返回"); //调用print函数，传入0,4,"按E 键返回"，在第0列第4行打印"按E 键返回"
+			; SOURCE LINE # 185
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_120)
+	MOV  	R1,#LOW (?SC_120)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+; END OF display_wrong_input_bits
+
+; }
+; void display_wrong_input_display_time(void) //定义一个函数display_wrong_input_display_time，用来显示输入显示时间非法
+
+	RSEG  ?PR?display_wrong_input_display_time?DISPLAY
+display_wrong_input_display_time:
+	USING	0
+			; SOURCE LINE # 187
+; {
+			; SOURCE LINE # 188
+; 	clear(); //调用clear函数，清空屏幕
+			; SOURCE LINE # 189
+	LCALL	clear
+; 	print(0,1,"输入显示时间非法"); //调用print函数，传入0,1,"输入显示时间非法"，在第0列第1行打印"输入显示时间非法"
+			; SOURCE LINE # 190
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_394)
+	MOV  	R1,#LOW (?SC_394)
+	MOV  	R5,#01H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,2,"50<=时间<=65535"); //调用print函数，传入0,2,"50<=时间<=65535"，在第0列第2行打印"50<=时间<=65535"
+			; SOURCE LINE # 191
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_411)
+	MOV  	R1,#LOW (?SC_411)
+	MOV  	R5,#02H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,3,"按F 键重输"); //调用print函数，传入0,3,"按F 键重输"，在第0列第3行打印"按F 键重输"
+			; SOURCE LINE # 192
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_383)
+	MOV  	R1,#LOW (?SC_383)
+	MOV  	R5,#03H
+	CLR  	A
+	MOV  	R7,A
+	LCALL	_print
+; 	print(0,4,"按E 键返回"); //调用print函数，传入0,4,"按E 键返回"，在第0列第4行打印"按E 键返回"
+			; SOURCE LINE # 193
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (?SC_120)
+	MOV  	R1,#LOW (?SC_120)
+	MOV  	R5,#04H
+	CLR  	A
+	MOV  	R7,A
+	LJMP 	_print
+; END OF display_wrong_input_display_time
+
+	END

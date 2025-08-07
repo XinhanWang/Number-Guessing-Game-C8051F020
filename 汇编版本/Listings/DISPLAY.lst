@@ -1,0 +1,1580 @@
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\DISPLAY.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE DISPLAY.asm SET(SMALL) DEBUG PRINT(.\Listings\DISPLAY.lst) OBJECT(.\Obj
+                      ects\DISPLAY.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+                       2     
+                       3     
+                       4     
+                       5     
+                       6     
+                       7     
+                       8     
+                       9     
+                      10     
+                      11     $nomod51 
+                      12     NAME    DISPLAY
+                      13     ;$include (DISPLAY.inc) ;
+                +1    14     
+                +1    15     
+                +1    16     
+                +1    17     
+                +1    18     
+                +1    19     
+                +1    20     
+                +1    21     
+                +1    22     
+                +1    23     
+                +1    24     ;$include (C8051F020.inc) ;
+                +2    25     ;-----------------------------------------------------------------------------
+                +2    26     ;       
+                +2    27     ;       
+                +2    28     ;
+                +2    29     ;
+                +2    30     ;       FILE NAME       : C8051F020.INC 
+                +2    31     ;       TARGET MCUs     : C8051F020, 'F021, 'F022, 'F023 
+                +2    32     ;       DESCRIPTION     : Register/bit definitions for the C8051F02x product family.  
+                +2    33     ;
+                +2    34     ;       REVISION 1.0    
+                +2    35     ;
+                +2    36     ;-----------------------------------------------------------------------------
+                +2    37     ;REGISTER DEFINITIONS
+                +2    38     ;
+  0080          +2    39     P0       DATA  080H   ; PORT 0
+  0081          +2    40     SP       DATA  081H   ; STACK POINTER
+  0082          +2    41     DPL      DATA  082H   ; DATA POINTER - LOW BYTE
+  0083          +2    42     DPH      DATA  083H   ; DATA POINTER - HIGH BYTE
+  0084          +2    43     P4       DATA  084H   ; PORT 4
+  0085          +2    44     P5       DATA  085H   ; PORT 5
+  0086          +2    45     P6       DATA  086H   ; PORT 6
+  0087          +2    46     PCON     DATA  087H   ; POWER CONTROL
+  0088          +2    47     TCON     DATA  088H   ; TIMER CONTROL
+  0089          +2    48     TMOD     DATA  089H   ; TIMER MODE
+  008A          +2    49     TL0      DATA  08AH   ; TIMER 0 - LOW BYTE
+  008B          +2    50     TL1      DATA  08BH   ; TIMER 1 - LOW BYTE
+  008C          +2    51     TH0      DATA  08CH   ; TIMER 0 - HIGH BYTE
+  008D          +2    52     TH1      DATA  08DH   ; TIMER 1 - HIGH BYTE
+  008E          +2    53     CKCON    DATA  08EH   ; CLOCK CONTROL
+  008F          +2    54     PSCTL    DATA  08FH   ; PROGRAM STORE R/W CONTROL
+  0090          +2    55     P1       DATA  090H   ; PORT 1
+  0091          +2    56     TMR3CN   DATA  091H   ; TIMER 3 CONTROL
+  0092          +2    57     TMR3RLL  DATA  092H   ; TIMER 3 RELOAD REGISTER - LOW BYTE
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE     2
+
+  0093          +2    58     TMR3RLH  DATA  093H   ; TIMER 3 RELOAD REGISTER - HIGH BYTE
+  0094          +2    59     TMR3L    DATA  094H   ; TIMER 3 - LOW BYTE
+  0095          +2    60     TMR3H    DATA  095H   ; TIMER 3 - HIGH BYTE
+  0096          +2    61     P7       DATA  096H   ; PORT 7
+  0098          +2    62     SCON0    DATA  098H   ; SERIAL PORT 0 CONTROL
+  0099          +2    63     SBUF0    DATA  099H   ; SERIAL PORT 0 BUFFER
+  009A          +2    64     SPI0CFG  DATA  09AH   ; SERIAL PERIPHERAL INTERFACE 0 CONFIGURATION
+  009B          +2    65     SPI0DAT  DATA  09BH   ; SERIAL PERIPHERAL INTERFACE 0 DATA
+  009C          +2    66     ADC1     DATA  09CH   ; ADC 1 DATA
+  009D          +2    67     SPI0CKR  DATA  09DH   ; SERIAL PERIPHERAL INTERFACE 0 CLOCK RATE CONTROL
+  009E          +2    68     CPT0CN   DATA  09EH   ; COMPARATOR 0 CONTROL
+  009F          +2    69     CPT1CN   DATA  09FH   ; COMPARATOR 1 CONTROL 
+  00A0          +2    70     P2       DATA  0A0H   ; PORT 2
+  00A1          +2    71     EMI0TC   DATA  0A1H   ; EMIF TIMING CONTROL
+  00A3          +2    72     EMI0CF   DATA  0A3H   ; EXTERNAL MEMORY INTERFACE (EMIF) CONFIGURATION
+  00A4          +2    73     P0MDOUT  DATA  0A4H   ; PORT 0 OUTPUT MODE CONFIGURATION
+  00A5          +2    74     P1MDOUT  DATA  0A5H   ; PORT 1 OUTPUT MODE CONFIGURATION
+  00A6          +2    75     P2MDOUT  DATA  0A6H   ; PORT 2 OUTPUT MODE CONFIGURATION
+  00A7          +2    76     P3MDOUT  DATA  0A7H   ; PORT 3 OUTPUT MODE CONFIGURATION
+  00A8          +2    77     IE       DATA  0A8H   ; INTERRUPT ENABLE
+  00A9          +2    78     SADDR0   DATA  0A9H   ; SERIAL PORT 0 SLAVE ADDRESS
+  00AA          +2    79     ADC1CN  DATA  0AAH   ; ADC 1 CONTROL
+  00AB          +2    80     ADC1CF   DATA  0ABH   ; ADC 1 ANALOG MUX CONFIGURATION
+  00AC          +2    81     AMX1SL   DATA  0ACH   ; ADC 1 ANALOG MUX CHANNEL SELECT
+  00AD          +2    82     P3IF     DATA  0ADH   ; PORT 3 EXTERNAL INTERRUPT FLAGS
+  00AE          +2    83     SADEN1   DATA  0AEH   ; SERIAL PORT 1 SLAVE ADDRESS MASK
+  00AF          +2    84     EMI0CN   DATA  0AFH   ; EXTERNAL MEMORY INTERFACE CONTROL
+  00B0          +2    85     P3       DATA  0B0H   ; PORT 3
+  00B1          +2    86     OSCXCN   DATA  0B1H   ; EXTERNAL OSCILLATOR CONTROL
+  00B2          +2    87     OSCICN   DATA  0B2H   ; INTERNAL OSCILLATOR CONTROL
+  00B5          +2    88     P74OUT   DATA  0B5H   ; PORTS 4 - 7 OUTPUT MODE
+  00B6          +2    89     FLSCL    DATA  0B6H   ; FLASH MEMORY TIMING PRESCALER
+  00B7          +2    90     FLACL    DATA  0B7H   ; FLASH ACESS LIMIT 
+  00B8          +2    91     IP       DATA  0B8H   ; INTERRUPT PRIORITY
+  00B9          +2    92     SADEN0   DATA  0B9H   ; SERIAL PORT 0 SLAVE ADDRESS MASK
+  00BA          +2    93     AMX0CF   DATA  0BAH   ; ADC 0 MUX CONFIGURATION
+  00BB          +2    94     AMX0SL   DATA  0BBH   ; ADC 0 MUX CHANNEL SELECTION
+  00BC          +2    95     ADC0CF   DATA  0BCH   ; ADC 0 CONFIGURATION
+  00BD          +2    96     P1MDIN   DATA  0BDH   ; PORT 1 INPUT MODE
+  00BE          +2    97     ADC0L    DATA  0BEH   ; ADC 0 DATA - LOW BYTE
+  00BF          +2    98     ADC0H    DATA  0BFH   ; ADC 0 DATA - HIGH BYTE 
+  00C0          +2    99     SMB0CN   DATA  0C0H   ; SMBUS 0 CONTROL
+  00C1          +2   100     SMB0STA  DATA  0C1H   ; SMBUS 0 STATUS
+  00C2          +2   101     SMB0DAT  DATA  0C2H   ; SMBUS 0 DATA 
+  00C3          +2   102     SMB0ADR  DATA  0C3H   ; SMBUS 0 SLAVE ADDRESS
+  00C4          +2   103     ADC0GTL  DATA  0C4H   ; ADC 0 GREATER-THAN REGISTER - LOW BYTE
+  00C5          +2   104     ADC0GTH  DATA  0C5H   ; ADC 0 GREATER-THAN REGISTER - HIGH BYTE
+  00C6          +2   105     ADC0LTL  DATA  0C6H   ; ADC 0 LESS-THAN REGISTER - LOW BYTE
+  00C7          +2   106     ADC0LTH  DATA  0C7H   ; ADC 0 LESS-THAN REGISTER - HIGH BYTE
+  00C8          +2   107     T2CON    DATA  0C8H   ; TIMER 2 CONTROL
+  00C9          +2   108     T4CON    DATA  0C9H   ; TIMER 4 CONTROL
+  00CA          +2   109     RCAP2L   DATA  0CAH   ; TIMER 2 CAPTURE REGISTER - LOW BYTE
+  00CB          +2   110     RCAP2H   DATA  0CBH   ; TIMER 2 CAPTURE REGISTER - HIGH BYTE
+  00CC          +2   111     TL2      DATA  0CCH   ; TIMER 2 - LOW BYTE
+  00CD          +2   112     TH2      DATA  0CDH   ; TIMER 2 - HIGH BYTE
+  00CF          +2   113     SMB0CR   DATA  0CFH   ; SMBUS 0 CLOCK RATE
+  00D0          +2   114     PSW      DATA  0D0H   ; PROGRAM STATUS WORD
+  00D1          +2   115     REF0CN   DATA  0D1H   ; VOLTAGE REFERENCE 0 CONTROL
+  00D2          +2   116     DAC0L    DATA  0D2H   ; DAC 0 REGISTER - LOW BYTE
+  00D3          +2   117     DAC0H    DATA  0D3H   ; DAC 0 REGISTER - HIGH BYTE
+  00D4          +2   118     DAC0CN   DATA  0D4H   ; DAC 0 CONTROL
+  00D5          +2   119     DAC1L    DATA  0D5H   ; DAC 1 REGISTER - LOW BYTE
+  00D6          +2   120     DAC1H    DATA  0D6H   ; DAC 1 REGISTER - HIGH BYTE
+  00D7          +2   121     DAC1CN   DATA  0D7H   ; DAC 1 CONTROL
+  00D8          +2   122     PCA0CN   DATA  0D8H   ; PCA 0 COUNTER CONTROL
+  00D9          +2   123     PCA0MD   DATA  0D9H   ; PCA 0 COUNTER MODE
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE     3
+
+  00DA          +2   124     PCA0CPM0 DATA  0DAH   ; CONTROL REGISTER FOR PCA 0 MODULE 0
+  00DB          +2   125     PCA0CPM1 DATA  0DBH   ; CONTROL REGISTER FOR PCA 0 MODULE 1
+  00DC          +2   126     PCA0CPM2 DATA  0DCH   ; CONTROL REGISTER FOR PCA 0 MODULE 2
+  00DD          +2   127     PCA0CPM3 DATA  0DDH   ; CONTROL REGISTER FOR PCA 0 MODULE 3
+  00DE          +2   128     PCA0CPM4 DATA  0DEH   ; CONTROL REGISTER FOR PCA 0 MODULE 4
+  00E0          +2   129     ACC      DATA  0E0H   ; ACCUMULATOR
+  00E1          +2   130     XBR0     DATA  0E1H   ; DIGITAL CROSSBAR CONFIGURATION REGISTER 0
+  00E2          +2   131     XBR1     DATA  0E2H   ; DIGITAL CROSSBAR CONFIGURATION REGISTER 1
+  00E3          +2   132     XBR2     DATA  0E3H   ; DIGITAL CROSSBAR CONFIGURATION REGISTER 2
+  00E4          +2   133     RCAP4L   DATA  0E4H   ; TIMER 4 CAPTURE REGISTER - LOW BYTE
+  00E5          +2   134     RCAP4H   DATA  0E5H   ; TIMER 4 CAPTURE REGISTER - HIGH BYTE
+  00E6          +2   135     EIE1     DATA  0E6H   ; EXTERNAL INTERRUPT ENABLE 1
+  00E7          +2   136     EIE2     DATA  0E7H   ; EXTERNAL INTERRUPT ENABLE 2
+  00E8          +2   137     ADC0CN   DATA  0E8H   ; ADC 0 CONTROL
+  00E9          +2   138     PCA0L    DATA  0E9H   ; PCA 0 TIMER - LOW BYTE
+  00EA          +2   139     PCA0CPL0 DATA  0EAH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 0 - LOW BYTE
+  00EB          +2   140     PCA0CPL1 DATA  0EBH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 1 - LOW BYTE
+  00EC          +2   141     PCA0CPL2 DATA  0ECH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 2 - LOW BYTE
+  00ED          +2   142     PCA0CPL3 DATA  0EDH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 3 - LOW BYTE
+  00EE          +2   143     PCA0CPL4 DATA  0EEH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 4 - LOW BYTE
+  00EF          +2   144     RSTSRC   DATA  0EFH   ; RESET SOURCE 
+  00F0          +2   145     B        DATA  0F0H   ; B REGISTER
+  00F1          +2   146     SCON1    DATA  0F1H   ; SERIAL PORT 1 CONTROL
+  00F2          +2   147     SBUF1    DATA  0F2H   ; SERAIL PORT 1 DATA
+  00F3          +2   148     SADDR1   DATA  0F3H   ; SERAIL PORT 1 
+  00F4          +2   149     TL4      DATA  0F4H   ; TIMER 4 DATA - LOW BYTE
+  00F5          +2   150     TH4      DATA  0F5H   ; TIMER 4 DATA - HIGH BYTE
+  00F6          +2   151     EIP1     DATA  0F6H   ; EXTERNAL INTERRUPT PRIORITY REGISTER 1
+  00F7          +2   152     EIP2     DATA  0F7H   ; EXTERNAL INTERRUPT PRIORITY REGISTER 2
+  00F8          +2   153     SPI0CN   DATA  0F8H   ; SERIAL PERIPHERAL INTERFACE 0 CONTROL 
+  00F9          +2   154     PCA0H    DATA  0F9H   ; PCA 0 TIMER - HIGH BYTE
+  00FA          +2   155     PCA0CPH0 DATA  0FAH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 0 - HIGH BYTE
+  00FB          +2   156     PCA0CPH1 DATA  0FBH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 1 - HIGH BYTE
+  00FC          +2   157     PCA0CPH2 DATA  0FCH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 2 - HIGH BYTE
+  00FD          +2   158     PCA0CPH3 DATA  0FDH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 3 - HIGH BYTE
+  00FE          +2   159     PCA0CPH4 DATA  0FEH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 4 - HIGH BYTE
+  00FF          +2   160     WDTCN    DATA  0FFH   ; WATCHDOG TIMER CONTROL 
+                +2   161     ;
+                +2   162     ;------------------------------------------------------------------------------
+                +2   163     ;BIT DEFINITIONS
+                +2   164     ;
+                +2   165     ; TCON 88H
+  0088          +2   166     IT0      BIT   TCON.0 ; EXT. INTERRUPT 0 TYPE
+  0089          +2   167     IE0      BIT   TCON.1 ; EXT. INTERRUPT 0 EDGE FLAG
+  008A          +2   168     IT1      BIT   TCON.2 ; EXT. INTERRUPT 1 TYPE
+  008B          +2   169     IE1      BIT   TCON.3 ; EXT. INTERRUPT 1 EDGE FLAG
+  008C          +2   170     TR0      BIT   TCON.4 ; TIMER 0 ON/OFF CONTROL
+  008D          +2   171     TF0      BIT   TCON.5 ; TIMER 0 OVERFLOW FLAG
+  008E          +2   172     TR1      BIT   TCON.6 ; TIMER 1 ON/OFF CONTROL
+  008F          +2   173     TF1      BIT   TCON.7 ; TIMER 1 OVERFLOW FLAG
+                +2   174     ;
+                +2   175     ; SCON0 98H
+  0098          +2   176     RI       BIT   SCON0.0 ; RECEIVE INTERRUPT FLAG
+  0099          +2   177     TI       BIT   SCON0.1 ; TRANSMIT INTERRUPT FLAG
+  009A          +2   178     RB8      BIT   SCON0.2 ; RECEIVE BIT 8
+  009B          +2   179     TB8      BIT   SCON0.3 ; TRANSMIT BIT 8
+  009C          +2   180     REN      BIT   SCON0.4 ; RECEIVE ENABLE
+  009D          +2   181     SM2      BIT   SCON0.5 ; MULTIPROCESSOR COMMUNICATION ENABLE
+  009E          +2   182     SM1      BIT   SCON0.6 ; SERIAL MODE CONTROL BIT 1
+  009F          +2   183     SM0      BIT   SCON0.7 ; SERIAL MODE CONTROL BIT 0
+                +2   184     ; 
+                +2   185     ; IE A8H
+  00A8          +2   186     EX0      BIT   IE.0   ; EXTERNAL INTERRUPT 0 ENABLE
+  00A9          +2   187     ET0      BIT   IE.1   ; TIMER 0 INTERRUPT ENABLE
+  00AA          +2   188     EX1      BIT   IE.2   ; EXTERNAL INTERRUPT 1 ENABLE
+  00AB          +2   189     ET1      BIT   IE.3   ; TIMER 1 INTERRUPT ENABLE
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE     4
+
+  00AC          +2   190     ES       BIT   IE.4   ; SERIAL PORT INTERRUPT ENABLE
+  00AD          +2   191     ET2      BIT   IE.5   ; TIMER 2 INTERRUPT ENABLE
+  00AF          +2   192     EA       BIT   IE.7   ; GLOBAL INTERRUPT ENABLE
+                +2   193     ;
+                +2   194     ; IP B8H
+  00B8          +2   195     PX0      BIT   IP.0   ; EXTERNAL INTERRUPT 0 PRIORITY
+  00B9          +2   196     PT0      BIT   IP.1   ; TIMER 0 PRIORITY
+  00BA          +2   197     PX1      BIT   IP.2   ; EXTERNAL INTERRUPT 1 PRIORITY
+  00BB          +2   198     PT1      BIT   IP.3   ; TIMER 1 PRIORITY
+  00BC          +2   199     PS       BIT   IP.4   ; SERIAL PORT PRIORITY
+  00BD          +2   200     PT2      BIT   IP.5   ; TIMER 2 PRIORITY
+                +2   201     ;
+                +2   202     ; SMB0CN C0H
+  00C0          +2   203     SMBTOE   BIT   SMB0CN.0 ; SMBUS 0 TIMEOUT ENABLE
+  00C1          +2   204     SMBFTE   BIT   SMB0CN.1 ; SMBUS 0 FREE TIMER ENABLE
+  00C2          +2   205     AA       BIT   SMB0CN.2 ; SMBUS 0 ASSERT/ACKNOWLEDGE FLAG
+  00C3          +2   206     SI       BIT   SMB0CN.3 ; SMBUS 0 INTERRUPT PENDING FLAG
+  00C4          +2   207     STO      BIT   SMB0CN.4 ; SMBUS 0 STOP FLAG
+  00C5          +2   208     STA      BIT   SMB0CN.5 ; SMBUS 0 START FLAG
+  00C6          +2   209     ENSMB    BIT   SMB0CN.6 ; SMBUS 0 ENABLE 
+                +2   210     ;
+                +2   211     ; T2CON C8H
+  00C8          +2   212     CPRL2    BIT   T2CON.0 ; CAPTURE OR RELOAD SELECT
+  00C9          +2   213     CT2      BIT   T2CON.1 ; TIMER OR COUNTER SELECT
+  00CA          +2   214     TR2      BIT   T2CON.2 ; TIMER 2 ON/OFF CONTROL
+  00CB          +2   215     EXEN2    BIT   T2CON.3 ; TIMER 2 EXTERNAL ENABLE FLAG
+  00CC          +2   216     TCLK     BIT   T2CON.4 ; TRANSMIT CLOCK FLAG
+  00CD          +2   217     RCLK     BIT   T2CON.5 ; RECEIVE CLOCK FLAG
+  00CE          +2   218     EXF2     BIT   T2CON.6 ; EXTERNAL FLAG
+  00CF          +2   219     TF2      BIT   T2CON.7 ; TIMER 2 OVERFLOW FLAG
+                +2   220     ;
+                +2   221     ; PSW D0H
+  00D0          +2   222     P        BIT   PSW.0  ; ACCUMULATOR PARITY FLAG
+  00D1          +2   223     F1       BIT   PSW.1  ; USER FLAG 1
+  00D2          +2   224     OV       BIT   PSW.2  ; OVERFLOW FLAG
+  00D3          +2   225     RS0      BIT   PSW.3  ; REGISTER BANK SELECT 0
+  00D4          +2   226     RS1      BIT   PSW.4  ; REGISTER BANK SELECT 1
+  00D5          +2   227     F0       BIT   PSW.5  ; USER FLAG 0
+  00D6          +2   228     AC       BIT   PSW.6  ; AUXILIARY CARRY FLAG
+  00D7          +2   229     CY       BIT   PSW.7  ; CARRY FLAG
+                +2   230     ;
+                +2   231     ; PCA0CN D8H
+  00D8          +2   232     CCF0     BIT   PCA0CN.0 ; PCA 0 MODULE 0 INTERRUPT FLAG
+  00D9          +2   233     CCF1     BIT   PCA0CN.1 ; PCA 0 MODULE 1 INTERRUPT FLAG
+  00DA          +2   234     CCF2     BIT   PCA0CN.2 ; PCA 0 MODULE 2 INTERRUPT FLAG
+  00DB          +2   235     CCF3     BIT   PCA0CN.3 ; PCA 0 MODULE 3 INTERRUPT FLAG
+  00DC          +2   236     CCF4     BIT   PCA0CN.4 ; PCA 0 MODULE 4 INTERRUPT FLAG
+  00DE          +2   237     CR       BIT   PCA0CN.6 ; PCA 0 COUNTER RUN CONTROL BIT
+  00DF          +2   238     CF       BIT   PCA0CN.7 ; PCA 0 COUNTER OVERFLOW FLAG
+                +2   239     ;
+                +2   240     ; ADC0CN E8H
+  00E8          +2   241     AD0LJST  BIT   ADC0CN.0 ; ADC 0 RIGHT JUSTIFY DATA BIT
+  00E9          +2   242     AD0WINT  BIT   ADC0CN.1 ; ADC 0 WINDOW COMPARE INTERRUPT FLAG
+  00EA          +2   243     AD0STM0  BIT   ADC0CN.2 ; ADC 0 START OF CONVERSION MODE BIT 0
+  00EB          +2   244     AD0STM1  BIT   ADC0CN.3 ; ADC 0 START OF CONVERSION MODE BIT 1
+  00EC          +2   245     AD0BUSY  BIT   ADC0CN.4 ; ADC 0 BUSY FLAG
+  00ED          +2   246     AD0INT   BIT   ADC0CN.5 ; ADC 0 CONVERISION COMPLETE INTERRUPT FLAG 
+  00EE          +2   247     AD0TM    BIT   ADC0CN.6 ; ADC 0 TRACK MODE
+  00EF          +2   248     AD0EN    BIT   ADC0CN.7 ; ADC 0 ENABLE
+                +2   249     ;
+                +2   250     ; SPI0CN F8H
+  00F8          +2   251     SPIEN    BIT   SPI0CN.0 ; SPI 0 SPI ENABLE
+  00F9          +2   252     MSTEN    BIT   SPI0CN.1 ; SPI 0 MASTER ENABLE
+  00FA          +2   253     SLVSEL   BIT   SPI0CN.2 ; SPI 0 SLAVE SELECT
+  00FB          +2   254     TXBSY    BIT   SPI0CN.3 ; SPI 0 TX BUSY FLAG
+  00FC          +2   255     RXOVRN   BIT   SPI0CN.4 ; SPI 0 RX OVERRUN FLAG
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE     5
+
+  00FD          +2   256     MODF     BIT   SPI0CN.5 ; SPI 0 MODE FAULT FLAG
+  00FE          +2   257     WCOL     BIT   SPI0CN.6 ; SPI 0 WRITE COLLISION FLAG
+  00FF          +2   258     SPIF     BIT   SPI0CN.7 ; SPI 0 INTERRUPT FLAG
+                +1   259     display_startup_logo_DISPLAY         SEGMENT CODE 
+                +1   260     display_gussing_game_DISPLAY         SEGMENT CODE 
+                +1   261     print_acknowledgement_DISPLAY        SEGMENT CODE 
+                +1   262     DT_print_acknowledgement_DISPLAY        SEGMENT DATA OVERLAYABLE 
+                +1   263     display_acknowledgement_DISPLAY      SEGMENT CODE 
+                +1   264     _display_picture_DISPLAY             SEGMENT CODE 
+                +1   265     DT_display_picture_DISPLAY             SEGMENT DATA OVERLAYABLE 
+                +1   266     display_main_menu_DISPLAY            SEGMENT CODE 
+                +1   267     display_mode_select_DISPLAY          SEGMENT CODE 
+                +1   268     display_bits_select_DISPLAY          SEGMENT CODE 
+                +1   269     display_time_select_DISPLAY          SEGMENT CODE 
+                +1   270     display_begin_select_DISPLAY         SEGMENT CODE 
+                +1   271     display_input_DISPLAY                SEGMENT CODE 
+                +1   272     display_correct_DISPLAY              SEGMENT CODE 
+                +1   273     display_error_DISPLAY                SEGMENT CODE 
+                +1   274     display_win_DISPLAY                  SEGMENT CODE 
+                +1   275     display_lose_DISPLAY                 SEGMENT CODE 
+                +1   276     display_random_digits_DISPLAY        SEGMENT CODE 
+                +1   277     DT_display_random_digits_DISPLAY        SEGMENT DATA OVERLAYABLE 
+                +1   278     display_wrong_input_bits_DISPLAY     SEGMENT CODE 
+                +1   279     display_wrong_input_display_time_DISPLAY SEGMENT CODE 
+                +1   280     CO_DISPLAY          SEGMENT CODE 
+                +1   281             EXTRN   CODE (digits)
+                +1   282             EXTRN   CODE (clear)
+                +1   283             EXTRN   DATA (display_time)
+                +1   284             EXTRN   CODE (_Draw_PM)
+                +1   285             EXTRN   CODE (rand)
+                +1   286             EXTRN   CODE (_print)
+                +1   287             EXTRN   CODE (_print_char)
+                +1   288             EXTRN   DATA (bits)
+                +1   289             EXTRN   CODE (xxdj)
+                +1   290             EXTRN   CODE (hust)
+                +1   291             EXTRN   CODE (csyx)
+                +1   292             EXTRN   CODE (sft)
+                +1   293             EXTRN   CODE (_delay_ms)
+                +1   294             EXTRN   CODE (zhu)
+                +1   295             EXTRN   XDATA (random_digits)
+                +1   296             EXTRN   CODE (?C?SIDIV)
+                +1   297             PUBLIC  acknowledgements
+                +1   298             PUBLIC  display_wrong_input_display_time
+                +1   299             PUBLIC  display_wrong_input_bits
+                +1   300             PUBLIC  display_random_digits
+                +1   301             PUBLIC  display_lose
+                +1   302             PUBLIC  display_win
+                +1   303             PUBLIC  display_error
+                +1   304             PUBLIC  display_correct
+                +1   305             PUBLIC  display_input
+                +1   306             PUBLIC  display_begin_select
+                +1   307             PUBLIC  display_time_select
+                +1   308             PUBLIC  display_bits_select
+                +1   309             PUBLIC  display_mode_select
+                +1   310             PUBLIC  display_main_menu
+                +1   311             PUBLIC  _display_picture
+                +1   312             PUBLIC  display_acknowledgement
+                +1   313             PUBLIC  print_acknowledgement
+                +1   314             PUBLIC  display_gussing_game
+                +1   315             PUBLIC  display_startup_logo
+----                 316             RSEG  DT_display_random_digits_DISPLAY
+0000                 317     display_random_digits_BYTE:
+0000                 318              i:   DS   1
+0001                 319          digit:   DS   1
+----                 320             RSEG  DT_print_acknowledgement_DISPLAY
+0000                 321     print_acknowledgement_BYTE:
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE     6
+
+0000                 322              i1:   DS   2
+----                 323             RSEG  DT_display_picture_DISPLAY
+0000                 324     _display_picture_BYTE:
+0000                 325             ptr:   DS   3
+----                 326             RSEG  CO_DISPLAY
+0000                 327     SC_0:
+0000 B2C2CAFD        328             DB  0B2H,0C2H,0CAH,0FDH,0D3H,0CEH,0CFH,0B7H,000H
+0004 D3CECFB7                
+0008 00                      
+0009                 329     SC_9:
+0009 20477565        330             DB  ' ' ,'G' ,'u' ,'e' ,'s' ,'s' ,'i' ,'n' ,'g' ,' ' 
+000D 7373696E                
+0011 6720                    
+0013 67616D65        331             DB  'g' ,'a' ,'m' ,'e' ,000H
+0017 00                      
+0018                 332     SC_24:
+0018 303ABDF8        333             DB  '0' ,':' ,0BDH,0F8H,0C8H,0EBH,0D3H,0CEH,0CFH,0B7H
+001C C8EBD3CE                
+0020 CFB7                    
+0022 00              334             DB  000H
+0023                 335     SC_35:
+0023 313AD6C2        336             DB  '1' ,':' ,0D6H,0C2H,0D0H,0BBH,000H
+0027 D0BB00                  
+002A                 337     SC_42:
+002A B0B4CAFD        338             DB  0B0H,0B4H,0CAH,0FDH,0D7H,0D6H,0BCH,0FCH,0D1H,0A1H
+002E D7D6BCFC                
+0032 D1A1                    
+0034 D4F1C4A3        339             DB  0D4H,0F1H,0C4H,0A3H,0CAH,0BDH,000H
+0038 CABD00                  
+003B                 340     SC_59:
+003B 303AB4B3        341             DB  '0' ,':' ,0B4H,0B3H,0B9H,0D8H,0C4H,0A3H,0CAH,0BDH
+003F B9D8C4A3                
+0043 CABD                    
+0045 00              342             DB  000H
+0046                 343     SC_70:
+0046 313AC1B7        344             DB  '1' ,':' ,0C1H,0B7H,0CFH,0B0H,0C4H,0A3H,0CAH,0BDH
+004A CFB0C4A3                
+004E CABD                    
+0050 00              345             DB  000H
+0051                 346     SC_81:
+0051 323ACBE6        347             DB  '2' ,':' ,0CBH,0E6H,0BBH,0FAH,0C4H,0A3H,0CAH,0BDH
+0055 BBFAC4A3                
+0059 CABD                    
+005B 00              348             DB  000H
+005C                 349     SC_92:
+005C B0B4CAFD        350             DB  0B0H,0B4H,0CAH,0FDH,0D7H,0D6H,0BCH,0FCH,0CAH,0E4H
+0060 D7D6BCFC                
+0064 CAE4                    
+0066 C8EBCEBB        351             DB  0C8H,0EBH,0CEH,0BBH,0CAH,0FDH,000H
+006A CAFD00                  
+006D                 352     SC_109:
+006D B0B44620        353             DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0C8H,0B7H,0C8H,0CFH
+0071 BCFCC8B7                
+0075 C8CF                    
+0077 00              354             DB  000H
+0078                 355     SC_120:
+0078 B0B44520        356             DB  0B0H,0B4H,'E' ,' ' ,0BCH,0FCH,0B7H,0B5H,0BBH,0D8H
+007C BCFCB7B5                
+0080 BBD8                    
+0082 00              357             DB  000H
+0083                 358     SC_131:
+0083 B0B44420        359             DB  0B0H,0B4H,'D' ,' ' ,0BCH,0FCH,0D6H,0D8H,0CAH,0E4H
+0087 BCFCD6D8                
+008B CAE4                    
+008D 00              360             DB  000H
+008E                 361     SC_142:
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE     7
+
+008E B0B4CAFD        362             DB  0B0H,0B4H,0CAH,0FDH,0D7H,0D6H,0BCH,0FCH,0CAH,0E4H
+0092 D7D6BCFC                
+0096 CAE4                    
+0098 C8EBCAB1        363             DB  0C8H,0EBH,0CAH,0B1H,0BCH,0E4H,000H
+009C BCE400                  
+009F                 364     SC_159:
+009F C4E3D7BC        365             DB  0C4H,0E3H,0D7H,0BCH,0B1H,0B8H,0BAH,0C3H,0C1H,0CBH
+00A3 B1B8BAC3                
+00A7 C1CB                    
+00A9 C2F0A3BF        366             DB  0C2H,0F0H,0A3H,0BFH,000H
+00AD 00                      
+00AE                 367     SC_174:
+00AE B0B44620        368             DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0BFH,0AAH,0CAH,0BCH
+00B2 BCFCBFAA                
+00B6 CABC                    
+00B8 D3CECFB7        369             DB  0D3H,0CEH,0CFH,0B7H,000H
+00BC 00                      
+00BD                 370     SC_189:
+00BD B0B4CAFD        371             DB  0B0H,0B4H,0CAH,0FDH,0D7H,0D6H,0BCH,0FCH,0CAH,0E4H
+00C1 D7D6BCFC                
+00C5 CAE4                    
+00C7 C8EBCAFD        372             DB  0C8H,0EBH,0CAH,0FDH,0D7H,0D6H,000H
+00CB D7D600                  
+00CE                 373     SC_206:
+00CE 2A2AB9A7        374             DB  '*' ,'*' ,0B9H,0A7H,0CFH,0B2H,0C4H,0E3H,0B2H,0C2H
+00D2 CFB2C4E3                
+00D6 B2C2                    
+00D8 B6D4C1CB        375             DB  0B6H,0D4H,0C1H,0CBH,'*' ,'*' ,000H
+00DC 2A2A00                  
+00DF                 376     SC_223:
+00DF B0B44620        377             DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0BCH,0CCH,0D0H,0F8H
+00E3 BCFCBCCC                
+00E7 D0F8                    
+00E9 D3CECFB7        378             DB  0D3H,0CEH,0CFH,0B7H,000H
+00ED 00                      
+00EE                 379     SC_238:
+00EE 2A2A2A2A        380             DB  '*' ,'*' ,'*' ,'*' ,'*' ,'*' ,'*' ,'*' ,'*' ,'*' 
+00F2 2A2A2A2A                
+00F6 2A2A                    
+00F8 2A2A2A2A        381             DB  '*' ,'*' ,'*' ,'*' ,'*' ,'*' ,000H
+00FC 2A2A00                  
+00FF                 382     SC_255:
+00FF BADCBFC9        383             DB  0BAH,0DCH,0BFH,0C9H,0CFH,0A7H,0C4H,0E3H,0B2H,0C2H
+0103 CFA7C4E3                
+0107 B2C2                    
+0109 B4EDC1CB        384             DB  0B4H,0EDH,0C1H,0CBH,'#' ,'#' ,000H
+010D 232300                  
+0110                 385     SC_272:
+0110 B0B44620        386             DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0D6H,0D8H,0D0H,0C2H
+0114 BCFCD6D8                
+0118 D0C2                    
+011A BFAACABC        387             DB  0BFH,0AAH,0CAH,0BCH,000H
+011E 00                      
+011F                 388     SC_287:
+011F 23232323        389             DB  '#' ,'#' ,'#' ,'#' ,'#' ,'#' ,'#' ,'#' ,'#' ,'#' 
+0123 23232323                
+0127 2323                    
+0129 23232323        390             DB  '#' ,'#' ,'#' ,'#' ,'#' ,'#' ,000H
+012D 232300                  
+0130                 391     SC_304:
+0130 B9A7CFB2        392             DB  0B9H,0A7H,0CFH,0B2H,0C4H,0E3H,0B4H,0B3H,0B9H,0D8H
+0134 C4E3B4B3                
+0138 B9D8                    
+013A B3C9B9A6        393             DB  0B3H,0C9H,0B9H,0A6H,'*' ,'*' ,000H
+013E 2A2A00                  
+0141                 394     SC_321:
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE     8
+
+0141 B0B44620        395             DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0D4H,0D9H,0B4H,0CEH
+0145 BCFCD4D9                
+0149 B4CE                    
+014B CCF4D5BD        396             DB  0CCH,0F4H,0D5H,0BDH,000H
+014F 00                      
+0150                 397     SC_336:
+0150 BADCBFC9        398             DB  0BAH,0DCH,0BFH,0C9H,0CFH,0A7H,0B4H,0B3H,0B9H,0D8H
+0154 CFA7B4B3                
+0158 B9D8                    
+015A CAA7B0DC        399             DB  0CAH,0A7H,0B0H,0DCH,'#' ,'#' ,000H
+015E 232300                  
+0161                 400     SC_353:
+0161 CAE4C8EB        401             DB  0CAH,0E4H,0C8H,0EBH,0CEH,0BBH,0CAH,0FDH,0B7H,0C7H
+0165 CEBBCAFD                
+0169 B7C7                    
+016B B7A800          402             DB  0B7H,0A8H,000H
+016E                 403     SC_366:
+016E 313C3D20        404             DB  '1' ,'<' ,'=' ,' ' ,0CAH,0E4H,0C8H,0EBH,0CEH,0BBH
+0172 CAE4C8EB                
+0176 CEBB                    
+0178 CAFD3C3D        405             DB  0CAH,0FDH,'<' ,'=' ,'6' ,'4' ,000H
+017C 363400                  
+017F                 406     SC_383:
+017F B0B44620        407             DB  0B0H,0B4H,'F' ,' ' ,0BCH,0FCH,0D6H,0D8H,0CAH,0E4H
+0183 BCFCD6D8                
+0187 CAE4                    
+0189 00              408             DB  000H
+018A                 409     SC_394:
+018A CAE4C8EB        410             DB  0CAH,0E4H,0C8H,0EBH,0CFH,0D4H,0CAH,0BEH,0CAH,0B1H
+018E CFD4CABE                
+0192 CAB1                    
+0194 BCE4B7C7        411             DB  0BCH,0E4H,0B7H,0C7H,0B7H,0A8H,000H
+0198 B7A800                  
+019B                 412     SC_411:
+019B 35303C3D        413             DB  '5' ,'0' ,'<' ,'=' ,0CAH,0B1H,0BCH,0E4H,'<' ,'=' 
+019F CAB1BCE4                
+01A3 3C3D                    
+01A5 36353533        414             DB  '6' ,'5' ,'5' ,'3' ,'5' ,000H
+01A9 3500                    
+01AB                 415     acknowledgements:
+01AB B7C7B3A3        416             DB  0B7H,0C7H,0B3H,0A3H,0B8H,0D0H,0D0H,0BBH,0C4H,0DCH
+01AF B8D0D0BB                
+01B3 C4DC                    
+01B5 D3D0D5E2        417             DB  0D3H,0D0H,0D5H,0E2H,0B4H,0CEH,0BBH,0FAH,0BBH,0E1H
+01B9 B4CEBBFA                
+01BD BBE1                    
+01BF D7F6CCE1        418             DB  0D7H,0F6H,0CCH,0E1H,0B8H,0DFH,0CAH,0B5H,0D1H,0E9H
+01C3 B8DFCAB5                
+01C7 D1E9                    
+01C9 A3ACCCE1        419             DB  0A3H,0ACH,0CCH,0E1H,0B8H,0DFH,0CAH,0B5H,0D1H,0E9H
+01CD B8DFCAB5                
+01D1 D1E9                    
+01D3 BDD3BDFC        420             DB  0BDH,0D3H,0BDH,0FCH,0D5H,0E6H,0CAH,0B5H,0B5H,0C4H
+01D7 D5E6CAB5                
+01DB B5C4                    
+01DD B9A4B3CC        421             DB  0B9H,0A4H,0B3H,0CCH,0CFH,0EEH,0C4H,0BFH,0A3H,0ACH
+01E1 CFEEC4BF                
+01E5 A3AC                    
+01E7 D3D0D2BB        422             DB  0D3H,0D0H,0D2H,0BBH,0B6H,0A8H,0B5H,0C4H,0C4H,0D1H
+01EB B6A8B5C4                
+01EF C4D1                    
+01F1 B6C8A3AC        423             DB  0B6H,0C8H,0A3H,0ACH,0B5H,0ABH,0CAH,0C7H,0CEH,0D2H
+01F5 B5ABCAC7                
+01F9 CED2                    
+01FB BFCBB7FE        424             DB  0BFH,0CBH,0B7H,0FEH,0D6H,0D6H,0D6H,0D6H,0C0H,0A7H
+01FF D6D6D6D6                
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE     9
+
+0203 C0A7                    
+0205 C4D1A3AC        425             DB  0C4H,0D1H,0A3H,0ACH,0CBH,0B3H,0C0H,0FBH,0B8H,0DFH
+0209 CBB3C0FB                
+020D B8DF                    
+020F D6CAC1BF        426             DB  0D6H,0CAH,0C1H,0BFH,0B5H,0D8H,0CDH,0EAH,0B3H,0C9H
+0213 B5D8CDEA                
+0217 B3C9                    
+0219 C1CBB2C2        427             DB  0C1H,0CBH,0B2H,0C2H,0CAH,0FDH,0D3H,0CEH,0CFH,0B7H
+021D CAFDD3CE                
+0221 CFB7                    
+0223 CFEEC4BF        428             DB  0CFH,0EEH,0C4H,0BFH,0A3H,0ACH,0CCH,0E1H,0B8H,0DFH
+0227 A3ACCCE1                
+022B B8DF                    
+022D C1CBCED2        429             DB  0C1H,0CBH,0CEH,0D2H,0B5H,0C4H,'C' ,' ' ,0D3H,0EFH
+0231 B5C44320                
+0235 D3EF                    
+0237 D1D4BACD        430             DB  0D1H,0D4H,0BAH,0CDH,0BBH,0E3H,0B1H,0E0H,0D3H,0EFH
+023B BBE3B1E0                
+023F D3EF                    
+0241 D1D4B1E0        431             DB  0D1H,0D4H,0B1H,0E0H,0B3H,0CCH,0C4H,0DCH,0C1H,0A6H
+0245 B3CCC4DC                
+0249 C1A6                    
+024B A3ACBCD3        432             DB  0A3H,0ACH,0BCH,0D3H,0C9H,0EEH,0C1H,0CBH,0B6H,0D4H
+024F C9EEC1CB                
+0253 B6D4                    
+0255 B5A5C6AC        433             DB  0B5H,0A5H,0C6H,0ACH,0BBH,0FAH,0BAH,0CDH,0C7H,0B6H
+0259 BBFABACD                
+025D C7B6                    
+025F C8EBCABD        434             DB  0C8H,0EBH,0CAH,0BDH,0CFH,0B5H,0CDH,0B3H,0B5H,0C4H
+0263 CFB5CDB3                
+0267 B5C4                    
+0269 C0EDBDE2        435             DB  0C0H,0EDH,0BDH,0E2H,0A3H,0ACH,0B8H,0D0H,0D0H,0BBH
+026D A3ACB8D0                
+0271 D0BB                    
+0273 C2DEC0CF        436             DB  0C2H,0DEH,0C0H,0CFH,0CAH,0A6H,0BAH,0CDH,0D6H,0FAH
+0277 CAA6BACD                
+027B D6FA                    
+027D BDCCB5C4        437             DB  0BDH,0CCH,0B5H,0C4H,0D6H,0B8H,0B5H,0BCH,0A3H,0A1H
+0281 D6B8B5BC                
+0285 A3A1                    
+0287 A3A12020        438             DB  0A3H,0A1H,' ' ,' ' ,'M' ,'A' ,'D' ,'E' ,' ' ,'B' 
+028B 4D414445                
+028F 2042                    
+0291 5920CDF5        439             DB  'Y' ,' ' ,0CDH,0F5H,0D0H,0C4H,0E5H,0ABH,' ' ,' ' 
+0295 D0C4E5AB                
+0299 2020                    
+029B 32303233        440             DB  '2' ,'0' ,'2' ,'3' ,0C4H,0EAH,'1' ,'2' ,0D4H,0C2H
+029F C4EA3132                
+02A3 D4C2                    
+02A5 3233C8D5        441             DB  '2' ,'3' ,0C8H,0D5H,' ' ,' ' ,'T' ,'h' ,'a' ,'n' 
+02A9 20205468                
+02AD 616E                    
+02AF 6B20796F        442             DB  'k' ,' ' ,'y' ,'o' ,'u' ,' ' ,'a' ,'g' ,'a' ,'i' 
+02B3 75206167                
+02B7 6169                    
+02B9 6E2100          443             DB  'n' ,'!' ,000H
+----                 444             RSEG  display_startup_logo_DISPLAY
+0000                 445     display_startup_logo:
+                     446             USING   0
+0000 7BFF            447             MOV     R3,#0FFH
+0002 7A00     F      448             MOV     R2,#HIGH (hust)
+0004 7900     F      449             MOV     R1,#LOW (hust)
+0006 120000   F      450             LCALL   _display_picture
+0009 7FE8            451             MOV     R7,#0E8H
+000B 7E03            452             MOV     R6,#03H
+000D 7D00            453             MOV     R5,#00H
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE    10
+
+000F 7C00            454             MOV     R4,#00H
+0011 120000   F      455             LCALL   _delay_ms
+0014 7BFF            456             MOV     R3,#0FFH
+0016 7A00     F      457             MOV     R2,#HIGH (sft)
+0018 7900     F      458             MOV     R1,#LOW (sft)
+001A 120000   F      459             LCALL   _display_picture
+001D 7FE8            460             MOV     R7,#0E8H
+001F 7E03            461             MOV     R6,#03H
+0021 7D00            462             MOV     R5,#00H
+0023 7C00            463             MOV     R4,#00H
+0025 020000   F      464             LJMP    _delay_ms
+----                 465             RSEG  display_gussing_game_DISPLAY
+0000                 466     display_gussing_game:
+                     467             USING   0
+0000 7BFF            468             MOV     R3,#0FFH
+0002 7A00     F      469             MOV     R2,#HIGH (csyx)
+0004 7900     F      470             MOV     R1,#LOW (csyx)
+0006 120000   F      471             LCALL   _display_picture
+0009 7FDC            472             MOV     R7,#0DCH
+000B 7E05            473             MOV     R6,#05H
+000D 7D00            474             MOV     R5,#00H
+000F 7C00            475             MOV     R4,#00H
+0011 020000   F      476             LJMP    _delay_ms
+----                 477             RSEG  print_acknowledgement_DISPLAY
+0000                 478     print_acknowledgement:
+                     479             USING   0
+0000 E4              480             CLR     A
+0001 F500     F      481             MOV     i1,A
+0003 F500     F      482             MOV     i1+01H,A
+0005 F500     F      483             MOV     i1,A
+0007 F500     F      484             MOV     i1+01H,A
+0009                 485     DISPLAY0003:
+0009 E500     F      486             MOV     A,i1+01H
+000B 543F            487             ANL     A,#03FH
+000D 7003            488             JNZ     DISPLAY0006
+000F 120000   F      489             LCALL   clear
+0012                 490     DISPLAY0006:
+0012 7400     F      491             MOV     A,#LOW (acknowledgements)
+0014 2500     F      492             ADD     A,i1+01H
+0016 F582            493             MOV     DPL,A
+0018 7400     F      494             MOV     A,#HIGH (acknowledgements)
+001A 3500     F      495             ADDC    A,i1
+001C F583            496             MOV     DPH,A
+001E E4              497             CLR     A
+001F 93              498             MOVC    A,@A+DPTR
+0020 FB              499             MOV     R3,A
+0021 606F            500             JZ      DISPLAY0014
+0023 E500     F      501             MOV     A,i1+01H
+0025 543F            502             ANL     A,#03FH
+0027 6410            503             XRL     A,#010H
+0029 7004            504             JNZ     DISPLAY0008
+002B 7D02            505             MOV     R5,#02H
+002D 8049            506             SJMP    DISPLAY0045
+002F                 507     DISPLAY0008:
+002F E500     F      508             MOV     A,i1+01H
+0031 543F            509             ANL     A,#03FH
+0033 6420            510             XRL     A,#020H
+0035 7014            511             JNZ     DISPLAY0010
+0037 7400     F      512             MOV     A,#LOW (acknowledgements)
+0039 2500     F      513             ADD     A,i1+01H
+003B F582            514             MOV     DPL,A
+003D 7400     F      515             MOV     A,#HIGH (acknowledgements)
+003F 3500     F      516             ADDC    A,i1
+0041 F583            517             MOV     DPH,A
+0043 E4              518             CLR     A
+0044 93              519             MOVC    A,@A+DPTR
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE    11
+
+0045 FB              520             MOV     R3,A
+0046 7D03            521             MOV     R5,#03H
+0048 E4              522             CLR     A
+0049                 523     DISPLAY0044:
+0049 802D            524             SJMP    DISPLAY0045
+004B                 525     DISPLAY0010:
+004B E500     F      526             MOV     A,i1+01H
+004D 543F            527             ANL     A,#03FH
+004F 6430            528             XRL     A,#030H
+0051 7014            529             JNZ     DISPLAY0012
+0053 7400     F      530             MOV     A,#LOW (acknowledgements)
+0055 2500     F      531             ADD     A,i1+01H
+0057 F582            532             MOV     DPL,A
+0059 7400     F      533             MOV     A,#HIGH (acknowledgements)
+005B 3500     F      534             ADDC    A,i1
+005D F583            535             MOV     DPH,A
+005F E4              536             CLR     A
+0060 93              537             MOVC    A,@A+DPTR
+0061 FB              538             MOV     R3,A
+0062 7D04            539             MOV     R5,#04H
+0064 E4              540             CLR     A
+0065 8011            541             SJMP    DISPLAY0043
+0067                 542     DISPLAY0012:
+0067 7400     F      543             MOV     A,#LOW (acknowledgements)
+0069 2500     F      544             ADD     A,i1+01H
+006B F582            545             MOV     DPL,A
+006D 7400     F      546             MOV     A,#HIGH (acknowledgements)
+006F 3500     F      547             ADDC    A,i1
+0071 F583            548             MOV     DPH,A
+0073 E4              549             CLR     A
+0074 93              550             MOVC    A,@A+DPTR
+0075 FB              551             MOV     R3,A
+0076 E4              552             CLR     A
+0077 FD              553             MOV     R5,A
+0078                 554     DISPLAY0043:
+0078                 555     DISPLAY0045:
+0078 FF              556             MOV     R7,A
+0079 120000   F      557             LCALL   _print_char
+007C                 558     DISPLAY0009:
+007C 7F64            559             MOV     R7,#064H
+007E 7E00            560             MOV     R6,#00H
+0080 7D00            561             MOV     R5,#00H
+0082 7C00            562             MOV     R4,#00H
+0084 120000   F      563             LCALL   _delay_ms
+0087 0500     F      564             INC     i1+01H
+0089 E500     F      565             MOV     A,i1+01H
+008B 7002            566             JNZ     DISPLAY0042
+008D 0500     F      567             INC     i1
+008F                 568     DISPLAY0042:
+008F 020000   F      569             LJMP    DISPLAY0003
+0092                 570     DISPLAY0014:
+0092 22              571             RET     
+----                 572             RSEG  display_acknowledgement_DISPLAY
+0000                 573     display_acknowledgement:
+                     574             USING   0
+0000 7BFF            575             MOV     R3,#0FFH
+0002 7A00     F      576             MOV     R2,#HIGH (zhu)
+0004 7900     F      577             MOV     R1,#LOW (zhu)
+0006 120000   F      578             LCALL   _display_picture
+0009 7FE8            579             MOV     R7,#0E8H
+000B 7E03            580             MOV     R6,#03H
+000D 7D00            581             MOV     R5,#00H
+000F 7C00            582             MOV     R4,#00H
+0011 120000   F      583             LCALL   _delay_ms
+0014 120000   F      584             LCALL   print_acknowledgement
+0017 7BFF            585             MOV     R3,#0FFH
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE    12
+
+0019 7A00     F      586             MOV     R2,#HIGH (xxdj)
+001B 7900     F      587             MOV     R1,#LOW (xxdj)
+001D 120000   F      588             LCALL   _display_picture
+0020 7FE8            589             MOV     R7,#0E8H
+0022 7E03            590             MOV     R6,#03H
+0024 7D00            591             MOV     R5,#00H
+0026 7C00            592             MOV     R4,#00H
+0028 020000   F      593             LJMP    _delay_ms
+----                 594             RSEG  _display_picture_DISPLAY
+0000                 595     _display_picture:
+                     596             USING   0
+0000 8B00     F      597             MOV     ptr,R3
+0002 8A00     F      598             MOV     ptr+01H,R2
+0004 8900     F      599             MOV     ptr+02H,R1
+0006 120000   F      600             LCALL   clear
+0009 AB00     F      601             MOV     R3,ptr
+000B AA00     F      602             MOV     R2,ptr+01H
+000D A900     F      603             MOV     R1,ptr+02H
+000F 020000   F      604             LJMP    _Draw_PM
+----                 605             RSEG  display_main_menu_DISPLAY
+0000                 606     display_main_menu:
+                     607             USING   0
+0000 120000   F      608             LCALL   clear
+0003 7BFF            609             MOV     R3,#0FFH
+0005 7A00     F      610             MOV     R2,#HIGH (SC_0)
+0007 7900     F      611             MOV     R1,#LOW (SC_0)
+0009 7D01            612             MOV     R5,#01H
+000B 7F02            613             MOV     R7,#02H
+000D 120000   F      614             LCALL   _print
+0010 7BFF            615             MOV     R3,#0FFH
+0012 7A00     F      616             MOV     R2,#HIGH (SC_9)
+0014 7900     F      617             MOV     R1,#LOW (SC_9)
+0016 7D02            618             MOV     R5,#02H
+0018 E4              619             CLR     A
+0019 FF              620             MOV     R7,A
+001A 120000   F      621             LCALL   _print
+001D 7BFF            622             MOV     R3,#0FFH
+001F 7A00     F      623             MOV     R2,#HIGH (SC_24)
+0021 7900     F      624             MOV     R1,#LOW (SC_24)
+0023 7D03            625             MOV     R5,#03H
+0025 E4              626             CLR     A
+0026 FF              627             MOV     R7,A
+0027 120000   F      628             LCALL   _print
+002A 7BFF            629             MOV     R3,#0FFH
+002C 7A00     F      630             MOV     R2,#HIGH (SC_35)
+002E 7900     F      631             MOV     R1,#LOW (SC_35)
+0030 7D04            632             MOV     R5,#04H
+0032 E4              633             CLR     A
+0033 FF              634             MOV     R7,A
+0034 020000   F      635             LJMP    _print
+----                 636             RSEG  display_mode_select_DISPLAY
+0000                 637     display_mode_select:
+                     638             USING   0
+0000 120000   F      639             LCALL   clear
+0003 7BFF            640             MOV     R3,#0FFH
+0005 7A00     F      641             MOV     R2,#HIGH (SC_42)
+0007 7900     F      642             MOV     R1,#LOW (SC_42)
+0009 7D01            643             MOV     R5,#01H
+000B E4              644             CLR     A
+000C FF              645             MOV     R7,A
+000D 120000   F      646             LCALL   _print
+0010 7BFF            647             MOV     R3,#0FFH
+0012 7A00     F      648             MOV     R2,#HIGH (SC_59)
+0014 7900     F      649             MOV     R1,#LOW (SC_59)
+0016 7D02            650             MOV     R5,#02H
+0018 E4              651             CLR     A
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE    13
+
+0019 FF              652             MOV     R7,A
+001A 120000   F      653             LCALL   _print
+001D 7BFF            654             MOV     R3,#0FFH
+001F 7A00     F      655             MOV     R2,#HIGH (SC_70)
+0021 7900     F      656             MOV     R1,#LOW (SC_70)
+0023 7D03            657             MOV     R5,#03H
+0025 E4              658             CLR     A
+0026 FF              659             MOV     R7,A
+0027 120000   F      660             LCALL   _print
+002A 7BFF            661             MOV     R3,#0FFH
+002C 7A00     F      662             MOV     R2,#HIGH (SC_81)
+002E 7900     F      663             MOV     R1,#LOW (SC_81)
+0030 7D04            664             MOV     R5,#04H
+0032 E4              665             CLR     A
+0033 FF              666             MOV     R7,A
+0034 020000   F      667             LJMP    _print
+----                 668             RSEG  display_bits_select_DISPLAY
+0000                 669     display_bits_select:
+                     670             USING   0
+0000 120000   F      671             LCALL   clear
+0003 7BFF            672             MOV     R3,#0FFH
+0005 7A00     F      673             MOV     R2,#HIGH (SC_92)
+0007 7900     F      674             MOV     R1,#LOW (SC_92)
+0009 7D01            675             MOV     R5,#01H
+000B E4              676             CLR     A
+000C FF              677             MOV     R7,A
+000D 120000   F      678             LCALL   _print
+0010 7BFF            679             MOV     R3,#0FFH
+0012 7A00     F      680             MOV     R2,#HIGH (SC_109)
+0014 7900     F      681             MOV     R1,#LOW (SC_109)
+0016 7D02            682             MOV     R5,#02H
+0018 E4              683             CLR     A
+0019 FF              684             MOV     R7,A
+001A 120000   F      685             LCALL   _print
+001D 7BFF            686             MOV     R3,#0FFH
+001F 7A00     F      687             MOV     R2,#HIGH (SC_120)
+0021 7900     F      688             MOV     R1,#LOW (SC_120)
+0023 7D03            689             MOV     R5,#03H
+0025 E4              690             CLR     A
+0026 FF              691             MOV     R7,A
+0027 120000   F      692             LCALL   _print
+002A 7BFF            693             MOV     R3,#0FFH
+002C 7A00     F      694             MOV     R2,#HIGH (SC_131)
+002E 7900     F      695             MOV     R1,#LOW (SC_131)
+0030 7D04            696             MOV     R5,#04H
+0032 E4              697             CLR     A
+0033 FF              698             MOV     R7,A
+0034 020000   F      699             LJMP    _print
+----                 700             RSEG  display_time_select_DISPLAY
+0000                 701     display_time_select:
+                     702             USING   0
+0000 120000   F      703             LCALL   clear
+0003 7BFF            704             MOV     R3,#0FFH
+0005 7A00     F      705             MOV     R2,#HIGH (SC_142)
+0007 7900     F      706             MOV     R1,#LOW (SC_142)
+0009 7D01            707             MOV     R5,#01H
+000B E4              708             CLR     A
+000C FF              709             MOV     R7,A
+000D 120000   F      710             LCALL   _print
+0010 7BFF            711             MOV     R3,#0FFH
+0012 7A00     F      712             MOV     R2,#HIGH (SC_109)
+0014 7900     F      713             MOV     R1,#LOW (SC_109)
+0016 7D02            714             MOV     R5,#02H
+0018 E4              715             CLR     A
+0019 FF              716             MOV     R7,A
+001A 120000   F      717             LCALL   _print
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE    14
+
+001D 7BFF            718             MOV     R3,#0FFH
+001F 7A00     F      719             MOV     R2,#HIGH (SC_120)
+0021 7900     F      720             MOV     R1,#LOW (SC_120)
+0023 7D03            721             MOV     R5,#03H
+0025 E4              722             CLR     A
+0026 FF              723             MOV     R7,A
+0027 120000   F      724             LCALL   _print
+002A 7BFF            725             MOV     R3,#0FFH
+002C 7A00     F      726             MOV     R2,#HIGH (SC_131)
+002E 7900     F      727             MOV     R1,#LOW (SC_131)
+0030 7D04            728             MOV     R5,#04H
+0032 E4              729             CLR     A
+0033 FF              730             MOV     R7,A
+0034 020000   F      731             LJMP    _print
+----                 732             RSEG  display_begin_select_DISPLAY
+0000                 733     display_begin_select:
+                     734             USING   0
+0000 120000   F      735             LCALL   clear
+0003 7BFF            736             MOV     R3,#0FFH
+0005 7A00     F      737             MOV     R2,#HIGH (SC_159)
+0007 7900     F      738             MOV     R1,#LOW (SC_159)
+0009 7D01            739             MOV     R5,#01H
+000B 7F01            740             MOV     R7,#01H
+000D 120000   F      741             LCALL   _print
+0010 7BFF            742             MOV     R3,#0FFH
+0012 7A00     F      743             MOV     R2,#HIGH (SC_174)
+0014 7900     F      744             MOV     R1,#LOW (SC_174)
+0016 7D02            745             MOV     R5,#02H
+0018 E4              746             CLR     A
+0019 FF              747             MOV     R7,A
+001A 120000   F      748             LCALL   _print
+001D 7BFF            749             MOV     R3,#0FFH
+001F 7A00     F      750             MOV     R2,#HIGH (SC_120)
+0021 7900     F      751             MOV     R1,#LOW (SC_120)
+0023 7D03            752             MOV     R5,#03H
+0025 E4              753             CLR     A
+0026 FF              754             MOV     R7,A
+0027 020000   F      755             LJMP    _print
+----                 756             RSEG  display_input_DISPLAY
+0000                 757     display_input:
+                     758             USING   0
+0000 120000   F      759             LCALL   clear
+0003 7BFF            760             MOV     R3,#0FFH
+0005 7A00     F      761             MOV     R2,#HIGH (SC_189)
+0007 7900     F      762             MOV     R1,#LOW (SC_189)
+0009 7D01            763             MOV     R5,#01H
+000B E4              764             CLR     A
+000C FF              765             MOV     R7,A
+000D 120000   F      766             LCALL   _print
+0010 7BFF            767             MOV     R3,#0FFH
+0012 7A00     F      768             MOV     R2,#HIGH (SC_109)
+0014 7900     F      769             MOV     R1,#LOW (SC_109)
+0016 7D02            770             MOV     R5,#02H
+0018 E4              771             CLR     A
+0019 FF              772             MOV     R7,A
+001A 120000   F      773             LCALL   _print
+001D 7BFF            774             MOV     R3,#0FFH
+001F 7A00     F      775             MOV     R2,#HIGH (SC_120)
+0021 7900     F      776             MOV     R1,#LOW (SC_120)
+0023 7D03            777             MOV     R5,#03H
+0025 E4              778             CLR     A
+0026 FF              779             MOV     R7,A
+0027 120000   F      780             LCALL   _print
+002A 7BFF            781             MOV     R3,#0FFH
+002C 7A00     F      782             MOV     R2,#HIGH (SC_131)
+002E 7900     F      783             MOV     R1,#LOW (SC_131)
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE    15
+
+0030 7D04            784             MOV     R5,#04H
+0032 E4              785             CLR     A
+0033 FF              786             MOV     R7,A
+0034 020000   F      787             LJMP    _print
+----                 788             RSEG  display_correct_DISPLAY
+0000                 789     display_correct:
+                     790             USING   0
+0000 120000   F      791             LCALL   clear
+0003 7BFF            792             MOV     R3,#0FFH
+0005 7A00     F      793             MOV     R2,#HIGH (SC_206)
+0007 7900     F      794             MOV     R1,#LOW (SC_206)
+0009 7D01            795             MOV     R5,#01H
+000B E4              796             CLR     A
+000C FF              797             MOV     R7,A
+000D 120000   F      798             LCALL   _print
+0010 7BFF            799             MOV     R3,#0FFH
+0012 7A00     F      800             MOV     R2,#HIGH (SC_223)
+0014 7900     F      801             MOV     R1,#LOW (SC_223)
+0016 7D02            802             MOV     R5,#02H
+0018 E4              803             CLR     A
+0019 FF              804             MOV     R7,A
+001A 120000   F      805             LCALL   _print
+001D 7BFF            806             MOV     R3,#0FFH
+001F 7A00     F      807             MOV     R2,#HIGH (SC_120)
+0021 7900     F      808             MOV     R1,#LOW (SC_120)
+0023 7D03            809             MOV     R5,#03H
+0025 E4              810             CLR     A
+0026 FF              811             MOV     R7,A
+0027 120000   F      812             LCALL   _print
+002A 7BFF            813             MOV     R3,#0FFH
+002C 7A00     F      814             MOV     R2,#HIGH (SC_238)
+002E 7900     F      815             MOV     R1,#LOW (SC_238)
+0030 7D04            816             MOV     R5,#04H
+0032 E4              817             CLR     A
+0033 FF              818             MOV     R7,A
+0034 020000   F      819             LJMP    _print
+----                 820             RSEG  display_error_DISPLAY
+0000                 821     display_error:
+                     822             USING   0
+0000 120000   F      823             LCALL   clear
+0003 7BFF            824             MOV     R3,#0FFH
+0005 7A00     F      825             MOV     R2,#HIGH (SC_255)
+0007 7900     F      826             MOV     R1,#LOW (SC_255)
+0009 7D01            827             MOV     R5,#01H
+000B E4              828             CLR     A
+000C FF              829             MOV     R7,A
+000D 120000   F      830             LCALL   _print
+0010 7BFF            831             MOV     R3,#0FFH
+0012 7A00     F      832             MOV     R2,#HIGH (SC_272)
+0014 7900     F      833             MOV     R1,#LOW (SC_272)
+0016 7D02            834             MOV     R5,#02H
+0018 E4              835             CLR     A
+0019 FF              836             MOV     R7,A
+001A 120000   F      837             LCALL   _print
+001D 7BFF            838             MOV     R3,#0FFH
+001F 7A00     F      839             MOV     R2,#HIGH (SC_120)
+0021 7900     F      840             MOV     R1,#LOW (SC_120)
+0023 7D03            841             MOV     R5,#03H
+0025 E4              842             CLR     A
+0026 FF              843             MOV     R7,A
+0027 120000   F      844             LCALL   _print
+002A 7BFF            845             MOV     R3,#0FFH
+002C 7A00     F      846             MOV     R2,#HIGH (SC_287)
+002E 7900     F      847             MOV     R1,#LOW (SC_287)
+0030 7D04            848             MOV     R5,#04H
+0032 E4              849             CLR     A
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE    16
+
+0033 FF              850             MOV     R7,A
+0034 020000   F      851             LJMP    _print
+----                 852             RSEG  display_win_DISPLAY
+0000                 853     display_win:
+                     854             USING   0
+0000 120000   F      855             LCALL   clear
+0003 7BFF            856             MOV     R3,#0FFH
+0005 7A00     F      857             MOV     R2,#HIGH (SC_304)
+0007 7900     F      858             MOV     R1,#LOW (SC_304)
+0009 7D01            859             MOV     R5,#01H
+000B E4              860             CLR     A
+000C FF              861             MOV     R7,A
+000D 120000   F      862             LCALL   _print
+0010 7BFF            863             MOV     R3,#0FFH
+0012 7A00     F      864             MOV     R2,#HIGH (SC_321)
+0014 7900     F      865             MOV     R1,#LOW (SC_321)
+0016 7D02            866             MOV     R5,#02H
+0018 E4              867             CLR     A
+0019 FF              868             MOV     R7,A
+001A 120000   F      869             LCALL   _print
+001D 7BFF            870             MOV     R3,#0FFH
+001F 7A00     F      871             MOV     R2,#HIGH (SC_120)
+0021 7900     F      872             MOV     R1,#LOW (SC_120)
+0023 7D03            873             MOV     R5,#03H
+0025 E4              874             CLR     A
+0026 FF              875             MOV     R7,A
+0027 120000   F      876             LCALL   _print
+002A 7BFF            877             MOV     R3,#0FFH
+002C 7A00     F      878             MOV     R2,#HIGH (SC_238)
+002E 7900     F      879             MOV     R1,#LOW (SC_238)
+0030 7D04            880             MOV     R5,#04H
+0032 E4              881             CLR     A
+0033 FF              882             MOV     R7,A
+0034 020000   F      883             LJMP    _print
+----                 884             RSEG  display_lose_DISPLAY
+0000                 885     display_lose:
+                     886             USING   0
+0000 120000   F      887             LCALL   clear
+0003 7BFF            888             MOV     R3,#0FFH
+0005 7A00     F      889             MOV     R2,#HIGH (SC_336)
+0007 7900     F      890             MOV     R1,#LOW (SC_336)
+0009 7D01            891             MOV     R5,#01H
+000B E4              892             CLR     A
+000C FF              893             MOV     R7,A
+000D 120000   F      894             LCALL   _print
+0010 7BFF            895             MOV     R3,#0FFH
+0012 7A00     F      896             MOV     R2,#HIGH (SC_321)
+0014 7900     F      897             MOV     R1,#LOW (SC_321)
+0016 7D02            898             MOV     R5,#02H
+0018 E4              899             CLR     A
+0019 FF              900             MOV     R7,A
+001A 120000   F      901             LCALL   _print
+001D 7BFF            902             MOV     R3,#0FFH
+001F 7A00     F      903             MOV     R2,#HIGH (SC_120)
+0021 7900     F      904             MOV     R1,#LOW (SC_120)
+0023 7D03            905             MOV     R5,#03H
+0025 E4              906             CLR     A
+0026 FF              907             MOV     R7,A
+0027 120000   F      908             LCALL   _print
+002A 7BFF            909             MOV     R3,#0FFH
+002C 7A00     F      910             MOV     R2,#HIGH (SC_287)
+002E 7900     F      911             MOV     R1,#LOW (SC_287)
+0030 7D04            912             MOV     R5,#04H
+0032 E4              913             CLR     A
+0033 FF              914             MOV     R7,A
+0034 020000   F      915             LJMP    _print
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE    17
+
+----                 916             RSEG  display_random_digits_DISPLAY
+0000                 917     display_random_digits:
+                     918             USING   0
+0000 E4              919             CLR     A
+0001 F500     F      920             MOV     digit,A
+0003 F500     F      921             MOV     i,A
+0005                 922     DISPLAY0027:
+0005 7400     F      923             MOV     A,#LOW (random_digits)
+0007 2500     F      924             ADD     A,i
+0009 F582            925             MOV     DPL,A
+000B E4              926             CLR     A
+000C 3400     F      927             ADDC    A,#HIGH (random_digits)
+000E F583            928             MOV     DPH,A
+0010 E4              929             CLR     A
+0011 F0              930             MOVX    @DPTR,A
+0012 0500     F      931             INC     i
+0014 E500     F      932             MOV     A,i
+0016 B440EC          933             CJNE    A,#040H,DISPLAY0027
+0019                 934     DISPLAY0028:
+0019 120000   F      935             LCALL   clear
+001C E4              936             CLR     A
+001D F500     F      937             MOV     i,A
+001F                 938     DISPLAY0030:
+001F E500     F      939             MOV     A,i
+0021 C3              940             CLR     C
+0022 9500     F      941             SUBB    A,bits
+0024 5053            942             JNC     DISPLAY0031
+0026 120000   F      943             LCALL   rand
+0029 7C00            944             MOV     R4,#00H
+002B 7D0A            945             MOV     R5,#0AH
+002D 120000   F      946             LCALL   ?C?SIDIV
+0030 7400     F      947             MOV     A,#LOW (digits)
+0032 2D              948             ADD     A,R5
+0033 F582            949             MOV     DPL,A
+0035 7400     F      950             MOV     A,#HIGH (digits)
+0037 3C              951             ADDC    A,R4
+0038 F583            952             MOV     DPH,A
+003A E4              953             CLR     A
+003B 93              954             MOVC    A,@A+DPTR
+003C FF              955             MOV     R7,A
+003D F500     F      956             MOV     digit,A
+003F 7400     F      957             MOV     A,#LOW (random_digits)
+0041 2500     F      958             ADD     A,i
+0043 F582            959             MOV     DPL,A
+0045 E4              960             CLR     A
+0046 3400     F      961             ADDC    A,#HIGH (random_digits)
+0048 F583            962             MOV     DPH,A
+004A EF              963             MOV     A,R7
+004B F0              964             MOVX    @DPTR,A
+004C E500     F      965             MOV     A,i
+004E B41006          966             CJNE    A,#010H,DISPLAY0033
+0051 AB00     F      967             MOV     R3,digit
+0053 7D02            968             MOV     R5,#02H
+0055 8009            969             SJMP    DISPLAY0047
+0057                 970     DISPLAY0033:
+0057 E500     F      971             MOV     A,i
+0059 B42007          972             CJNE    A,#020H,DISPLAY0035
+005C AB00     F      973             MOV     R3,digit
+005E 7D03            974             MOV     R5,#03H
+0060                 975     DISPLAY0047:
+0060 E4              976             CLR     A
+0061 800E            977             SJMP    DISPLAY0048
+0063                 978     DISPLAY0035:
+0063 E500     F      979             MOV     A,i
+0065 AB00     F      980             MOV     R3,digit
+0067 B43005          981             CJNE    A,#030H,DISPLAY0037
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE    18
+
+006A 7D04            982             MOV     R5,#04H
+006C E4              983             CLR     A
+006D 8002            984             SJMP    DISPLAY0046
+006F                 985     DISPLAY0037:
+006F E4              986             CLR     A
+0070 FD              987             MOV     R5,A
+0071                 988     DISPLAY0046:
+0071                 989     DISPLAY0048:
+0071 FF              990             MOV     R7,A
+0072 120000   F      991             LCALL   _print_char
+0075                 992     DISPLAY0032:
+0075 0500     F      993             INC     i
+0077 80A6            994             SJMP    DISPLAY0030
+0079                 995     DISPLAY0031:
+0079 AE00     F      996             MOV     R6,display_time
+007B AF00     F      997             MOV     R7,display_time+01H
+007D E4              998             CLR     A
+007E FC              999             MOV     R4,A
+007F FD             1000             MOV     R5,A
+0080 020000   F     1001             LJMP    _delay_ms
+----                1002             RSEG  display_wrong_input_bits_DISPLAY
+0000                1003     display_wrong_input_bits:
+                    1004             USING   0
+0000 120000   F     1005             LCALL   clear
+0003 7BFF           1006             MOV     R3,#0FFH
+0005 7A00     F     1007             MOV     R2,#HIGH (SC_353)
+0007 7900     F     1008             MOV     R1,#LOW (SC_353)
+0009 7D01           1009             MOV     R5,#01H
+000B E4             1010             CLR     A
+000C FF             1011             MOV     R7,A
+000D 120000   F     1012             LCALL   _print
+0010 7BFF           1013             MOV     R3,#0FFH
+0012 7A00     F     1014             MOV     R2,#HIGH (SC_366)
+0014 7900     F     1015             MOV     R1,#LOW (SC_366)
+0016 7D02           1016             MOV     R5,#02H
+0018 E4             1017             CLR     A
+0019 FF             1018             MOV     R7,A
+001A 120000   F     1019             LCALL   _print
+001D 7BFF           1020             MOV     R3,#0FFH
+001F 7A00     F     1021             MOV     R2,#HIGH (SC_383)
+0021 7900     F     1022             MOV     R1,#LOW (SC_383)
+0023 7D03           1023             MOV     R5,#03H
+0025 E4             1024             CLR     A
+0026 FF             1025             MOV     R7,A
+0027 120000   F     1026             LCALL   _print
+002A 7BFF           1027             MOV     R3,#0FFH
+002C 7A00     F     1028             MOV     R2,#HIGH (SC_120)
+002E 7900     F     1029             MOV     R1,#LOW (SC_120)
+0030 7D04           1030             MOV     R5,#04H
+0032 E4             1031             CLR     A
+0033 FF             1032             MOV     R7,A
+0034 020000   F     1033             LJMP    _print
+----                1034             RSEG  display_wrong_input_display_time_DISPLAY
+0000                1035     display_wrong_input_display_time:
+                    1036             USING   0
+0000 120000   F     1037             LCALL   clear
+0003 7BFF           1038             MOV     R3,#0FFH
+0005 7A00     F     1039             MOV     R2,#HIGH (SC_394)
+0007 7900     F     1040             MOV     R1,#LOW (SC_394)
+0009 7D01           1041             MOV     R5,#01H
+000B E4             1042             CLR     A
+000C FF             1043             MOV     R7,A
+000D 120000   F     1044             LCALL   _print
+0010 7BFF           1045             MOV     R3,#0FFH
+0012 7A00     F     1046             MOV     R2,#HIGH (SC_411)
+0014 7900     F     1047             MOV     R1,#LOW (SC_411)
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE    19
+
+0016 7D02           1048             MOV     R5,#02H
+0018 E4             1049             CLR     A
+0019 FF             1050             MOV     R7,A
+001A 120000   F     1051             LCALL   _print
+001D 7BFF           1052             MOV     R3,#0FFH
+001F 7A00     F     1053             MOV     R2,#HIGH (SC_383)
+0021 7900     F     1054             MOV     R1,#LOW (SC_383)
+0023 7D03           1055             MOV     R5,#03H
+0025 E4             1056             CLR     A
+0026 FF             1057             MOV     R7,A
+0027 120000   F     1058             LCALL   _print
+002A 7BFF           1059             MOV     R3,#0FFH
+002C 7A00     F     1060             MOV     R2,#HIGH (SC_120)
+002E 7900     F     1061             MOV     R1,#LOW (SC_120)
+0030 7D04           1062             MOV     R5,#04H
+0032 E4             1063             CLR     A
+0033 FF             1064             MOV     R7,A
+0034 020000   F     1065             LJMP    _print
+                    1066             END
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE    20
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                                   T Y P E  V A L U E   ATTRIBUTES
+
+?C?SIDIV . . . . . . . . . . . . . . .    C ADDR   -----       EXT
+AA . . . . . . . . . . . . . . . . . .    B ADDR   00C0H.2 A   
+AC . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.6 A   
+ACC. . . . . . . . . . . . . . . . . .    D ADDR   00E0H   A   
+ACKNOWLEDGEMENTS . . . . . . . . . . .    C ADDR   01ABH   R   SEG=CO_DISPLAY
+AD0BUSY. . . . . . . . . . . . . . . .    B ADDR   00E8H.4 A   
+AD0EN. . . . . . . . . . . . . . . . .    B ADDR   00E8H.7 A   
+AD0INT . . . . . . . . . . . . . . . .    B ADDR   00E8H.5 A   
+AD0LJST. . . . . . . . . . . . . . . .    B ADDR   00E8H.0 A   
+AD0STM0. . . . . . . . . . . . . . . .    B ADDR   00E8H.2 A   
+AD0STM1. . . . . . . . . . . . . . . .    B ADDR   00E8H.3 A   
+AD0TM. . . . . . . . . . . . . . . . .    B ADDR   00E8H.6 A   
+AD0WINT. . . . . . . . . . . . . . . .    B ADDR   00E8H.1 A   
+ADC0CF . . . . . . . . . . . . . . . .    D ADDR   00BCH   A   
+ADC0CN . . . . . . . . . . . . . . . .    D ADDR   00E8H   A   
+ADC0GTH. . . . . . . . . . . . . . . .    D ADDR   00C5H   A   
+ADC0GTL. . . . . . . . . . . . . . . .    D ADDR   00C4H   A   
+ADC0H. . . . . . . . . . . . . . . . .    D ADDR   00BFH   A   
+ADC0L. . . . . . . . . . . . . . . . .    D ADDR   00BEH   A   
+ADC0LTH. . . . . . . . . . . . . . . .    D ADDR   00C7H   A   
+ADC0LTL. . . . . . . . . . . . . . . .    D ADDR   00C6H   A   
+ADC1 . . . . . . . . . . . . . . . . .    D ADDR   009CH   A   
+ADC1CF . . . . . . . . . . . . . . . .    D ADDR   00ABH   A   
+ADC1CN . . . . . . . . . . . . . . . .    D ADDR   00AAH   A   
+AMX0CF . . . . . . . . . . . . . . . .    D ADDR   00BAH   A   
+AMX0SL . . . . . . . . . . . . . . . .    D ADDR   00BBH   A   
+AMX1SL . . . . . . . . . . . . . . . .    D ADDR   00ACH   A   
+B. . . . . . . . . . . . . . . . . . .    D ADDR   00F0H   A   
+BITS . . . . . . . . . . . . . . . . .    D ADDR   -----       EXT
+CCF0 . . . . . . . . . . . . . . . . .    B ADDR   00D8H.0 A   
+CCF1 . . . . . . . . . . . . . . . . .    B ADDR   00D8H.1 A   
+CCF2 . . . . . . . . . . . . . . . . .    B ADDR   00D8H.2 A   
+CCF3 . . . . . . . . . . . . . . . . .    B ADDR   00D8H.3 A   
+CCF4 . . . . . . . . . . . . . . . . .    B ADDR   00D8H.4 A   
+CF . . . . . . . . . . . . . . . . . .    B ADDR   00D8H.7 A   
+CKCON. . . . . . . . . . . . . . . . .    D ADDR   008EH   A   
+CLEAR. . . . . . . . . . . . . . . . .    C ADDR   -----       EXT
+CO_DISPLAY . . . . . . . . . . . . . .    C SEG    02BCH       REL=UNIT
+CPRL2. . . . . . . . . . . . . . . . .    B ADDR   00C8H.0 A   
+CPT0CN . . . . . . . . . . . . . . . .    D ADDR   009EH   A   
+CPT1CN . . . . . . . . . . . . . . . .    D ADDR   009FH   A   
+CR . . . . . . . . . . . . . . . . . .    B ADDR   00D8H.6 A   
+CSYX . . . . . . . . . . . . . . . . .    C ADDR   -----       EXT
+CT2. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.1 A   
+CY . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.7 A   
+DAC0CN . . . . . . . . . . . . . . . .    D ADDR   00D4H   A   
+DAC0H. . . . . . . . . . . . . . . . .    D ADDR   00D3H   A   
+DAC0L. . . . . . . . . . . . . . . . .    D ADDR   00D2H   A   
+DAC1CN . . . . . . . . . . . . . . . .    D ADDR   00D7H   A   
+DAC1H. . . . . . . . . . . . . . . . .    D ADDR   00D6H   A   
+DAC1L. . . . . . . . . . . . . . . . .    D ADDR   00D5H   A   
+DIGIT. . . . . . . . . . . . . . . . .    D ADDR   0001H   R   SEG=DT_DISPLAY_RANDOM_DIGITS_DISPLAY
+DIGITS . . . . . . . . . . . . . . . .    C ADDR   -----       EXT
+DISPLAY. . . . . . . . . . . . . . . .    N NUMB   -----       
+DISPLAY0003. . . . . . . . . . . . . .    C ADDR   0009H   R   SEG=PRINT_ACKNOWLEDGEMENT_DISPLAY
+DISPLAY0006. . . . . . . . . . . . . .    C ADDR   0012H   R   SEG=PRINT_ACKNOWLEDGEMENT_DISPLAY
+DISPLAY0008. . . . . . . . . . . . . .    C ADDR   002FH   R   SEG=PRINT_ACKNOWLEDGEMENT_DISPLAY
+DISPLAY0009. . . . . . . . . . . . . .    C ADDR   007CH   R   SEG=PRINT_ACKNOWLEDGEMENT_DISPLAY
+DISPLAY0010. . . . . . . . . . . . . .    C ADDR   004BH   R   SEG=PRINT_ACKNOWLEDGEMENT_DISPLAY
+DISPLAY0012. . . . . . . . . . . . . .    C ADDR   0067H   R   SEG=PRINT_ACKNOWLEDGEMENT_DISPLAY
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE    21
+
+DISPLAY0014. . . . . . . . . . . . . .    C ADDR   0092H   R   SEG=PRINT_ACKNOWLEDGEMENT_DISPLAY
+DISPLAY0027. . . . . . . . . . . . . .    C ADDR   0005H   R   SEG=DISPLAY_RANDOM_DIGITS_DISPLAY
+DISPLAY0028. . . . . . . . . . . . . .    C ADDR   0019H   R   SEG=DISPLAY_RANDOM_DIGITS_DISPLAY
+DISPLAY0030. . . . . . . . . . . . . .    C ADDR   001FH   R   SEG=DISPLAY_RANDOM_DIGITS_DISPLAY
+DISPLAY0031. . . . . . . . . . . . . .    C ADDR   0079H   R   SEG=DISPLAY_RANDOM_DIGITS_DISPLAY
+DISPLAY0032. . . . . . . . . . . . . .    C ADDR   0075H   R   SEG=DISPLAY_RANDOM_DIGITS_DISPLAY
+DISPLAY0033. . . . . . . . . . . . . .    C ADDR   0057H   R   SEG=DISPLAY_RANDOM_DIGITS_DISPLAY
+DISPLAY0035. . . . . . . . . . . . . .    C ADDR   0063H   R   SEG=DISPLAY_RANDOM_DIGITS_DISPLAY
+DISPLAY0037. . . . . . . . . . . . . .    C ADDR   006FH   R   SEG=DISPLAY_RANDOM_DIGITS_DISPLAY
+DISPLAY0042. . . . . . . . . . . . . .    C ADDR   008FH   R   SEG=PRINT_ACKNOWLEDGEMENT_DISPLAY
+DISPLAY0043. . . . . . . . . . . . . .    C ADDR   0078H   R   SEG=PRINT_ACKNOWLEDGEMENT_DISPLAY
+DISPLAY0044. . . . . . . . . . . . . .    C ADDR   0049H   R   SEG=PRINT_ACKNOWLEDGEMENT_DISPLAY
+DISPLAY0045. . . . . . . . . . . . . .    C ADDR   0078H   R   SEG=PRINT_ACKNOWLEDGEMENT_DISPLAY
+DISPLAY0046. . . . . . . . . . . . . .    C ADDR   0071H   R   SEG=DISPLAY_RANDOM_DIGITS_DISPLAY
+DISPLAY0047. . . . . . . . . . . . . .    C ADDR   0060H   R   SEG=DISPLAY_RANDOM_DIGITS_DISPLAY
+DISPLAY0048. . . . . . . . . . . . . .    C ADDR   0071H   R   SEG=DISPLAY_RANDOM_DIGITS_DISPLAY
+DISPLAY_ACKNOWLEDGEMENT. . . . . . . .    C ADDR   0000H   R   SEG=DISPLAY_ACKNOWLEDGEMENT_DISPLAY
+DISPLAY_ACKNOWLEDGEMENT_DISPLAY. . . .    C SEG    002BH       REL=UNIT
+DISPLAY_BEGIN_SELECT . . . . . . . . .    C ADDR   0000H   R   SEG=DISPLAY_BEGIN_SELECT_DISPLAY
+DISPLAY_BEGIN_SELECT_DISPLAY . . . . .    C SEG    002AH       REL=UNIT
+DISPLAY_BITS_SELECT. . . . . . . . . .    C ADDR   0000H   R   SEG=DISPLAY_BITS_SELECT_DISPLAY
+DISPLAY_BITS_SELECT_DISPLAY. . . . . .    C SEG    0037H       REL=UNIT
+DISPLAY_CORRECT. . . . . . . . . . . .    C ADDR   0000H   R   SEG=DISPLAY_CORRECT_DISPLAY
+DISPLAY_CORRECT_DISPLAY. . . . . . . .    C SEG    0037H       REL=UNIT
+DISPLAY_ERROR. . . . . . . . . . . . .    C ADDR   0000H   R   SEG=DISPLAY_ERROR_DISPLAY
+DISPLAY_ERROR_DISPLAY. . . . . . . . .    C SEG    0037H       REL=UNIT
+DISPLAY_GUSSING_GAME . . . . . . . . .    C ADDR   0000H   R   SEG=DISPLAY_GUSSING_GAME_DISPLAY
+DISPLAY_GUSSING_GAME_DISPLAY . . . . .    C SEG    0014H       REL=UNIT
+DISPLAY_INPUT. . . . . . . . . . . . .    C ADDR   0000H   R   SEG=DISPLAY_INPUT_DISPLAY
+DISPLAY_INPUT_DISPLAY. . . . . . . . .    C SEG    0037H       REL=UNIT
+DISPLAY_LOSE . . . . . . . . . . . . .    C ADDR   0000H   R   SEG=DISPLAY_LOSE_DISPLAY
+DISPLAY_LOSE_DISPLAY . . . . . . . . .    C SEG    0037H       REL=UNIT
+DISPLAY_MAIN_MENU. . . . . . . . . . .    C ADDR   0000H   R   SEG=DISPLAY_MAIN_MENU_DISPLAY
+DISPLAY_MAIN_MENU_DISPLAY. . . . . . .    C SEG    0037H       REL=UNIT
+DISPLAY_MODE_SELECT. . . . . . . . . .    C ADDR   0000H   R   SEG=DISPLAY_MODE_SELECT_DISPLAY
+DISPLAY_MODE_SELECT_DISPLAY. . . . . .    C SEG    0037H       REL=UNIT
+DISPLAY_RANDOM_DIGITS. . . . . . . . .    C ADDR   0000H   R   SEG=DISPLAY_RANDOM_DIGITS_DISPLAY
+DISPLAY_RANDOM_DIGITS_BYTE . . . . . .    D ADDR   0000H   R   SEG=DT_DISPLAY_RANDOM_DIGITS_DISPLAY
+DISPLAY_RANDOM_DIGITS_DISPLAY. . . . .    C SEG    0083H       REL=UNIT
+DISPLAY_STARTUP_LOGO . . . . . . . . .    C ADDR   0000H   R   SEG=DISPLAY_STARTUP_LOGO_DISPLAY
+DISPLAY_STARTUP_LOGO_DISPLAY . . . . .    C SEG    0028H       REL=UNIT
+DISPLAY_TIME . . . . . . . . . . . . .    D ADDR   -----       EXT
+DISPLAY_TIME_SELECT. . . . . . . . . .    C ADDR   0000H   R   SEG=DISPLAY_TIME_SELECT_DISPLAY
+DISPLAY_TIME_SELECT_DISPLAY. . . . . .    C SEG    0037H       REL=UNIT
+DISPLAY_WIN. . . . . . . . . . . . . .    C ADDR   0000H   R   SEG=DISPLAY_WIN_DISPLAY
+DISPLAY_WIN_DISPLAY. . . . . . . . . .    C SEG    0037H       REL=UNIT
+DISPLAY_WRONG_INPUT_BITS . . . . . . .    C ADDR   0000H   R   SEG=DISPLAY_WRONG_INPUT_BITS_DISPLAY
+DISPLAY_WRONG_INPUT_BITS_DISPLAY . . .    C SEG    0037H       REL=UNIT
+DISPLAY_WRONG_INPUT_DISPLAY_TIME . . .    C ADDR   0000H   R   SEG=DISPLAY_WRONG_INPUT_DISPLAY_TIME_DISPLAY
+DISPLAY_WRONG_INPUT_DISPLAY_TIME_DISPLAY  C SEG    0037H       REL=UNIT
+DPH. . . . . . . . . . . . . . . . . .    D ADDR   0083H   A   
+DPL. . . . . . . . . . . . . . . . . .    D ADDR   0082H   A   
+DT_DISPLAY_PICTURE_DISPLAY . . . . . .    D SEG    0003H       REL=UNIT
+DT_DISPLAY_RANDOM_DIGITS_DISPLAY . . .    D SEG    0002H       REL=UNIT
+DT_PRINT_ACKNOWLEDGEMENT_DISPLAY . . .    D SEG    0002H       REL=UNIT
+EA . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.7 A   
+EIE1 . . . . . . . . . . . . . . . . .    D ADDR   00E6H   A   
+EIE2 . . . . . . . . . . . . . . . . .    D ADDR   00E7H   A   
+EIP1 . . . . . . . . . . . . . . . . .    D ADDR   00F6H   A   
+EIP2 . . . . . . . . . . . . . . . . .    D ADDR   00F7H   A   
+EMI0CF . . . . . . . . . . . . . . . .    D ADDR   00A3H   A   
+EMI0CN . . . . . . . . . . . . . . . .    D ADDR   00AFH   A   
+EMI0TC . . . . . . . . . . . . . . . .    D ADDR   00A1H   A   
+ENSMB. . . . . . . . . . . . . . . . .    B ADDR   00C0H.6 A   
+ES . . . . . . . . . . . . . . . . . .    B ADDR   00A8H.4 A   
+ET0. . . . . . . . . . . . . . . . . .    B ADDR   00A8H.1 A   
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE    22
+
+ET1. . . . . . . . . . . . . . . . . .    B ADDR   00A8H.3 A   
+ET2. . . . . . . . . . . . . . . . . .    B ADDR   00A8H.5 A   
+EX0. . . . . . . . . . . . . . . . . .    B ADDR   00A8H.0 A   
+EX1. . . . . . . . . . . . . . . . . .    B ADDR   00A8H.2 A   
+EXEN2. . . . . . . . . . . . . . . . .    B ADDR   00C8H.3 A   
+EXF2 . . . . . . . . . . . . . . . . .    B ADDR   00C8H.6 A   
+F0 . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.5 A   
+F1 . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.1 A   
+FLACL. . . . . . . . . . . . . . . . .    D ADDR   00B7H   A   
+FLSCL. . . . . . . . . . . . . . . . .    D ADDR   00B6H   A   
+HUST . . . . . . . . . . . . . . . . .    C ADDR   -----       EXT
+I. . . . . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=DT_DISPLAY_RANDOM_DIGITS_DISPLAY
+I1 . . . . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=DT_PRINT_ACKNOWLEDGEMENT_DISPLAY
+IE . . . . . . . . . . . . . . . . . .    D ADDR   00A8H   A   
+IE0. . . . . . . . . . . . . . . . . .    B ADDR   0088H.1 A   
+IE1. . . . . . . . . . . . . . . . . .    B ADDR   0088H.3 A   
+IP . . . . . . . . . . . . . . . . . .    D ADDR   00B8H   A   
+IT0. . . . . . . . . . . . . . . . . .    B ADDR   0088H.0 A   
+IT1. . . . . . . . . . . . . . . . . .    B ADDR   0088H.2 A   
+MODF . . . . . . . . . . . . . . . . .    B ADDR   00F8H.5 A   
+MSTEN. . . . . . . . . . . . . . . . .    B ADDR   00F8H.1 A   
+OSCICN . . . . . . . . . . . . . . . .    D ADDR   00B2H   A   
+OSCXCN . . . . . . . . . . . . . . . .    D ADDR   00B1H   A   
+OV . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.2 A   
+P. . . . . . . . . . . . . . . . . . .    B ADDR   00D0H.0 A   
+P0 . . . . . . . . . . . . . . . . . .    D ADDR   0080H   A   
+P0MDOUT. . . . . . . . . . . . . . . .    D ADDR   00A4H   A   
+P1 . . . . . . . . . . . . . . . . . .    D ADDR   0090H   A   
+P1MDIN . . . . . . . . . . . . . . . .    D ADDR   00BDH   A   
+P1MDOUT. . . . . . . . . . . . . . . .    D ADDR   00A5H   A   
+P2 . . . . . . . . . . . . . . . . . .    D ADDR   00A0H   A   
+P2MDOUT. . . . . . . . . . . . . . . .    D ADDR   00A6H   A   
+P3 . . . . . . . . . . . . . . . . . .    D ADDR   00B0H   A   
+P3IF . . . . . . . . . . . . . . . . .    D ADDR   00ADH   A   
+P3MDOUT. . . . . . . . . . . . . . . .    D ADDR   00A7H   A   
+P4 . . . . . . . . . . . . . . . . . .    D ADDR   0084H   A   
+P5 . . . . . . . . . . . . . . . . . .    D ADDR   0085H   A   
+P6 . . . . . . . . . . . . . . . . . .    D ADDR   0086H   A   
+P7 . . . . . . . . . . . . . . . . . .    D ADDR   0096H   A   
+P74OUT . . . . . . . . . . . . . . . .    D ADDR   00B5H   A   
+PCA0CN . . . . . . . . . . . . . . . .    D ADDR   00D8H   A   
+PCA0CPH0 . . . . . . . . . . . . . . .    D ADDR   00FAH   A   
+PCA0CPH1 . . . . . . . . . . . . . . .    D ADDR   00FBH   A   
+PCA0CPH2 . . . . . . . . . . . . . . .    D ADDR   00FCH   A   
+PCA0CPH3 . . . . . . . . . . . . . . .    D ADDR   00FDH   A   
+PCA0CPH4 . . . . . . . . . . . . . . .    D ADDR   00FEH   A   
+PCA0CPL0 . . . . . . . . . . . . . . .    D ADDR   00EAH   A   
+PCA0CPL1 . . . . . . . . . . . . . . .    D ADDR   00EBH   A   
+PCA0CPL2 . . . . . . . . . . . . . . .    D ADDR   00ECH   A   
+PCA0CPL3 . . . . . . . . . . . . . . .    D ADDR   00EDH   A   
+PCA0CPL4 . . . . . . . . . . . . . . .    D ADDR   00EEH   A   
+PCA0CPM0 . . . . . . . . . . . . . . .    D ADDR   00DAH   A   
+PCA0CPM1 . . . . . . . . . . . . . . .    D ADDR   00DBH   A   
+PCA0CPM2 . . . . . . . . . . . . . . .    D ADDR   00DCH   A   
+PCA0CPM3 . . . . . . . . . . . . . . .    D ADDR   00DDH   A   
+PCA0CPM4 . . . . . . . . . . . . . . .    D ADDR   00DEH   A   
+PCA0H. . . . . . . . . . . . . . . . .    D ADDR   00F9H   A   
+PCA0L. . . . . . . . . . . . . . . . .    D ADDR   00E9H   A   
+PCA0MD . . . . . . . . . . . . . . . .    D ADDR   00D9H   A   
+PCON . . . . . . . . . . . . . . . . .    D ADDR   0087H   A   
+PRINT_ACKNOWLEDGEMENT. . . . . . . . .    C ADDR   0000H   R   SEG=PRINT_ACKNOWLEDGEMENT_DISPLAY
+PRINT_ACKNOWLEDGEMENT_BYTE . . . . . .    D ADDR   0000H   R   SEG=DT_PRINT_ACKNOWLEDGEMENT_DISPLAY
+PRINT_ACKNOWLEDGEMENT_DISPLAY. . . . .    C SEG    0093H       REL=UNIT
+PS . . . . . . . . . . . . . . . . . .    B ADDR   00B8H.4 A   
+PSCTL. . . . . . . . . . . . . . . . .    D ADDR   008FH   A   
+PSW. . . . . . . . . . . . . . . . . .    D ADDR   00D0H   A   
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE    23
+
+PT0. . . . . . . . . . . . . . . . . .    B ADDR   00B8H.1 A   
+PT1. . . . . . . . . . . . . . . . . .    B ADDR   00B8H.3 A   
+PT2. . . . . . . . . . . . . . . . . .    B ADDR   00B8H.5 A   
+PTR. . . . . . . . . . . . . . . . . .    D ADDR   0000H   R   SEG=DT_DISPLAY_PICTURE_DISPLAY
+PX0. . . . . . . . . . . . . . . . . .    B ADDR   00B8H.0 A   
+PX1. . . . . . . . . . . . . . . . . .    B ADDR   00B8H.2 A   
+RAND . . . . . . . . . . . . . . . . .    C ADDR   -----       EXT
+RANDOM_DIGITS. . . . . . . . . . . . .    X ADDR   -----       EXT
+RB8. . . . . . . . . . . . . . . . . .    B ADDR   0098H.2 A   
+RCAP2H . . . . . . . . . . . . . . . .    D ADDR   00CBH   A   
+RCAP2L . . . . . . . . . . . . . . . .    D ADDR   00CAH   A   
+RCAP4H . . . . . . . . . . . . . . . .    D ADDR   00E5H   A   
+RCAP4L . . . . . . . . . . . . . . . .    D ADDR   00E4H   A   
+RCLK . . . . . . . . . . . . . . . . .    B ADDR   00C8H.5 A   
+REF0CN . . . . . . . . . . . . . . . .    D ADDR   00D1H   A   
+REN. . . . . . . . . . . . . . . . . .    B ADDR   0098H.4 A   
+RI . . . . . . . . . . . . . . . . . .    B ADDR   0098H.0 A   
+RS0. . . . . . . . . . . . . . . . . .    B ADDR   00D0H.3 A   
+RS1. . . . . . . . . . . . . . . . . .    B ADDR   00D0H.4 A   
+RSTSRC . . . . . . . . . . . . . . . .    D ADDR   00EFH   A   
+RXOVRN . . . . . . . . . . . . . . . .    B ADDR   00F8H.4 A   
+SADDR0 . . . . . . . . . . . . . . . .    D ADDR   00A9H   A   
+SADDR1 . . . . . . . . . . . . . . . .    D ADDR   00F3H   A   
+SADEN0 . . . . . . . . . . . . . . . .    D ADDR   00B9H   A   
+SADEN1 . . . . . . . . . . . . . . . .    D ADDR   00AEH   A   
+SBUF0. . . . . . . . . . . . . . . . .    D ADDR   0099H   A   
+SBUF1. . . . . . . . . . . . . . . . .    D ADDR   00F2H   A   
+SCON0. . . . . . . . . . . . . . . . .    D ADDR   0098H   A   
+SCON1. . . . . . . . . . . . . . . . .    D ADDR   00F1H   A   
+SC_0 . . . . . . . . . . . . . . . . .    C ADDR   0000H   R   SEG=CO_DISPLAY
+SC_109 . . . . . . . . . . . . . . . .    C ADDR   006DH   R   SEG=CO_DISPLAY
+SC_120 . . . . . . . . . . . . . . . .    C ADDR   0078H   R   SEG=CO_DISPLAY
+SC_131 . . . . . . . . . . . . . . . .    C ADDR   0083H   R   SEG=CO_DISPLAY
+SC_142 . . . . . . . . . . . . . . . .    C ADDR   008EH   R   SEG=CO_DISPLAY
+SC_159 . . . . . . . . . . . . . . . .    C ADDR   009FH   R   SEG=CO_DISPLAY
+SC_174 . . . . . . . . . . . . . . . .    C ADDR   00AEH   R   SEG=CO_DISPLAY
+SC_189 . . . . . . . . . . . . . . . .    C ADDR   00BDH   R   SEG=CO_DISPLAY
+SC_206 . . . . . . . . . . . . . . . .    C ADDR   00CEH   R   SEG=CO_DISPLAY
+SC_223 . . . . . . . . . . . . . . . .    C ADDR   00DFH   R   SEG=CO_DISPLAY
+SC_238 . . . . . . . . . . . . . . . .    C ADDR   00EEH   R   SEG=CO_DISPLAY
+SC_24. . . . . . . . . . . . . . . . .    C ADDR   0018H   R   SEG=CO_DISPLAY
+SC_255 . . . . . . . . . . . . . . . .    C ADDR   00FFH   R   SEG=CO_DISPLAY
+SC_272 . . . . . . . . . . . . . . . .    C ADDR   0110H   R   SEG=CO_DISPLAY
+SC_287 . . . . . . . . . . . . . . . .    C ADDR   011FH   R   SEG=CO_DISPLAY
+SC_304 . . . . . . . . . . . . . . . .    C ADDR   0130H   R   SEG=CO_DISPLAY
+SC_321 . . . . . . . . . . . . . . . .    C ADDR   0141H   R   SEG=CO_DISPLAY
+SC_336 . . . . . . . . . . . . . . . .    C ADDR   0150H   R   SEG=CO_DISPLAY
+SC_35. . . . . . . . . . . . . . . . .    C ADDR   0023H   R   SEG=CO_DISPLAY
+SC_353 . . . . . . . . . . . . . . . .    C ADDR   0161H   R   SEG=CO_DISPLAY
+SC_366 . . . . . . . . . . . . . . . .    C ADDR   016EH   R   SEG=CO_DISPLAY
+SC_383 . . . . . . . . . . . . . . . .    C ADDR   017FH   R   SEG=CO_DISPLAY
+SC_394 . . . . . . . . . . . . . . . .    C ADDR   018AH   R   SEG=CO_DISPLAY
+SC_411 . . . . . . . . . . . . . . . .    C ADDR   019BH   R   SEG=CO_DISPLAY
+SC_42. . . . . . . . . . . . . . . . .    C ADDR   002AH   R   SEG=CO_DISPLAY
+SC_59. . . . . . . . . . . . . . . . .    C ADDR   003BH   R   SEG=CO_DISPLAY
+SC_70. . . . . . . . . . . . . . . . .    C ADDR   0046H   R   SEG=CO_DISPLAY
+SC_81. . . . . . . . . . . . . . . . .    C ADDR   0051H   R   SEG=CO_DISPLAY
+SC_9 . . . . . . . . . . . . . . . . .    C ADDR   0009H   R   SEG=CO_DISPLAY
+SC_92. . . . . . . . . . . . . . . . .    C ADDR   005CH   R   SEG=CO_DISPLAY
+SFT. . . . . . . . . . . . . . . . . .    C ADDR   -----       EXT
+SI . . . . . . . . . . . . . . . . . .    B ADDR   00C0H.3 A   
+SLVSEL . . . . . . . . . . . . . . . .    B ADDR   00F8H.2 A   
+SM0. . . . . . . . . . . . . . . . . .    B ADDR   0098H.7 A   
+SM1. . . . . . . . . . . . . . . . . .    B ADDR   0098H.6 A   
+SM2. . . . . . . . . . . . . . . . . .    B ADDR   0098H.5 A   
+SMB0ADR. . . . . . . . . . . . . . . .    D ADDR   00C3H   A   
+A51 MACRO ASSEMBLER  DISPLAY                                                              12/25/2023 12:10:40 PAGE    24
+
+SMB0CN . . . . . . . . . . . . . . . .    D ADDR   00C0H   A   
+SMB0CR . . . . . . . . . . . . . . . .    D ADDR   00CFH   A   
+SMB0DAT. . . . . . . . . . . . . . . .    D ADDR   00C2H   A   
+SMB0STA. . . . . . . . . . . . . . . .    D ADDR   00C1H   A   
+SMBFTE . . . . . . . . . . . . . . . .    B ADDR   00C0H.1 A   
+SMBTOE . . . . . . . . . . . . . . . .    B ADDR   00C0H.0 A   
+SP . . . . . . . . . . . . . . . . . .    D ADDR   0081H   A   
+SPI0CFG. . . . . . . . . . . . . . . .    D ADDR   009AH   A   
+SPI0CKR. . . . . . . . . . . . . . . .    D ADDR   009DH   A   
+SPI0CN . . . . . . . . . . . . . . . .    D ADDR   00F8H   A   
+SPI0DAT. . . . . . . . . . . . . . . .    D ADDR   009BH   A   
+SPIEN. . . . . . . . . . . . . . . . .    B ADDR   00F8H.0 A   
+SPIF . . . . . . . . . . . . . . . . .    B ADDR   00F8H.7 A   
+STA. . . . . . . . . . . . . . . . . .    B ADDR   00C0H.5 A   
+STO. . . . . . . . . . . . . . . . . .    B ADDR   00C0H.4 A   
+T2CON. . . . . . . . . . . . . . . . .    D ADDR   00C8H   A   
+T4CON. . . . . . . . . . . . . . . . .    D ADDR   00C9H   A   
+TB8. . . . . . . . . . . . . . . . . .    B ADDR   0098H.3 A   
+TCLK . . . . . . . . . . . . . . . . .    B ADDR   00C8H.4 A   
+TCON . . . . . . . . . . . . . . . . .    D ADDR   0088H   A   
+TF0. . . . . . . . . . . . . . . . . .    B ADDR   0088H.5 A   
+TF1. . . . . . . . . . . . . . . . . .    B ADDR   0088H.7 A   
+TF2. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.7 A   
+TH0. . . . . . . . . . . . . . . . . .    D ADDR   008CH   A   
+TH1. . . . . . . . . . . . . . . . . .    D ADDR   008DH   A   
+TH2. . . . . . . . . . . . . . . . . .    D ADDR   00CDH   A   
+TH4. . . . . . . . . . . . . . . . . .    D ADDR   00F5H   A   
+TI . . . . . . . . . . . . . . . . . .    B ADDR   0098H.1 A   
+TL0. . . . . . . . . . . . . . . . . .    D ADDR   008AH   A   
+TL1. . . . . . . . . . . . . . . . . .    D ADDR   008BH   A   
+TL2. . . . . . . . . . . . . . . . . .    D ADDR   00CCH   A   
+TL4. . . . . . . . . . . . . . . . . .    D ADDR   00F4H   A   
+TMOD . . . . . . . . . . . . . . . . .    D ADDR   0089H   A   
+TMR3CN . . . . . . . . . . . . . . . .    D ADDR   0091H   A   
+TMR3H. . . . . . . . . . . . . . . . .    D ADDR   0095H   A   
+TMR3L. . . . . . . . . . . . . . . . .    D ADDR   0094H   A   
+TMR3RLH. . . . . . . . . . . . . . . .    D ADDR   0093H   A   
+TMR3RLL. . . . . . . . . . . . . . . .    D ADDR   0092H   A   
+TR0. . . . . . . . . . . . . . . . . .    B ADDR   0088H.4 A   
+TR1. . . . . . . . . . . . . . . . . .    B ADDR   0088H.6 A   
+TR2. . . . . . . . . . . . . . . . . .    B ADDR   00C8H.2 A   
+TXBSY. . . . . . . . . . . . . . . . .    B ADDR   00F8H.3 A   
+WCOL . . . . . . . . . . . . . . . . .    B ADDR   00F8H.6 A   
+WDTCN. . . . . . . . . . . . . . . . .    D ADDR   00FFH   A   
+XBR0 . . . . . . . . . . . . . . . . .    D ADDR   00E1H   A   
+XBR1 . . . . . . . . . . . . . . . . .    D ADDR   00E2H   A   
+XBR2 . . . . . . . . . . . . . . . . .    D ADDR   00E3H   A   
+XXDJ . . . . . . . . . . . . . . . . .    C ADDR   -----       EXT
+ZHU. . . . . . . . . . . . . . . . . .    C ADDR   -----       EXT
+_DELAY_MS. . . . . . . . . . . . . . .    C ADDR   -----       EXT
+_DISPLAY_PICTURE . . . . . . . . . . .    C ADDR   0000H   R   SEG=_DISPLAY_PICTURE_DISPLAY
+_DISPLAY_PICTURE_BYTE. . . . . . . . .    D ADDR   0000H   R   SEG=DT_DISPLAY_PICTURE_DISPLAY
+_DISPLAY_PICTURE_DISPLAY . . . . . . .    C SEG    0012H       REL=UNIT
+_DRAW_PM . . . . . . . . . . . . . . .    C ADDR   -----       EXT
+_PRINT . . . . . . . . . . . . . . . .    C ADDR   -----       EXT
+_PRINT_CHAR. . . . . . . . . . . . . .    C ADDR   -----       EXT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

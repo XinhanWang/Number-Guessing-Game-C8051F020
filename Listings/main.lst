@@ -1,0 +1,77 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              12/22/2023 09:21:56 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+NO OBJECT MODULE REQUESTED
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE C语言版本\main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Lis
+                    -tings\main.lst) TABS(2) SRC(.\Objects\main.SRC)
+
+line level    source
+
+   1          // 包含C8051F020芯片的头文件
+   2          #include "C8051F020.h"
+   3          // 包含LCD12864液晶显示屏的头文件
+   4          #include "LCD12864.h"
+   5          // 包含键盘输入的头文件
+   6          #include "keyboard.h"
+   7          // 包含显示的头文件
+   8          #include "display.h"
+   9          // 包含猜数字游戏的头文件
+  10          #include "guessing_game.h"
+  11          // 声明初始化设备的函数
+  12          void Init_Device(void);
+  13          
+  14          // 定义一个无符号长整型变量，用于存储时间（毫秒）
+  15          unsigned long data time_ms=0;
+  16          // 主函数
+  17          void main(void)
+  18          {
+  19   1        // 关闭看门狗定时器
+  20   1        WDTCN     = 0xDE;
+  21   1        WDTCN     = 0xAD;
+  22   1        // 调用初始化设备的函数
+  23   1        Init_Device();
+  24   1      /*WDTCN=0xA5;
+  25   1      WDTCN=0xA5;
+  26   1        */
+  27   1        // 设置随机数种子为10
+  28   1        srand(10);
+  29   1        // 无限循环
+  30   1        while(1)
+  31   1         {
+  32   2           /*
+  33   2            #WDTCN=0xA5;
+  34   2           */
+  35   2          // 调用猜数字游戏的函数
+  36   2          games();
+  37   2         }
+  38   1      }
+  39          
+  40          // 定时器0的中断服务函数
+  41          void T0I(void) interrupt 1
+  42          { 
+  43   1        // 设置定时器0的低8位为0x30
+  44   1        TL0       = 0x30;
+  45   1        // 设置定时器0的高8位为0xF8
+  46   1        TH0       = 0xF8;
+  47   1        // 时间变量加1
+  48   1        time_ms++;
+  49   1      }
+  50          
+  51          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V9.60.7.0   MAIN                                                              12/22/2023 09:21:56 PAGE 2   
+
+   CODE SIZE        =     57    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

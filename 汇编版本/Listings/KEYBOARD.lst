@@ -1,0 +1,1605 @@
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\KEYBOARD.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE KEYBOARD.asm SET(SMALL) DEBUG PRINT(.\Listings\KEYBOARD.lst) OBJECT(.\O
+                      bjects\KEYBOARD.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+                       2     
+                       3     
+                       4     
+                       5     
+                       6     
+                       7     
+                       8     
+                       9     
+                      10     
+                      11     $nomod51  ; ½ûÓÃ51µÄSFR
+                      12     NAME    KEYBOARD ; Ö¸¶¨³ÌÐòµÄÃû³ÆÎªKEYBOARD
+                      13     ;$include (KEYBOARD.inc) ; °üº¬KEYBOARD.incÎÄ¼þ£¬¶¨ÒåÁËÒ»Ð©³£Á¿ºÍºê
+                +1    14     
+                +1    15     
+                +1    16     
+                +1    17     
+                +1    18     
+                +1    19     
+                +1    20     
+                +1    21     
+                +1    22     
+                +1    23     
+                +1    24     ;$include (C8051F020.inc) ; °üº¬C8051F020µÄÍ·ÎÄ¼þ£¬¶¨ÒåÁËÒ»Ð©¼Ä´æÆ÷ºÍÎ»µÄ·ûºÅÃû
+                +2    25     ;-----------------------------------------------------------------------------
+                +2    26     ;       
+                +2    27     ;       
+                +2    28     ;
+                +2    29     ;
+                +2    30     ;       FILE NAME       : C8051F020.INC 
+                +2    31     ;       TARGET MCUs     : C8051F020, 'F021, 'F022, 'F023 
+                +2    32     ;       DESCRIPTION     : Register/bit definitions for the C8051F02x product family.  
+                +2    33     ;
+                +2    34     ;       REVISION 1.0    
+                +2    35     ;
+                +2    36     ;-----------------------------------------------------------------------------
+                +2    37     ;REGISTER DEFINITIONS
+                +2    38     ;
+  0080          +2    39     P0       DATA  080H   ; PORT 0
+  0081          +2    40     SP       DATA  081H   ; STACK POINTER
+  0082          +2    41     DPL      DATA  082H   ; DATA POINTER - LOW BYTE
+  0083          +2    42     DPH      DATA  083H   ; DATA POINTER - HIGH BYTE
+  0084          +2    43     P4       DATA  084H   ; PORT 4
+  0085          +2    44     P5       DATA  085H   ; PORT 5
+  0086          +2    45     P6       DATA  086H   ; PORT 6
+  0087          +2    46     PCON     DATA  087H   ; POWER CONTROL
+  0088          +2    47     TCON     DATA  088H   ; TIMER CONTROL
+  0089          +2    48     TMOD     DATA  089H   ; TIMER MODE
+  008A          +2    49     TL0      DATA  08AH   ; TIMER 0 - LOW BYTE
+  008B          +2    50     TL1      DATA  08BH   ; TIMER 1 - LOW BYTE
+  008C          +2    51     TH0      DATA  08CH   ; TIMER 0 - HIGH BYTE
+  008D          +2    52     TH1      DATA  08DH   ; TIMER 1 - HIGH BYTE
+  008E          +2    53     CKCON    DATA  08EH   ; CLOCK CONTROL
+  008F          +2    54     PSCTL    DATA  08FH   ; PROGRAM STORE R/W CONTROL
+  0090          +2    55     P1       DATA  090H   ; PORT 1
+  0091          +2    56     TMR3CN   DATA  091H   ; TIMER 3 CONTROL
+  0092          +2    57     TMR3RLL  DATA  092H   ; TIMER 3 RELOAD REGISTER - LOW BYTE
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE     2
+
+  0093          +2    58     TMR3RLH  DATA  093H   ; TIMER 3 RELOAD REGISTER - HIGH BYTE
+  0094          +2    59     TMR3L    DATA  094H   ; TIMER 3 - LOW BYTE
+  0095          +2    60     TMR3H    DATA  095H   ; TIMER 3 - HIGH BYTE
+  0096          +2    61     P7       DATA  096H   ; PORT 7
+  0098          +2    62     SCON0    DATA  098H   ; SERIAL PORT 0 CONTROL
+  0099          +2    63     SBUF0    DATA  099H   ; SERIAL PORT 0 BUFFER
+  009A          +2    64     SPI0CFG  DATA  09AH   ; SERIAL PERIPHERAL INTERFACE 0 CONFIGURATION
+  009B          +2    65     SPI0DAT  DATA  09BH   ; SERIAL PERIPHERAL INTERFACE 0 DATA
+  009C          +2    66     ADC1     DATA  09CH   ; ADC 1 DATA
+  009D          +2    67     SPI0CKR  DATA  09DH   ; SERIAL PERIPHERAL INTERFACE 0 CLOCK RATE CONTROL
+  009E          +2    68     CPT0CN   DATA  09EH   ; COMPARATOR 0 CONTROL
+  009F          +2    69     CPT1CN   DATA  09FH   ; COMPARATOR 1 CONTROL 
+  00A0          +2    70     P2       DATA  0A0H   ; PORT 2
+  00A1          +2    71     EMI0TC   DATA  0A1H   ; EMIF TIMING CONTROL
+  00A3          +2    72     EMI0CF   DATA  0A3H   ; EXTERNAL MEMORY INTERFACE (EMIF) CONFIGURATION
+  00A4          +2    73     P0MDOUT  DATA  0A4H   ; PORT 0 OUTPUT MODE CONFIGURATION
+  00A5          +2    74     P1MDOUT  DATA  0A5H   ; PORT 1 OUTPUT MODE CONFIGURATION
+  00A6          +2    75     P2MDOUT  DATA  0A6H   ; PORT 2 OUTPUT MODE CONFIGURATION
+  00A7          +2    76     P3MDOUT  DATA  0A7H   ; PORT 3 OUTPUT MODE CONFIGURATION
+  00A8          +2    77     IE       DATA  0A8H   ; INTERRUPT ENABLE
+  00A9          +2    78     SADDR0   DATA  0A9H   ; SERIAL PORT 0 SLAVE ADDRESS
+  00AA          +2    79     ADC1CN  DATA  0AAH   ; ADC 1 CONTROL
+  00AB          +2    80     ADC1CF   DATA  0ABH   ; ADC 1 ANALOG MUX CONFIGURATION
+  00AC          +2    81     AMX1SL   DATA  0ACH   ; ADC 1 ANALOG MUX CHANNEL SELECT
+  00AD          +2    82     P3IF     DATA  0ADH   ; PORT 3 EXTERNAL INTERRUPT FLAGS
+  00AE          +2    83     SADEN1   DATA  0AEH   ; SERIAL PORT 1 SLAVE ADDRESS MASK
+  00AF          +2    84     EMI0CN   DATA  0AFH   ; EXTERNAL MEMORY INTERFACE CONTROL
+  00B0          +2    85     P3       DATA  0B0H   ; PORT 3
+  00B1          +2    86     OSCXCN   DATA  0B1H   ; EXTERNAL OSCILLATOR CONTROL
+  00B2          +2    87     OSCICN   DATA  0B2H   ; INTERNAL OSCILLATOR CONTROL
+  00B5          +2    88     P74OUT   DATA  0B5H   ; PORTS 4 - 7 OUTPUT MODE
+  00B6          +2    89     FLSCL    DATA  0B6H   ; FLASH MEMORY TIMING PRESCALER
+  00B7          +2    90     FLACL    DATA  0B7H   ; FLASH ACESS LIMIT 
+  00B8          +2    91     IP       DATA  0B8H   ; INTERRUPT PRIORITY
+  00B9          +2    92     SADEN0   DATA  0B9H   ; SERIAL PORT 0 SLAVE ADDRESS MASK
+  00BA          +2    93     AMX0CF   DATA  0BAH   ; ADC 0 MUX CONFIGURATION
+  00BB          +2    94     AMX0SL   DATA  0BBH   ; ADC 0 MUX CHANNEL SELECTION
+  00BC          +2    95     ADC0CF   DATA  0BCH   ; ADC 0 CONFIGURATION
+  00BD          +2    96     P1MDIN   DATA  0BDH   ; PORT 1 INPUT MODE
+  00BE          +2    97     ADC0L    DATA  0BEH   ; ADC 0 DATA - LOW BYTE
+  00BF          +2    98     ADC0H    DATA  0BFH   ; ADC 0 DATA - HIGH BYTE 
+  00C0          +2    99     SMB0CN   DATA  0C0H   ; SMBUS 0 CONTROL
+  00C1          +2   100     SMB0STA  DATA  0C1H   ; SMBUS 0 STATUS
+  00C2          +2   101     SMB0DAT  DATA  0C2H   ; SMBUS 0 DATA 
+  00C3          +2   102     SMB0ADR  DATA  0C3H   ; SMBUS 0 SLAVE ADDRESS
+  00C4          +2   103     ADC0GTL  DATA  0C4H   ; ADC 0 GREATER-THAN REGISTER - LOW BYTE
+  00C5          +2   104     ADC0GTH  DATA  0C5H   ; ADC 0 GREATER-THAN REGISTER - HIGH BYTE
+  00C6          +2   105     ADC0LTL  DATA  0C6H   ; ADC 0 LESS-THAN REGISTER - LOW BYTE
+  00C7          +2   106     ADC0LTH  DATA  0C7H   ; ADC 0 LESS-THAN REGISTER - HIGH BYTE
+  00C8          +2   107     T2CON    DATA  0C8H   ; TIMER 2 CONTROL
+  00C9          +2   108     T4CON    DATA  0C9H   ; TIMER 4 CONTROL
+  00CA          +2   109     RCAP2L   DATA  0CAH   ; TIMER 2 CAPTURE REGISTER - LOW BYTE
+  00CB          +2   110     RCAP2H   DATA  0CBH   ; TIMER 2 CAPTURE REGISTER - HIGH BYTE
+  00CC          +2   111     TL2      DATA  0CCH   ; TIMER 2 - LOW BYTE
+  00CD          +2   112     TH2      DATA  0CDH   ; TIMER 2 - HIGH BYTE
+  00CF          +2   113     SMB0CR   DATA  0CFH   ; SMBUS 0 CLOCK RATE
+  00D0          +2   114     PSW      DATA  0D0H   ; PROGRAM STATUS WORD
+  00D1          +2   115     REF0CN   DATA  0D1H   ; VOLTAGE REFERENCE 0 CONTROL
+  00D2          +2   116     DAC0L    DATA  0D2H   ; DAC 0 REGISTER - LOW BYTE
+  00D3          +2   117     DAC0H    DATA  0D3H   ; DAC 0 REGISTER - HIGH BYTE
+  00D4          +2   118     DAC0CN   DATA  0D4H   ; DAC 0 CONTROL
+  00D5          +2   119     DAC1L    DATA  0D5H   ; DAC 1 REGISTER - LOW BYTE
+  00D6          +2   120     DAC1H    DATA  0D6H   ; DAC 1 REGISTER - HIGH BYTE
+  00D7          +2   121     DAC1CN   DATA  0D7H   ; DAC 1 CONTROL
+  00D8          +2   122     PCA0CN   DATA  0D8H   ; PCA 0 COUNTER CONTROL
+  00D9          +2   123     PCA0MD   DATA  0D9H   ; PCA 0 COUNTER MODE
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE     3
+
+  00DA          +2   124     PCA0CPM0 DATA  0DAH   ; CONTROL REGISTER FOR PCA 0 MODULE 0
+  00DB          +2   125     PCA0CPM1 DATA  0DBH   ; CONTROL REGISTER FOR PCA 0 MODULE 1
+  00DC          +2   126     PCA0CPM2 DATA  0DCH   ; CONTROL REGISTER FOR PCA 0 MODULE 2
+  00DD          +2   127     PCA0CPM3 DATA  0DDH   ; CONTROL REGISTER FOR PCA 0 MODULE 3
+  00DE          +2   128     PCA0CPM4 DATA  0DEH   ; CONTROL REGISTER FOR PCA 0 MODULE 4
+  00E0          +2   129     ACC      DATA  0E0H   ; ACCUMULATOR
+  00E1          +2   130     XBR0     DATA  0E1H   ; DIGITAL CROSSBAR CONFIGURATION REGISTER 0
+  00E2          +2   131     XBR1     DATA  0E2H   ; DIGITAL CROSSBAR CONFIGURATION REGISTER 1
+  00E3          +2   132     XBR2     DATA  0E3H   ; DIGITAL CROSSBAR CONFIGURATION REGISTER 2
+  00E4          +2   133     RCAP4L   DATA  0E4H   ; TIMER 4 CAPTURE REGISTER - LOW BYTE
+  00E5          +2   134     RCAP4H   DATA  0E5H   ; TIMER 4 CAPTURE REGISTER - HIGH BYTE
+  00E6          +2   135     EIE1     DATA  0E6H   ; EXTERNAL INTERRUPT ENABLE 1
+  00E7          +2   136     EIE2     DATA  0E7H   ; EXTERNAL INTERRUPT ENABLE 2
+  00E8          +2   137     ADC0CN   DATA  0E8H   ; ADC 0 CONTROL
+  00E9          +2   138     PCA0L    DATA  0E9H   ; PCA 0 TIMER - LOW BYTE
+  00EA          +2   139     PCA0CPL0 DATA  0EAH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 0 - LOW BYTE
+  00EB          +2   140     PCA0CPL1 DATA  0EBH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 1 - LOW BYTE
+  00EC          +2   141     PCA0CPL2 DATA  0ECH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 2 - LOW BYTE
+  00ED          +2   142     PCA0CPL3 DATA  0EDH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 3 - LOW BYTE
+  00EE          +2   143     PCA0CPL4 DATA  0EEH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 4 - LOW BYTE
+  00EF          +2   144     RSTSRC   DATA  0EFH   ; RESET SOURCE 
+  00F0          +2   145     B        DATA  0F0H   ; B REGISTER
+  00F1          +2   146     SCON1    DATA  0F1H   ; SERIAL PORT 1 CONTROL
+  00F2          +2   147     SBUF1    DATA  0F2H   ; SERAIL PORT 1 DATA
+  00F3          +2   148     SADDR1   DATA  0F3H   ; SERAIL PORT 1 
+  00F4          +2   149     TL4      DATA  0F4H   ; TIMER 4 DATA - LOW BYTE
+  00F5          +2   150     TH4      DATA  0F5H   ; TIMER 4 DATA - HIGH BYTE
+  00F6          +2   151     EIP1     DATA  0F6H   ; EXTERNAL INTERRUPT PRIORITY REGISTER 1
+  00F7          +2   152     EIP2     DATA  0F7H   ; EXTERNAL INTERRUPT PRIORITY REGISTER 2
+  00F8          +2   153     SPI0CN   DATA  0F8H   ; SERIAL PERIPHERAL INTERFACE 0 CONTROL 
+  00F9          +2   154     PCA0H    DATA  0F9H   ; PCA 0 TIMER - HIGH BYTE
+  00FA          +2   155     PCA0CPH0 DATA  0FAH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 0 - HIGH BYTE
+  00FB          +2   156     PCA0CPH1 DATA  0FBH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 1 - HIGH BYTE
+  00FC          +2   157     PCA0CPH2 DATA  0FCH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 2 - HIGH BYTE
+  00FD          +2   158     PCA0CPH3 DATA  0FDH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 3 - HIGH BYTE
+  00FE          +2   159     PCA0CPH4 DATA  0FEH   ; CAPTURE/COMPARE REGISTER FOR PCA 0 MODULE 4 - HIGH BYTE
+  00FF          +2   160     WDTCN    DATA  0FFH   ; WATCHDOG TIMER CONTROL 
+                +2   161     ;
+                +2   162     ;------------------------------------------------------------------------------
+                +2   163     ;BIT DEFINITIONS
+                +2   164     ;
+                +2   165     ; TCON 88H
+  0088          +2   166     IT0      BIT   TCON.0 ; EXT. INTERRUPT 0 TYPE
+  0089          +2   167     IE0      BIT   TCON.1 ; EXT. INTERRUPT 0 EDGE FLAG
+  008A          +2   168     IT1      BIT   TCON.2 ; EXT. INTERRUPT 1 TYPE
+  008B          +2   169     IE1      BIT   TCON.3 ; EXT. INTERRUPT 1 EDGE FLAG
+  008C          +2   170     TR0      BIT   TCON.4 ; TIMER 0 ON/OFF CONTROL
+  008D          +2   171     TF0      BIT   TCON.5 ; TIMER 0 OVERFLOW FLAG
+  008E          +2   172     TR1      BIT   TCON.6 ; TIMER 1 ON/OFF CONTROL
+  008F          +2   173     TF1      BIT   TCON.7 ; TIMER 1 OVERFLOW FLAG
+                +2   174     ;
+                +2   175     ; SCON0 98H
+  0098          +2   176     RI       BIT   SCON0.0 ; RECEIVE INTERRUPT FLAG
+  0099          +2   177     TI       BIT   SCON0.1 ; TRANSMIT INTERRUPT FLAG
+  009A          +2   178     RB8      BIT   SCON0.2 ; RECEIVE BIT 8
+  009B          +2   179     TB8      BIT   SCON0.3 ; TRANSMIT BIT 8
+  009C          +2   180     REN      BIT   SCON0.4 ; RECEIVE ENABLE
+  009D          +2   181     SM2      BIT   SCON0.5 ; MULTIPROCESSOR COMMUNICATION ENABLE
+  009E          +2   182     SM1      BIT   SCON0.6 ; SERIAL MODE CONTROL BIT 1
+  009F          +2   183     SM0      BIT   SCON0.7 ; SERIAL MODE CONTROL BIT 0
+                +2   184     ; 
+                +2   185     ; IE A8H
+  00A8          +2   186     EX0      BIT   IE.0   ; EXTERNAL INTERRUPT 0 ENABLE
+  00A9          +2   187     ET0      BIT   IE.1   ; TIMER 0 INTERRUPT ENABLE
+  00AA          +2   188     EX1      BIT   IE.2   ; EXTERNAL INTERRUPT 1 ENABLE
+  00AB          +2   189     ET1      BIT   IE.3   ; TIMER 1 INTERRUPT ENABLE
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE     4
+
+  00AC          +2   190     ES       BIT   IE.4   ; SERIAL PORT INTERRUPT ENABLE
+  00AD          +2   191     ET2      BIT   IE.5   ; TIMER 2 INTERRUPT ENABLE
+  00AF          +2   192     EA       BIT   IE.7   ; GLOBAL INTERRUPT ENABLE
+                +2   193     ;
+                +2   194     ; IP B8H
+  00B8          +2   195     PX0      BIT   IP.0   ; EXTERNAL INTERRUPT 0 PRIORITY
+  00B9          +2   196     PT0      BIT   IP.1   ; TIMER 0 PRIORITY
+  00BA          +2   197     PX1      BIT   IP.2   ; EXTERNAL INTERRUPT 1 PRIORITY
+  00BB          +2   198     PT1      BIT   IP.3   ; TIMER 1 PRIORITY
+  00BC          +2   199     PS       BIT   IP.4   ; SERIAL PORT PRIORITY
+  00BD          +2   200     PT2      BIT   IP.5   ; TIMER 2 PRIORITY
+                +2   201     ;
+                +2   202     ; SMB0CN C0H
+  00C0          +2   203     SMBTOE   BIT   SMB0CN.0 ; SMBUS 0 TIMEOUT ENABLE
+  00C1          +2   204     SMBFTE   BIT   SMB0CN.1 ; SMBUS 0 FREE TIMER ENABLE
+  00C2          +2   205     AA       BIT   SMB0CN.2 ; SMBUS 0 ASSERT/ACKNOWLEDGE FLAG
+  00C3          +2   206     SI       BIT   SMB0CN.3 ; SMBUS 0 INTERRUPT PENDING FLAG
+  00C4          +2   207     STO      BIT   SMB0CN.4 ; SMBUS 0 STOP FLAG
+  00C5          +2   208     STA      BIT   SMB0CN.5 ; SMBUS 0 START FLAG
+  00C6          +2   209     ENSMB    BIT   SMB0CN.6 ; SMBUS 0 ENABLE 
+                +2   210     ;
+                +2   211     ; T2CON C8H
+  00C8          +2   212     CPRL2    BIT   T2CON.0 ; CAPTURE OR RELOAD SELECT
+  00C9          +2   213     CT2      BIT   T2CON.1 ; TIMER OR COUNTER SELECT
+  00CA          +2   214     TR2      BIT   T2CON.2 ; TIMER 2 ON/OFF CONTROL
+  00CB          +2   215     EXEN2    BIT   T2CON.3 ; TIMER 2 EXTERNAL ENABLE FLAG
+  00CC          +2   216     TCLK     BIT   T2CON.4 ; TRANSMIT CLOCK FLAG
+  00CD          +2   217     RCLK     BIT   T2CON.5 ; RECEIVE CLOCK FLAG
+  00CE          +2   218     EXF2     BIT   T2CON.6 ; EXTERNAL FLAG
+  00CF          +2   219     TF2      BIT   T2CON.7 ; TIMER 2 OVERFLOW FLAG
+                +2   220     ;
+                +2   221     ; PSW D0H
+  00D0          +2   222     P        BIT   PSW.0  ; ACCUMULATOR PARITY FLAG
+  00D1          +2   223     F1       BIT   PSW.1  ; USER FLAG 1
+  00D2          +2   224     OV       BIT   PSW.2  ; OVERFLOW FLAG
+  00D3          +2   225     RS0      BIT   PSW.3  ; REGISTER BANK SELECT 0
+  00D4          +2   226     RS1      BIT   PSW.4  ; REGISTER BANK SELECT 1
+  00D5          +2   227     F0       BIT   PSW.5  ; USER FLAG 0
+  00D6          +2   228     AC       BIT   PSW.6  ; AUXILIARY CARRY FLAG
+  00D7          +2   229     CY       BIT   PSW.7  ; CARRY FLAG
+                +2   230     ;
+                +2   231     ; PCA0CN D8H
+  00D8          +2   232     CCF0     BIT   PCA0CN.0 ; PCA 0 MODULE 0 INTERRUPT FLAG
+  00D9          +2   233     CCF1     BIT   PCA0CN.1 ; PCA 0 MODULE 1 INTERRUPT FLAG
+  00DA          +2   234     CCF2     BIT   PCA0CN.2 ; PCA 0 MODULE 2 INTERRUPT FLAG
+  00DB          +2   235     CCF3     BIT   PCA0CN.3 ; PCA 0 MODULE 3 INTERRUPT FLAG
+  00DC          +2   236     CCF4     BIT   PCA0CN.4 ; PCA 0 MODULE 4 INTERRUPT FLAG
+  00DE          +2   237     CR       BIT   PCA0CN.6 ; PCA 0 COUNTER RUN CONTROL BIT
+  00DF          +2   238     CF       BIT   PCA0CN.7 ; PCA 0 COUNTER OVERFLOW FLAG
+                +2   239     ;
+                +2   240     ; ADC0CN E8H
+  00E8          +2   241     AD0LJST  BIT   ADC0CN.0 ; ADC 0 RIGHT JUSTIFY DATA BIT
+  00E9          +2   242     AD0WINT  BIT   ADC0CN.1 ; ADC 0 WINDOW COMPARE INTERRUPT FLAG
+  00EA          +2   243     AD0STM0  BIT   ADC0CN.2 ; ADC 0 START OF CONVERSION MODE BIT 0
+  00EB          +2   244     AD0STM1  BIT   ADC0CN.3 ; ADC 0 START OF CONVERSION MODE BIT 1
+  00EC          +2   245     AD0BUSY  BIT   ADC0CN.4 ; ADC 0 BUSY FLAG
+  00ED          +2   246     AD0INT   BIT   ADC0CN.5 ; ADC 0 CONVERISION COMPLETE INTERRUPT FLAG 
+  00EE          +2   247     AD0TM    BIT   ADC0CN.6 ; ADC 0 TRACK MODE
+  00EF          +2   248     AD0EN    BIT   ADC0CN.7 ; ADC 0 ENABLE
+                +2   249     ;
+                +2   250     ; SPI0CN F8H
+  00F8          +2   251     SPIEN    BIT   SPI0CN.0 ; SPI 0 SPI ENABLE
+  00F9          +2   252     MSTEN    BIT   SPI0CN.1 ; SPI 0 MASTER ENABLE
+  00FA          +2   253     SLVSEL   BIT   SPI0CN.2 ; SPI 0 SLAVE SELECT
+  00FB          +2   254     TXBSY    BIT   SPI0CN.3 ; SPI 0 TX BUSY FLAG
+  00FC          +2   255     RXOVRN   BIT   SPI0CN.4 ; SPI 0 RX OVERRUN FLAG
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE     5
+
+  00FD          +2   256     MODF     BIT   SPI0CN.5 ; SPI 0 MODE FAULT FLAG
+  00FE          +2   257     WCOL     BIT   SPI0CN.6 ; SPI 0 WRITE COLLISION FLAG
+  00FF          +2   258     SPIF     BIT   SPI0CN.7 ; SPI 0 INTERRUPT FLAG
+                +1   259     kscan_KEYBOARD   SEGMENT CODE ; ¶¨ÒåÒ»¸ö´úÂë¶Î£¬ÓÃÓÚ¼üÅÌÉ¨ÃèµÄ³ÌÐò
+                +1   260     DT_kscan_KEYBOARD   SEGMENT DATA OVERLAYABLE ; ¶¨ÒåÒ»¸öÊ¾Ý¶Î£¬ÓÃÓÚ´æ´¢ÁÙÊ±±äÁ¿£¬¿ÉÒÔÓëÆäËûÊ
+                             ¾Ý¶ÎÖØµþ
+                +1   261     f_or_e_KEYBOARD  SEGMENT CODE ; ¶¨ÒåÒ»¸ö´úÂë¶Î£¬ÓÃÓÚÅÐ¶Ï¼üÅÌÊäÈëµÄÊÇÊ×Ö»¹ÊÇ×ÖÄ¸
+                +1   262     input_digits_KEYBOARD                SEGMENT CODE ; ¶¨ÒåÒ»¸ö´úÂë¶Î£¬ÓÃÓÚÊäÈëÊ×Ö
+                +1   263     DT_input_digits_KEYBOARD                SEGMENT DATA OVERLAYABLE ; ¶¨ÒåÒ»¸öÊ¾Ý¶Î£¬ÓÃÓÚ´æ´¢Á
+                             ÙÊ±±äÁ¿£¬¿ÉÒÔÓëÆäËûÊ¾Ý¶ÎÖØµþ
+                +1   264     BI_input_digits_KEYBOARD                 SEGMENT BIT OVERLAYABLE ; ¶¨ÒåÒ»¸öÎ»¶Î£¬ÓÃÓÚ´æ´¢ÁÙ
+                             Ê±±äÁ¿£¬¿ÉÒÔÓëÆäËûÎ»¶ÎÖØµþ
+                +1   265     input_bits_KEYBOARD                  SEGMENT CODE ; ¶¨ÒåÒ»¸ö´úÂë¶Î£¬ÓÃÓÚÊäÈëÎ»
+                +1   266     DT_input_bits_KEYBOARD                  SEGMENT DATA OVERLAYABLE ; ¶¨ÒåÒ»¸öÊ¾Ý¶Î£¬ÓÃÓÚ´æ´¢Á
+                             ÙÊ±±äÁ¿£¬¿ÉÒÔÓëÆäËûÊ¾Ý¶ÎÖØµþ
+                +1   267     BI_input_bits_KEYBOARD                   SEGMENT BIT OVERLAYABLE ; ¶¨ÒåÒ»¸öÎ»¶Î£¬ÓÃÓÚ´æ´¢ÁÙ
+                             Ê±±äÁ¿£¬¿ÉÒÔÓëÆäËûÎ»¶ÎÖØµþ
+                +1   268     input_display_time_KEYBOARD          SEGMENT CODE ; ¶¨ÒåÒ»¸ö´úÂë¶Î£¬ÓÃÓÚÊäÈëÏÔÊ¾Ê±¼ä
+                +1   269     DT_input_display_time_KEYBOARD          SEGMENT DATA OVERLAYABLE ; ¶¨ÒåÒ»¸öÊ¾Ý¶Î£¬ÓÃÓÚ´æ´¢Á
+                             ÙÊ±±äÁ¿£¬¿ÉÒÔÓëÆäËûÊ¾Ý¶ÎÖØµþ
+                +1   270     BI_input_display_time_KEYBOARD           SEGMENT BIT OVERLAYABLE ; ¶¨ÒåÒ»¸öÎ»¶Î£¬ÓÃÓÚ´æ´¢ÁÙ
+                             Ê±±äÁ¿£¬¿ÉÒÔÓëÆäËûÎ»¶ÎÖØµþ
+                +1   271     wait_input_KEYBOARD                  SEGMENT CODE ; ¶¨ÒåÒ»¸ö´úÂë¶Î£¬ÓÃÓÚµÈ´¼üÅÌÊäÈë
+                +1   272     BI_wait_input_KEYBOARD                   SEGMENT BIT OVERLAYABLE ; ¶¨ÒåÒ»¸öÎ»¶Î£¬ÓÃÓÚ´æ´¢ÁÙ
+                             Ê±±äÁ¿£¬¿ÉÒÔÓëÆäËûÎ»¶ÎÖØµþ
+                +1   273     wrong_input_bits_KEYBOARD            SEGMENT CODE ; ¶¨ÒåÒ»¸ö´úÂë¶Î£¬ÓÃÓÚ´¦Àí´íÎóµÄÎ»ÊäÈë
+                +1   274     wrong_display_time_KEYBOARD          SEGMENT CODE ; ¶¨ÒåÒ»¸ö´úÂë¶Î£¬ÓÃÓÚ´¦Àí´íÎóµÄÏÔÊ¾Ê±¼äÊ
+                             äÈë
+                +1   275     CO_KEYBOARD         SEGMENT CODE ; ¶¨ÒåÒ»¸ö´úÂë¶Î
+                +1   276     XD_KEYBOARD         SEGMENT XDATA ; ¶¨ÒåÒ»¸öÀ©Õ¹Ê¾Ý¶Î
+                +1   277             EXTRN   CODE (digits) ; ÒÓÃÍâ²¿´úÂë¶Î£¬ÓÃÓÚÏÔÊ¾Ê×Ö
+                +1   278             EXTRN   CODE (clear) ; ÒÓÃÍâ²¿´úÂë¶Î£¬ÓÃÓÚÇåÆÁ
+                +1   279             EXTRN   DATA (display_time) ; ÒÓÃÍâ²¿Ê¾Ý¶Î£¬ÓÃÓÚ´æ´¢ÏÔÊ¾Ê±¼ä
+                +1   280             EXTRN   CODE (display_wrong_input_display_time) ; ÒÓÃÍâ²¿´úÂë¶Î£¬ÓÃÓÚÏÔÊ¾ÏÔÊ¾Ê±¼äÊä
+                             Èë´íÎó
+                +1   281             EXTRN   CODE (_print_char) ; ÒÓÃÍâ²¿´úÂë¶Î£¬ÓÃÓÚ´òÓ¡×Ö·û
+                +1   282             EXTRN   DATA (bits) ; ÒÓÃÍâ²¿Ê¾Ý¶Î£¬ÓÃÓÚ´æ´¢Î»
+                +1   283             EXTRN   CODE (display_wrong_input_bits) ; ÒÓÃÍâ²¿´úÂë¶Î£¬ÓÃÓÚÏÔÊ¾´íÎóµÄÎ»ÊäÈë
+                +1   284             EXTRN   CODE (_delay_ms) ; ÒÓÃÍâ²¿´úÂë¶Î£¬ÓÃÓÚÑÓÊ±ºÁÃë
+                +1   285             EXTRN   CODE (?C?CCASE) ; ÒÓÃÍâ²¿´úÂë¶Î£¬ÓÃÓÚÊµÏÖCÓïÑÔµÄswitch-caseÓï¾ä
+                +1   286             EXTRN   CODE (?C?COPY) ; ÒÓÃÍâ²¿´úÂë¶Î£¬ÓÃÓÚÊµÏÖCÓïÑÔµÄÄÚ´æ¸´ÖÆº¯Ê
+                +1   287             EXTRN   CODE (?C?LMUL) ; ÒÓÃÍâ²¿´úÂë¶Î£¬ÓÃÓÚÊµÏÖCÓïÑÔµÄ³¤ÕûÊ³Ë·¨º¯Ê
+                +1   288             EXTRN   CODE (?C?ULCMP) ; ÒÓÃÍâ²¿´úÂë¶Î£¬ÓÃÓÚÊµÏÖCÓïÑÔµÄÎÞ·ûºÅ³¤ÕûÊ±È½Ïº¯Ê
+                +1   289             PUBLIC  inputs ; ½«inputs´úÂë¶ÎÉùÃ÷Îª¹«¹²µÄ£¬¿ÉÒÔ±»ÆäËûÄ£¿éµ÷ÓÃ
+                +1   290             PUBLIC  wrong_display_time ; ½«wrong_display_time´úÂë¶ÎÉùÃ÷Îª¹«¹²µÄ£¬¿ÉÒÔ±»ÆäËûÄ£¿é
+                             µ÷ÓÃ
+                +1   291             PUBLIC  wrong_input_bits ; ½«wrong_input_bits´úÂë¶ÎÉùÃ÷Îª¹«¹²µÄ£¬¿ÉÒÔ±»ÆäËûÄ£¿éµ÷ÓÃ
+                +1   292             PUBLIC  wait_input ; ½«wait_input´úÂë¶ÎÉùÃ÷Îª¹«¹²µÄ£¬¿ÉÒÔ±»ÆäËûÄ£¿éµ÷ÓÃ
+                +1   293             PUBLIC  input_display_time ; ½«input_display_time´úÂë¶ÎÉùÃ÷Îª¹«¹²µÄ£¬¿ÉÒÔ±»ÆäËûÄ£¿é
+                             µ÷ÓÃ
+                +1   294             PUBLIC  input_bits ; ½«input_bits´úÂë¶ÎÉùÃ÷Îª¹«¹²µÄ£¬¿ÉÒÔ±»ÆäËûÄ£¿éµ÷ÓÃ
+                +1   295             PUBLIC  input_digits ; ½«input_digits´úÂë¶ÎÉùÃ÷Îª¹«¹²µÄ£¬¿ÉÒÔ±»ÆäËûÄ£¿éµ÷ÓÃ
+                +1   296             PUBLIC  f_or_e ; ½«f_or_e´úÂë¶ÎÉùÃ÷Îª¹«¹²µÄ£¬¿ÉÒÔ±»ÆäËûÄ£¿éµ÷ÓÃ
+                +1   297             PUBLIC  kscan ; ½«kscan´úÂë¶ÎÉùÃ÷Îª¹«¹²µÄ£¬¿ÉÒÔ±»ÆäËûÄ£¿éµ÷ÓÃ
+                +1   298     
+                +1   299             
+----                 300             RSEG  DT_kscan_KEYBOARD ; ¶¨ÒåÒ»¸öÊ¾Ý¶Î£¬ÓÃÓÚ´æ´¢ÁÙÊ±±äÁ¿
+0000                 301     kscan_BYTE: ; ·ÖÅä×Ö½Ú¿Õ¼äµÄ±êºÅ
+0000                 302            keyl:   DS   1 ; ·ÖÅäÒ»¸ö×Ö½ÚµÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢ÁÙÊ±±äÁ¿
+0001                 303            temp:   DS   1 ; ·ÖÅäÒ»¸ö×Ö½ÚµÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢ÁÙÊ±±äÁ¿
+----                 304             RSEG  DT_input_digits_KEYBOARD ; ¶¨ÒåÒ»¸öÊ¾Ý¶Î£¬ÓÃÓÚ´æ´¢ÁÙÊ±±äÁ¿
+0000                 305     input_digits_BYTE:  ; ·ÖÅä×Ö½Ú¿Õ¼äµÄ±êºÅ
+0000                 306               i:   DS   1 ; ·ÖÅäÒ»¸ö×Ö½ÚµÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢Ñ­»·¼ÆÊÆ÷
+0001                 307           digit:   DS   1 ; ·ÖÅäÒ»¸ö×Ö½ÚµÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢ÊäÈëµÄÊ×Ö
+----                 308             RSEG  BI_input_digits_KEYBOARD  ; ¶¨ÒåÒ»¸öÎ»¶Î£¬ÓÃÓÚ´æ´¢ÁÙÊ±±äÁ¿
+0000                 309     input_digits_BIT: ; ·ÖÅäÎ»¿Õ¼äµÄ±êºÅ
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE     6
+
+0000                 310           state:   DBIT   1 ; ·ÖÅäÒ»¸öÎ»µÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢ÊäÈëÊ×ÖµÄ×´Ì¬
+----                 311             RSEG  DT_input_display_time_KEYBOARD ; ¶¨ÒåÒ»¸öÊ¾Ý¶Î£¬ÓÃÓÚ´æ´¢ÁÙÊ±±äÁ¿
+0000                 312     input_display_time_BYTE: ; ·ÖÅä×Ö½Ú¿Õ¼äµÄ±êºÅ
+0000                 313               i1:   DS   1 ; ·ÖÅäÒ»¸ö×Ö½ÚµÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢Ñ­»·¼ÆÊÆ÷
+0001                 314               j1:   DS   1 ; ·ÖÅäÒ»¸ö×Ö½ÚµÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢Ñ­»·¼ÆÊÆ÷
+0002                 315           digit1:   DS   1 ; ·ÖÅäÒ»¸ö×Ö½ÚµÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢ÊäÈëµÄÊ×Ö
+0003                 316               a1:   DS   5 ; ·ÖÅäÎå¸ö×Ö½ÚµÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢ÊäÈëµÄÏÔÊ¾Ê±¼äµÄÊ×é
+0008                 317            temp1:   DS   4 ; ·ÖÅäËÄ¸ö×Ö½ÚµÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢ÁÙÊ±Ê¾Ý
+----                 318             RSEG  BI_input_display_time_KEYBOARD  ; ¶¨ÒåÒ»¸öÎ»¶Î£¬ÓÃÓÚ´æ´¢ÁÙÊ±±äÁ¿
+0000                 319     input_display_time_BIT: ; ·ÖÅäÎ»¿Õ¼äµÄ±êºÅ
+0000                 320           state1:   DBIT   1 ; ·ÖÅäÒ»¸öÎ»µÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢ÊäÈëÏÔÊ¾Ê±¼äµÄ×´Ì¬
+----                 321             RSEG  DT_input_bits_KEYBOARD ; ¶¨ÒåÒ»¸öÊ¾Ý¶Î£¬ÓÃÓÚÊäÈëÎ»µÄÊ¾Ý
+0000                 322     input_bits_BYTE: ; ·ÖÅä×Ö½Ú¿Õ¼äµÄ±êºÅ
+0000                 323               i2:   DS   1 ; ·ÖÅäÒ»¸ö×Ö½ÚµÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢Ñ­»·¼ÆÊÆ÷
+0001                 324           digit2:   DS   1 ; ·ÖÅäÒ»¸ö×Ö½ÚµÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢ÊäÈëµÄÊ×Ö
+0002                 325               a2:   DS   2 ; ·ÖÅäÁ½¸ö×Ö½ÚµÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢ÊäÈëµÄÏÔÊ¾Î»ÊµÄÊ×é
+----                 326             RSEG  BI_input_bits_KEYBOARD  ; ¶¨ÒåÒ»¸öÎ»¶Î£¬ÓÃÓÚ´æ´¢ÁÙÊ±±äÁ¿
+0000                 327     input_bits_BIT: ; ·ÖÅäÎ»¿Õ¼äµÄ±êºÅ
+0000                 328           state2:   DBIT   1 ; ·ÖÅäÒ»¸öÎ»µÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢ÊäÈëÏÔÊ¾Î»Êº¯ÊµÄ×´Ì¬
+----                 329             RSEG  BI_wait_input_KEYBOARD  ; ¶¨ÒåÒ»¸öÎ»¶Î£¬ÓÃÓÚ´æ´¢µÈ´¼üÅÌÊäÈëµÄ×´Ì¬±äÁ¿
+0000                 330     wait_input_BIT: ; ·ÖÅäÎ»¿Õ¼äµÄ±êºÅ
+0000                 331           state3:   DBIT   1 ; ·ÖÅäÒ»¸öÎ»µÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢µÈ´¼üÅÌÊäÈëµÄ×´Ì¬
+----                 332             RSEG  XD_KEYBOARD ; ¶¨ÒåÒ»¸öÀ©Õ¹Ê¾Ý¶Î£¬ÓÃÓÚ¼üÅÌµÄÊ¾Ý
+0000                 333              inputs:   DS   64 ; ·ÖÅä64¸ö×Ö½ÚµÄ¿Õ¼ä£¬ÓÃÓÚ´æ´¢¼üÅÌÊäÈëµÄÄÚÈÝ
+----                 334             RSEG  CO_KEYBOARD ; ¶¨ÒåÒ»¸ö´úÂë¶Î
+0000                 335     _?ix1000: ; ¶¨ÒåÒ»¸ö±êºÅ£¬ÓÃÓÚ´æ´¢Ò»¸ö³£Á¿
+0000 00              336             DB      000H ; ´æ´¢Ò»¸ö×Ö½ÚµÄÊ¾Ý£¬ÖµÎª0
+0001 00              337             DB  000H ; ´æ´¢Ò»¸ö×Ö½ÚµÄÊ¾Ý£¬ÖµÎª0
+0002                 338     _?ix1001: ; ¶¨ÒåÒ»¸ö±êºÅ£¬ÓÃÓÚ´æ´¢Ò»¸ö³£Á¿
+0002 00              339             DB      000H ; ´æ´¢Ò»¸ö×Ö½ÚµÄÊ¾Ý£¬ÖµÎª0
+0003 00000000        340             DB  000H,000H,000H,000H ; ´æ´¢ËÄ¸ö×Ö½ÚµÄÊ¾Ý£¬Öµ¶¼Îª0
+----                 341             RSEG  kscan_KEYBOARD ; ¶¨ÒåÒ»¸ö´úÂë¶Î£¬ÓÃÓÚ¼üÅÌÉ¨ÃèµÄ³ÌÐò
+0000                 342     kscan: ; ¶¨ÒåÒ»¸öÉ¨Ãè¼üÅÌµÄ×Ó³ÌÐò
+                     343             USING   0 ; Ê¹ÓÃ¼Ä´æÆ÷×é 0
+0000 75A5F0          344             MOV     P1MDOUT,#0F0H ; ÉèÖÃ P1 ¿ÚµÄ¸ßËÄÎ»ÎªÊä³ö£¬µÍËÄÎ»ÎªÊäÈë
+0003 75900F          345             MOV     P1,#0FH ; Êä³ö 0000 1111 µ½ P1 ¿Ú
+0006                 346     KEYBOARD0001: ; ¶¨ÒåÒ»¸öÑ­»·±êÇ©
+0006 E590            347             MOV     A,P1 ; ½« P1 ¿ÚµÄÖµÒÆÈëÀÛ¼ÓÆ÷ A
+0008 640F            348             XRL     A,#0FH ; ½« A Óë 0000 1111 Òì»ò£¬µÃµ½°´¼üµÄÐÐºÅ
+000A 60FA            349             JZ      KEYBOARD0001 ; Èç¹û A Îª 0£¬ËµÃ÷Ã»ÓÐ°´¼ü°´ÏÂ£¬Ìø×ªµ½ KEYBOARD0001 ¼ÌÐøÑ­»·
+000C 7F0A            350             MOV     R7,#0AH ; ½« 10 ÒÆÈë R7£¬ÓÃÓÚÑÓÊ±
+000E 7E00            351             MOV     R6,#00H ; ½« 0 ÒÆÈë R6£¬ÓÃÓÚÑÓÊ±
+0010 7D00            352             MOV     R5,#00H ; ½« 0 ÒÆÈë R5£¬ÓÃÓÚÑÓÊ±
+0012 7C00            353             MOV     R4,#00H ; ½« 0 ÒÆÈë R4£¬ÓÃÓÚÑÓÊ±
+0014 120000   F      354             LCALL   _delay_ms ; µ÷ÓÃÒ»¸öÑÓÊ±×Ó³ÌÐò£¬ÓÃÓÚÏû¶¶
+0017 E590            355             MOV     A,P1 ; ½« P1 ¿ÚµÄÖµÒÆÈëÀÛ¼ÓÆ÷ A
+0019 640F            356             XRL     A,#0FH ; ½« A Óë 0000 1111 Òì»ò£¬µÃµ½°´¼üµÄÐÐºÅ
+001B 60E9            357             JZ      KEYBOARD0001 ; Èç¹û A Îª 0£¬ËµÃ÷ÊÇÔëÉù£¬Ìø×ªµ½ KEYBOARD0001 ¼ÌÐøÑ­»·
+001D 859000   F      358             MOV     keyl,P1 ; ½« P1 ¿ÚµÄÖµÒÆÈë keyl£¬ÓÃÓÚ±£´æ°´¼üµÄÐÐºÅ
+0020 75A50F          359             MOV     P1MDOUT,#0FH ; ÉèÖÃ P1 ¿ÚµÄµÍËÄÎ»ÎªÊä³ö£¬¸ßËÄÎ»ÎªÊäÈë
+0023 7590F0          360             MOV     P1,#0F0H ; Êä³ö 1111 0000 µ½ P1 ¿Ú
+0026 7F0A            361             MOV     R7,#0AH ; ½« 10 ÒÆÈë R7£¬ÓÃÓÚÑÓÊ±
+0028 7E00            362             MOV     R6,#00H ; ½« 0 ÒÆÈë R6£¬ÓÃÓÚÑÓÊ±
+002A 7D00            363             MOV     R5,#00H ; ½« 0 ÒÆÈë R5£¬ÓÃÓÚÑÓÊ±
+002C 7C00            364             MOV     R4,#00H ; ½« 0 ÒÆÈë R4£¬ÓÃÓÚÑÓÊ±
+002E 120000   F      365             LCALL   _delay_ms ; µ÷ÓÃÒ»¸öÑÓÊ±×Ó³ÌÐò£¬ÓÃÓÚÏû¶¶
+0031 AF90            366             MOV     R7,P1 ; ½« P1 ¿ÚµÄÖµÒÆÈë R7£¬ÓÃÓÚ±£´æ°´¼üµÄÁÐºÅ
+0033 E500     F      367             MOV     A,keyl ; ½« keyl µÄÖµÒÆÈëÀÛ¼ÓÆ÷ A
+0035 4F              368             ORL     A,R7 ; ½« A Óë R7 »òÔËËã£¬µÃµ½°´¼üµÄ±àÂë
+0036 120000   F      369             LCALL   ?C?CCASE ; µ÷ÓÃÒ»¸ö·ÖÖ§±í×Ó³ÌÐò£¬¸ù¾Ý°´¼üµÄ±àÂëÌø×ªµ½ÏàÓ¦µÄ±êÇ©
+0039 0000     F      370             DW      KEYBOARD0009 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 0111 0111£¬Ìø×ªµ½ KEYBOARD0
+                             009
+003B 77              371             DB      077H ; ¶¨Òå°´¼ü±àÂëÎª 0111 0111
+003C 0000     F      372             DW      KEYBOARD0013 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 0111 1011£¬Ìø×ªµ½ KEYBOARD0
+                             013
+003E 7B              373             DB      07BH ; ¶¨Òå°´¼ü±àÂëÎª 0111 1011
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE     7
+
+003F 0000     F      374             DW      KEYBOARD0017 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 0111 1101£¬Ìø×ªµ½ KEYBOARD0
+                             017
+0041 7D              375             DB      07DH ; ¶¨Òå°´¼ü±àÂëÎª 0111 1101
+0042 0000     F      376             DW      KEYBOARD0021 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 0111 1110£¬Ìø×ªµ½ KEYBOARD0
+                             021
+0044 7E              377             DB      07EH ; ¶¨Òå°´¼ü±àÂëÎª 0111 1110
+0045 0000     F      378             DW      KEYBOARD0008 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 1011 0111£¬Ìø×ªµ½ KEYBOARD0
+                             008
+0047 B7              379             DB      0B7H ; ¶¨Òå°´¼ü±àÂëÎª 1011 0111
+0048 0000     F      380             DW      KEYBOARD0012 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 1011 1011£¬Ìø×ªµ½ KEYBOARD0
+                             012
+004A BB              381             DB      0BBH ; ¶¨Òå°´¼ü±àÂëÎª 1011 1011
+004B 0000     F      382             DW      KEYBOARD0016 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 1011 1101£¬Ìø×ªµ½ KEYBOARD0
+                             016
+004D BD              383             DB      0BDH ; ¶¨Òå°´¼ü±àÂëÎª 1011 1101
+004E 0000     F      384             DW      KEYBOARD0020 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 1011 1110£¬Ìø×ªµ½ KEYBOARD0
+                             020
+0050 BE              385             DB      0BEH ; ¶¨Òå°´¼ü±àÂëÎª 1011 1110
+0051 0000     F      386             DW      KEYBOARD0007 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 1101 0111£¬Ìø×ªµ½ KEYBOARD0
+                             007
+0053 D7              387             DB      0D7H ; ¶¨Òå°´¼ü±àÂëÎª 1101 0111
+0054 0000     F      388             DW      KEYBOARD0011 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 1101 1011£¬Ìø×ªµ½ KEYBOARD0
+                             011
+0056 DB              389             DB      0DBH ; ¶¨Òå°´¼ü±àÂëÎª 1101 1011
+0057 0000     F      390             DW      KEYBOARD0015 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 1101 1101£¬Ìø×ªµ½ KEYBOARD0
+                             015
+0059 DD              391             DB      0DDH ; ¶¨Òå°´¼ü±àÂëÎª 1101 1101
+005A 0000     F      392             DW      KEYBOARD0019 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 1101 1110£¬Ìø×ªµ½ KEYBOARD0
+                             019
+005C DE              393             DB      0DEH ; ¶¨Òå°´¼ü±àÂëÎª 1101 1110
+005D 0000     F      394             DW      KEYBOARD0006 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 1110 0111£¬Ìø×ªµ½ KEYBOARD0
+                             006
+005F E7              395             DB      0E7H ; ¶¨Òå°´¼ü±àÂëÎª 1110 0111
+0060 0000     F      396             DW      KEYBOARD0010 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 1110 1011£¬Ìø×ªµ½ KEYBOARD0
+                             010
+0062 EB              397             DB      0EBH ; ¶¨Òå°´¼ü±àÂëÎª 1110 1011
+0063 0000     F      398             DW      KEYBOARD0014 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 1110 1101£¬Ìø×ªµ½ KEYBOARD0
+                             014
+0065 ED              399             DB      0EDH ; ¶¨Òå°´¼ü±àÂëÎª 1110 1101
+0066 0000     F      400             DW      KEYBOARD0018 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 1110 1110£¬Ìø×ªµ½ KEYBOARD0
+                             018
+0068 EE              401             DB      0EEH ; ¶¨Òå°´¼ü±àÂëÎª 1110 1110
+0069 0000            402             DW      00H ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎª 0000 0000£¬Ìø×ªµ½ 00H
+006B 0000     F      403             DW      KEYBOARD0005 ; ¶¨ÒåÒ»¸ö·ÖÖ§±íÏî£¬Èç¹û°´¼ü±àÂëÎªÆäËûÖµ£¬Ìø×ªµ½ KEYBOARD0005
+006D                 404     KEYBOARD0006: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 1110 0111 µÄÇé¿ö
+006D E4              405             CLR     A ; Çå³ÀÛ¼ÓÆ÷ A
+006E F500     F      406             MOV     temp,A ; ½« A µÄÖµÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+0070 8049            407             SJMP    KEYBOARD0005 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0005
+0072                 408     KEYBOARD0007: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 1101 0111 µÄÇé¿ö
+0072 750001   F      409             MOV     temp,#01H ; ½« 01 ÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+0075 8044            410             SJMP    KEYBOARD0005 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0005
+0077                 411     KEYBOARD0008: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 10110111µÄÇé¿ö
+0077 750002   F      412             MOV     temp,#02H ; ½« 02 ÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+007A 803F            413             SJMP    KEYBOARD0005 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0005
+007C                 414     KEYBOARD0009: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 0111 0111 µÄÇé¿ö
+007C 750003   F      415             MOV     temp,#03H ; ½« 03 ÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+007F 803A            416             SJMP    KEYBOARD0005 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0005
+0081                 417     KEYBOARD0010: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 1110 1011 µÄÇé¿ö
+0081 750004   F      418             MOV     temp,#04H ; ½« 04 ÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+0084 8035            419             SJMP    KEYBOARD0005 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0005
+0086                 420     KEYBOARD0011: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 1101 1011 µÄÇé¿ö
+0086 750005   F      421             MOV     temp,#05H ; ½« 05 ÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+0089 8030            422             SJMP    KEYBOARD0005 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0005
+008B                 423     KEYBOARD0012: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 1011 1011 µÄÇé¿ö
+008B 750006   F      424             MOV     temp,#06H ; ½« 06 ÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+008E 802B            425             SJMP    KEYBOARD0005 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0005
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE     8
+
+0090                 426     KEYBOARD0013: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 0111 1011 µÄÇé¿ö
+0090 750007   F      427             MOV     temp,#07H ; ½« 07 ÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+0093 8026            428             SJMP    KEYBOARD0005 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0005
+0095                 429     KEYBOARD0014: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 1110 1101 µÄÇé¿ö
+0095 750008   F      430             MOV     temp,#08H ; ½« 08 ÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+0098 8021            431             SJMP    KEYBOARD0005 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0005
+009A                 432     KEYBOARD0015: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 1101 1101 µÄÇé¿ö
+009A 750009   F      433             MOV     temp,#09H ; ½« 09 ÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+009D 801C            434             SJMP    KEYBOARD0005 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0005
+009F                 435     KEYBOARD0016: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 1011 1101 µÄÇé¿ö
+009F 75000A   F      436             MOV     temp,#0AH ; ½« 0A ÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+00A2 8017            437             SJMP    KEYBOARD0005 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0005
+00A4                 438     KEYBOARD0017: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 0111 1101 µÄÇé¿ö
+00A4 75000B   F      439             MOV     temp,#0BH ; ½« 0B ÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+00A7 8012            440             SJMP    KEYBOARD0005 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0005
+00A9                 441     KEYBOARD0018: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 1110 1110 µÄÇé¿ö
+00A9 75000C   F      442             MOV     temp,#0CH ; ½« 0C ÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+00AC 800D            443             SJMP    KEYBOARD0005 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0005
+00AE                 444     KEYBOARD0019: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 1101 1110 µÄÇé¿ö
+00AE 75000D   F      445             MOV     temp,#0DH ; ½« 0D ÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+00B1 8008            446             SJMP    KEYBOARD0005 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0005
+00B3                 447     KEYBOARD0020: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 1011 1110 µÄÇé¿ö
+00B3 75000E   F      448             MOV     temp,#0EH ; ½« 0E ÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+00B6 8003            449             SJMP    KEYBOARD0005 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0005
+00B8                 450     KEYBOARD0021: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü±àÂëÎª 0111 1110 µÄÇé¿ö
+00B8 75000F   F      451             MOV     temp,#0FH ; ½« 0F ÒÆÈë temp£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+00BB                 452     KEYBOARD0005: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼üµÄÖµ
+00BB 75A5F0          453             MOV     P1MDOUT,#0F0H ; ÉèÖÃ P1 ¿ÚµÄ¸ßËÄÎ»ÎªÊä³ö£¬µÍËÄÎ»ÎªÊäÈë
+00BE 75900F          454             MOV     P1,#0FH ; Êä³ö 0000 1111 µ½ P1 ¿Ú
+00C1                 455     KEYBOARD0023: ; ¶¨ÒåÒ»¸öÑ­»·±êÇ©
+00C1 E590            456             MOV     A,P1 ; ½« P1 ¿ÚµÄÖµÒÆÈëÀÛ¼ÓÆ÷ A
+00C3 B40FFB          457             CJNE    A,#0FH,KEYBOARD0023 ; Èç¹û A ²»µÈÓÚ 0F£¬ËµÃ÷°´¼ü»¹Ã»ÓÐËÉ¿ª£¬Ìø×ªµ½ KEYBOARD
+                             0023 ¼ÌÐøÑ­»·
+00C6 7F0A            458             MOV     R7,#0AH ; ½« 10 ÒÆÈë R7£¬ÓÃÓÚÑÓÊ±
+00C8 7E00            459             MOV     R6,#00H ; ½« 0 ÒÆÈë R6£¬ÓÃÓÚÑÓÊ±
+00CA 7D00            460             MOV     R5,#00H ; ½« 0 ÒÆÈë R5£¬ÓÃÓÚÑÓÊ±
+00CC 7C00            461             MOV     R4,#00H ; ½« 0 ÒÆÈë R4£¬ÓÃÓÚÑÓÊ±
+00CE 120000   F      462             LCALL   _delay_ms ; µ÷ÓÃÒ»¸öÑÓÊ±×Ó³ÌÐò£¬ÓÃÓÚÏû¶¶
+00D1 E590            463             MOV     A,P1 ; ½« P1 ¿ÚµÄÖµÒÆÈëÀÛ¼ÓÆ÷ A
+00D3 B40FEB          464             CJNE    A,#0FH,KEYBOARD0023 ; Èç¹û A ²»µÈÓÚ 0F£¬ËµÃ÷°´¼ü»¹Ã»ÓÐËÉ¿ª£¬Ìø×ªµ½ KEYBOARD
+                             0023 ¼ÌÐøÑ­»·
+00D6                 465     KEYBOARD0024: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ·µ»Ø°´¼üµÄÖµ
+00D6 AF00     F      466             MOV     R7,temp ; ½« temp µÄÖµÒÆÈë R7£¬×÷Îª·µ»ØÖµ
+00D8 22              467             RET     ; ·µ»ØÖ÷³ÌÐò
+----                 468             RSEG  f_or_e_KEYBOARD ; ¶¨ÒåÒ»¸ö¶Î£¬ÓÃÓÚ´æ·Å¼üÅÌµÄÖµ
+0000                 469     f_or_e: ; ¶¨ÒåÒ»¸öÅÐ¶Ï°´¼üÊÇ·ñÎª F »ò E µÄ×Ó³ÌÐò
+                     470             USING   0 ; Ê¹ÓÃ¼Ä´æÆ÷×é 0
+0000                 471     KEYBOARD0028: ; ¶¨ÒåÒ»¸öÑ­»·±êÇ©
+0000 120000   F      472             LCALL   kscan ; µ÷ÓÃ kscan ×Ó³ÌÐò£¬É¨Ãè¼üÅÌ£¬·µ»Ø°´¼üµÄÖµµ½ R7
+0003 7E00            473             MOV     R6,#00H ; ½« 0 ÒÆÈë R6£¬ÓÃÓÚ±È½Ï
+0005 EF              474             MOV     A,R7 ; ½« R7 µÄÖµÒÆÈëÀÛ¼ÓÆ÷ A
+0006 640F            475             XRL     A,#0FH ; ½« A Óë 0F Òì»ò£¬µÃµ½°´¼üµÄÖµ
+0008 7002            476             JNZ     KEYBOARD0030 ; Èç¹û A ²»Îª 0£¬ËµÃ÷°´¼ü²»ÊÇ F£¬Ìø×ªµ½ KEYBOARD0030
+000A C3              477             CLR     C ; Çå³½øÎ»±êÖ¾Î» C
+000B 22              478             RET     ; ·µ»ØÖ÷³ÌÐò£¬C Îª 0 ±íÊ¾°´¼üÊÇ F
+000C                 479     KEYBOARD0030: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼ü²»ÊÇ F µÄÇé¿ö
+000C EF              480             MOV     A,R7 ; ½« R7 µÄÖµÒÆÈëÀÛ¼ÓÆ÷ A
+000D 640E            481             XRL     A,#0EH ; ½« A Óë 0E Òì»ò£¬µÃµ½°´¼üµÄÖµ
+000F 4E              482             ORL     A,R6 ; ½« A Óë R6 »òÔËËã£¬µÃµ½°´¼üµÄÖµ
+0010 70EE            483             JNZ     KEYBOARD0028 ; Èç¹û A ²»Îª 0£¬ËµÃ÷°´¼ü²»ÊÇ E£¬Ìø×ªµ½ KEYBOARD0028 ¼ÌÐøÑ­»·
+0012 D3              484             SETB    C ; ÖÃÎ»½øÎ»±êÖ¾Î» C
+0013                 485     KEYBOARD0031: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ·µ»Ø°´¼üµÄÖµ
+0013 22              486             RET     ; ·µ»ØÖ÷³ÌÐò£¬C Îª 1 ±íÊ¾°´¼üÊÇ E
+----                 487             RSEG  input_digits_KEYBOARD ; ¶¨ÒåÒ»¸ö¶Î£¬ÓÃÓÚ´æ·Å°´¼üµÄÖµ
+0000                 488     input_digits: ; ¶¨ÒåÒ»¸öÊäÈëÊ×ÖµÄ×Ó³ÌÐò
+                     489             USING   0 ; Ê¹ÓÃ¼Ä´æÆ÷×é 0
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE     9
+
+0000 E4              490             CLR     A ; Çå³ÀÛ¼ÓÆ÷ A
+0001 F500     F      491             MOV     digit,A ; ½« A µÄÖµÒÆÈë digit£¬ÓÃÓÚ±£´æÊäÈëµÄÊ×Ö
+0003 C200     F      492             CLR     state ; Çå³ state£¬ÓÃÓÚ±£´æÊäÈëµÄ×´Ì¬
+0005 120000   F      493             LCALL   wait_input ; µ÷ÓÃ wait_input ×Ó³ÌÐò£¬µÈ´ÊäÈë£¬·µ»ØÊäÈëµÄ×´Ì¬µ½ C
+0008 9200     F      494             MOV     state,C ; ½« C µÄÖµÒÆÈë state£¬ÓÃÓÚÅÐ¶ÏÊäÈëµÄ×´Ì¬
+000A 300002   F      495             JNB     state,KEYBOARD0036 ; Èç¹û state Îª 0£¬ËµÃ÷ÊäÈë²»ÊÇE£¬Ìø×ªµ½ KEYBOARD0036
+000D D3              496             SETB    C ; ÖÃÎ»½øÎ»±êÖ¾Î» C
+000E 22              497             RET     ; ·µ»ØÖ÷³ÌÐò£¬Èç¹û×´Ì¬Îª1£¬±íÊ¾ÍË³ö(ÊäÈëÁËE)
+000F                 498     KEYBOARD0036: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦ÀíÊäÈë²»ÊÇEµÄÇé¿ö
+000F 120000   F      499             LCALL   clear ; µ÷ÓÃ clear ×Ó³ÌÐò£¬Çå³ÏÔÊ¾ÆÁ
+0012 E4              500             CLR     A ; Çå³ÀÛ¼ÓÆ÷ A
+0013 F500     F      501             MOV     i,A ; ½« A µÄÖµÒÆÈë i£¬ÓÃÓÚ±£´æÊäÈëµÄ¸öÊ
+0015                 502     KEYBOARD0038: ; ¶¨ÒåÒ»¸öÑ­»·±êÇ©£¬ÓÃÓÚ³õÊ¼»¯ inputs Ê×é
+0015 7400     F      503             MOV     A,#LOW (inputs) ; ½« inputs µÄµÍ×Ö½ÚµØÖ·ÒÆÈë A
+0017 2500     F      504             ADD     A,i ; ½« A Óë i Ïà¼Ó£¬µÃµ½ inputs[i] µÄµÍ×Ö½ÚµØÖ·
+0019 F582            505             MOV     DPL,A ; ½« A µÄÖµÒÆÈë DPL£¬ÓÃÓÚ±£´æÊ¾ÝÖ¸ÕëµÄµÍ×Ö½Ú
+001B E4              506             CLR     A ; Çå³ÀÛ¼ÓÆ÷ A
+001C 3400     F      507             ADDC    A,#HIGH (inputs) ; ½« A Óë inputs µÄ¸ß×Ö½ÚµØÖ·Ïà¼Ó£¬µÃµ½ inputs[i] µÄ¸ß×Ö½Ú
+                             µØÖ·
+001E F583            508             MOV     DPH,A ; ½« A µÄÖµÒÆÈë DPH£¬ÓÃÓÚ±£´æÊ¾ÝÖ¸ÕëµÄ¸ß×Ö½Ú
+0020 E4              509             CLR     A ; Çå³ÀÛ¼ÓÆ÷ A
+0021 F0              510             MOVX    @DPTR,A ; ½« A µÄÖµÒÆÈë inputs[i]£¬¼´½« inputs[i] ÇåÁã
+0022 0500     F      511             INC     i ; ½« i ¼Ó 1£¬ÓÃÓÚ±éÀú inputs Ê×é
+0024 E500     F      512             MOV     A,i ; ½« i µÄÖµÒÆÈë A
+0026 B440EC          513             CJNE    A,#040H,KEYBOARD0038 ; Èç¹û A ²»µÈÓÚ 40H£¬ËµÃ÷ inputs Ê×é»¹Ã»ÓÐ±éÀúÍê£¬Ìø×ª
+                             µ½ KEYBOARD0038 ¼ÌÐøÑ­»·
+0029                 514     KEYBOARD0039: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ¿ªÊ¼ÊäÈëÊ×Ö
+0029 E4              515             CLR     A ; Çå³ÀÛ¼ÓÆ÷ A
+002A F500     F      516             MOV     i,A ; ½« A µÄÖµÒÆÈë i£¬ÓÃÓÚ±£´æÊäÈëµÄ¸öÊ
+002C                 517     KEYBOARD0041: ; ¶¨ÒåÒ»¸öÑ­»·±êÇ©£¬ÓÃÓÚÊäÈëÊ×Ö
+002C E500     F      518             MOV     A,i ; ½« i µÄÖµÒÆÈë A
+002E C3              519             CLR     C ; Çå³½øÎ»±êÖ¾Î» C
+002F 9441            520             SUBB    A,#041H ; ½« A Óë 41H Ïà¼õ£¬µÃµ½ÊäÈëµÄ¸öÊÓë 41H µÄ²î
+0031 50DC            521             JNC     KEYBOARD0036 ; Èç¹û C Îª 0£¬ËµÃ÷ÊäÈëµÄ¸öÊ³¬¹ 41H£¬Ìø×ªµ½ KEYBOARD0036 ÖØÐÂÊ
+                             äÈë
+0033 120000   F      522             LCALL   kscan ; µ÷ÓÃ kscan ×Ó³ÌÐò£¬É¨Ãè¼üÅÌ£¬·µ»Ø°´¼üµÄÖµµ½ R7
+0036 8F00     F      523             MOV     digit,R7 ; ½« R7 µÄÖµÒÆÈë digit£¬ÓÃÓÚ±£´æ°´¼üµÄÖµ
+0038 E500     F      524             MOV     A,digit ; ½« digit µÄÖµÒÆÈëÀÛ¼ÓÆ÷ A
+003A C3              525             CLR     C ; Çå³½øÎ»±êÖ¾Î» C
+003B 9400            526             SUBB    A,#00H ; ½« A Óë 00H Ïà¼õ£¬µÃµ½°´¼üµÄÖµÓë 00H µÄ²î
+003D 4004            527             JC      KEYBOARD0045 ; Èç¹û C Îª 1£¬ËµÃ÷°´¼üµÄÖµÐ¡ÓÚ 00H£¬Ìø×ªµ½ KEYBOARD0045
+003F 7F01            528             MOV     R7,#01H ; ½« 01H ÒÆÈë R7£¬ÓÃÓÚÅÐ¶Ï°´¼üµÄÖµÊÇ·ñºÏ·¨
+0041 8002            529             SJMP    KEYBOARD0046 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0046
+0043                 530     KEYBOARD0045: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼üµÄÖµÐ¡ÓÚ 00H µÄÇé¿ö
+0043 7F00            531             MOV     R7,#00H ; ½« 00H ÒÆÈë R7£¬ÓÃÓÚÅÐ¶Ï°´¼üµÄÖµÊÇ·ñºÏ·¨
+0045                 532     KEYBOARD0046: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚÅÐ¶Ï°´¼üµÄÖµÊÇ·ñºÏ·¨
+0045 E500     F      533             MOV     A,i ; ½« i µÄÖµÒÆÈëÀÛ¼ÓÆ÷ A
+0047 C3              534             CLR     C ; Çå³½øÎ»±êÖ¾Î» C
+0048 9440            535             SUBB    A,#040H ; ½« A Óë 40H Ïà¼õ£¬µÃµ½ÊäÈëµÄ¸öÊÓë 40H µÄ²î
+004A 5004            536             JNC     KEYBOARD0047 ; Èç¹û C Îª 0£¬ËµÃ÷ÊäÈëµÄ¸öÊµÈÓÚ 40H£¬Ìø×ªµ½ KEYBOARD0047
+004C 7E01            537             MOV     R6,#01H ; ½« 01H ÒÆÈë R6£¬ÓÃÓÚÅÐ¶ÏÊäÈëµÄ¸öÊÊÇ·ñºÏ·¨
+004E 8002            538             SJMP    KEYBOARD0048 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0048
+0050                 539     KEYBOARD0047: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦ÀíÊäÈëµÄ¸öÊµÈÓÚ 40H µÄÇé¿ö
+0050 7E00            540             MOV     R6,#00H ; ½« 00H ÒÆÈë R6£¬ÓÃÓÚÅÐ¶ÏÊäÈëµÄ¸öÊÊÇ·ñºÏ·¨
+0052                 541     KEYBOARD0048: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚÅÐ¶ÏÊäÈëµÄ¸öÊÊÇ·ñºÏ·¨
+0052 EE              542             MOV     A,R6 ; ½« R6 µÄÖµÒÆÈëÀÛ¼ÓÆ÷ A
+0053 5F              543             ANL     A,R7 ; ½« A Óë R7 ÓëÔËËã£¬µÃµ½ÊäÈëµÄ¸öÊºÍ°´¼üµÄÖµÊÇ·ñ¶¼ºÏ·¨
+0054 FF              544             MOV     R7,A ; ½« A µÄÖµÒÆÈë R7£¬ÓÃÓÚÅÐ¶ÏÊÇ·ñ¼ÌÐøÊäÈë
+0055 E500     F      545             MOV     A,digit ; ½« digit µÄÖµÒÆÈëÀÛ¼ÓÆ÷ A
+0057 D3              546             SETB    C ; ÖÃÎ»½øÎ»±êÖ¾Î» C
+0058 9409            547             SUBB    A,#09H ; ½« A Óë 09H Ïà¼õ£¬µÃµ½°´¼üµÄÖµÓë 09H µÄ²î
+005A 5004            548             JNC     KEYBOARD0049 ; Èç¹û C Îª 0£¬ËµÃ÷°´¼üµÄÖµ´óÓÚµÈÓÚ 09H£¬Ìø×ªµ½ KEYBOARD0049
+005C 7E01            549             MOV     R6,#01H ; ½« 01H ÒÆÈë R6£¬ÓÃÓÚÅÐ¶Ï°´¼üµÄÖµÊÇ·ñºÏ·¨
+005E 8002            550             SJMP    KEYBOARD0050 ; ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0050
+0060                 551     KEYBOARD0049: ; ¶¨ÒåÒ»¸ö±êÇ©£¬ÓÃÓÚ´¦Àí°´¼üµÄÖµ´óÓÚµÈÓÚ 09H µÄÇé¿ö
+0060 7E00            552             MOV     R6,#00H ; ½« 00H ÒÆÈë R6£¬ÓÃÓÚÅÐ¶Ï°´¼üµÄÖµÊÇ·ñºÏ·¨
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE    10
+
+0062                 553     KEYBOARD0050:
+0062 EE              554             MOV     A,R6
+0063 5F              555             ANL     A,R7
+0064 6041            556             JZ      KEYBOARD0044
+0066 E500     F      557             MOV     A,digit
+0068 900000   F      558             MOV     DPTR,#digits
+006B 93              559             MOVC    A,@A+DPTR
+006C FF              560             MOV     R7,A
+006D 7400     F      561             MOV     A,#LOW (inputs)
+006F 2500     F      562             ADD     A,i
+0071 F582            563             MOV     DPL,A
+0073 E4              564             CLR     A
+0074 3400     F      565             ADDC    A,#HIGH (inputs)
+0076 F583            566             MOV     DPH,A
+0078 EF              567             MOV     A,R7
+0079 F0              568             MOVX    @DPTR,A
+007A F500     F      569             MOV     digit,A
+007C E500     F      570             MOV     A,i
+007E B41006          571             CJNE    A,#010H,KEYBOARD0051
+0081 AB00     F      572             MOV     R3,digit
+0083 7D02            573             MOV     R5,#02H
+0085 8009            574             SJMP    KEYBOARD0169
+0087                 575     KEYBOARD0051:
+0087 E500     F      576             MOV     A,i
+0089 B42007          577             CJNE    A,#020H,KEYBOARD0053
+008C AB00     F      578             MOV     R3,digit
+008E 7D03            579             MOV     R5,#03H
+0090                 580     KEYBOARD0169:
+0090 E4              581             CLR     A
+0091 800E            582             SJMP    KEYBOARD0170
+0093                 583     KEYBOARD0053:
+0093 E500     F      584             MOV     A,i
+0095 AB00     F      585             MOV     R3,digit
+0097 B43005          586             CJNE    A,#030H,KEYBOARD0055
+009A 7D04            587             MOV     R5,#04H
+009C E4              588             CLR     A
+009D 8002            589             SJMP    KEYBOARD0168
+009F                 590     KEYBOARD0055:
+009F E4              591             CLR     A
+00A0 FD              592             MOV     R5,A
+00A1                 593     KEYBOARD0168:
+00A1                 594     KEYBOARD0170:
+00A1 FF              595             MOV     R7,A
+00A2 120000   F      596             LCALL   _print_char
+00A5 8046            597             SJMP    KEYBOARD0043
+00A7                 598     KEYBOARD0044:
+00A7 E500     F      599             MOV     A,digit
+00A9 B40F04          600             CJNE    A,#0FH,KEYBOARD0059
+00AC 7F01            601             MOV     R7,#01H
+00AE 8002            602             SJMP    KEYBOARD0060
+00B0                 603     KEYBOARD0059:
+00B0 7F00            604             MOV     R7,#00H
+00B2                 605     KEYBOARD0060:
+00B2 E500     F      606             MOV     A,i
+00B4 D3              607             SETB    C
+00B5 9400            608             SUBB    A,#00H
+00B7 4004            609             JC      KEYBOARD0061
+00B9 7E01            610             MOV     R6,#01H
+00BB 8002            611             SJMP    KEYBOARD0062
+00BD                 612     KEYBOARD0061:
+00BD 7E00            613             MOV     R6,#00H
+00BF                 614     KEYBOARD0062:
+00BF EE              615             MOV     A,R6
+00C0 5F              616             ANL     A,R7
+00C1 6002            617             JZ      KEYBOARD0058
+00C3 C3              618             CLR     C
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE    11
+
+00C4 22              619             RET     
+00C5                 620     KEYBOARD0058:
+00C5 E500     F      621             MOV     A,digit
+00C7 B40E02          622             CJNE    A,#0EH,KEYBOARD0064
+00CA D3              623             SETB    C
+00CB 22              624             RET     
+00CC                 625     KEYBOARD0064:
+00CC E500     F      626             MOV     A,digit
+00CE B40D04          627             CJNE    A,#0DH,KEYBOARD0067
+00D1 7F01            628             MOV     R7,#01H
+00D3 8002            629             SJMP    KEYBOARD0068
+00D5                 630     KEYBOARD0067:
+00D5 7F00            631             MOV     R7,#00H
+00D7                 632     KEYBOARD0068:
+00D7 E500     F      633             MOV     A,i
+00D9 D3              634             SETB    C
+00DA 9400            635             SUBB    A,#00H
+00DC 4004            636             JC      KEYBOARD0069
+00DE 7E01            637             MOV     R6,#01H
+00E0 8002            638             SJMP    KEYBOARD0070
+00E2                 639     KEYBOARD0069:
+00E2 7E00            640             MOV     R6,#00H
+00E4                 641     KEYBOARD0070:
+00E4 EE              642             MOV     A,R6
+00E5 5F              643             ANL     A,R7
+00E6 6003            644             JZ      $ + 5H
+00E8 020000   F      645             LJMP    KEYBOARD0036
+00EB 1500     F      646             DEC     i
+00ED                 647     KEYBOARD0043:
+00ED 0500     F      648             INC     i
+00EF 020000   F      649             LJMP    KEYBOARD0041
+----                 650             RSEG  input_bits_KEYBOARD  ;¶¨ÒåÒ»¸ö¶Î£¬±íÊ¾ÊäÈëÏÔÊ¾Î»ÊµÄ¼üÅÌ´¦Àí
+0000                 651     input_bits: ;¶¨ÒåÒ»¸ö±êÇ©£¬±íÊ¾ÊäÈëÏÔÊ¾Î»Ê
+                     652             USING   0 ;Ê¹ÓÃ¼Ä´æÆ÷×é 0
+0000 E4              653             CLR     A ;Çå³ÀÛ¼ÓÆ÷ A µÄÄÚÈÝ
+0001 F500     F      654             MOV     digit2,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ digit2 ÖÐ£¬¼´ digit2 = 0
+0003 7800     F      655             MOV     R0,#LOW (a2) ;½« a2 µÄµÍ 8 Î»µØÖ·ÒÆ¶¯µ½ R0 ÖÐ
+0005 7C00     F      656             MOV     R4,#HIGH (a2) ;½« a2 µÄ¸ß 8 Î»µØÖ·ÒÆ¶¯µ½ R4 ÖÐ
+0007 FD              657             MOV     R5,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R5 ÖÐ£¬¼´ R5 = 0
+0008 7BFF            658             MOV     R3,#0FFH ;½« 0FFH ÒÆ¶¯µ½ R3 ÖÐ£¬¼´ R3 = 255
+000A 7A00     F      659             MOV     R2,#HIGH (_?ix1000) ;½« _?ix1000 µÄ¸ß 8 Î»µØÖ·ÒÆ¶¯µ½ R2 ÖÐ
+000C 7900     F      660             MOV     R1,#LOW (_?ix1000) ;½« _?ix1000 µÄµÍ 8 Î»µØÖ·ÒÆ¶¯µ½ R1 ÖÐ
+000E FE              661             MOV     R6,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+000F 7F02            662             MOV     R7,#02H ;½« 02H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 2
+0011 120000   F      663             LCALL   ?C?COPY ;µ÷ÓÃ ?C?COPY ×Ó³ÌÐò£¬½« R1-R7 ÖÐµÄÄÚÈÝ¸´ÖÆµ½ a2 ºÍ _?ix1000 ÖÐ
+0014 C200     F      664             CLR     state2 ;Çå³ state2 µÄÄÚÈÝ£¬¼´ state2 = 0
+0016 120000   F      665             LCALL   wait_input ;µ÷ÓÃ wait_input ×Ó³ÌÐò£¬µÈ´ÊäÈë
+0019 9200     F      666             MOV     state2,C ;½«½øÎ»±êÖ¾ C µÄÄÚÈÝÒÆ¶¯µ½ state2 ÖÐ
+001B 300002   F      667             JNB     state2,KEYBOARD0074 ;Èç¹û state2 Îª 0£¬¼´Ã»ÓÐÊäÈë£¬ÔòÌø×ªµ½ KEYBOARD0074 ´¦
+                             ¼ÌÐøÖ´ÐÐ
+001E D3              668             SETB    C ;Èç¹û state2 ²»Îª 0£¬¼´ÓÐÊäÈë£¬ÔòÖÃÎ» C
+001F 22              669             RET ;·µ»Ø
+0020                 670     KEYBOARD0074: ;¶¨ÒåÒ»¸ö±êÇ©£¬±íÊ¾¼üÅÌÊäÈëµÄ´¦Àí
+0020 120000   F      671             LCALL   clear ;µ÷ÓÃ clear ×Ó³ÌÐò£¬Çå³ÆÁÄ»
+0023 E4              672             CLR     A ;Çå³ÀÛ¼ÓÆ÷ A µÄÄÚÈÝ
+0024 F500     F      673             MOV     i2,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ i2 ÖÐ£¬¼´ i2 = 0
+0026                 674     KEYBOARD0076: ;¶¨ÒåÒ»¸öÑ­»·µÄ¿ªÊ¼
+0026 7400     F      675             MOV     A,#LOW (a2) ;½« a2 µÄµÍ 8 Î»ÒÆ¶¯µ½ A ÖÐ
+0028 2500     F      676             ADD     A,i2 ;½« A ºÍ i2 Ïà¼Ó£¬¼´ A = A + i2
+002A F8              677             MOV     R0,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R0 ÖÐ
+002B E4              678             CLR     A ;Çå³ A µÄÄÚÈÝ
+002C F6              679             MOV     @R0,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R0 Ö¸ÏòµÄÄÚ´æµ¥ÔªÖÐ£¬¼´Çå³ a2[i2] µÄÄÚÈÝ
+002D 0500     F      680             INC     i2 ;½« i2 ¼Ó 1£¬¼´ i2 = i2 + 1
+002F E500     F      681             MOV     A,i2 ;½« i2 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0031 B402F2          682             CJNE    A,#02H,KEYBOARD0076 ;±È½Ï A ºÍ 02H£¬Èç¹û²»ÏàµÈ£¬ÔòÌø×ªµ½ KEYBOARD0076 ´¦¼ÌÐ
+                             øÑ­»·£¬·ñÔò¼ÌÐøÖ´ÐÐ
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE    12
+
+0034                 683     KEYBOARD0077: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0034 E4              684             CLR     A ;Çå³ A µÄÄÚÈÝ
+0035 F500     F      685             MOV     i2,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ i2 ÖÐ£¬¼´ i2 = 0
+0037                 686     KEYBOARD0079: ;¶¨ÒåÒ»¸öÐÂµÄÑ­»·µÄ¿ªÊ¼
+0037 E500     F      687             MOV     A,i2 ;½« i2 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0039 C3              688             CLR     C ;Çå³½øÎ»±êÖ¾ C
+003A 9403            689             SUBB    A,#03H ;½« A ºÍ 03H Ïà¼õ£¬¼´ A = A - 03H
+003C 50E2            690             JNC     KEYBOARD0074 ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 03H£¬ÔòÌø×ªµ½ KEYBOARD0074 ´¦¼ÌÐøÖ´ÐÐ
+003E 120000   F      691             LCALL   kscan ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 03H£¬Ôòµ÷ÓÃ kscan ×Ó³ÌÐò£¬É¨Ãè¼üÅÌÊäÈë
+0041 8F00     F      692             MOV     digit2,R7 ;½« R7 µÄÄÚÈÝÒÆ¶¯µ½ digit2 ÖÐ£¬¼´ digit2 = R7
+0043 E500     F      693             MOV     A,digit2 ;½« digit2 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0045 C3              694             CLR     C ;Çå³½øÎ»±êÖ¾ C
+0046 9400            695             SUBB    A,#00H ;½« A ºÍ 00H Ïà¼õ£¬¼´ A = A - 00H
+0048 4004            696             JC      KEYBOARD0083 ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 00H£¬ÔòÌø×ªµ½ KEYBOARD0083 ´¦¼ÌÐøÖ´ÐÐ
+004A 7F01            697             MOV     R7,#01H ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 00H£¬Ôò½« 01H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 01H
+004C 8002            698             SJMP    KEYBOARD0084 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0084 ´¦¼ÌÐøÖ´ÐÐ
+004E                 699     KEYBOARD0083: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+004E 7F00            700             MOV     R7,#00H ;½« 00H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 0
+0050                 701     KEYBOARD0084: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0050 E500     F      702             MOV     A,i2 ;½« i2 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0052 C3              703             CLR     C ;Çå³½øÎ»±êÖ¾ C
+0053 9402            704             SUBB    A,#02H ;½« A ºÍ 02H Ïà¼õ£¬¼´ A = A - 02H
+0055 5004            705             JNC     KEYBOARD0085 ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 02H£¬ÔòÌø×ªµ½ KEYBOARD0085 ´¦¼ÌÐøÖ´ÐÐ
+0057 7E01            706             MOV     R6,#01H ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 02H£¬Ôò½« 01H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 1
+0059 8002            707             SJMP    KEYBOARD0086 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0086 ´¦¼ÌÐøÖ´ÐÐ
+005B                 708     KEYBOARD0085: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+005B 7E00            709             MOV     R6,#00H ;½« 00H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+005D                 710     KEYBOARD0086: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+005D EE              711             MOV     A,R6 ;½« R6 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+005E 5F              712             ANL     A,R7 ;½« A ºÍ R7 ½øÐÐÂß¼­ÓëÔËËã£¬¼´ A = A & R7
+005F FF              713             MOV     R7,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R7 ÖÐ
+0060 E500     F      714             MOV     A,digit2 ;½« digit2 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0062 D3              715             SETB    C ;ÖÃÎ»½øÎ»±êÖ¾ C
+0063 9409            716             SUBB    A,#09H ;½« A ºÍ 09H Ïà¼õ£¬¼´ A = A - 09H
+0065 5004            717             JNC     KEYBOARD0087 ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 09H£¬ÔòÌø×ªµ½ KEYBOARD0087 ´¦¼ÌÐøÖ´ÐÐ
+0067 7E01            718             MOV     R6,#01H ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 09H£¬Ôò½« 01H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 1
+0069 8002            719             SJMP    KEYBOARD0088 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0088 ´¦¼ÌÐøÖ´ÐÐ
+006B                 720     KEYBOARD0087: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+006B 7E00            721             MOV     R6,#00H ;½« 00H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+006D                 722     KEYBOARD0088: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+006D EE              723             MOV     A,R6 ;½« R6 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+006E 5F              724             ANL     A,R7 ;½« A ºÍ R7 ½øÐÐÂß¼­ÓëÔËËã£¬¼´ A = A & R7
+006F 6015            725             JZ      KEYBOARD0082 ;Èç¹û A Îª 0£¬ÔòÌø×ªµ½ KEYBOARD0082 ´¦¼ÌÐøÖ´ÐÐ
+0071 7400     F      726             MOV     A,#LOW (a2) ;½« a2 µÄµÍ 8 Î»ÒÆ¶¯µ½ A ÖÐ
+0073 2500     F      727             ADD     A,i2 ;½« A ºÍ i2 Ïà¼Ó£¬¼´ A = A + i2
+0075 F8              728             MOV     R0,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R0 ÖÐ
+0076 A600     F      729             MOV     @R0,digit2 ;½« digit2 µÄÄÚÈÝÒÆ¶¯µ½ R0 Ö¸ÏòµÄÄÚ´æµ¥ÔªÖÐ£¬¼´ a2[i2] = digit2
+0078 E500     F      730             MOV     A,digit2 ;½« digit2 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+007A 2430            731             ADD     A,#030H ;½« A ºÍ 030H Ïà¼Ó£¬¼´ A = A + 030H
+007C FB              732             MOV     R3,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R3 ÖÐ
+007D E4              733             CLR     A ;Çå³ A µÄÄÚÈÝ
+007E FD              734             MOV     R5,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R5 ÖÐ£¬¼´ R5 = 0
+007F FF              735             MOV     R7,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 0
+0080 120000   F      736             LCALL   _print_char ;µ÷ÓÃ _print_char ×Ó³ÌÐò£¬´òÓ¡×Ö·û
+0083 020000   F      737             LJMP    KEYBOARD0081 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0081 ´¦¼ÌÐøÖ´ÐÐ
+0086                 738     KEYBOARD0082: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0086 E500     F      739             MOV     A,digit2 ;½« digit2 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0088 B40F04          740             CJNE    A,#0FH,KEYBOARD0091 ;±È½Ï A ºÍ 0FH£¬Èç¹û²»ÏàµÈ£¬ÔòÌø×ªµ½ KEYBOARD0091 ´¦¼ÌÐ
+                             øÖ´ÐÐ
+008B 7F01            741             MOV     R7,#01H ;Èç¹ûÏàµÈ£¬Ôò½« 01H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 1
+008D 8002            742             SJMP    KEYBOARD0092 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0092 ´¦¼ÌÐøÖ´ÐÐ
+008F                 743     KEYBOARD0091: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+008F 7F00            744             MOV     R7,#00H ;½« 00H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 0
+0091                 745     KEYBOARD0092: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0091 E500     F      746             MOV     A,i2 ;½« i2 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0093 D3              747             SETB    C ;ÖÃÎ»½øÎ»±êÖ¾ C
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE    13
+
+0094 9400            748             SUBB    A,#00H ;½« A ºÍ 00H Ïà¼õ£¬¼´ A = A - 00H
+0096 4004            749             JC      KEYBOARD0093 ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 00H£¬ÔòÌø×ªµ½ KEYBOARD0093 ´¦¼ÌÐøÖ´ÐÐ
+0098 7E01            750             MOV     R6,#01H ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 00H£¬Ôò½« 01H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 1
+009A 8002            751             SJMP    KEYBOARD0094 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0094 ´¦¼ÌÐøÖ´ÐÐ
+009C                 752     KEYBOARD0093: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+009C 7E00            753             MOV     R6,#00H ;½« 00H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+009E                 754     KEYBOARD0094: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+009E EE              755             MOV     A,R6 ;½« R6 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+009F 5F              756             ANL     A,R7 ;½« A ºÍ R7 ½øÐÐÂß¼­ÓëÔËËã£¬¼´ A = A & R7
+00A0 603D            757             JZ      KEYBOARD0090 ;Èç¹û A Îª 0£¬ÔòÌø×ªµ½ KEYBOARD0090 ´¦¼ÌÐøÖ´ÐÐ
+00A2 E500     F      758             MOV     A,i2 ;½« i2 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+00A4 B40105          759             CJNE    A,#01H,KEYBOARD0095 ;±È½Ï A ºÍ 01H£¬Èç¹û²»ÏàµÈ£¬ÔòÌø×ªµ½ KEYBOARD0095 ´¦¼ÌÐ
+                             øÖ´ÐÐ
+00A7 850000   F      760             MOV     bits,a2 ;Èç¹ûÏàµÈ£¬Ôò½« a2 µÄÄÚÈÝÒÆ¶¯µ½ bits ÖÐ£¬¼´ bits = a2
+00AA 800A            761             SJMP    KEYBOARD0096 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0096 ´¦¼ÌÐøÖ´ÐÐ
+00AC                 762     KEYBOARD0095: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+00AC E500     F      763             MOV     A,a2 ;½« a2 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+00AE 75F00A          764             MOV     B,#0AH ;½« 0AH ÒÆ¶¯µ½ B ÖÐ£¬¼´ B = 10
+00B1 A4              765             MUL     AB ;½« A ºÍ B Ïà³Ë£¬¼´ A = A * B
+00B2 2500     F      766             ADD     A,a2+01H ;½« A ºÍ a2+01H Ïà¼Ó£¬¼´ A = A + a2+01H
+00B4 F500     F      767             MOV     bits,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ bits ÖÐ£¬¼´ bits = A
+00B6                 768     KEYBOARD0096: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+00B6 E500     F      769             MOV     A,bits ;½« bits µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+00B8 D3              770             SETB    C ;ÖÃÎ»½øÎ»±êÖ¾ C
+00B9 9440            771             SUBB    A,#040H ;½« A ºÍ 040H Ïà¼õ£¬¼´ A = A - 040H
+00BB 5004            772             JNC     KEYBOARD0098 ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 040H£¬ÔòÌø×ªµ½ KEYBOARD0098 ´¦¼ÌÐøÖ´ÐÐ
+00BD 7F01            773             MOV     R7,#01H ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 040H£¬Ôò½« 01H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 1
+00BF 8002            774             SJMP    KEYBOARD0099 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0099 ´¦¼ÌÐøÖ´ÐÐ
+00C1                 775     KEYBOARD0098: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+00C1 7F00            776             MOV     R7,#00H ;½« 00H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 0
+00C3                 777     KEYBOARD0099: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+00C3 E500     F      778             MOV     A,bits ;½« bits µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+00C5 C3              779             CLR     C ;Çå³½øÎ»±êÖ¾ C
+00C6 9401            780             SUBB    A,#01H ;½« A ºÍ 01H Ïà¼õ£¬¼´ A = A - 01H
+00C8 4004            781             JC      KEYBOARD0100 ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 01H£¬ÔòÌø×ªµ½ KEYBOARD0100 ´¦¼ÌÐøÖ´ÐÐ
+00CA 7E01            782             MOV     R6,#01H ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 01H£¬Ôò½« 01H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 1
+00CC 8002            783             SJMP    KEYBOARD0101 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0101 ´¦¼ÌÐøÖ´ÐÐ
+00CE                 784     KEYBOARD0100: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+00CE 7E00            785             MOV     R6,#00H ;½« 00H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+00D0                 786     KEYBOARD0101: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+00D0 EE              787             MOV     A,R6 ;½« R6 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+00D1 5F              788             ANL     A,R7 ;½« A ºÍ R7 ½øÐÐÂß¼­ÓëÔËËã£¬¼´ A = A & R7
+00D2 6002            789             JZ      KEYBOARD0097 ;Èç¹û A Îª 0£¬ÔòÌø×ªµ½ KEYBOARD0097 ´¦¼ÌÐøÖ´ÐÐ
+00D4 C3              790             CLR     C ;Çå³½øÎ»±êÖ¾ C
+00D5 22              791             RET ;·µ»Ø
+00D6                 792     KEYBOARD0097: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+00D6 120000   F      793             LCALL   wrong_input_bits ;µ÷ÓÃ wrong_input_bits ×Ó³ÌÐò£¬´¦Àí´íÎóµÄÊäÈëÎ»
+00D9 4003            794             JC      $ + 5H ;Èç¹ûÓÐ½øÎ»£¬¼´ÊäÈëÎ»´íÎó£¬ÔòÌø×ªµ½ÏÂÃæµÄ RET Ö¸Áî
+00DB 020000   F      795             LJMP    KEYBOARD0074 ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ÊäÈëÎ»ÕÈ·£¬ÔòÎÞÌõ¼þÌø×ªµ½ KEYBOARD0074 ´¦¼ÌÐø
+                             Ö´ÐÐ
+00DE 22              796             RET     ;·µ»Ø
+00DF                 797     KEYBOARD0090: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+00DF E500     F      798             MOV     A,digit2 ;½« digit2 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+00E1 B40E02          799             CJNE    A,#0EH,KEYBOARD0106 ;±È½Ï A ºÍ 0EH£¬Èç¹û²»ÏàµÈ£¬ÔòÌø×ªµ½ KEYBOARD0106 ´¦¼ÌÐ
+                             øÖ´ÐÐ
+00E4 D3              800             SETB    C ;Èç¹ûÏàµÈ£¬ÔòÖÃÎ»½øÎ»±êÖ¾ C
+00E5 22              801             RET     ;·µ»Ø
+00E6                 802     KEYBOARD0106: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+00E6 E500     F      803             MOV     A,digit2 ;½« digit2 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+00E8 B40D04          804             CJNE    A,#0DH,KEYBOARD0109 ;±È½Ï A ºÍ 0DH£¬Èç¹û²»ÏàµÈ£¬ÔòÌø×ªµ½ KEYBOARD0109 ´¦¼ÌÐ
+                             øÖ´ÐÐ
+00EB 7F01            805             MOV     R7,#01H ;Èç¹ûÏàµÈ£¬Ôò½« 01H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 1
+00ED 8002            806             SJMP    KEYBOARD0110 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0110 ´¦¼ÌÐøÖ´ÐÐ
+00EF                 807     KEYBOARD0109: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+00EF 7F00            808             MOV     R7,#00H ;½« 00H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 0
+00F1                 809     KEYBOARD0110: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE    14
+
+00F1 E500     F      810             MOV     A,i2 ;½« i2 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+00F3 D3              811             SETB    C ;ÖÃÎ»½øÎ»±êÖ¾ C
+00F4 9400            812             SUBB    A,#00H ;½« A ºÍ 00H Ïà¼õ£¬¼´ A = A - 00H
+00F6 4004            813             JC      KEYBOARD0111 ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 00H£¬ÔòÌø×ªµ½ KEYBOARD0111 ´¦¼ÌÐøÖ´ÐÐ
+00F8 7E01            814             MOV     R6,#01H ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 00H£¬Ôò½« 01H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 1
+00FA 8002            815             SJMP    KEYBOARD0112 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0112 ´¦¼ÌÐøÖ´ÐÐ
+00FC                 816     KEYBOARD0111: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+00FC 7E00            817             MOV     R6,#00H ;½« 00H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+00FE                 818     KEYBOARD0112: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+00FE EE              819             MOV     A,R6 ;½« R6 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+00FF 5F              820             ANL     A,R7 ;½« A ºÍ R7 ½øÐÐÂß¼­ÓëÔËËã£¬¼´ A = A & R7
+0100 6003            821             JZ      $ + 5H ;Èç¹û A Îª 0£¬ÔòÌø×ªµ½ÏÂÃæµÄ DEC Ö¸Áî
+0102 020000   F      822             LJMP    KEYBOARD0074 ;Èç¹û A ²»Îª 0£¬ÔòÎÞÌõ¼þÌø×ªµ½ KEYBOARD0074 ´¦¼ÌÐøÖ´ÐÐ
+0105 1500     F      823             DEC     i2 ;½« i2 ¼õ 1£¬¼´ i2 = i2 - 1
+0107                 824     KEYBOARD0081: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0107 0500     F      825             INC     i2 ;½« i2 ¼Ó 1£¬¼´ i2 = i2 + 1
+0109 020000   F      826             LJMP    KEYBOARD0079 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0079 ´¦¼ÌÐøÖ´ÐÐ
+----                 827             RSEG  input_display_time_KEYBOARD ;¶¨ÒåÒ»¸ö¶Î£¬±íÊ¾ÊäÈëÏÔÊ¾Ê±¼äµÄ¼üÅÌ´¦Àí
+0000                 828     input_display_time: ;¶¨ÒåÒ»¸ö±êÇ©£¬±íÊ¾ÊäÈëÏÔÊ¾Ê±¼äµÄ´¦Àí
+                     829             USING   0 ;Ê¹ÓÃ¼Ä´æÆ÷×é 0
+0000 E4              830             CLR     A ;Çå³ÀÛ¼ÓÆ÷ A µÄÄÚÈÝ
+0001 F500     F      831             MOV     digit1,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ digit1 ÖÐ£¬¼´ digit1 = 0
+0003 7800     F      832             MOV     R0,#LOW (a1) ;½« a1 µÄµÍ 8 Î»ÒÆ¶¯µ½ R0 ÖÐ
+0005 7C00     F      833             MOV     R4,#HIGH (a1) ;½« a1 µÄ¸ß 8 Î»ÒÆ¶¯µ½ R4 ÖÐ
+0007 FD              834             MOV     R5,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R5 ÖÐ£¬¼´ R5 = 0
+0008 7BFF            835             MOV     R3,#0FFH ;½« 0FFH ÒÆ¶¯µ½ R3 ÖÐ£¬¼´ R3 = 255
+000A 7A00     F      836             MOV     R2,#HIGH (_?ix1001) ;½« _?ix1001 µÄ¸ß 8 Î»ÒÆ¶¯µ½ R2 ÖÐ
+000C 7900     F      837             MOV     R1,#LOW (_?ix1001) ;½« _?ix1001 µÄµÍ 8 Î»ÒÆ¶¯µ½ R1 ÖÐ
+000E FE              838             MOV     R6,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+000F 7F05            839             MOV     R7,#05H ;½« 05H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 5
+0011 120000   F      840             LCALL   ?C?COPY ;µ÷ÓÃ ?C?COPY ×Ó³ÌÐò£¬½« R1-R7 ÖÐµÄÄÚÈÝ¸´ÖÆµ½ a1 ºÍ _?ix1001 ÖÐ
+0014 C200     F      841             CLR     state1 ;Çå³ state1 µÄÄÚÈÝ£¬¼´ state1 = 0
+0016 120000   F      842             LCALL   wait_input ;µ÷ÓÃ wait_input ×Ó³ÌÐò£¬µÈ´ÊäÈë
+0019 9200     F      843             MOV     state1,C ;½«½øÎ»±êÖ¾ C µÄÄÚÈÝÒÆ¶¯µ½ state1 ÖÐ
+001B 300002   F      844             JNB     state1,KEYBOARD0116 ;Èç¹û state1 Îª 0£¬¼´Ã»ÓÐÊäÈë£¬ÔòÌø×ªµ½ KEYBOARD0116 ´¦
+                             ¼ÌÐøÖ´ÐÐ
+001E D3              845             SETB    C ;Èç¹û state1 ²»Îª 0£¬¼´ÓÐÊäÈë£¬ÔòÖÃÎ» C
+001F 22              846             RET     ;·µ»Ø
+0020                 847     KEYBOARD0116: ;¶¨ÒåÒ»¸ö±êÇ©£¬±íÊ¾¼üÅÌÊäÈëµÄ´¦Àí
+0020 120000   F      848             LCALL   clear ;µ÷ÓÃ clear ×Ó³ÌÐò£¬Çå³ÆÁÄ»
+0023 E4              849             CLR     A ;Çå³ÀÛ¼ÓÆ÷ A µÄÄÚÈÝ
+0024 F500     F      850             MOV     i1,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ i1 ÖÐ£¬¼´ i1 = 0
+0026                 851     KEYBOARD0118: ;¶¨ÒåÒ»¸öÑ­»·µÄ¿ªÊ¼
+0026 7400     F      852             MOV     A,#LOW (a1) ;½« a1 µÄµÍ 8 Î»ÒÆ¶¯µ½ A ÖÐ
+0028 2500     F      853             ADD     A,i1 ;½« A ºÍ i1 Ïà¼Ó£¬¼´ A = A + i1
+002A F8              854             MOV     R0,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R0 ÖÐ
+002B E4              855             CLR     A ;Çå³ A µÄÄÚÈÝ
+002C F6              856             MOV     @R0,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R0 Ö¸ÏòµÄÄÚ´æµ¥ÔªÖÐ£¬¼´Çå³ a1[i1] µÄÄÚÈÝ
+002D 0500     F      857             INC     i1 ;½« i1 ¼Ó 1£¬¼´ i1 = i1 + 1
+002F E500     F      858             MOV     A,i1 ;½« i1 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0031 B405F2          859             CJNE    A,#05H,KEYBOARD0118 ;±È½Ï A ºÍ 05H£¬Èç¹û²»ÏàµÈ£¬ÔòÌø×ªµ½ KEYBOARD0118 ´¦¼ÌÐ
+                             øÑ­»·£¬·ñÔò¼ÌÐøÖ´ÐÐ
+0034                 860     KEYBOARD0119: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0034 E4              861             CLR     A ;Çå³ A µÄÄÚÈÝ
+0035 F500     F      862             MOV     i1,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ i1 ÖÐ£¬¼´ i1 = 0
+0037                 863     KEYBOARD0121: ;¶¨ÒåÒ»¸öÐÂµÄÑ­»·µÄ¿ªÊ¼
+0037 E500     F      864             MOV     A,i1 ;½« i1 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0039 C3              865             CLR     C ;Çå³½øÎ»±êÖ¾ C
+003A 9406            866             SUBB    A,#06H ;½« A ºÍ 06H Ïà¼õ£¬¼´ A = A - 06H
+003C 50E2            867             JNC     KEYBOARD0116 ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 06H£¬ÔòÌø×ªµ½ KEYBOARD0116 ´¦¼ÌÐøÖ´ÐÐ
+003E 120000   F      868             LCALL   kscan ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 06H£¬Ôòµ÷ÓÃ kscan ×Ó³ÌÐò£¬É¨Ãè¼üÅÌÊäÈë
+0041 8F00     F      869             MOV     digit1,R7 ;½« R7 µÄÄÚÈÝÒÆ¶¯µ½ digit1 ÖÐ£¬¼´ digit1 = R7
+0043 E500     F      870             MOV     A,digit1 ;½« digit1 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0045 C3              871             CLR     C ;Çå³½øÎ»±êÖ¾ C
+0046 9400            872             SUBB    A,#00H ;½« A ºÍ 00H Ïà¼õ£¬¼´ A = A - 00H
+0048 4004            873             JC      KEYBOARD0125 ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 00H£¬ÔòÌø×ªµ½ KEYBOARD0125 ´¦¼ÌÐøÖ´ÐÐ
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE    15
+
+004A 7F01            874             MOV     R7,#01H ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 00H£¬Ôò½« 01H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 1
+004C 8002            875             SJMP    KEYBOARD0126 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0126 ´¦¼ÌÐøÖ´ÐÐ
+004E                 876     KEYBOARD0125: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+004E 7F00            877             MOV     R7,#00H ;½« 00H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 0
+0050                 878     KEYBOARD0126: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0050 E500     F      879             MOV     A,i1 ;½« i1 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0052 C3              880             CLR     C ;Çå³½øÎ»±êÖ¾ C
+0053 9405            881             SUBB    A,#05H ;½« A ºÍ 05H Ïà¼õ£¬¼´ A = A - 05H
+0055 5004            882             JNC     KEYBOARD0127 ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 05H£¬ÔòÌø×ªµ½ KEYBOARD0127 ´¦¼ÌÐøÖ´ÐÐ
+0057 7E01            883             MOV     R6,#01H ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 05H£¬Ôò½« 01H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 1
+0059 8002            884             SJMP    KEYBOARD0128 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0128 ´¦¼ÌÐøÖ´ÐÐ
+005B                 885     KEYBOARD0127: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+005B 7E00            886             MOV     R6,#00H ;½« 00H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+005D                 887     KEYBOARD0128: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+005D EE              888             MOV     A,R6 ;½« R6 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+005E 5F              889             ANL     A,R7 ;½« A ºÍ R7 ½øÐÐÂß¼­ÓëÔËËã£¬¼´ A = A & R7
+005F FF              890             MOV     R7,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R7 ÖÐ
+0060 E500     F      891             MOV     A,digit1 ;½« digit1 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0062 D3              892             SETB    C ;ÖÃÎ»½øÎ»±êÖ¾ C
+0063 9409            893             SUBB    A,#09H ;½« A ºÍ 09H Ïà¼õ£¬¼´ A = A - 09H
+0065 5004            894             JNC     KEYBOARD0129 ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 09H£¬ÔòÌø×ªµ½ KEYBOARD0129 ´¦¼ÌÐøÖ´ÐÐ
+0067 7E01            895             MOV     R6,#01H ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 09H£¬Ôò½« 01H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 1
+0069 8002            896             SJMP    KEYBOARD0130 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0130 ´¦¼ÌÐøÖ´ÐÐ
+006B                 897     KEYBOARD0129: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+006B 7E00            898             MOV     R6,#00H ;½« 00H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+006D                 899     KEYBOARD0130: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+006D EE              900             MOV     A,R6 ;½« R6 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+006E 5F              901             ANL     A,R7 ;½« A ºÍ R7 ½øÐÐÂß¼­ÓëÔËËã£¬¼´ A = A & R7
+006F 6015            902             JZ      KEYBOARD0124 ;Èç¹û A Îª 0£¬ÔòÌø×ªµ½ KEYBOARD0124 ´¦¼ÌÐøÖ´ÐÐ
+0071 7400     F      903             MOV     A,#LOW (a1) ;½« a1 µÄµÍ 8 Î»ÒÆ¶¯µ½ A ÖÐ
+0073 2500     F      904             ADD     A,i1 ;½« A ºÍ i1 Ïà¼Ó£¬¼´ A = A + i1
+0075 F8              905             MOV     R0,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R0 ÖÐ
+0076 A600     F      906             MOV     @R0,digit1 ;½« digit1 µÄÄÚÈÝÒÆ¶¯µ½ R0 Ö¸ÏòµÄÄÚ´æµ¥ÔªÖÐ£¬¼´ a1[i1] = digit1
+0078 E500     F      907             MOV     A,digit1 ;½« digit1 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+007A 2430            908             ADD     A,#030H ;½« A ºÍ 030H Ïà¼Ó£¬¼´ A = A + 030H
+007C FB              909             MOV     R3,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R3 ÖÐ
+007D E4              910             CLR     A ;Çå³ A µÄÄÚÈÝ
+007E FD              911             MOV     R5,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R5 ÖÐ£¬¼´ R5 = 0
+007F FF              912             MOV     R7,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 0
+0080 120000   F      913             LCALL   _print_char ;µ÷ÓÃ _print_char ×Ó³ÌÐò£¬´òÓ¡×Ö·û
+0083 020000   F      914             LJMP    KEYBOARD0123 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0123 ´¦¼ÌÐøÖ´ÐÐ
+0086                 915     KEYBOARD0124: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0086 E500     F      916             MOV     A,digit1 ;½« digit1 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0088 B40F04          917             CJNE    A,#0FH,KEYBOARD0133 ;±È½Ï A ºÍ 0FH£¬Èç¹û²»ÏàµÈ£¬ÔòÌø×ªµ½ KEYBOARD0133 ´¦¼ÌÐ
+                             øÖ´ÐÐ
+008B 7F01            918             MOV     R7,#01H ;Èç¹ûÏàµÈ£¬Ôò½« 01H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 1
+008D 8002            919             SJMP    KEYBOARD0134 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0134 ´¦¼ÌÐøÖ´ÐÐ
+008F                 920     KEYBOARD0133: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+008F 7F00            921             MOV     R7,#00H ;½« 00H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 0
+0091                 922     KEYBOARD0134: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0091 E500     F      923             MOV     A,i1 ;½« i1 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0093 D3              924             SETB    C ;ÖÃÎ»½øÎ»±êÖ¾ C
+0094 9400            925             SUBB    A,#00H ;½« A ºÍ 00H Ïà¼õ£¬¼´ A = A - 00H
+0096 4004            926             JC      KEYBOARD0135 ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 00H£¬ÔòÌø×ªµ½ KEYBOARD0135 ´¦¼ÌÐøÖ´ÐÐ
+0098 7E01            927             MOV     R6,#01H ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 00H£¬Ôò½« 01H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 1
+009A 8002            928             SJMP    KEYBOARD0136 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0136 ´¦¼ÌÐøÖ´ÐÐ
+009C                 929     KEYBOARD0135: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+009C 7E00            930             MOV     R6,#00H ;½« 00H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+009E                 931     KEYBOARD0136: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+009E EE              932             MOV     A,R6 ;½« R6 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+009F 5F              933             ANL     A,R7 ;½« A ºÍ R7 ½øÐÐÂß¼­ÓëÔËËã£¬¼´ A = A & R7
+00A0 7003            934             JNZ     $ + 5H ;Èç¹û A ²»Îª 0£¬ÔòÌø×ªµ½ÏÂÃæµÄ LJMP Ö¸Áî
+00A2 020000   F      935             LJMP    KEYBOARD0132 ;Èç¹û A Îª 0£¬ÔòÎÞÌõ¼þÌø×ªµ½ KEYBOARD0132 ´¦¼ÌÐøÖ´ÐÐ
+00A5 E4              936             CLR     A ;Çå³ A µÄÄÚÈÝ
+00A6 F500     F      937             MOV     temp1+03H,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ temp1+03H ÖÐ£¬¼´ temp1+03H = 0
+00A8 F500     F      938             MOV     temp1+02H,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ temp1+02H ÖÐ£¬¼´ temp1+02H = 0
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE    16
+
+00AA F500     F      939             MOV     temp1+01H,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ temp1+01H ÖÐ£¬¼´ temp1+01H = 0
+00AC F500     F      940             MOV     temp1,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ temp1 ÖÐ£¬¼´ temp1 = 0
+00AE F500     F      941             MOV     j1,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ j1 ÖÐ£¬¼´ j1 = 0
+00B0                 942     KEYBOARD0137: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+00B0 E500     F      943             MOV     A,j1 ;½« j1 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+00B2 C3              944             CLR     C ;Çå³½øÎ»±êÖ¾ C
+00B3 9500     F      945             SUBB    A,i1 ;½« A ºÍ i1 Ïà¼õ£¬¼´ A = A - i1
+00B5 503A            946             JNC     KEYBOARD0138 ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= i1£¬ÔòÌø×ªµ½ KEYBOARD0138 ´¦¼ÌÐøÖ´ÐÐ
+00B7 E4              947             CLR     A ;Çå³ A µÄÄÚÈÝ
+00B8 7F0A            948             MOV     R7,#0AH ;½« 0AH ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 10
+00BA FE              949             MOV     R6,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+00BB FD              950             MOV     R5,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R5 ÖÐ£¬¼´ R5 = 0
+00BC FC              951             MOV     R4,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R4 ÖÐ£¬¼´ R4 = 0
+00BD AB00     F      952             MOV     R3,temp1+03H ;½« temp1+03H µÄÄÚÈÝÒÆ¶¯µ½ R3 ÖÐ
+00BF AA00     F      953             MOV     R2,temp1+02H ;½« temp1+02H µÄÄÚÈÝÒÆ¶¯µ½ R2 ÖÐ
+00C1 A900     F      954             MOV     R1,temp1+01H ;½« temp1+01H µÄÄÚÈÝÒÆ¶¯µ½ R1 ÖÐ
+00C3 A800     F      955             MOV     R0,temp1 ;½« temp1 µÄÄÚÈÝÒÆ¶¯µ½ R0 ÖÐ
+00C5 120000   F      956             LCALL   ?C?LMUL ;µ÷ÓÃ ?C?LMUL ×Ó³ÌÐò£¬½« R0-R7 ÖÐµÄÄÚÈÝÏà³Ë£¬¼´ R0-R7 = R0-R3 * R4-
+                             R7
+00C8 C004            957             PUSH    AR4 ;½« R4 µÄÄÚÈÝÑ¹Èë¶ÑÕ»
+00CA A905            958             MOV     R1,AR5 ;½« R5 µÄÄÚÈÝÒÆ¶¯µ½ R1 ÖÐ
+00CC AA06            959             MOV     R2,AR6 ;½« R6 µÄÄÚÈÝÒÆ¶¯µ½ R2 ÖÐ
+00CE AB07            960             MOV     R3,AR7 ;½« R7 µÄÄÚÈÝÒÆ¶¯µ½ R3 ÖÐ
+00D0 7400     F      961             MOV     A,#LOW (a1) ;½« a1 µÄµÍ 8 Î»ÒÆ¶¯µ½ A ÖÐ
+00D2 2500     F      962             ADD     A,j1 ;½« A ºÍ j1 Ïà¼Ó£¬¼´ A = A + j1
+00D4 F8              963             MOV     R0,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R0 ÖÐ
+00D5 E6              964             MOV     A,@R0 ;½« R0 Ö¸ÏòµÄÄÚ´æµ¥ÔªµÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ£¬¼´ A = a1[j1]
+00D6 FF              965             MOV     R7,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R7 ÖÐ
+00D7 E4              966             CLR     A ;Çå³ A µÄÄÚÈÝ
+00D8 FC              967             MOV     R4,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R4 ÖÐ£¬¼´ R4 = 0
+00D9 FD              968             MOV     R5,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R5 ÖÐ£¬¼´ R5 = 0
+00DA FE              969             MOV     R6,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+00DB D000            970             POP     AR0 ;½«¶ÑÕ»¶¥²¿µÄÄÚÈÝµ¯³öµ½ R0 ÖÐ£¬¼´ R0 = R4
+00DD EB              971             MOV     A,R3 ;½« R3 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+00DE 2F              972             ADD     A,R7 ;½« A ºÍ R7 Ïà¼Ó£¬¼´ A = A + R7
+00DF F500     F      973             MOV     temp1+03H,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ temp1+03H ÖÐ
+00E1 EE              974             MOV     A,R6 ;½« R6 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+00E2 3A              975             ADDC    A,R2 ;½« A ºÍ R2 Ïà¼Ó£¬´ø½øÎ»£¬¼´ A = A + R2 + C
+00E3 F500     F      976             MOV     temp1+02H,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ temp1+02H ÖÐ
+00E5 ED              977             MOV     A,R5 ;½« R5 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+00E6 39              978             ADDC    A,R1 ;½« A ºÍ R1 Ïà¼Ó£¬´ø½øÎ»£¬¼´ A = A + R1 + C
+00E7 F500     F      979             MOV     temp1+01H,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ temp1+01H ÖÐ
+00E9 EC              980             MOV     A,R4 ;½« R4 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+00EA 38              981             ADDC    A,R0 ;½« A ºÍ R0 Ïà¼Ó£¬´ø½øÎ»£¬¼´ A = A + R0 + C
+00EB F500     F      982             MOV     temp1,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ temp1 ÖÐ
+00ED 0500     F      983             INC     j1 ;½« j1 ¼Ó 1£¬¼´ j1 = j1 + 1
+00EF 80BF            984             SJMP    KEYBOARD0137 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0137 ´¦¼ÌÐøÑ­»·
+00F1                 985     KEYBOARD0138: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+00F1 E4              986             CLR     A ;Çå³ A µÄÄÚÈÝ
+00F2 7FFF            987             MOV     R7,#0FFH ;½« 0FFH ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 255
+00F4 7EFF            988             MOV     R6,#0FFH ;½« 0FFH ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 255
+00F6 FD              989             MOV     R5,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R5 ÖÐ£¬¼´ R5 = 0
+00F7 FC              990             MOV     R4,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R4 ÖÐ£¬¼´ R4 = 0
+00F8 AB00     F      991             MOV     R3,temp1+03H ;½« temp1+03H µÄÄÚÈÝÒÆ¶¯µ½ R3 ÖÐ
+00FA AA00     F      992             MOV     R2,temp1+02H ;½« temp1+02H µÄÄÚÈÝÒÆ¶¯µ½ R2 ÖÐ
+00FC A900     F      993             MOV     R1,temp1+01H ;½« temp1+01H µÄÄÚÈÝÒÆ¶¯µ½ R1 ÖÐ
+00FE A800     F      994             MOV     R0,temp1 ;½« temp1 µÄÄÚÈÝÒÆ¶¯µ½ R0 ÖÐ
+0100 D3              995             SETB    C ;ÖÃÎ»½øÎ»±êÖ¾ C
+0101 120000   F      996             LCALL   ?C?ULCMP ;µ÷ÓÃ ?C?ULCMP ×Ó³ÌÐò£¬½« R0-R7 ÖÐµÄÄÚÈÝÏà±È½Ï£¬¼´ R0-R3 ºÍ R4-R7
+0104 5006            997             JNC     KEYBOARD0141 ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ R0-R3 >= R4-R7£¬ÔòÌø×ªµ½ KEYBOARD0141 ´¦¼ÌÐø
+                             Ö´ÐÐ
+0106 7F01            998             MOV     R7,#01H ;Èç¹ûÓÐ½øÎ»£¬¼´ R0-R3 < R4-R7£¬Ôò½« 01H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 1
+0108 C007            999             PUSH    AR7 ;½« R7 µÄÄÚÈÝÑ¹Èë¶ÑÕ»
+010A 8004           1000             SJMP    KEYBOARD0142 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0142 ´¦¼ÌÐøÖ´ÐÐ
+010C                1001     KEYBOARD0141: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+010C 7F00           1002             MOV     R7,#00H ;½« 00H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 0
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE    17
+
+010E C007           1003             PUSH    AR7 ;½« R7 µÄÄÚÈÝÑ¹Èë¶ÑÕ»
+0110                1004     KEYBOARD0142: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0110 E4             1005             CLR     A ;Çå³ A µÄÄÚÈÝ
+0111 7F32           1006             MOV     R7,#032H ;½« 032H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 50
+0113 FE             1007             MOV     R6,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+0114 FD             1008             MOV     R5,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R5 ÖÐ£¬¼´ R5 = 0
+0115 FC             1009             MOV     R4,A ;½« A µÄÄÚÈÝÒÆ¶¯µ½ R4 ÖÐ£¬¼´ R4 = 0
+0116 AB00     F     1010             MOV     R3,temp1+03H ;½« temp1+03H µÄÄÚÈÝÒÆ¶¯µ½ R3 ÖÐ
+0118 AA00     F     1011             MOV     R2,temp1+02H ;½« temp1+02H µÄÄÚÈÝÒÆ¶¯µ½ R2 ÖÐ
+011A A900     F     1012             MOV     R1,temp1+01H ;½« temp1+01H µÄÄÚÈÝÒÆ¶¯µ½ R1 ÖÐ
+011C A800     F     1013             MOV     R0,temp1 ;½« temp1 µÄÄÚÈÝÒÆ¶¯µ½ R0 ÖÐ
+011E C3             1014             CLR     C ;Çå³½øÎ»±êÖ¾ C
+011F 120000   F     1015             LCALL   ?C?ULCMP ;µ÷ÓÃ ?C?ULCMP ×Ó³ÌÐò£¬½« R0-R7 ÖÐµÄÄÚÈÝÏà±È½Ï£¬¼´ R0-R3 ºÍ R4-R7
+0122 4004           1016             JC      KEYBOARD0143 ;Èç¹ûÓÐ½øÎ»£¬¼´ R0-R3 < R4-R7£¬ÔòÌø×ªµ½ KEYBOARD0143 ´¦¼ÌÐøÖ´ÐÐ
+0124 7E01           1017             MOV     R6,#01H ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ R0-R3 >= R4-R7£¬Ôò½« 01H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 1
+0126 8002           1018             SJMP    KEYBOARD0144 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0144 ´¦¼ÌÐøÖ´ÐÐ
+0128                1019     KEYBOARD0143: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0128 7E00           1020             MOV     R6,#00H ;½« 00H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+012A                1021     KEYBOARD0144: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+012A D0E0           1022             POP     ACC ;½«¶ÑÕ»¶¥²¿µÄÄÚÈÝµ¯³öµ½ ACC ÖÐ£¬¼´ ACC = R7
+012C 5E             1023             ANL     A,R6 ;½« A ºÍ R6 ½øÐÐÂß¼­ÓëÔËËã£¬¼´ A = A & R6
+012D 6008           1024             JZ      KEYBOARD0140 ;Èç¹û A Îª 0£¬ÔòÌø×ªµ½ KEYBOARD0140 ´¦¼ÌÐøÖ´ÐÐ
+012F 850000   F     1025             MOV     display_time,temp1+02H ;½« temp1+02H µÄÄÚÈÝÒÆ¶¯µ½ display_time ÖÐ
+0132 850000   F     1026             MOV     display_time+01H,temp1+03H ;½« temp1+03H µÄÄÚÈÝÒÆ¶¯µ½ display_time+01H ÖÐ
+0135 C3             1027             CLR     C ;Çå³½øÎ»±êÖ¾ C
+0136 22             1028             RET     ;·µ»Ø
+0137                1029     KEYBOARD0140: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0137 120000   F     1030             LCALL   wrong_display_time ;µ÷ÓÃ wrong_display_time ×Ó³ÌÐò£¬ÏÔÊ¾´íÎóµÄÊäÈëÊ±¼ä
+013A 4003           1031             JC      $ + 5H ;Èç¹ûÓÐ½øÎ»£¬¼´ÊäÈëÊ±¼ä´íÎó£¬ÔòÌø×ªµ½ÏÂÃæµÄ LJMP Ö¸Áî
+013C 020000   F     1032             LJMP    KEYBOARD0116 ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ÊäÈëÊ±¼äÕÈ·£¬ÔòÎÞÌõ¼þÌø×ªµ½ KEYBOARD0116 ´¦¼Ì
+                             ÐøÖ´ÐÐ
+013F 22             1033             RET     ;·µ»Ø
+0140                1034     KEYBOARD0132: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0140 E500     F     1035             MOV     A,digit1 ;½« digit1 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0142 B40E02         1036             CJNE    A,#0EH,KEYBOARD0149 ;±È½Ï A ºÍ 0EH£¬Èç¹û²»ÏàµÈ£¬ÔòÌø×ªµ½ KEYBOARD0149 ´¦¼ÌÐ
+                             øÖ´ÐÐ
+0145 D3             1037             SETB    C ;Èç¹ûÏàµÈ£¬ÔòÖÃÎ» C
+0146 22             1038             RET     ;·µ»Ø
+0147                1039     KEYBOARD0149: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0147 E500     F     1040             MOV     A,digit1 ;½« digit1 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0149 B40D04         1041             CJNE    A,#0DH,KEYBOARD0152 ;±È½Ï A ºÍ 0DH£¬Èç¹û²»ÏàµÈ£¬ÔòÌø×ªµ½ KEYBOARD0152 ´¦¼ÌÐ
+                             øÖ´ÐÐ
+014C 7F01           1042             MOV     R7,#01H ;Èç¹ûÏàµÈ£¬Ôò½« 01H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 1
+014E 8002           1043             SJMP    KEYBOARD0153 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0153 ´¦¼ÌÐøÖ´ÐÐ
+0150                1044     KEYBOARD0152: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0150 7F00           1045             MOV     R7,#00H ;½« 00H ÒÆ¶¯µ½ R7 ÖÐ£¬¼´ R7 = 0
+0152                1046     KEYBOARD0153: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0152 E500     F     1047             MOV     A,i1 ;½« i1 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0154 D3             1048             SETB    C ;ÖÃÎ»½øÎ»±êÖ¾ C
+0155 9400           1049             SUBB    A,#00H ;½« A ºÍ 00H Ïà¼õ£¬¼´ A = A - 00H
+0157 4004           1050             JC      KEYBOARD0154 ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 00H£¬ÔòÌø×ªµ½ KEYBOARD0154 ´¦¼ÌÐøÖ´ÐÐ
+0159 7E01           1051             MOV     R6,#01H ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 00H£¬Ôò½« 01H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 1
+015B 8002           1052             SJMP    KEYBOARD0155 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0155 ´¦¼ÌÐøÖ´ÐÐ
+015D                1053     KEYBOARD0154: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+015D 7E00           1054             MOV     R6,#00H ;½« 00H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+015F                1055     KEYBOARD0155: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+015F EE             1056             MOV     A,R6 ;½« R6 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0160 5F             1057             ANL     A,R7 ;½« A ºÍ R7 ½øÐÐÂß¼­ÓëÔËËã£¬¼´ A = A & R7
+0161 6003           1058             JZ      $ + 5H ;Èç¹û A Îª 0£¬ÔòÌø×ªµ½ÏÂÃæµÄ DEC Ö¸Áî
+0163 020000   F     1059             LJMP    KEYBOARD0116 ;Èç¹û A ²»Îª 0£¬ÔòÎÞÌõ¼þÌø×ªµ½ KEYBOARD0116 ´¦¼ÌÐøÖ´ÐÐ
+0166 1500     F     1060             DEC     i1 ;½« i1 ¼õ 1£¬¼´ i1 = i1 - 1
+0168                1061     KEYBOARD0123: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0168 0500     F     1062             INC     i1 ;½« i1 ¼Ó 1£¬¼´ i1 = i1 + 1
+016A 020000   F     1063             LJMP    KEYBOARD0121 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0121 ´¦¼ÌÐøÖ´ÐÐ
+----                1064             RSEG  wait_input_KEYBOARD ;¶¨ÒåÒ»¸ö¶Î£¬±íÊ¾µÈ´ÊäÈëµÄ¼üÅÌ´¦Àí
+0000                1065     wait_input: ;¶¨ÒåÒ»¸ö±êÇ©£¬±íÊ¾µÈ´ÊäÈëµÄ´¦Àí
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE    18
+
+                    1066             USING   0 ;Ê¹ÓÃ¼Ä´æÆ÷×é 0
+0000 C200     F     1067             CLR     state3 ;Çå³ state3 µÄÄÚÈÝ£¬¼´ state3 = 0
+0002                1068     KEYBOARD0157: ;¶¨ÒåÒ»¸öÑ­»·µÄ¿ªÊ¼
+0002 120000   F     1069             LCALL   kscan ;µ÷ÓÃ kscan ×Ó³ÌÐò£¬É¨Ãè¼üÅÌÊäÈë
+0005 EF             1070             MOV     A,R7 ;½« R7 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0006 D3             1071             SETB    C ;ÖÃÎ»½øÎ»±êÖ¾ C
+0007 940F           1072             SUBB    A,#0FH ;½« A ºÍ 0FH Ïà¼õ£¬¼´ A = A - 0FH
+0009 5004           1073             JNC     KEYBOARD0160 ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 0FH£¬ÔòÌø×ªµ½ KEYBOARD0160 ´¦¼ÌÐøÖ´ÐÐ
+000B 7E01           1074             MOV     R6,#01H ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 0FH£¬Ôò½« 01H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 1
+000D 8002           1075             SJMP    KEYBOARD0161 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0161 ´¦¼ÌÐøÖ´ÐÐ
+000F                1076     KEYBOARD0160: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+000F 7E00           1077             MOV     R6,#00H ;½« 00H ÒÆ¶¯µ½ R6 ÖÐ£¬¼´ R6 = 0
+0011                1078     KEYBOARD0161: ;¶¨ÒåÒ»¸öÐÂµÄ±êÇ©
+0011 EF             1079             MOV     A,R7 ;½« R7 µÄÄÚÈÝÒÆ¶¯µ½ A ÖÐ
+0012 C3             1080             CLR     C ;Çå³½øÎ»±êÖ¾ C
+0013 9400           1081             SUBB    A,#00H ;½« A ºÍ 00H Ïà¼õ£¬¼´ A = A - 00H
+0015 4004           1082             JC      KEYBOARD0162 ;Èç¹ûÓÐ½øÎ»£¬¼´ A < 00H£¬ÔòÌø×ªµ½ KEYBOARD0162 ´¦¼ÌÐøÖ´ÐÐ
+0017 7D01           1083             MOV     R5,#01H ;Èç¹ûÃ»ÓÐ½øÎ»£¬¼´ A >= 00H£¬Ôò½« 01H ÒÆ¶¯µ½ R5 ÖÐ£¬¼´ R5 = 1
+0019 8002           1084             SJMP    KEYBOARD0163 ;ÎÞÌõ¼þÌø×ªµ½ KEYBOARD0163 ´¦¼ÌÐøÖ´ÐÐ
+001B                1085     KEYBOARD0162: ; ÉèÖÃR5Îª0
+001B 7D00           1086             MOV     R5,#00H
+001D                1087     KEYBOARD0163: ; ½«R5µÄÖµÒÆ¶¯µ½AÖÐ£¬²¢ÓëR6½øÐÐÂß¼­ÓëÔËËã
+001D ED             1088             MOV     A,R5
+001E 5E             1089             ANL     A,R6
+001F 60E1           1090             JZ      KEYBOARD0157 ; Èç¹ûAÎª0£¬Ìø×ªµ½KEYBOARD0157
+0021 BF0E02         1091             CJNE    R7,#0EH,KEYBOARD0164 ; Èç¹ûR7²»µÈÓÚ0EH£¬Ìø×ªµ½KEYBOARD0164
+0024 D200     F     1092             SETB    state3 ; ·ñÔò£¬ÉèÖÃstate3Îª1
+0026                1093     KEYBOARD0164: ; ½«state3µÄÖµÒÆ¶¯µ½CÖÐ£¬²¢·µ»Ø
+0026 A200     F     1094             MOV     C,state3
+0028 22             1095             RET     
+----                1096     RSEG  wrong_input_bits_KEYBOARD ; ÕâÊÇÒ»¸ö¶ÎÃû£¬±íÊ¾´íÎóµÄÊäÈëÎ»
+0000                1097     wrong_input_bits: ; ÕâÊÇÒ»¸ö±êÇ©£¬±íÊ¾´íÎóµÄÊäÈëÎ»µÄ´¦Àí³ÌÐò
+                    1098             USING   0 ; Ê¹ÓÃ¼Ä´æÆ÷×é0
+0000 120000   F     1099             LCALL   display_wrong_input_bits ; µ÷ÓÃÏÔÊ¾´íÎóÊäÈëÎ»µÄ×Ó³ÌÐò
+0003 020000   F     1100             LJMP    f_or_e ; ³¤Ìø×ªµ½f_or_e
+----                1101     RSEG  wrong_display_time_KEYBOARD ; ÕâÊÇÒ»¸ö¶ÎÃû£¬±íÊ¾´íÎóµÄÏÔÊ¾Ê±¼ä
+0000                1102     wrong_display_time: ; ÕâÊÇÒ»¸ö±êÇ©£¬±íÊ¾´íÎóµÄÏÔÊ¾Ê±¼äµÄ´¦Àí³ÌÐò
+                    1103             USING   0 ; Ê¹ÓÃ¼Ä´æÆ÷×é0
+0000 120000   F     1104             LCALL   display_wrong_input_display_time ; µ÷ÓÃÏÔÊ¾´íÎóÊäÈëÏÔÊ¾Ê±¼äµÄ×Ó³ÌÐò
+0003 020000   F     1105             LJMP    f_or_e ; ³¤Ìø×ªµ½f_or_e
+                    1106     END ; ½áÊø
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE    19
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                           T Y P E  V A L U E   ATTRIBUTES
+
+?C?CCASE . . . . . . . . . . . .  C ADDR   -----       EXT
+?C?COPY. . . . . . . . . . . . .  C ADDR   -----       EXT
+?C?LMUL. . . . . . . . . . . . .  C ADDR   -----       EXT
+?C?ULCMP . . . . . . . . . . . .  C ADDR   -----       EXT
+A1 . . . . . . . . . . . . . . .  D ADDR   0003H   R   SEG=DT_INPUT_DISPLAY_TIME_KEYBOARD
+A2 . . . . . . . . . . . . . . .  D ADDR   0002H   R   SEG=DT_INPUT_BITS_KEYBOARD
+AA . . . . . . . . . . . . . . .  B ADDR   00C0H.2 A   
+AC . . . . . . . . . . . . . . .  B ADDR   00D0H.6 A   
+ACC. . . . . . . . . . . . . . .  D ADDR   00E0H   A   
+AD0BUSY. . . . . . . . . . . . .  B ADDR   00E8H.4 A   
+AD0EN. . . . . . . . . . . . . .  B ADDR   00E8H.7 A   
+AD0INT . . . . . . . . . . . . .  B ADDR   00E8H.5 A   
+AD0LJST. . . . . . . . . . . . .  B ADDR   00E8H.0 A   
+AD0STM0. . . . . . . . . . . . .  B ADDR   00E8H.2 A   
+AD0STM1. . . . . . . . . . . . .  B ADDR   00E8H.3 A   
+AD0TM. . . . . . . . . . . . . .  B ADDR   00E8H.6 A   
+AD0WINT. . . . . . . . . . . . .  B ADDR   00E8H.1 A   
+ADC0CF . . . . . . . . . . . . .  D ADDR   00BCH   A   
+ADC0CN . . . . . . . . . . . . .  D ADDR   00E8H   A   
+ADC0GTH. . . . . . . . . . . . .  D ADDR   00C5H   A   
+ADC0GTL. . . . . . . . . . . . .  D ADDR   00C4H   A   
+ADC0H. . . . . . . . . . . . . .  D ADDR   00BFH   A   
+ADC0L. . . . . . . . . . . . . .  D ADDR   00BEH   A   
+ADC0LTH. . . . . . . . . . . . .  D ADDR   00C7H   A   
+ADC0LTL. . . . . . . . . . . . .  D ADDR   00C6H   A   
+ADC1 . . . . . . . . . . . . . .  D ADDR   009CH   A   
+ADC1CF . . . . . . . . . . . . .  D ADDR   00ABH   A   
+ADC1CN . . . . . . . . . . . . .  D ADDR   00AAH   A   
+AMX0CF . . . . . . . . . . . . .  D ADDR   00BAH   A   
+AMX0SL . . . . . . . . . . . . .  D ADDR   00BBH   A   
+AMX1SL . . . . . . . . . . . . .  D ADDR   00ACH   A   
+AR0. . . . . . . . . . . . . . .  D ADDR   0000H   A   
+AR4. . . . . . . . . . . . . . .  D ADDR   0004H   A   
+AR5. . . . . . . . . . . . . . .  D ADDR   0005H   A   
+AR6. . . . . . . . . . . . . . .  D ADDR   0006H   A   
+AR7. . . . . . . . . . . . . . .  D ADDR   0007H   A   
+B. . . . . . . . . . . . . . . .  D ADDR   00F0H   A   
+BITS . . . . . . . . . . . . . .  D ADDR   -----       EXT
+BI_INPUT_BITS_KEYBOARD . . . . .  B SEG    0001H       REL=UNIT
+BI_INPUT_DIGITS_KEYBOARD . . . .  B SEG    0001H       REL=UNIT
+BI_INPUT_DISPLAY_TIME_KEYBOARD .  B SEG    0001H       REL=UNIT
+BI_WAIT_INPUT_KEYBOARD . . . . .  B SEG    0001H       REL=UNIT
+CCF0 . . . . . . . . . . . . . .  B ADDR   00D8H.0 A   
+CCF1 . . . . . . . . . . . . . .  B ADDR   00D8H.1 A   
+CCF2 . . . . . . . . . . . . . .  B ADDR   00D8H.2 A   
+CCF3 . . . . . . . . . . . . . .  B ADDR   00D8H.3 A   
+CCF4 . . . . . . . . . . . . . .  B ADDR   00D8H.4 A   
+CF . . . . . . . . . . . . . . .  B ADDR   00D8H.7 A   
+CKCON. . . . . . . . . . . . . .  D ADDR   008EH   A   
+CLEAR. . . . . . . . . . . . . .  C ADDR   -----       EXT
+CO_KEYBOARD. . . . . . . . . . .  C SEG    0007H       REL=UNIT
+CPRL2. . . . . . . . . . . . . .  B ADDR   00C8H.0 A   
+CPT0CN . . . . . . . . . . . . .  D ADDR   009EH   A   
+CPT1CN . . . . . . . . . . . . .  D ADDR   009FH   A   
+CR . . . . . . . . . . . . . . .  B ADDR   00D8H.6 A   
+CT2. . . . . . . . . . . . . . .  B ADDR   00C8H.1 A   
+CY . . . . . . . . . . . . . . .  B ADDR   00D0H.7 A   
+DAC0CN . . . . . . . . . . . . .  D ADDR   00D4H   A   
+DAC0H. . . . . . . . . . . . . .  D ADDR   00D3H   A   
+DAC0L. . . . . . . . . . . . . .  D ADDR   00D2H   A   
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE    20
+
+DAC1CN . . . . . . . . . . . . .  D ADDR   00D7H   A   
+DAC1H. . . . . . . . . . . . . .  D ADDR   00D6H   A   
+DAC1L. . . . . . . . . . . . . .  D ADDR   00D5H   A   
+DIGIT. . . . . . . . . . . . . .  D ADDR   0001H   R   SEG=DT_INPUT_DIGITS_KEYBOARD
+DIGIT1 . . . . . . . . . . . . .  D ADDR   0002H   R   SEG=DT_INPUT_DISPLAY_TIME_KEYBOARD
+DIGIT2 . . . . . . . . . . . . .  D ADDR   0001H   R   SEG=DT_INPUT_BITS_KEYBOARD
+DIGITS . . . . . . . . . . . . .  C ADDR   -----       EXT
+DISPLAY_TIME . . . . . . . . . .  D ADDR   -----       EXT
+DISPLAY_WRONG_INPUT_BITS . . . .  C ADDR   -----       EXT
+DISPLAY_WRONG_INPUT_DISPLAY_TIME  C ADDR   -----       EXT
+DPH. . . . . . . . . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . . . . . . . . .  D ADDR   0082H   A   
+DT_INPUT_BITS_KEYBOARD . . . . .  D SEG    0004H       REL=UNIT
+DT_INPUT_DIGITS_KEYBOARD . . . .  D SEG    0002H       REL=UNIT
+DT_INPUT_DISPLAY_TIME_KEYBOARD .  D SEG    000CH       REL=UNIT
+DT_KSCAN_KEYBOARD. . . . . . . .  D SEG    0002H       REL=UNIT
+EA . . . . . . . . . . . . . . .  B ADDR   00A8H.7 A   
+EIE1 . . . . . . . . . . . . . .  D ADDR   00E6H   A   
+EIE2 . . . . . . . . . . . . . .  D ADDR   00E7H   A   
+EIP1 . . . . . . . . . . . . . .  D ADDR   00F6H   A   
+EIP2 . . . . . . . . . . . . . .  D ADDR   00F7H   A   
+EMI0CF . . . . . . . . . . . . .  D ADDR   00A3H   A   
+EMI0CN . . . . . . . . . . . . .  D ADDR   00AFH   A   
+EMI0TC . . . . . . . . . . . . .  D ADDR   00A1H   A   
+ENSMB. . . . . . . . . . . . . .  B ADDR   00C0H.6 A   
+ES . . . . . . . . . . . . . . .  B ADDR   00A8H.4 A   
+ET0. . . . . . . . . . . . . . .  B ADDR   00A8H.1 A   
+ET1. . . . . . . . . . . . . . .  B ADDR   00A8H.3 A   
+ET2. . . . . . . . . . . . . . .  B ADDR   00A8H.5 A   
+EX0. . . . . . . . . . . . . . .  B ADDR   00A8H.0 A   
+EX1. . . . . . . . . . . . . . .  B ADDR   00A8H.2 A   
+EXEN2. . . . . . . . . . . . . .  B ADDR   00C8H.3 A   
+EXF2 . . . . . . . . . . . . . .  B ADDR   00C8H.6 A   
+F0 . . . . . . . . . . . . . . .  B ADDR   00D0H.5 A   
+F1 . . . . . . . . . . . . . . .  B ADDR   00D0H.1 A   
+FLACL. . . . . . . . . . . . . .  D ADDR   00B7H   A   
+FLSCL. . . . . . . . . . . . . .  D ADDR   00B6H   A   
+F_OR_E . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=F_OR_E_KEYBOARD
+F_OR_E_KEYBOARD. . . . . . . . .  C SEG    0014H       REL=UNIT
+I. . . . . . . . . . . . . . . .  D ADDR   0000H   R   SEG=DT_INPUT_DIGITS_KEYBOARD
+I1 . . . . . . . . . . . . . . .  D ADDR   0000H   R   SEG=DT_INPUT_DISPLAY_TIME_KEYBOARD
+I2 . . . . . . . . . . . . . . .  D ADDR   0000H   R   SEG=DT_INPUT_BITS_KEYBOARD
+IE . . . . . . . . . . . . . . .  D ADDR   00A8H   A   
+IE0. . . . . . . . . . . . . . .  B ADDR   0088H.1 A   
+IE1. . . . . . . . . . . . . . .  B ADDR   0088H.3 A   
+INPUTS . . . . . . . . . . . . .  X ADDR   0000H   R   SEG=XD_KEYBOARD
+INPUT_BITS . . . . . . . . . . .  C ADDR   0000H   R   SEG=INPUT_BITS_KEYBOARD
+INPUT_BITS_BIT . . . . . . . . .  B ADDR   0000H.0 R   SEG=BI_INPUT_BITS_KEYBOARD
+INPUT_BITS_BYTE. . . . . . . . .  D ADDR   0000H   R   SEG=DT_INPUT_BITS_KEYBOARD
+INPUT_BITS_KEYBOARD. . . . . . .  C SEG    010CH       REL=UNIT
+INPUT_DIGITS . . . . . . . . . .  C ADDR   0000H   R   SEG=INPUT_DIGITS_KEYBOARD
+INPUT_DIGITS_BIT . . . . . . . .  B ADDR   0000H.0 R   SEG=BI_INPUT_DIGITS_KEYBOARD
+INPUT_DIGITS_BYTE. . . . . . . .  D ADDR   0000H   R   SEG=DT_INPUT_DIGITS_KEYBOARD
+INPUT_DIGITS_KEYBOARD. . . . . .  C SEG    00F2H       REL=UNIT
+INPUT_DISPLAY_TIME . . . . . . .  C ADDR   0000H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+INPUT_DISPLAY_TIME_BIT . . . . .  B ADDR   0000H.0 R   SEG=BI_INPUT_DISPLAY_TIME_KEYBOARD
+INPUT_DISPLAY_TIME_BYTE. . . . .  D ADDR   0000H   R   SEG=DT_INPUT_DISPLAY_TIME_KEYBOARD
+INPUT_DISPLAY_TIME_KEYBOARD. . .  C SEG    016DH       REL=UNIT
+IP . . . . . . . . . . . . . . .  D ADDR   00B8H   A   
+IT0. . . . . . . . . . . . . . .  B ADDR   0088H.0 A   
+IT1. . . . . . . . . . . . . . .  B ADDR   0088H.2 A   
+J1 . . . . . . . . . . . . . . .  D ADDR   0001H   R   SEG=DT_INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD . . . . . . . . . . . .  N NUMB   -----       
+KEYBOARD0001 . . . . . . . . . .  C ADDR   0006H   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0005 . . . . . . . . . .  C ADDR   00BBH   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0006 . . . . . . . . . .  C ADDR   006DH   R   SEG=KSCAN_KEYBOARD
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE    21
+
+KEYBOARD0007 . . . . . . . . . .  C ADDR   0072H   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0008 . . . . . . . . . .  C ADDR   0077H   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0009 . . . . . . . . . .  C ADDR   007CH   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0010 . . . . . . . . . .  C ADDR   0081H   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0011 . . . . . . . . . .  C ADDR   0086H   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0012 . . . . . . . . . .  C ADDR   008BH   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0013 . . . . . . . . . .  C ADDR   0090H   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0014 . . . . . . . . . .  C ADDR   0095H   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0015 . . . . . . . . . .  C ADDR   009AH   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0016 . . . . . . . . . .  C ADDR   009FH   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0017 . . . . . . . . . .  C ADDR   00A4H   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0018 . . . . . . . . . .  C ADDR   00A9H   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0019 . . . . . . . . . .  C ADDR   00AEH   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0020 . . . . . . . . . .  C ADDR   00B3H   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0021 . . . . . . . . . .  C ADDR   00B8H   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0023 . . . . . . . . . .  C ADDR   00C1H   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0024 . . . . . . . . . .  C ADDR   00D6H   R   SEG=KSCAN_KEYBOARD
+KEYBOARD0028 . . . . . . . . . .  C ADDR   0000H   R   SEG=F_OR_E_KEYBOARD
+KEYBOARD0030 . . . . . . . . . .  C ADDR   000CH   R   SEG=F_OR_E_KEYBOARD
+KEYBOARD0031 . . . . . . . . . .  C ADDR   0013H   R   SEG=F_OR_E_KEYBOARD
+KEYBOARD0036 . . . . . . . . . .  C ADDR   000FH   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0038 . . . . . . . . . .  C ADDR   0015H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0039 . . . . . . . . . .  C ADDR   0029H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0041 . . . . . . . . . .  C ADDR   002CH   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0043 . . . . . . . . . .  C ADDR   00EDH   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0044 . . . . . . . . . .  C ADDR   00A7H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0045 . . . . . . . . . .  C ADDR   0043H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0046 . . . . . . . . . .  C ADDR   0045H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0047 . . . . . . . . . .  C ADDR   0050H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0048 . . . . . . . . . .  C ADDR   0052H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0049 . . . . . . . . . .  C ADDR   0060H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0050 . . . . . . . . . .  C ADDR   0062H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0051 . . . . . . . . . .  C ADDR   0087H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0053 . . . . . . . . . .  C ADDR   0093H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0055 . . . . . . . . . .  C ADDR   009FH   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0058 . . . . . . . . . .  C ADDR   00C5H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0059 . . . . . . . . . .  C ADDR   00B0H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0060 . . . . . . . . . .  C ADDR   00B2H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0061 . . . . . . . . . .  C ADDR   00BDH   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0062 . . . . . . . . . .  C ADDR   00BFH   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0064 . . . . . . . . . .  C ADDR   00CCH   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0067 . . . . . . . . . .  C ADDR   00D5H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0068 . . . . . . . . . .  C ADDR   00D7H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0069 . . . . . . . . . .  C ADDR   00E2H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0070 . . . . . . . . . .  C ADDR   00E4H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0074 . . . . . . . . . .  C ADDR   0020H   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0076 . . . . . . . . . .  C ADDR   0026H   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0077 . . . . . . . . . .  C ADDR   0034H   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0079 . . . . . . . . . .  C ADDR   0037H   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0081 . . . . . . . . . .  C ADDR   0107H   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0082 . . . . . . . . . .  C ADDR   0086H   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0083 . . . . . . . . . .  C ADDR   004EH   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0084 . . . . . . . . . .  C ADDR   0050H   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0085 . . . . . . . . . .  C ADDR   005BH   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0086 . . . . . . . . . .  C ADDR   005DH   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0087 . . . . . . . . . .  C ADDR   006BH   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0088 . . . . . . . . . .  C ADDR   006DH   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0090 . . . . . . . . . .  C ADDR   00DFH   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0091 . . . . . . . . . .  C ADDR   008FH   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0092 . . . . . . . . . .  C ADDR   0091H   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0093 . . . . . . . . . .  C ADDR   009CH   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0094 . . . . . . . . . .  C ADDR   009EH   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0095 . . . . . . . . . .  C ADDR   00ACH   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0096 . . . . . . . . . .  C ADDR   00B6H   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0097 . . . . . . . . . .  C ADDR   00D6H   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0098 . . . . . . . . . .  C ADDR   00C1H   R   SEG=INPUT_BITS_KEYBOARD
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE    22
+
+KEYBOARD0099 . . . . . . . . . .  C ADDR   00C3H   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0100 . . . . . . . . . .  C ADDR   00CEH   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0101 . . . . . . . . . .  C ADDR   00D0H   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0106 . . . . . . . . . .  C ADDR   00E6H   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0109 . . . . . . . . . .  C ADDR   00EFH   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0110 . . . . . . . . . .  C ADDR   00F1H   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0111 . . . . . . . . . .  C ADDR   00FCH   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0112 . . . . . . . . . .  C ADDR   00FEH   R   SEG=INPUT_BITS_KEYBOARD
+KEYBOARD0116 . . . . . . . . . .  C ADDR   0020H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0118 . . . . . . . . . .  C ADDR   0026H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0119 . . . . . . . . . .  C ADDR   0034H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0121 . . . . . . . . . .  C ADDR   0037H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0123 . . . . . . . . . .  C ADDR   0168H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0124 . . . . . . . . . .  C ADDR   0086H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0125 . . . . . . . . . .  C ADDR   004EH   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0126 . . . . . . . . . .  C ADDR   0050H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0127 . . . . . . . . . .  C ADDR   005BH   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0128 . . . . . . . . . .  C ADDR   005DH   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0129 . . . . . . . . . .  C ADDR   006BH   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0130 . . . . . . . . . .  C ADDR   006DH   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0132 . . . . . . . . . .  C ADDR   0140H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0133 . . . . . . . . . .  C ADDR   008FH   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0134 . . . . . . . . . .  C ADDR   0091H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0135 . . . . . . . . . .  C ADDR   009CH   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0136 . . . . . . . . . .  C ADDR   009EH   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0137 . . . . . . . . . .  C ADDR   00B0H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0138 . . . . . . . . . .  C ADDR   00F1H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0140 . . . . . . . . . .  C ADDR   0137H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0141 . . . . . . . . . .  C ADDR   010CH   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0142 . . . . . . . . . .  C ADDR   0110H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0143 . . . . . . . . . .  C ADDR   0128H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0144 . . . . . . . . . .  C ADDR   012AH   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0149 . . . . . . . . . .  C ADDR   0147H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0152 . . . . . . . . . .  C ADDR   0150H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0153 . . . . . . . . . .  C ADDR   0152H   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0154 . . . . . . . . . .  C ADDR   015DH   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0155 . . . . . . . . . .  C ADDR   015FH   R   SEG=INPUT_DISPLAY_TIME_KEYBOARD
+KEYBOARD0157 . . . . . . . . . .  C ADDR   0002H   R   SEG=WAIT_INPUT_KEYBOARD
+KEYBOARD0160 . . . . . . . . . .  C ADDR   000FH   R   SEG=WAIT_INPUT_KEYBOARD
+KEYBOARD0161 . . . . . . . . . .  C ADDR   0011H   R   SEG=WAIT_INPUT_KEYBOARD
+KEYBOARD0162 . . . . . . . . . .  C ADDR   001BH   R   SEG=WAIT_INPUT_KEYBOARD
+KEYBOARD0163 . . . . . . . . . .  C ADDR   001DH   R   SEG=WAIT_INPUT_KEYBOARD
+KEYBOARD0164 . . . . . . . . . .  C ADDR   0026H   R   SEG=WAIT_INPUT_KEYBOARD
+KEYBOARD0168 . . . . . . . . . .  C ADDR   00A1H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0169 . . . . . . . . . .  C ADDR   0090H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYBOARD0170 . . . . . . . . . .  C ADDR   00A1H   R   SEG=INPUT_DIGITS_KEYBOARD
+KEYL . . . . . . . . . . . . . .  D ADDR   0000H   R   SEG=DT_KSCAN_KEYBOARD
+KSCAN. . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=KSCAN_KEYBOARD
+KSCAN_BYTE . . . . . . . . . . .  D ADDR   0000H   R   SEG=DT_KSCAN_KEYBOARD
+KSCAN_KEYBOARD . . . . . . . . .  C SEG    00D9H       REL=UNIT
+MODF . . . . . . . . . . . . . .  B ADDR   00F8H.5 A   
+MSTEN. . . . . . . . . . . . . .  B ADDR   00F8H.1 A   
+OSCICN . . . . . . . . . . . . .  D ADDR   00B2H   A   
+OSCXCN . . . . . . . . . . . . .  D ADDR   00B1H   A   
+OV . . . . . . . . . . . . . . .  B ADDR   00D0H.2 A   
+P. . . . . . . . . . . . . . . .  B ADDR   00D0H.0 A   
+P0 . . . . . . . . . . . . . . .  D ADDR   0080H   A   
+P0MDOUT. . . . . . . . . . . . .  D ADDR   00A4H   A   
+P1 . . . . . . . . . . . . . . .  D ADDR   0090H   A   
+P1MDIN . . . . . . . . . . . . .  D ADDR   00BDH   A   
+P1MDOUT. . . . . . . . . . . . .  D ADDR   00A5H   A   
+P2 . . . . . . . . . . . . . . .  D ADDR   00A0H   A   
+P2MDOUT. . . . . . . . . . . . .  D ADDR   00A6H   A   
+P3 . . . . . . . . . . . . . . .  D ADDR   00B0H   A   
+P3IF . . . . . . . . . . . . . .  D ADDR   00ADH   A   
+P3MDOUT. . . . . . . . . . . . .  D ADDR   00A7H   A   
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE    23
+
+P4 . . . . . . . . . . . . . . .  D ADDR   0084H   A   
+P5 . . . . . . . . . . . . . . .  D ADDR   0085H   A   
+P6 . . . . . . . . . . . . . . .  D ADDR   0086H   A   
+P7 . . . . . . . . . . . . . . .  D ADDR   0096H   A   
+P74OUT . . . . . . . . . . . . .  D ADDR   00B5H   A   
+PCA0CN . . . . . . . . . . . . .  D ADDR   00D8H   A   
+PCA0CPH0 . . . . . . . . . . . .  D ADDR   00FAH   A   
+PCA0CPH1 . . . . . . . . . . . .  D ADDR   00FBH   A   
+PCA0CPH2 . . . . . . . . . . . .  D ADDR   00FCH   A   
+PCA0CPH3 . . . . . . . . . . . .  D ADDR   00FDH   A   
+PCA0CPH4 . . . . . . . . . . . .  D ADDR   00FEH   A   
+PCA0CPL0 . . . . . . . . . . . .  D ADDR   00EAH   A   
+PCA0CPL1 . . . . . . . . . . . .  D ADDR   00EBH   A   
+PCA0CPL2 . . . . . . . . . . . .  D ADDR   00ECH   A   
+PCA0CPL3 . . . . . . . . . . . .  D ADDR   00EDH   A   
+PCA0CPL4 . . . . . . . . . . . .  D ADDR   00EEH   A   
+PCA0CPM0 . . . . . . . . . . . .  D ADDR   00DAH   A   
+PCA0CPM1 . . . . . . . . . . . .  D ADDR   00DBH   A   
+PCA0CPM2 . . . . . . . . . . . .  D ADDR   00DCH   A   
+PCA0CPM3 . . . . . . . . . . . .  D ADDR   00DDH   A   
+PCA0CPM4 . . . . . . . . . . . .  D ADDR   00DEH   A   
+PCA0H. . . . . . . . . . . . . .  D ADDR   00F9H   A   
+PCA0L. . . . . . . . . . . . . .  D ADDR   00E9H   A   
+PCA0MD . . . . . . . . . . . . .  D ADDR   00D9H   A   
+PCON . . . . . . . . . . . . . .  D ADDR   0087H   A   
+PS . . . . . . . . . . . . . . .  B ADDR   00B8H.4 A   
+PSCTL. . . . . . . . . . . . . .  D ADDR   008FH   A   
+PSW. . . . . . . . . . . . . . .  D ADDR   00D0H   A   
+PT0. . . . . . . . . . . . . . .  B ADDR   00B8H.1 A   
+PT1. . . . . . . . . . . . . . .  B ADDR   00B8H.3 A   
+PT2. . . . . . . . . . . . . . .  B ADDR   00B8H.5 A   
+PX0. . . . . . . . . . . . . . .  B ADDR   00B8H.0 A   
+PX1. . . . . . . . . . . . . . .  B ADDR   00B8H.2 A   
+RB8. . . . . . . . . . . . . . .  B ADDR   0098H.2 A   
+RCAP2H . . . . . . . . . . . . .  D ADDR   00CBH   A   
+RCAP2L . . . . . . . . . . . . .  D ADDR   00CAH   A   
+RCAP4H . . . . . . . . . . . . .  D ADDR   00E5H   A   
+RCAP4L . . . . . . . . . . . . .  D ADDR   00E4H   A   
+RCLK . . . . . . . . . . . . . .  B ADDR   00C8H.5 A   
+REF0CN . . . . . . . . . . . . .  D ADDR   00D1H   A   
+REN. . . . . . . . . . . . . . .  B ADDR   0098H.4 A   
+RI . . . . . . . . . . . . . . .  B ADDR   0098H.0 A   
+RS0. . . . . . . . . . . . . . .  B ADDR   00D0H.3 A   
+RS1. . . . . . . . . . . . . . .  B ADDR   00D0H.4 A   
+RSTSRC . . . . . . . . . . . . .  D ADDR   00EFH   A   
+RXOVRN . . . . . . . . . . . . .  B ADDR   00F8H.4 A   
+SADDR0 . . . . . . . . . . . . .  D ADDR   00A9H   A   
+SADDR1 . . . . . . . . . . . . .  D ADDR   00F3H   A   
+SADEN0 . . . . . . . . . . . . .  D ADDR   00B9H   A   
+SADEN1 . . . . . . . . . . . . .  D ADDR   00AEH   A   
+SBUF0. . . . . . . . . . . . . .  D ADDR   0099H   A   
+SBUF1. . . . . . . . . . . . . .  D ADDR   00F2H   A   
+SCON0. . . . . . . . . . . . . .  D ADDR   0098H   A   
+SCON1. . . . . . . . . . . . . .  D ADDR   00F1H   A   
+SI . . . . . . . . . . . . . . .  B ADDR   00C0H.3 A   
+SLVSEL . . . . . . . . . . . . .  B ADDR   00F8H.2 A   
+SM0. . . . . . . . . . . . . . .  B ADDR   0098H.7 A   
+SM1. . . . . . . . . . . . . . .  B ADDR   0098H.6 A   
+SM2. . . . . . . . . . . . . . .  B ADDR   0098H.5 A   
+SMB0ADR. . . . . . . . . . . . .  D ADDR   00C3H   A   
+SMB0CN . . . . . . . . . . . . .  D ADDR   00C0H   A   
+SMB0CR . . . . . . . . . . . . .  D ADDR   00CFH   A   
+SMB0DAT. . . . . . . . . . . . .  D ADDR   00C2H   A   
+SMB0STA. . . . . . . . . . . . .  D ADDR   00C1H   A   
+SMBFTE . . . . . . . . . . . . .  B ADDR   00C0H.1 A   
+SMBTOE . . . . . . . . . . . . .  B ADDR   00C0H.0 A   
+A51 MACRO ASSEMBLER  KEYBOARD                                                             12/25/2023 12:10:40 PAGE    24
+
+SP . . . . . . . . . . . . . . .  D ADDR   0081H   A   
+SPI0CFG. . . . . . . . . . . . .  D ADDR   009AH   A   
+SPI0CKR. . . . . . . . . . . . .  D ADDR   009DH   A   
+SPI0CN . . . . . . . . . . . . .  D ADDR   00F8H   A   
+SPI0DAT. . . . . . . . . . . . .  D ADDR   009BH   A   
+SPIEN. . . . . . . . . . . . . .  B ADDR   00F8H.0 A   
+SPIF . . . . . . . . . . . . . .  B ADDR   00F8H.7 A   
+STA. . . . . . . . . . . . . . .  B ADDR   00C0H.5 A   
+STATE. . . . . . . . . . . . . .  B ADDR   0000H.0 R   SEG=BI_INPUT_DIGITS_KEYBOARD
+STATE1 . . . . . . . . . . . . .  B ADDR   0000H.0 R   SEG=BI_INPUT_DISPLAY_TIME_KEYBOARD
+STATE2 . . . . . . . . . . . . .  B ADDR   0000H.0 R   SEG=BI_INPUT_BITS_KEYBOARD
+STATE3 . . . . . . . . . . . . .  B ADDR   0000H.0 R   SEG=BI_WAIT_INPUT_KEYBOARD
+STO. . . . . . . . . . . . . . .  B ADDR   00C0H.4 A   
+T2CON. . . . . . . . . . . . . .  D ADDR   00C8H   A   
+T4CON. . . . . . . . . . . . . .  D ADDR   00C9H   A   
+TB8. . . . . . . . . . . . . . .  B ADDR   0098H.3 A   
+TCLK . . . . . . . . . . . . . .  B ADDR   00C8H.4 A   
+TCON . . . . . . . . . . . . . .  D ADDR   0088H   A   
+TEMP . . . . . . . . . . . . . .  D ADDR   0001H   R   SEG=DT_KSCAN_KEYBOARD
+TEMP1. . . . . . . . . . . . . .  D ADDR   0008H   R   SEG=DT_INPUT_DISPLAY_TIME_KEYBOARD
+TF0. . . . . . . . . . . . . . .  B ADDR   0088H.5 A   
+TF1. . . . . . . . . . . . . . .  B ADDR   0088H.7 A   
+TF2. . . . . . . . . . . . . . .  B ADDR   00C8H.7 A   
+TH0. . . . . . . . . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . . . . . . . . .  D ADDR   008DH   A   
+TH2. . . . . . . . . . . . . . .  D ADDR   00CDH   A   
+TH4. . . . . . . . . . . . . . .  D ADDR   00F5H   A   
+TI . . . . . . . . . . . . . . .  B ADDR   0098H.1 A   
+TL0. . . . . . . . . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . . . . . . . . .  D ADDR   008BH   A   
+TL2. . . . . . . . . . . . . . .  D ADDR   00CCH   A   
+TL4. . . . . . . . . . . . . . .  D ADDR   00F4H   A   
+TMOD . . . . . . . . . . . . . .  D ADDR   0089H   A   
+TMR3CN . . . . . . . . . . . . .  D ADDR   0091H   A   
+TMR3H. . . . . . . . . . . . . .  D ADDR   0095H   A   
+TMR3L. . . . . . . . . . . . . .  D ADDR   0094H   A   
+TMR3RLH. . . . . . . . . . . . .  D ADDR   0093H   A   
+TMR3RLL. . . . . . . . . . . . .  D ADDR   0092H   A   
+TR0. . . . . . . . . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . . . . . . . . .  B ADDR   0088H.6 A   
+TR2. . . . . . . . . . . . . . .  B ADDR   00C8H.2 A   
+TXBSY. . . . . . . . . . . . . .  B ADDR   00F8H.3 A   
+WAIT_INPUT . . . . . . . . . . .  C ADDR   0000H   R   SEG=WAIT_INPUT_KEYBOARD
+WAIT_INPUT_BIT . . . . . . . . .  B ADDR   0000H.0 R   SEG=BI_WAIT_INPUT_KEYBOARD
+WAIT_INPUT_KEYBOARD. . . . . . .  C SEG    0029H       REL=UNIT
+WCOL . . . . . . . . . . . . . .  B ADDR   00F8H.6 A   
+WDTCN. . . . . . . . . . . . . .  D ADDR   00FFH   A   
+WRONG_DISPLAY_TIME . . . . . . .  C ADDR   0000H   R   SEG=WRONG_DISPLAY_TIME_KEYBOARD
+WRONG_DISPLAY_TIME_KEYBOARD. . .  C SEG    0006H       REL=UNIT
+WRONG_INPUT_BITS . . . . . . . .  C ADDR   0000H   R   SEG=WRONG_INPUT_BITS_KEYBOARD
+WRONG_INPUT_BITS_KEYBOARD. . . .  C SEG    0006H       REL=UNIT
+XBR0 . . . . . . . . . . . . . .  D ADDR   00E1H   A   
+XBR1 . . . . . . . . . . . . . .  D ADDR   00E2H   A   
+XBR2 . . . . . . . . . . . . . .  D ADDR   00E3H   A   
+XD_KEYBOARD. . . . . . . . . . .  X SEG    0040H       REL=UNIT
+_?IX1000 . . . . . . . . . . . .  C ADDR   0000H   R   SEG=CO_KEYBOARD
+_?IX1001 . . . . . . . . . . . .  C ADDR   0002H   R   SEG=CO_KEYBOARD
+_DELAY_MS. . . . . . . . . . . .  C ADDR   -----       EXT
+_PRINT_CHAR. . . . . . . . . . .  C ADDR   -----       EXT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

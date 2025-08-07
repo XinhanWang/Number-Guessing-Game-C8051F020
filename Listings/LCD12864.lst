@@ -1,0 +1,255 @@
+C51 COMPILER V9.60.7.0   LCD12864                                                          12/22/2023 09:21:57 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE LCD12864
+NO OBJECT MODULE REQUESTED
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE C语言版本\LCD12864.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\LCD12864.lst) TABS(2) SRC(.\Objects\LCD12864.SRC)
+
+line level    source
+
+   1          // 包含LCD12864液晶显示屏的头文件
+   2          #include "LCD12864.h"
+   3          
+   4          // 定义设置LCD读写模式的函数
+   5          void set_LCD_read_write(void)
+   6          {
+   7   1        // 如果LCD_RW为0，表示写模式，将LCD_read_write设为0xFF，推挽输出
+   8   1        if(LCD_RW==0)
+   9   1        {
+  10   2          LCD_read_write= 0xFF;
+  11   2        }
+  12   1        // 否则，表示读模式，将LCD_read_write设为0x00，将LCD_data设为0xFF，漏开写1作为输入
+  13   1        else
+  14   1        {
+  15   2          LCD_read_write= 0x00;
+  16   2          LCD_data=0xFF;
+  17   2        }
+  18   1      }
+  19          
+  20          /*
+  21          * 功  能：等待LCD12864空闲
+  22          * 参  数：无
+  23          * 返回值：无
+  24          */
+  25          void wait_lcd_not_busy()
+  26          {                          
+  27   1        // 将LCD_RS设为0，表示选择指令寄存器
+  28   1        LCD_RS = 0;
+  29   1        // 将LCD_RW设为1，表示读取状态
+  30   1        LCD_RW = 1;
+  31   1        // 调用设置LCD读写模式的函数
+  32   1        set_LCD_read_write();
+  33   1        // 将LCD_EN设为1
+  34   1        LCD_EN = 1;
+  35   1        // 等待D7为0，表示LCD空闲
+  36   1        while(D7);
+  37   1        // 将LCD_EN设为0
+  38   1        LCD_EN = 0;
+  39   1      }
+  40          
+  41          /*
+  42          * 功  能：写指令到LCD
+  43          * 参  数：要写入的指令
+  44          * 返回值：无
+  45          */
+  46          void lcd_wcmd(uchar cmd)
+  47          {                          
+  48   1        // 调用等待LCD空闲的函数
+  49   1        wait_lcd_not_busy();
+  50   1        // 将LCD_RS设为0，表示选择指令寄存器
+  51   1        LCD_RS = 0;
+  52   1        // 将LCD_RW设为0，表示写入数据
+  53   1        LCD_RW = 0;
+  54   1        // 调用设置LCD读写模式的函数
+C51 COMPILER V9.60.7.0   LCD12864                                                          12/22/2023 09:21:57 PAGE 2   
+
+  55   1        set_LCD_read_write();
+  56   1        // 将要写入的指令赋值给LCD_data
+  57   1        LCD_data = cmd;
+  58   1        // 延时1毫秒
+  59   1        delay_ms(1);
+  60   1        // 将LCD_EN设为1
+  61   1        LCD_EN = 1;
+  62   1        // 延时1毫秒
+  63   1        delay_ms(1);
+  64   1        // 将LCD_EN设为0
+  65   1        LCD_EN = 0;  
+  66   1      }
+  67          
+  68          /*
+  69          * 功  能：LCD写数据
+  70          * 参  数：要写入的数据
+  71          * 返回值：无
+  72          */
+  73          void lcd_wdat(uchar dat)
+  74          {                          
+  75   1        // 调用等待LCD空闲的函数
+  76   1        wait_lcd_not_busy();
+  77   1        // 将LCD_RS设为1，表示选择数据寄存器
+  78   1        LCD_RS = 1;
+  79   1        // 将LCD_RW设为0，表示写入数据
+  80   1        LCD_RW = 0;
+  81   1        // 调用设置LCD读写模式的函数
+  82   1        set_LCD_read_write();
+  83   1        // 将要写入的数据赋值给LCD_data
+  84   1        LCD_data = dat;
+  85   1        // 延时1毫秒
+  86   1        delay_ms(1);
+  87   1        // 将LCD_EN设为1
+  88   1        LCD_EN = 1;
+  89   1        // 延时1毫秒
+  90   1        delay_ms(1);
+  91   1        // 将LCD_EN设为0
+  92   1        LCD_EN = 0;
+  93   1      }
+  94          
+  95          // 定义清除LCD显示内容的函数
+  96          void clear(void)
+  97          {
+  98   1        // 写入0x01指令，表示清除LCD的显示内容
+  99   1        lcd_wcmd(0x01);      
+ 100   1      }
+ 101          
+ 102          /*
+ 103          * 功  能：LCD初始化
+ 104          * 参  数：无
+ 105          * 返回值：无
+ 106          */
+ 107          void lcd_init(void)
+ 108          { 
+ 109   1        // 写入0x34指令，表示打开扩充指令操作
+ 110   1        lcd_wcmd(0x34);      
+ 111   1        // 延时5毫秒
+ 112   1        delay_ms(5);
+ 113   1        // 写入0x30指令，表示打开基本指令操作
+ 114   1        lcd_wcmd(0x30);      
+ 115   1        // 延时5毫秒
+ 116   1        delay_ms(5);
+C51 COMPILER V9.60.7.0   LCD12864                                                          12/22/2023 09:21:57 PAGE 3   
+
+ 117   1        // 写入0x0C指令，表示显示开，关光标
+ 118   1        lcd_wcmd(0x0C);      
+ 119   1        // 延时5毫秒
+ 120   1        delay_ms(5);
+ 121   1        // 写入0x01指令，表示清除LCD的显示内容
+ 122   1        lcd_wcmd(0x01);      
+ 123   1        // 延时5毫秒
+ 124   1        delay_ms(5);
+ 125   1      }
+ 126          /*设置显示位置  xpos(0~7),ypos(1~4)*/
+ 127          void set_xy(unsigned char xpos,unsigned char ypos)
+ 128          {
+ 129   1        // 根据ypos的值，选择不同的行地址
+ 130   1        switch(ypos)
+ 131   1        {
+ 132   2          case 1:
+ 133   2            // 写入0x80|xpos指令，表示设置第一行的显示位置
+ 134   2            lcd_wcmd(0X80|xpos);break;
+ 135   2          case 2:
+ 136   2            // 写入0x90|xpos指令，表示设置第二行的显示位置
+ 137   2            lcd_wcmd(0X90|xpos);break;
+ 138   2          case 3:
+ 139   2            // 写入0x88|xpos指令，表示设置第三行的显示位置
+ 140   2            lcd_wcmd(0X88|xpos);break;
+ 141   2          case 4:
+ 142   2            // 写入0x98|xpos指令，表示设置第四行的显示位置
+ 143   2            lcd_wcmd(0X98|xpos);break;
+ 144   2          default:
+ 145   2            // 其他情况，不做任何操作
+ 146   2            break;
+ 147   2        }
+ 148   1      }
+ 149          /*在指定位置显示字符串*/
+ 150          void print(unsigned char x,unsigned char y,const unsigned char* str)
+ 151          { 
+ 152   1        // 定义一个无符号字符变量，用于存储字符串中的字符
+ 153   1        unsigned char lcd_temp; 
+ 154   1        // 调用设置显示位置的函数
+ 155   1        set_xy(x,y);
+ 156   1        // 取出字符串中的第一个字符
+ 157   1        lcd_temp=*str;
+ 158   1          // 当字符不为0x00时，表示字符串未结束
+ 159   1          while(lcd_temp != 0x00) 
+ 160   1          { 
+ 161   2          // 在LCD上写入该字符
+ 162   2          lcd_wdat(lcd_temp);
+ 163   2          // 取出字符串中的下一个字符
+ 164   2          lcd_temp=*(++str);
+ 165   2          } 
+ 166   1      }
+ 167          /*在指定位置显示字符*/
+ 168          void print_char(unsigned char x,unsigned char y,unsigned char a)
+ 169          { 
+ 170   1        // 调用设置显示位置的函数
+ 171   1        set_xy(x,y);
+ 172   1        // 在LCD上写入该字符
+ 173   1        lcd_wdat(a);
+ 174   1      }
+ 175          /*
+ 176          * 功  能：在整个液晶屏幕上画图
+ 177          * 参  数：图片的点阵数据
+ 178          * 返回值：无
+C51 COMPILER V9.60.7.0   LCD12864                                                          12/22/2023 09:21:57 PAGE 4   
+
+ 179          */
+ 180          void Draw_PM(const unsigned  char *ptr)
+ 181          {
+ 182   1        // 定义三个无符号字符变量，用于作为循环计数器
+ 183   1        uchar i, j, k;
+ 184   1        // 写入0x34指令，表示打开扩展指令集
+ 185   1        lcd_wcmd(0x34);        
+ 186   1        // 将i设为0x80，表示从第一行开始
+ 187   1        i = 0x80;
+ 188   1                    
+ 189   1        // 先写上半屏
+ 190   1        // 对于每一行，共32行
+ 191   1        for(j=0; j<32; j++)
+ 192   1        {
+ 193   2          // 写入i指令，表示设置行地址
+ 194   2          lcd_wcmd(i++);
+ 195   2          // 写入0x80指令，表示设置列地址为0
+ 196   2          lcd_wcmd(0x80);
+ 197   2          // 对于每一列，共8*2=16列
+ 198   2          for(k=0; k<16; k++)
+ 199   2          {
+ 200   3            // 在LCD上写入图片的点阵数据
+ 201   3            lcd_wdat(*ptr++);
+ 202   3          }
+ 203   2        }
+ 204   1        // 将i设为0x80，表示从第一行开始
+ 205   1        i = 0x80;
+ 206   1        // 再写下半屏
+ 207   1        // 对于每一行，共32行
+ 208   1        for(j=0; j<32; j++)
+ 209   1        {
+ 210   2          // 写入i指令，表示设置行地址
+ 211   2          lcd_wcmd(i++);
+ 212   2          // 写入0x88指令，表示设置列地址为8
+ 213   2          lcd_wcmd(0x88);    
+ 214   2          // 对于每一列，共8*2=16列
+ 215   2          for(k=0; k<16; k++)
+ 216   2          {
+ 217   3            // 在LCD上写入图片的点阵数据
+ 218   3            lcd_wdat(*ptr++);
+ 219   3          } 
+ 220   2        }  
+ 221   1        // 写入0x36指令，表示打开绘图显示
+ 222   1        lcd_wcmd(0x36);        
+ 223   1        // 写入0x30指令，表示回到基本指令集
+ 224   1        lcd_wcmd(0x30);        
+ 225   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    408    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      11
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

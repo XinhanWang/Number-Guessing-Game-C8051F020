@@ -1,0 +1,12 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\init_device.obj",
+".\Objects\LCD12864.obj",
+".\Objects\keyboard.obj",
+".\Objects\time.obj",
+".\Objects\display.obj",
+".\Objects\guessing_game.obj",
+".\Objects\picture.obj",
+"C:\Keil_v5\C51\LIB\C51BS.LIB" 
+TO ".\Objects\猜数游戏" 
+PRINT(".\Listings\猜数游戏.m51") RAMSIZE(256) 

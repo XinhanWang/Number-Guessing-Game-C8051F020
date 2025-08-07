@@ -1,0 +1,1825 @@
+; .\Objects\keyboard.SRC generated from: keyboard.c
+; COMPILER INVOKED BY:
+;        C:\Keil_v5\C51\BIN\C51.EXE keyboard.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\keyboard.lst) TABS(2) SRC(.\Objects\keyboard.SRC)
+
+$NOMOD51
+
+NAME	KEYBOARD
+
+CCF2	BIT	0D8H.2
+TB80	BIT	098H.3
+SPI0CKR	DATA	09DH
+CCF3	BIT	0D8H.3
+P0	DATA	080H
+SPIEN	BIT	0F8H.0
+CCF4	BIT	0D8H.4
+SM00	BIT	098H.7
+P1	DATA	090H
+AA	BIT	0C0H.2
+SM10	BIT	098H.6
+WDTCN	DATA	0FFH
+P2	DATA	0A0H
+SM20	BIT	098H.5
+ADC0CF	DATA	0BCH
+P3	DATA	0B0H
+AC	BIT	0D0H.6
+ADC1CF	DATA	0ABH
+P4	DATA	084H
+EIE1	DATA	0E6H
+P5	DATA	085H
+EA	BIT	0A8H.7
+EIE2	DATA	0E7H
+P6	DATA	086H
+P7	DATA	096H
+PSCTL	DATA	08FH
+MSTEN	BIT	0F8H.1
+CF	BIT	0D8H.7
+ADC0CN	DATA	0E8H
+DAC0CN	DATA	0D4H
+DAC1CN	DATA	0D7H
+ADC1CN	DATA	0AAH
+P0MDOUT	DATA	0A4H
+P1MDOUT	DATA	0A5H
+IE	DATA	0A8H
+P2MDOUT	DATA	0A6H
+P3MDOUT	DATA	0A7H
+TMR3RLH	DATA	093H
+EIP1	DATA	0F6H
+EIP2	DATA	0F7H
+PCA0CPH0	DATA	0FAH
+PCA0CPH1	DATA	0FBH
+P3IF	DATA	0ADH
+TMR3RLL	DATA	092H
+PCA0CPH2	DATA	0FCH
+CR	BIT	0D8H.6
+PCA0CPH3	DATA	0FDH
+EXF2	BIT	0C8H.6
+REN0	BIT	098H.4
+PCA0CPH4	DATA	0FEH
+PCA0CPL0	DATA	0EAH
+EMI0CF	DATA	0A3H
+PCA0CPL1	DATA	0EBH
+PCA0CPM0	DATA	0DAH
+PCA0MD	DATA	0D9H
+PCA0CN	DATA	0D8H
+PCA0CPL2	DATA	0ECH
+PCA0CPM1	DATA	0DBH
+PCA0CPL3	DATA	0EDH
+PCA0CPM2	DATA	0DCH
+IP	DATA	0B8H
+PCA0CPL4	DATA	0EEH
+PCA0CPM3	DATA	0DDH
+PCA0CPM4	DATA	0DEH
+TXBSY	BIT	0F8H.3
+CY	BIT	0D0H.7
+SI	BIT	0C0H.3
+XBR0	DATA	0E1H
+SADEN0	DATA	0B9H
+XBR1	DATA	0E2H
+EMI0CN	DATA	0AFH
+SADEN1	DATA	0AEH
+XBR2	DATA	0E3H
+REF0CN	DATA	0D1H
+SADDR0	DATA	0A9H
+SADDR1	DATA	0F3H
+AMX0CF	DATA	0BAH
+AD0INT	BIT	0E8H.5
+RCAP2H	DATA	0CBH
+PS	BIT	0B8H.4
+SP	DATA	081H
+RCAP4H	DATA	0E5H
+EMI0TC	DATA	0A1H
+OV	BIT	0D0H.2
+SMB0CN	DATA	0C0H
+RCAP2L	DATA	0CAH
+MODF	BIT	0F8H.5
+RCAP4L	DATA	0E4H
+SMB0CR	DATA	0CFH
+CPT0CN	DATA	09EH
+P1MDIN	DATA	0BDH
+CPT1CN	DATA	09FH
+SPI0CN	DATA	0F8H
+PCON	DATA	087H
+SPIF	BIT	0F8H.7
+P74OUT	DATA	0B5H
+TMOD	DATA	089H
+TCON	DATA	088H
+WCOL	BIT	0F8H.6
+AMX0SL	DATA	0BBH
+AMX1SL	DATA	0ACH
+TMR3CN	DATA	091H
+IE0	BIT	088H.1
+IE1	BIT	088H.3
+B	DATA	0F0H
+DAC0H	DATA	0D3H
+ADC0H	DATA	0BFH
+OSCICN	DATA	0B2H
+DAC1H	DATA	0D6H
+SMBFTE	BIT	0C0H.1
+BUSY	BIT	0C0H.7
+DAC0L	DATA	0D2H
+ADC0L	DATA	0BEH
+DAC1L	DATA	0D5H
+LCD_EN	BIT	0A0H.7
+ACC	DATA	0E0H
+ES0	BIT	0A8H.4
+AD0EN	BIT	0E8H.7
+CT2	BIT	0C8H.1
+ET0	BIT	0A8H.1
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+ET2	BIT	0A8H.5
+RI0	BIT	098H.0
+TF1	BIT	088H.7
+TF2	BIT	0C8H.7
+SMBTOE	BIT	0C0H.0
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+TI0	BIT	098H.1
+IT0	BIT	088H.0
+PCA0H	DATA	0F9H
+TH1	DATA	08DH
+EX1	BIT	0A8H.2
+IT1	BIT	088H.2
+TH2	DATA	0CDH
+P	BIT	0D0H.0
+TH4	DATA	0F5H
+OSCXCN	DATA	0B1H
+TL0	DATA	08AH
+PCA0L	DATA	0E9H
+TL1	DATA	08BH
+TL2	DATA	0CCH
+PT0	BIT	0B8H.1
+TL4	DATA	0F4H
+RS0	BIT	0D0H.3
+PT1	BIT	0B8H.3
+RS1	BIT	0D0H.4
+PT2	BIT	0B8H.5
+TR0	BIT	088H.4
+AD0TM	BIT	0E8H.6
+TR1	BIT	088H.6
+TR2	BIT	0C8H.2
+PX0	BIT	0B8H.0
+LCD_RS	BIT	0A0H.5
+PX1	BIT	0B8H.2
+SLVSEL	BIT	0F8H.2
+DPH	DATA	083H
+LCD_RW	BIT	0A0H.6
+RCLK0	BIT	0C8H.5
+ADC0GTH	DATA	0C5H
+TCLK0	BIT	0C8H.4
+DPL	DATA	082H
+ADC0GTL	DATA	0C4H
+SBUF0	DATA	099H
+SBUF1	DATA	0F2H
+ADC0LTH	DATA	0C7H
+EXEN2	BIT	0C8H.3
+RSTSRC	DATA	0EFH
+FLACL	DATA	0B7H
+CPRL2	BIT	0C8H.0
+SCON0	DATA	098H
+SCON1	DATA	0F1H
+ADC0LTL	DATA	0C6H
+T2CON	DATA	0C8H
+STA	BIT	0C0H.5
+T4CON	DATA	0C9H
+SMB0ADR	DATA	0C3H
+SMB0DAT	DATA	0C2H
+SPI0CFG	DATA	09AH
+TMR3H	DATA	095H
+CKCON	DATA	08EH
+RXOVRN	BIT	0F8H.4
+D0	BIT	080H.0
+TMR3L	DATA	094H
+D1	BIT	080H.1
+AD0LJST	BIT	0E8H.0
+D2	BIT	080H.2
+F0	BIT	0D0H.5
+FLSCL	DATA	0B6H
+D3	BIT	080H.3
+AD0CM0	BIT	0E8H.2
+F1	BIT	0D0H.1
+STO	BIT	0C0H.4
+ENSMB	BIT	0C0H.6
+D4	BIT	080H.4
+AD0CM1	BIT	0E8H.3
+SPI0DAT	DATA	09BH
+D5	BIT	080H.5
+D6	BIT	080H.6
+AD0WINT	BIT	0E8H.1
+ADC1	DATA	09CH
+D7	BIT	080H.7
+AD0BUSY	BIT	0E8H.4
+PSW	DATA	0D0H
+CCF0	BIT	0D8H.0
+RB80	BIT	098H.2
+SMB0STA	DATA	0C1H
+CCF1	BIT	0D8H.1
+?PR?kscan?KEYBOARD   SEGMENT CODE 
+?DT?kscan?KEYBOARD   SEGMENT DATA OVERLAYABLE 
+?PR?f_or_e?KEYBOARD  SEGMENT CODE 
+?PR?input_digits?KEYBOARD                SEGMENT CODE 
+?DT?input_digits?KEYBOARD                SEGMENT DATA OVERLAYABLE 
+?BI?input_digits?KEYBOARD                SEGMENT BIT OVERLAYABLE 
+?PR?input_bits?KEYBOARD                  SEGMENT CODE 
+?DT?input_bits?KEYBOARD                  SEGMENT DATA OVERLAYABLE 
+?BI?input_bits?KEYBOARD                  SEGMENT BIT OVERLAYABLE 
+?PR?input_display_time?KEYBOARD          SEGMENT CODE 
+?DT?input_display_time?KEYBOARD          SEGMENT DATA OVERLAYABLE 
+?BI?input_display_time?KEYBOARD          SEGMENT BIT OVERLAYABLE 
+?PR?wait_input?KEYBOARD                  SEGMENT CODE 
+?BI?wait_input?KEYBOARD                  SEGMENT BIT OVERLAYABLE 
+?PR?wrong_input_bits?KEYBOARD            SEGMENT CODE 
+?PR?wrong_display_time?KEYBOARD          SEGMENT CODE 
+?CO?KEYBOARD         SEGMENT CODE 
+?XD?KEYBOARD         SEGMENT XDATA 
+	EXTRN	CODE (digits)
+	EXTRN	CODE (clear)
+	EXTRN	DATA (display_time)
+	EXTRN	CODE (display_wrong_input_display_time)
+	EXTRN	CODE (_print_char)
+	EXTRN	DATA (bits)
+	EXTRN	CODE (display_wrong_input_bits)
+	EXTRN	CODE (_delay_ms)
+	EXTRN	CODE (?C?CCASE)
+	EXTRN	CODE (?C?COPY)
+	EXTRN	CODE (?C?LMUL)
+	EXTRN	CODE (?C?ULCMP)
+	PUBLIC	inputs
+	PUBLIC	wrong_display_time
+	PUBLIC	wrong_input_bits
+	PUBLIC	wait_input
+	PUBLIC	input_display_time
+	PUBLIC	input_bits
+	PUBLIC	input_digits
+	PUBLIC	f_or_e
+	PUBLIC	kscan
+
+	RSEG  ?DT?kscan?KEYBOARD
+?kscan?BYTE:
+       keyl?041:   DS   1
+	ORG  1
+       temp?043:   DS   1
+
+	RSEG  ?DT?input_digits?KEYBOARD
+?input_digits?BYTE:
+          i?245:   DS   1
+	ORG  1
+      digit?246:   DS   1
+
+	RSEG  ?BI?input_digits?KEYBOARD
+?input_digits?BIT:
+      state?247:   DBIT   1
+
+	RSEG  ?DT?input_display_time?KEYBOARD
+?input_display_time?BYTE:
+          i?452:   DS   1
+	ORG  1
+          j?453:   DS   1
+	ORG  2
+      digit?454:   DS   1
+	ORG  3
+          a?455:   DS   5
+	ORG  8
+       temp?456:   DS   4
+
+	RSEG  ?BI?input_display_time?KEYBOARD
+?input_display_time?BIT:
+      state?457:   DBIT   1
+
+	RSEG  ?DT?input_bits?KEYBOARD
+?input_bits?BYTE:
+          i?348:   DS   1
+	ORG  1
+      digit?349:   DS   1
+	ORG  2
+          a?350:   DS   2
+
+	RSEG  ?BI?input_bits?KEYBOARD
+?input_bits?BIT:
+      state?351:   DBIT   1
+
+	RSEG  ?BI?wait_input?KEYBOARD
+?wait_input?BIT:
+      state?558:   DBIT   1
+
+	RSEG  ?XD?KEYBOARD
+         inputs:   DS   64
+
+	RSEG  ?CO?KEYBOARD
+_?ix1000:
+	DB	000H
+	DB  000H
+
+
+_?ix1001:
+	DB	000H
+	DB  000H,000H,000H,000H
+
+
+; /*
+;  * @Author: 王心瀚
+;  * @Date: 2023-11-23 22:02:43
+;  * @LastEditors: 王心瀚
+;  * @LastEditTime: 2023-12-22 22:53:18
+;  * @FilePath: \undefinedc:\Users\u2021\Desktop\资料\大三\单片机\实验\提高实验\C语言版本\keyboard.c
+;  * @Description: 键盘处理头文件，包含键盘检测、数据输入相关函数
+;  * 
+;  * Copyright (c) 2023 by ${王心瀚}, All Rights Reserved. 
+;  */
+; //包含键盘相关的头文件
+; #include "keyboard.h"
+; //定义一个长度为64的无符号字符数组，用于存储输入的数字
+; unsigned char xdata inputs[64];
+; //定义一个函数，用于扫描键盘按键，并返回按键对应的值
+; unsigned char kscan(void)
+
+	RSEG  ?PR?kscan?KEYBOARD
+kscan:
+	USING	0
+			; SOURCE LINE # 16
+; {
+			; SOURCE LINE # 17
+; 	//定义四个无符号字符变量，用于存储按键的高低位、按键类型和临时值
+; 	unsigned char data keyh,keyl,keytp,temp;
+; 	//设置P1端口的高四位为推挽输出模式
+; 	P1MDOUT=0xF0;
+			; SOURCE LINE # 21
+	MOV  	P1MDOUT,#0F0H
+; 	//设置P1端口的低四位为高电平，做输入
+; 	P1=0X0F; 
+			; SOURCE LINE # 23
+	MOV  	P1,#0FH
+?C0001:
+; 	//无限循环，直到检测到按键
+; 	while(1)
+			; SOURCE LINE # 25
+; 	{
+			; SOURCE LINE # 26
+; 	//如果P1端口的低四位不全为高电平，说明有按键按下
+; 	if(P1!=0X0F)
+			; SOURCE LINE # 28
+	MOV  	A,P1
+	XRL  	A,#0FH
+	JZ   	?C0001
+; 	{	
+			; SOURCE LINE # 29
+; 		//延时10毫秒，消除抖动
+; 		delay_ms(10);
+			; SOURCE LINE # 31
+	MOV  	R7,#0AH
+	MOV  	R6,#00H
+	MOV  	R5,#00H
+	MOV  	R4,#00H
+	LCALL	_delay_ms
+; 		//再次检测P1端口的低四位，如果仍然不全为高电平，说明按键有效
+; 		if(P1!=0x0f)
+			; SOURCE LINE # 33
+	MOV  	A,P1
+	XRL  	A,#0FH
+	JZ   	?C0001
+; 		{
+			; SOURCE LINE # 34
+; 			//将P1端口的低四位赋值给keyl，作为按键的低位
+; 			keyl=P1;
+			; SOURCE LINE # 36
+	MOV  	keyl?041,P1
+; 			//跳出循环
+; 			break;
+			; SOURCE LINE # 38
+; 		}
+			; SOURCE LINE # 39
+; 	}
+			; SOURCE LINE # 40
+; 	}
+			; SOURCE LINE # 41
+; 		//设置P1端口的低四位为输出模式
+; 		P1MDOUT=0x0F;
+			; SOURCE LINE # 43
+	MOV  	P1MDOUT,#0FH
+; 		//设置P1端口的高四位为高电平，做输入
+; 		P1=0xf0;
+			; SOURCE LINE # 45
+	MOV  	P1,#0F0H
+; 		//延时10毫秒，消除抖动
+; 		delay_ms(10);
+			; SOURCE LINE # 47
+	MOV  	R7,#0AH
+	MOV  	R6,#00H
+	MOV  	R5,#00H
+	MOV  	R4,#00H
+	LCALL	_delay_ms
+; 		//将P1端口的高四位赋值给keyh，作为按键的高位
+; 		keyh=P1;
+			; SOURCE LINE # 49
+;---- Variable 'keyh?040' assigned to Register 'R7' ----
+	MOV  	R7,P1
+; 		//将按键的高低位进行或运算，得到按键类型
+; 		keytp=keyh|keyl;
+			; SOURCE LINE # 51
+	MOV  	A,keyl?041
+	ORL  	A,R7
+;---- Variable 'keytp?042' assigned to Register 'R7' ----
+; 		//根据按键类型，用switch语句判断按键对应的值
+; 		switch(keytp)
+			; SOURCE LINE # 53
+	LCALL	?C?CCASE
+	DW   	?C0009
+	DB   	077H
+	DW   	?C0013
+	DB   	07BH
+	DW   	?C0017
+	DB   	07DH
+	DW   	?C0021
+	DB   	07EH
+	DW   	?C0008
+	DB   	0B7H
+	DW   	?C0012
+	DB   	0BBH
+	DW   	?C0016
+	DB   	0BDH
+	DW   	?C0020
+	DB   	0BEH
+	DW   	?C0007
+	DB   	0D7H
+	DW   	?C0011
+	DB   	0DBH
+	DW   	?C0015
+	DB   	0DDH
+	DW   	?C0019
+	DB   	0DEH
+	DW   	?C0006
+	DB   	0E7H
+	DW   	?C0010
+	DB   	0EBH
+	DW   	?C0014
+	DB   	0EDH
+	DW   	?C0018
+	DB   	0EEH
+	DW   	00H
+	DW   	?C0005
+; 		{
+			; SOURCE LINE # 54
+; 			//如果按键类型为0xe7，对应的值为0
+; 			case 0xe7: temp=0;break;
+			; SOURCE LINE # 56
+?C0006:
+	CLR  	A
+	MOV  	temp?043,A
+	SJMP 	?C0005
+; 			//如果按键类型为0xd7，对应的值为1
+; 			case 0xd7: temp=1;break;
+			; SOURCE LINE # 58
+?C0007:
+	MOV  	temp?043,#01H
+	SJMP 	?C0005
+; 			//如果按键类型为0xb7，对应的值为2
+; 			case 0xb7: temp=2;break;
+			; SOURCE LINE # 60
+?C0008:
+	MOV  	temp?043,#02H
+	SJMP 	?C0005
+; 			//如果按键类型为0x77，对应的值为3
+; 			case 0x77: temp=3;break;
+			; SOURCE LINE # 62
+?C0009:
+	MOV  	temp?043,#03H
+	SJMP 	?C0005
+; 			//如果按键类型为0xeb，对应的值为4
+; 			case 0xeb: temp=4;break;
+			; SOURCE LINE # 64
+?C0010:
+	MOV  	temp?043,#04H
+	SJMP 	?C0005
+; 			//如果按键类型为0xdb，对应的值为5
+; 			case 0xdb: temp=5;break;
+			; SOURCE LINE # 66
+?C0011:
+	MOV  	temp?043,#05H
+	SJMP 	?C0005
+; 			//如果按键类型为0xbb，对应的值为6
+; 			case 0xbb: temp=6;break;
+			; SOURCE LINE # 68
+?C0012:
+	MOV  	temp?043,#06H
+	SJMP 	?C0005
+; 			//如果按键类型为0x7b，对应的值为7
+; 			case 0x7b: temp=7;break;
+			; SOURCE LINE # 70
+?C0013:
+	MOV  	temp?043,#07H
+	SJMP 	?C0005
+; 			//如果按键类型为0xed，对应的值为8
+; 			case 0xed: temp=8;break;
+			; SOURCE LINE # 72
+?C0014:
+	MOV  	temp?043,#08H
+	SJMP 	?C0005
+; 			//如果按键类型为0xdd，对应的值为9
+; 			case 0xdd: temp=9;break;
+			; SOURCE LINE # 74
+?C0015:
+	MOV  	temp?043,#09H
+	SJMP 	?C0005
+; 			//如果按键类型为0xbd，对应的值为10
+; 			case 0xbd: temp=10;break;
+			; SOURCE LINE # 76
+?C0016:
+	MOV  	temp?043,#0AH
+	SJMP 	?C0005
+; 			//如果按键类型为0x7d，对应的值为11
+; 			case 0x7d: temp=11;break;
+			; SOURCE LINE # 78
+?C0017:
+	MOV  	temp?043,#0BH
+	SJMP 	?C0005
+; 			//如果按键类型为0xee，对应的值为12
+; 			case 0xee: temp=12;break;
+			; SOURCE LINE # 80
+?C0018:
+	MOV  	temp?043,#0CH
+	SJMP 	?C0005
+; 			//如果按键类型为0xde，对应的值为13
+; 		  case 0xde: temp=13;break;
+			; SOURCE LINE # 82
+?C0019:
+	MOV  	temp?043,#0DH
+	SJMP 	?C0005
+; 			//如果按键类型为0xbe，对应的值为14
+; 			case 0xbe: temp=14;break;
+			; SOURCE LINE # 84
+?C0020:
+	MOV  	temp?043,#0EH
+	SJMP 	?C0005
+; 			//如果按键类型为0x7e，对应的值为15
+; 			case 0x7e: temp=15;break;
+			; SOURCE LINE # 86
+?C0021:
+	MOV  	temp?043,#0FH
+; 			//如果按键类型不在以上范围内，不做任何操作
+; 			default:break;
+			; SOURCE LINE # 88
+; 		}
+			; SOURCE LINE # 89
+?C0005:
+; 	//设置P1端口的高四位为输出模式
+; 	P1MDOUT=0xF0;
+			; SOURCE LINE # 91
+	MOV  	P1MDOUT,#0F0H
+; 	//设置P1端口的低四位为高电平，做输入
+; 	P1=0X0F; 
+			; SOURCE LINE # 93
+	MOV  	P1,#0FH
+?C0023:
+; 	//无限循环，直到检测到按键松开
+; 	while(1)
+			; SOURCE LINE # 95
+; 	{
+			; SOURCE LINE # 96
+; 	//如果P1端口的低四位全为高电平，说明按键松开
+; 	if(P1==0X0F)
+			; SOURCE LINE # 98
+	MOV  	A,P1
+	CJNE 	A,#0FH,?C0023
+; 	{	
+			; SOURCE LINE # 99
+; 		//延时10毫秒，消除抖动
+; 		delay_ms(10);
+			; SOURCE LINE # 101
+	MOV  	R7,#0AH
+	MOV  	R6,#00H
+	MOV  	R5,#00H
+	MOV  	R4,#00H
+	LCALL	_delay_ms
+;              
+; 		//再次检测P1端口的低四位，如果仍然全为高电平，说明按键松开有效
+; 		if(P1==0x0f)
+			; SOURCE LINE # 104
+	MOV  	A,P1
+	CJNE 	A,#0FH,?C0023
+; 		{
+			; SOURCE LINE # 105
+; 			//跳出循环
+; 			break;
+			; SOURCE LINE # 107
+; 		}
+			; SOURCE LINE # 108
+; 	}
+			; SOURCE LINE # 109
+; 	}
+			; SOURCE LINE # 110
+?C0024:
+; 	//返回按键对应的值
+; 	return temp;
+			; SOURCE LINE # 112
+	MOV  	R7,temp?043
+; }
+			; SOURCE LINE # 113
+	RET  	
+; END OF kscan
+
+; //定义一个函数，用于判断输入是F还是E
+; bit f_or_e(void)
+
+	RSEG  ?PR?f_or_e?KEYBOARD
+f_or_e:
+	USING	0
+			; SOURCE LINE # 115
+; {
+			; SOURCE LINE # 116
+?C0028:
+; 	//定义一个无符号字符变量，用于存储按键对应的值
+; 	unsigned temp;
+; 	//无限循环，直到检测到有效按键
+; 	while(1)
+			; SOURCE LINE # 120
+; 	{
+			; SOURCE LINE # 121
+; 		//调用kscan函数，获取按键对应的值
+; 		temp=kscan();
+			; SOURCE LINE # 123
+	LCALL	kscan
+	MOV  	R6,#00H
+;---- Variable 'temp?144' assigned to Register 'R6/R7' ----
+; 		//如果按键对应的值为15(F)，一般情况表示继续，返回0
+; 		if(temp==15)
+			; SOURCE LINE # 125
+	MOV  	A,R7
+	XRL  	A,#0FH
+	JNZ  	?C0030
+; 		{
+			; SOURCE LINE # 126
+; 			//返回0
+; 			return 0;
+			; SOURCE LINE # 128
+	CLR  	C
+	RET  	
+; 		}
+			; SOURCE LINE # 129
+?C0030:
+; 		//如果按键对应的值为14(E)，表示退出，返回0
+; 		else if(temp==14)
+			; SOURCE LINE # 131
+	MOV  	A,R7
+	XRL  	A,#0EH
+	ORL  	A,R6
+	JNZ  	?C0028
+; 		{
+			; SOURCE LINE # 132
+; 			//返回1
+; 			return 1;
+			; SOURCE LINE # 134
+	SETB 	C
+; 		}
+			; SOURCE LINE # 135
+; 	}
+			; SOURCE LINE # 136
+; }
+			; SOURCE LINE # 137
+?C0031:
+	RET  	
+; END OF f_or_e
+
+; //定义一个函数，用于输入数字，并存储在inputs数组中
+; bit input_digits(void)
+
+	RSEG  ?PR?input_digits?KEYBOARD
+input_digits:
+	USING	0
+			; SOURCE LINE # 139
+; {
+			; SOURCE LINE # 140
+; 	//定义两个无符号字符变量，用于存储循环计数和按键对应的值
+; 	unsigned char i,digit=0;
+			; SOURCE LINE # 142
+	CLR  	A
+	MOV  	digit?246,A
+; 	//定义一个位变量，用于存储是否继续或退出的状态
+; 	bit state=0;
+			; SOURCE LINE # 144
+	CLR  	state?247
+; 	//调用wait_input函数，等待输入，并获取状态
+; 	state=wait_input();
+			; SOURCE LINE # 146
+	LCALL	wait_input
+	MOV  	state?247,C
+; 	//如果状态为1，表示退出(输入了E)
+; 	if(state==1)
+			; SOURCE LINE # 148
+	JNB  	state?247,?C0036
+; 	{
+			; SOURCE LINE # 149
+; 		//返回1
+; 		return 1;
+			; SOURCE LINE # 151
+	SETB 	C
+	RET  	
+; 	}
+			; SOURCE LINE # 152
+?C0036:
+; 	//无限循环，直到检测到有效输入
+; 	while(1)
+			; SOURCE LINE # 154
+; 	{
+			; SOURCE LINE # 155
+; 	//调用clear函数，清屏
+; 	clear();
+			; SOURCE LINE # 157
+	LCALL	clear
+; 	//用循环语句，将inputs数组的所有元素初始化为0
+; 	for(i=0;i<64;i++)
+			; SOURCE LINE # 159
+	CLR  	A
+	MOV  	i?245,A
+?C0038:
+; 	{
+			; SOURCE LINE # 160
+; 		inputs[i]=0;
+			; SOURCE LINE # 161
+	MOV  	A,#LOW (inputs)
+	ADD  	A,i?245
+	MOV  	DPL,A
+	CLR  	A
+	ADDC 	A,#HIGH (inputs)
+	MOV  	DPH,A
+	CLR  	A
+	MOVX 	@DPTR,A
+; 	}
+			; SOURCE LINE # 162
+	INC  	i?245
+	MOV  	A,i?245
+	CJNE 	A,#040H,?C0038
+?C0039:
+; 	//用循环语句，从键盘获取输入的数字，并存储在inputs数组中
+; 	for(i=0;i<65;i++)
+			; SOURCE LINE # 164
+	CLR  	A
+	MOV  	i?245,A
+?C0041:
+	MOV  	A,i?245
+	CLR  	C
+	SUBB 	A,#041H
+	JNC  	?C0036
+; 	{
+			; SOURCE LINE # 165
+; 		//调用kscan函数，获取按键对应的值
+; 		digit=kscan();
+			; SOURCE LINE # 167
+	LCALL	kscan
+	MOV  	digit?246,R7
+; 		//如果循环计数小于64，且按键对应的值在0到9之间，表示输入的是数字
+; 		if(i<64&digit>=0&digit<=9)
+			; SOURCE LINE # 169
+	MOV  	A,digit?246
+	CLR  	C
+	SUBB 	A,#00H
+	JC   	?C0045
+	MOV  	R7,#01H
+	SJMP 	?C0046
+?C0045:
+	MOV  	R7,#00H
+?C0046:
+	MOV  	A,i?245
+	CLR  	C
+	SUBB 	A,#040H
+	JNC  	?C0047
+	MOV  	R6,#01H
+	SJMP 	?C0048
+?C0047:
+	MOV  	R6,#00H
+?C0048:
+	MOV  	A,R6
+	ANL  	A,R7
+	MOV  	R7,A
+	MOV  	A,digit?246
+	SETB 	C
+	SUBB 	A,#09H
+	JNC  	?C0049
+	MOV  	R6,#01H
+	SJMP 	?C0050
+?C0049:
+	MOV  	R6,#00H
+?C0050:
+	MOV  	A,R6
+	ANL  	A,R7
+	JZ   	?C0044
+; 		{
+			; SOURCE LINE # 170
+; 			//将按键对应的值转换为ASCII码，存储在inputs数组中
+; 			digit=inputs[i]=digits[digit];
+			; SOURCE LINE # 172
+	MOV  	A,digit?246
+	MOV  	DPTR,#digits
+	MOVC 	A,@A+DPTR
+	MOV  	R7,A
+	MOV  	A,#LOW (inputs)
+	ADD  	A,i?245
+	MOV  	DPL,A
+	CLR  	A
+	ADDC 	A,#HIGH (inputs)
+	MOV  	DPH,A
+	MOV  	A,R7
+	MOVX 	@DPTR,A
+	MOV  	digit?246,A
+; 			//根据循环计数，调用print_char函数，在不同的位置显示输入的数字
+; 			if(i==16)
+			; SOURCE LINE # 174
+	MOV  	A,i?245
+	CJNE 	A,#010H,?C0051
+; 				{
+			; SOURCE LINE # 175
+; 					print_char(0,2,digit);
+			; SOURCE LINE # 176
+	MOV  	R3,digit?246
+	MOV  	R5,#02H
+; 				}
+			; SOURCE LINE # 177
+	SJMP 	?C0169
+?C0051:
+; 			else if(i==32)
+			; SOURCE LINE # 178
+	MOV  	A,i?245
+	CJNE 	A,#020H,?C0053
+; 				{
+			; SOURCE LINE # 179
+; 					print_char(0,3,digit);
+			; SOURCE LINE # 180
+	MOV  	R3,digit?246
+	MOV  	R5,#03H
+?C0169:
+	CLR  	A
+; 				}
+			; SOURCE LINE # 181
+	SJMP 	?C0170
+?C0053:
+; 			else if(i==48)
+			; SOURCE LINE # 182
+	MOV  	A,i?245
+	MOV  	R3,digit?246
+	CJNE 	A,#030H,?C0055
+; 				{
+			; SOURCE LINE # 183
+; 					print_char(0,4,digit);
+			; SOURCE LINE # 184
+	MOV  	R5,#04H
+	CLR  	A
+; 				}
+			; SOURCE LINE # 185
+	SJMP 	?C0168
+?C0055:
+; 			else
+; 				{
+			; SOURCE LINE # 187
+; 					print_char(0,0,digit);
+			; SOURCE LINE # 188
+	CLR  	A
+	MOV  	R5,A
+?C0168:
+?C0170:
+	MOV  	R7,A
+	LCALL	_print_char
+; 				}
+			; SOURCE LINE # 189
+; 		}
+			; SOURCE LINE # 190
+	SJMP 	?C0043
+?C0044:
+; 		//如果循环计数大于0，且按键对应的值为15，表示输入结束
+; 		else if(i>0&digit==15)
+			; SOURCE LINE # 192
+	MOV  	A,digit?246
+	CJNE 	A,#0FH,?C0059
+	MOV  	R7,#01H
+	SJMP 	?C0060
+?C0059:
+	MOV  	R7,#00H
+?C0060:
+	MOV  	A,i?245
+	SETB 	C
+	SUBB 	A,#00H
+	JC   	?C0061
+	MOV  	R6,#01H
+	SJMP 	?C0062
+?C0061:
+	MOV  	R6,#00H
+?C0062:
+	MOV  	A,R6
+	ANL  	A,R7
+	JZ   	?C0058
+; 		{
+			; SOURCE LINE # 193
+; 			//返回0
+; 			return 0;
+			; SOURCE LINE # 195
+	CLR  	C
+	RET  	
+; 		}
+			; SOURCE LINE # 196
+?C0058:
+; 		//如果按键对应的值为14，表示退出
+; 		else if(digit==14)
+			; SOURCE LINE # 198
+	MOV  	A,digit?246
+	CJNE 	A,#0EH,?C0064
+; 		{
+			; SOURCE LINE # 199
+; 			//返回1
+; 			return 1;
+			; SOURCE LINE # 201
+	SETB 	C
+	RET  	
+; 		}
+			; SOURCE LINE # 202
+?C0064:
+; 		//如果循环计数大于0，且按键对应的值为13，表示重新输入
+; 		else if(i>0&digit==13)
+			; SOURCE LINE # 204
+	MOV  	A,digit?246
+	CJNE 	A,#0DH,?C0067
+	MOV  	R7,#01H
+	SJMP 	?C0068
+?C0067:
+	MOV  	R7,#00H
+?C0068:
+	MOV  	A,i?245
+	SETB 	C
+	SUBB 	A,#00H
+	JC   	?C0069
+	MOV  	R6,#01H
+	SJMP 	?C0070
+?C0069:
+	MOV  	R6,#00H
+?C0070:
+	MOV  	A,R6
+	ANL  	A,R7
+	JZ   	$ + 5H
+	LJMP 	?C0036
+; 				{
+			; SOURCE LINE # 205
+; 					break;
+			; SOURCE LINE # 206
+; 				}
+			; SOURCE LINE # 207
+; 		//如果以上条件都不满足，表示输入无效，循环计数不变
+; 		else
+; 		{
+			; SOURCE LINE # 210
+; 			i--;
+			; SOURCE LINE # 211
+	DEC  	i?245
+; 		}
+			; SOURCE LINE # 212
+; 	}
+			; SOURCE LINE # 213
+?C0043:
+	INC  	i?245
+	LJMP 	?C0041
+; END OF input_digits
+
+; 	}
+; }
+; //定义一个函数，用于输入位数，并存储在bits变量中
+; bit input_bits(void)
+
+	RSEG  ?PR?input_bits?KEYBOARD
+input_bits:
+	USING	0
+			; SOURCE LINE # 217
+; {
+			; SOURCE LINE # 218
+; 	//定义两个无符号字符变量，用于存储循环计数和按键对应的值
+; 	unsigned char i,digit=0;
+			; SOURCE LINE # 220
+	CLR  	A
+	MOV  	digit?349,A
+; 	//定义一个长度为2的无符号字符数组，用于存储输入的位数
+; 	unsigned char a[2]={0};
+			; SOURCE LINE # 222
+	MOV  	R0,#LOW (a?350)
+	MOV  	R4,#HIGH (a?350)
+	MOV  	R5,A
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (_?ix1000)
+	MOV  	R1,#LOW (_?ix1000)
+	MOV  	R6,A
+	MOV  	R7,#02H
+	LCALL	?C?COPY
+; 	//定义一个位变量，用于存储是否继续或退出的状态
+; 	bit state=0;
+			; SOURCE LINE # 224
+	CLR  	state?351
+; 	//调用wait_input函数，等待输入，并获取状态
+; 	state=wait_input();
+			; SOURCE LINE # 226
+	LCALL	wait_input
+	MOV  	state?351,C
+; 	//如果状态为1，表示退出
+; 	if(state==1)
+			; SOURCE LINE # 228
+	JNB  	state?351,?C0074
+; 	{
+			; SOURCE LINE # 229
+; 		//返回1
+; 		return 1;
+			; SOURCE LINE # 231
+	SETB 	C
+	RET  	
+; 	}
+			; SOURCE LINE # 232
+?C0074:
+; 	//无限循环，直到检测到有效输入
+; 	while(1)
+			; SOURCE LINE # 234
+; 	{
+			; SOURCE LINE # 235
+; 	//调用clear函数，清屏
+; 	clear();
+			; SOURCE LINE # 237
+	LCALL	clear
+; 	//用循环语句，将a数组的所有元素初始化为0
+; 	for(i=0;i<2;i++)
+			; SOURCE LINE # 239
+	CLR  	A
+	MOV  	i?348,A
+?C0076:
+; 	{
+			; SOURCE LINE # 240
+; 		a[i]=0;
+			; SOURCE LINE # 241
+	MOV  	A,#LOW (a?350)
+	ADD  	A,i?348
+	MOV  	R0,A
+	CLR  	A
+	MOV  	@R0,A
+; 	}
+			; SOURCE LINE # 242
+	INC  	i?348
+	MOV  	A,i?348
+	CJNE 	A,#02H,?C0076
+?C0077:
+; 	//用循环语句，从键盘获取输入的位数，并存储在a数组中
+; 	for(i=0;i<3;i++)
+			; SOURCE LINE # 244
+	CLR  	A
+	MOV  	i?348,A
+?C0079:
+	MOV  	A,i?348
+	CLR  	C
+	SUBB 	A,#03H
+	JNC  	?C0074
+; 	{
+			; SOURCE LINE # 245
+; 		//调用kscan函数，获取按键对应的值
+; 		digit=kscan();
+			; SOURCE LINE # 247
+	LCALL	kscan
+	MOV  	digit?349,R7
+; 		//如果循环计数小于2，且按键对应的值在0到9之间，表示输入的是数字
+; 		if(i<2&digit>=0&digit<=9)
+			; SOURCE LINE # 249
+	MOV  	A,digit?349
+	CLR  	C
+	SUBB 	A,#00H
+	JC   	?C0083
+	MOV  	R7,#01H
+	SJMP 	?C0084
+?C0083:
+	MOV  	R7,#00H
+?C0084:
+	MOV  	A,i?348
+	CLR  	C
+	SUBB 	A,#02H
+	JNC  	?C0085
+	MOV  	R6,#01H
+	SJMP 	?C0086
+?C0085:
+	MOV  	R6,#00H
+?C0086:
+	MOV  	A,R6
+	ANL  	A,R7
+	MOV  	R7,A
+	MOV  	A,digit?349
+	SETB 	C
+	SUBB 	A,#09H
+	JNC  	?C0087
+	MOV  	R6,#01H
+	SJMP 	?C0088
+?C0087:
+	MOV  	R6,#00H
+?C0088:
+	MOV  	A,R6
+	ANL  	A,R7
+	JZ   	?C0082
+; 		{
+			; SOURCE LINE # 250
+; 			//将按键对应的值存储在a数组中
+; 			a[i]=digit;
+			; SOURCE LINE # 252
+	MOV  	A,#LOW (a?350)
+	ADD  	A,i?348
+	MOV  	R0,A
+	MOV  	@R0,digit?349
+; 			//调用print_char函数，在指定位置显示输入的数字
+; 			print_char(0,0,digit+48);
+			; SOURCE LINE # 254
+	MOV  	A,digit?349
+	ADD  	A,#030H
+	MOV  	R3,A
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,A
+	LCALL	_print_char
+; 		}
+			; SOURCE LINE # 255
+	LJMP 	?C0081
+?C0082:
+; 		//如果循环计数大于0，且按键对应的值为15，表示输入结束
+; 		else if(i>0&digit==15)
+			; SOURCE LINE # 257
+	MOV  	A,digit?349
+	CJNE 	A,#0FH,?C0091
+	MOV  	R7,#01H
+	SJMP 	?C0092
+?C0091:
+	MOV  	R7,#00H
+?C0092:
+	MOV  	A,i?348
+	SETB 	C
+	SUBB 	A,#00H
+	JC   	?C0093
+	MOV  	R6,#01H
+	SJMP 	?C0094
+?C0093:
+	MOV  	R6,#00H
+?C0094:
+	MOV  	A,R6
+	ANL  	A,R7
+	JZ   	?C0090
+; 		{
+			; SOURCE LINE # 258
+; 			//将a数组中的两个数字组合成一个位数，存储在全局变量bits中
+; 			if(i==1)
+			; SOURCE LINE # 260
+	MOV  	A,i?348
+	CJNE 	A,#01H,?C0095
+; 			{
+			; SOURCE LINE # 261
+; 				bits=a[0];
+			; SOURCE LINE # 262
+	MOV  	bits,a?350
+; 			}
+			; SOURCE LINE # 263
+	SJMP 	?C0096
+?C0095:
+; 			else
+; 			{
+			; SOURCE LINE # 265
+; 			bits=a[0]*10+a[1];
+			; SOURCE LINE # 266
+	MOV  	A,a?350
+	MOV  	B,#0AH
+	MUL  	AB
+	ADD  	A,a?350+01H
+	MOV  	bits,A
+; 			}
+			; SOURCE LINE # 267
+?C0096:
+; 			//如果bits变量的值在1到64之间，表示输入的位数有效
+; 			if(bits>=1&bits<=64)
+			; SOURCE LINE # 269
+	MOV  	A,bits
+	SETB 	C
+	SUBB 	A,#040H
+	JNC  	?C0098
+	MOV  	R7,#01H
+	SJMP 	?C0099
+?C0098:
+	MOV  	R7,#00H
+?C0099:
+	MOV  	A,bits
+	CLR  	C
+	SUBB 	A,#01H
+	JC   	?C0100
+	MOV  	R6,#01H
+	SJMP 	?C0101
+?C0100:
+	MOV  	R6,#00H
+?C0101:
+	MOV  	A,R6
+	ANL  	A,R7
+	JZ   	?C0097
+; 			{
+			; SOURCE LINE # 270
+; 			//返回0
+; 			return 0;
+			; SOURCE LINE # 272
+	CLR  	C
+	RET  	
+; 			}
+			; SOURCE LINE # 273
+?C0097:
+; 			//如果bits变量的值不在1到64之间，表示输入的位数无效
+; 			else
+; 			{
+			; SOURCE LINE # 276
+; 				//调用wrong_input_bits函数，显示错误信息，并获取状态
+; 				if(wrong_input_bits())
+			; SOURCE LINE # 278
+	LCALL	wrong_input_bits
+	JC   	$ + 5H
+	LJMP 	?C0074
+; 				{
+			; SOURCE LINE # 279
+; 					//如果状态为1，表示退出
+; 					return 1;
+			; SOURCE LINE # 281
+	RET  	
+; 				}
+			; SOURCE LINE # 282
+; 				//如果状态为0，表示继续
+; 				else
+; 				{
+			; SOURCE LINE # 285
+; 					//跳出循环
+; 					break;
+			; SOURCE LINE # 287
+; 				}
+			; SOURCE LINE # 288
+; 			}
+			; SOURCE LINE # 289
+; 		}
+			; SOURCE LINE # 290
+?C0090:
+; 		//如果按键对应的值为14，表示退出
+; 		else if(digit==14)
+			; SOURCE LINE # 292
+	MOV  	A,digit?349
+	CJNE 	A,#0EH,?C0106
+; 		{
+			; SOURCE LINE # 293
+; 			//返回1
+; 			return 1;
+			; SOURCE LINE # 295
+	SETB 	C
+	RET  	
+; 		}
+			; SOURCE LINE # 296
+?C0106:
+; 		//如果循环计数大于0，且按键对应的值为13，表示重新输入
+; 		else if(i>0&digit==13)
+			; SOURCE LINE # 298
+	MOV  	A,digit?349
+	CJNE 	A,#0DH,?C0109
+	MOV  	R7,#01H
+	SJMP 	?C0110
+?C0109:
+	MOV  	R7,#00H
+?C0110:
+	MOV  	A,i?348
+	SETB 	C
+	SUBB 	A,#00H
+	JC   	?C0111
+	MOV  	R6,#01H
+	SJMP 	?C0112
+?C0111:
+	MOV  	R6,#00H
+?C0112:
+	MOV  	A,R6
+	ANL  	A,R7
+	JZ   	$ + 5H
+	LJMP 	?C0074
+; 		{
+			; SOURCE LINE # 299
+; 			break;
+			; SOURCE LINE # 300
+; 		}
+			; SOURCE LINE # 301
+; 		//如果以上条件都不满足，表示输入无效，循环计数不变
+; 		else
+; 		{
+			; SOURCE LINE # 304
+; 			i--;
+			; SOURCE LINE # 305
+	DEC  	i?348
+; 		}
+			; SOURCE LINE # 306
+; 	}
+			; SOURCE LINE # 307
+?C0081:
+	INC  	i?348
+	LJMP 	?C0079
+; END OF input_bits
+
+; 	}
+; }
+; //定义一个函数，用于输入显示时间，并存储在display_time变量中
+; bit input_display_time(void)
+
+	RSEG  ?PR?input_display_time?KEYBOARD
+input_display_time:
+	USING	0
+			; SOURCE LINE # 311
+; {
+			; SOURCE LINE # 312
+; 	//定义两个无符号字符变量，用于存储循环计数和按键对应的值
+; 	unsigned char i,j,digit=0;
+			; SOURCE LINE # 314
+	CLR  	A
+	MOV  	digit?454,A
+; 	//定义一个长度为5的无符号字符数组，用于存储输入的显示时间
+; 	unsigned char a[5]={0};
+			; SOURCE LINE # 316
+	MOV  	R0,#LOW (a?455)
+	MOV  	R4,#HIGH (a?455)
+	MOV  	R5,A
+	MOV  	R3,#0FFH
+	MOV  	R2,#HIGH (_?ix1001)
+	MOV  	R1,#LOW (_?ix1001)
+	MOV  	R6,A
+	MOV  	R7,#05H
+	LCALL	?C?COPY
+; 	//定义一个无符号长整数变量，用于存储输入的显示时间
+; 	unsigned long temp;
+; 	//定义一个位变量，用于存储是否继续或退出的状态
+; 	bit state=0;
+			; SOURCE LINE # 320
+	CLR  	state?457
+; 	//调用wait_input函数，等待输入，并获取状态
+; 	state=wait_input();
+			; SOURCE LINE # 322
+	LCALL	wait_input
+	MOV  	state?457,C
+; 	//如果状态为1，表示退出
+; 	if(state==1)
+			; SOURCE LINE # 324
+	JNB  	state?457,?C0116
+; 	{
+			; SOURCE LINE # 325
+; 		//返回1
+; 		return 1;
+			; SOURCE LINE # 327
+	SETB 	C
+	RET  	
+; 	}
+			; SOURCE LINE # 328
+?C0116:
+; 	//无限循环，直到检测到有效输入
+; 	while(1)
+			; SOURCE LINE # 330
+; 	{
+			; SOURCE LINE # 331
+; 	//调用clear函数，清屏
+; 	clear();
+			; SOURCE LINE # 333
+	LCALL	clear
+; 	//用循环语句，将a数组的所有元素初始化为0
+; 	for(i=0;i<5;i++)
+			; SOURCE LINE # 335
+	CLR  	A
+	MOV  	i?452,A
+?C0118:
+; 	{
+			; SOURCE LINE # 336
+; 		a[i]=0;
+			; SOURCE LINE # 337
+	MOV  	A,#LOW (a?455)
+	ADD  	A,i?452
+	MOV  	R0,A
+	CLR  	A
+	MOV  	@R0,A
+; 	}
+			; SOURCE LINE # 338
+	INC  	i?452
+	MOV  	A,i?452
+	CJNE 	A,#05H,?C0118
+?C0119:
+; 	//用循环语句，从键盘获取输入的显示时间，并存储在a数组中
+; 	for(i=0;i<6;i++)
+			; SOURCE LINE # 340
+	CLR  	A
+	MOV  	i?452,A
+?C0121:
+	MOV  	A,i?452
+	CLR  	C
+	SUBB 	A,#06H
+	JNC  	?C0116
+; 	{
+			; SOURCE LINE # 341
+; 		//调用kscan函数，获取按键对应的值
+; 		digit=kscan();
+			; SOURCE LINE # 343
+	LCALL	kscan
+	MOV  	digit?454,R7
+; 		//如果循环计数小于5，且按键对应的值在0到9之间，表示输入的是数字
+; 		if(i<5&digit>=0&digit<=9)
+			; SOURCE LINE # 345
+	MOV  	A,digit?454
+	CLR  	C
+	SUBB 	A,#00H
+	JC   	?C0125
+	MOV  	R7,#01H
+	SJMP 	?C0126
+?C0125:
+	MOV  	R7,#00H
+?C0126:
+	MOV  	A,i?452
+	CLR  	C
+	SUBB 	A,#05H
+	JNC  	?C0127
+	MOV  	R6,#01H
+	SJMP 	?C0128
+?C0127:
+	MOV  	R6,#00H
+?C0128:
+	MOV  	A,R6
+	ANL  	A,R7
+	MOV  	R7,A
+	MOV  	A,digit?454
+	SETB 	C
+	SUBB 	A,#09H
+	JNC  	?C0129
+	MOV  	R6,#01H
+	SJMP 	?C0130
+?C0129:
+	MOV  	R6,#00H
+?C0130:
+	MOV  	A,R6
+	ANL  	A,R7
+	JZ   	?C0124
+; 		{
+			; SOURCE LINE # 346
+; 			//将按键对应的值存储在a数组中
+; 			a[i]=digit;
+			; SOURCE LINE # 348
+	MOV  	A,#LOW (a?455)
+	ADD  	A,i?452
+	MOV  	R0,A
+	MOV  	@R0,digit?454
+; 			//调用print_char函数，在指定位置显示输入的数字
+; 			print_char(0,0,digit+48);
+			; SOURCE LINE # 350
+	MOV  	A,digit?454
+	ADD  	A,#030H
+	MOV  	R3,A
+	CLR  	A
+	MOV  	R5,A
+	MOV  	R7,A
+	LCALL	_print_char
+; 		}
+			; SOURCE LINE # 351
+	LJMP 	?C0123
+?C0124:
+; 		//如果循环计数大于0，且按键对应的值为15，表示输入结束
+; 		else if(i>0&digit==15)
+			; SOURCE LINE # 353
+	MOV  	A,digit?454
+	CJNE 	A,#0FH,?C0133
+	MOV  	R7,#01H
+	SJMP 	?C0134
+?C0133:
+	MOV  	R7,#00H
+?C0134:
+	MOV  	A,i?452
+	SETB 	C
+	SUBB 	A,#00H
+	JC   	?C0135
+	MOV  	R6,#01H
+	SJMP 	?C0136
+?C0135:
+	MOV  	R6,#00H
+?C0136:
+	MOV  	A,R6
+	ANL  	A,R7
+	JNZ  	$ + 5H
+	LJMP 	?C0132
+; 		{
+			; SOURCE LINE # 354
+; 			//将a数组中的五个数字组合成一个显示时间，存储在temp变量中
+; 			temp=0;
+			; SOURCE LINE # 356
+	CLR  	A
+	MOV  	temp?456+03H,A
+	MOV  	temp?456+02H,A
+	MOV  	temp?456+01H,A
+	MOV  	temp?456,A
+; 			for(j=0;j<i;j++)
+			; SOURCE LINE # 357
+	MOV  	j?453,A
+?C0137:
+	MOV  	A,j?453
+	CLR  	C
+	SUBB 	A,i?452
+	JNC  	?C0138
+; 			{
+			; SOURCE LINE # 358
+; 				temp=10*temp+a[j];
+			; SOURCE LINE # 359
+	CLR  	A
+	MOV  	R7,#0AH
+	MOV  	R6,A
+	MOV  	R5,A
+	MOV  	R4,A
+	MOV  	R3,temp?456+03H
+	MOV  	R2,temp?456+02H
+	MOV  	R1,temp?456+01H
+	MOV  	R0,temp?456
+	LCALL	?C?LMUL
+	PUSH 	AR4
+	MOV  	R1,AR5
+	MOV  	R2,AR6
+	MOV  	R3,AR7
+	MOV  	A,#LOW (a?455)
+	ADD  	A,j?453
+	MOV  	R0,A
+	MOV  	A,@R0
+	MOV  	R7,A
+	CLR  	A
+	MOV  	R4,A
+	MOV  	R5,A
+	MOV  	R6,A
+	POP  	AR0
+	MOV  	A,R3
+	ADD  	A,R7
+	MOV  	temp?456+03H,A
+	MOV  	A,R6
+	ADDC 	A,R2
+	MOV  	temp?456+02H,A
+	MOV  	A,R5
+	ADDC 	A,R1
+	MOV  	temp?456+01H,A
+	MOV  	A,R4
+	ADDC 	A,R0
+	MOV  	temp?456,A
+; 			}
+			; SOURCE LINE # 360
+	INC  	j?453
+	SJMP 	?C0137
+?C0138:
+; 			//如果temp变量的值在50到65535之间，表示输入的显示时间有效
+; 			if(temp>=50&temp<=65535)
+			; SOURCE LINE # 362
+	CLR  	A
+	MOV  	R7,#0FFH
+	MOV  	R6,#0FFH
+	MOV  	R5,A
+	MOV  	R4,A
+	MOV  	R3,temp?456+03H
+	MOV  	R2,temp?456+02H
+	MOV  	R1,temp?456+01H
+	MOV  	R0,temp?456
+	SETB 	C
+	LCALL	?C?ULCMP
+	JNC  	?C0141
+	MOV  	R7,#01H
+	PUSH 	AR7
+	SJMP 	?C0142
+?C0141:
+	MOV  	R7,#00H
+	PUSH 	AR7
+?C0142:
+	CLR  	A
+	MOV  	R7,#032H
+	MOV  	R6,A
+	MOV  	R5,A
+	MOV  	R4,A
+	MOV  	R3,temp?456+03H
+	MOV  	R2,temp?456+02H
+	MOV  	R1,temp?456+01H
+	MOV  	R0,temp?456
+	CLR  	C
+	LCALL	?C?ULCMP
+	JC   	?C0143
+	MOV  	R6,#01H
+	SJMP 	?C0144
+?C0143:
+	MOV  	R6,#00H
+?C0144:
+	POP  	ACC
+	ANL  	A,R6
+	JZ   	?C0140
+; 			{
+			; SOURCE LINE # 363
+; 				//将temp变量的值赋给display_time变量
+; 				display_time=temp;
+			; SOURCE LINE # 365
+	MOV  	display_time,temp?456+02H
+	MOV  	display_time+01H,temp?456+03H
+; 				//返回0
+; 				return 0;
+			; SOURCE LINE # 367
+	CLR  	C
+	RET  	
+; 			}
+			; SOURCE LINE # 368
+?C0140:
+; 			//如果temp变量的值不在50到65535之间，表示输入的显示时间无效
+; 			else
+; 			{
+			; SOURCE LINE # 371
+; 				//调用wrong_display_time函数，显示错误信息，并获取状态
+; 				if(wrong_display_time())
+			; SOURCE LINE # 373
+	LCALL	wrong_display_time
+	JC   	$ + 5H
+	LJMP 	?C0116
+; 				{
+			; SOURCE LINE # 374
+; 					//如果状态为1，表示退出
+; 					return 1;
+			; SOURCE LINE # 376
+	RET  	
+; 				}
+			; SOURCE LINE # 377
+; 				//如果状态为0，表示继续
+; 				else
+; 				{
+			; SOURCE LINE # 380
+; 					//跳出循环
+; 					break;
+			; SOURCE LINE # 382
+; 				}
+			; SOURCE LINE # 383
+; 			}
+			; SOURCE LINE # 384
+; 		}
+			; SOURCE LINE # 385
+?C0132:
+; 		//如果按键对应的值为14，表示退出
+; 		else if(digit==14)
+			; SOURCE LINE # 387
+	MOV  	A,digit?454
+	CJNE 	A,#0EH,?C0149
+; 		{
+			; SOURCE LINE # 388
+; 			//返回1
+; 			return 1;
+			; SOURCE LINE # 390
+	SETB 	C
+	RET  	
+; 		}
+			; SOURCE LINE # 391
+?C0149:
+; 		//如果循环计数大于0，且按键对应的值为13，表示重新输入
+; 		else if(i>0&digit==13)
+			; SOURCE LINE # 393
+	MOV  	A,digit?454
+	CJNE 	A,#0DH,?C0152
+	MOV  	R7,#01H
+	SJMP 	?C0153
+?C0152:
+	MOV  	R7,#00H
+?C0153:
+	MOV  	A,i?452
+	SETB 	C
+	SUBB 	A,#00H
+	JC   	?C0154
+	MOV  	R6,#01H
+	SJMP 	?C0155
+?C0154:
+	MOV  	R6,#00H
+?C0155:
+	MOV  	A,R6
+	ANL  	A,R7
+	JZ   	$ + 5H
+	LJMP 	?C0116
+; 		{
+			; SOURCE LINE # 394
+; 			break;
+			; SOURCE LINE # 395
+; 		}
+			; SOURCE LINE # 396
+; 		//如果以上条件都不满足，表示输入无效，循环计数不变
+; 		else
+; 		{
+			; SOURCE LINE # 399
+; 			i--;
+			; SOURCE LINE # 400
+	DEC  	i?452
+; 		}
+			; SOURCE LINE # 401
+; 	}
+			; SOURCE LINE # 402
+?C0123:
+	INC  	i?452
+	LJMP 	?C0121
+; END OF input_display_time
+
+; 	}
+; }
+; //定义一个函数，用于等待输入，并返回是否继续或退出的状态
+; bit wait_input(void)
+
+	RSEG  ?PR?wait_input?KEYBOARD
+wait_input:
+	USING	0
+			; SOURCE LINE # 406
+; {
+			; SOURCE LINE # 407
+; 	//定义一个位变量，用于存储状态
+; 	bit state=0;
+			; SOURCE LINE # 409
+	CLR  	state?558
+?C0157:
+; 	//定义一个无符号字符变量，用于存储按键对应的值
+; 	unsigned char temp;
+; 	//无限循环，直到检测到有效按键
+; 	while(1)
+			; SOURCE LINE # 413
+; 	{
+			; SOURCE LINE # 414
+; 		//调用kscan函数，获取按键对应的值
+; 		temp=kscan();
+			; SOURCE LINE # 416
+	LCALL	kscan
+;---- Variable 'temp?559' assigned to Register 'R7' ----
+; 		//如果按键对应的值在0到15之间，表示输入有效
+; 		if(temp>=0&temp<=15)
+			; SOURCE LINE # 418
+	MOV  	A,R7
+	SETB 	C
+	SUBB 	A,#0FH
+	JNC  	?C0160
+	MOV  	R6,#01H
+	SJMP 	?C0161
+?C0160:
+	MOV  	R6,#00H
+?C0161:
+	MOV  	A,R7
+	CLR  	C
+	SUBB 	A,#00H
+	JC   	?C0162
+	MOV  	R5,#01H
+	SJMP 	?C0163
+?C0162:
+	MOV  	R5,#00H
+?C0163:
+	MOV  	A,R5
+	ANL  	A,R6
+	JZ   	?C0157
+; 		{
+			; SOURCE LINE # 419
+; 			//如果按键对应的值为14，表示退出，状态为1
+; 			if(temp==14)
+			; SOURCE LINE # 421
+	CJNE 	R7,#0EH,?C0164
+; 			{
+			; SOURCE LINE # 422
+; 				state=1;
+			; SOURCE LINE # 423
+	SETB 	state?558
+; 			}
+			; SOURCE LINE # 424
+?C0164:
+; 			//返回状态
+; 			return state;
+			; SOURCE LINE # 426
+	MOV  	C,state?558
+; 		}
+			; SOURCE LINE # 427
+; 	}
+			; SOURCE LINE # 428
+; }
+			; SOURCE LINE # 429
+	RET  	
+; END OF wait_input
+
+; //定义一个函数，用于显示输入位数错误的信息，并返回是否继续或退出的状态
+; bit wrong_input_bits(void)
+
+	RSEG  ?PR?wrong_input_bits?KEYBOARD
+wrong_input_bits:
+	USING	0
+			; SOURCE LINE # 431
+; {
+			; SOURCE LINE # 432
+; 	//调用display_wrong_input_bits函数，显示错误信息
+; 	display_wrong_input_bits();
+			; SOURCE LINE # 434
+	LCALL	display_wrong_input_bits
+; 	//调用f_or_e函数，判断是否继续或退出，并返回状态
+; 	return f_or_e();
+			; SOURCE LINE # 436
+	LJMP 	f_or_e
+; END OF wrong_input_bits
+
+; }
+; //定义一个函数，用于显示输入显示时间错误的信息，并返回是否继续或退出的状态
+; bit wrong_display_time(void)
+
+	RSEG  ?PR?wrong_display_time?KEYBOARD
+wrong_display_time:
+	USING	0
+			; SOURCE LINE # 439
+; {
+			; SOURCE LINE # 440
+; 	//调用display_wrong_input_display_time函数，显示错误信息
+; 	display_wrong_input_display_time();
+			; SOURCE LINE # 442
+	LCALL	display_wrong_input_display_time
+; 	//调用f_or_e函数，判断是否继续或退出，并返回状态
+; 	return f_or_e();
+			; SOURCE LINE # 444
+	LJMP 	f_or_e
+; END OF wrong_display_time
+
+	END

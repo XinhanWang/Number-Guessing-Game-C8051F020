@@ -1,0 +1,1234 @@
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\LCD12864.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE .\Objects\LCD12864.src PR(.\Listings\LCD12864.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\Objects\LCD12864.SRC generated from: LCD12864.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        C:\Keil_v5\C51\BIN\C51.EXE LCD12864.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND 
+                             PRINT(.\Listings\LCD12864.lst) TABS(2) SRC(.\Objects\LCD12864.SRC)
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    LCD12864
+                       8     
+  00DA                 9     CCF2    BIT     0D8H.2
+  009B                10     TB80    BIT     098H.3
+  009D                11     SPI0CKR DATA    09DH
+  00DB                12     CCF3    BIT     0D8H.3
+  0080                13     P0      DATA    080H
+  00F8                14     SPIEN   BIT     0F8H.0
+  00DC                15     CCF4    BIT     0D8H.4
+  009F                16     SM00    BIT     098H.7
+  0090                17     P1      DATA    090H
+  00C2                18     AA      BIT     0C0H.2
+  009E                19     SM10    BIT     098H.6
+  00FF                20     WDTCN   DATA    0FFH
+  00A0                21     P2      DATA    0A0H
+  009D                22     SM20    BIT     098H.5
+  00BC                23     ADC0CF  DATA    0BCH
+  00B0                24     P3      DATA    0B0H
+  00D6                25     AC      BIT     0D0H.6
+  00AB                26     ADC1CF  DATA    0ABH
+  0084                27     P4      DATA    084H
+  00E6                28     EIE1    DATA    0E6H
+  0085                29     P5      DATA    085H
+  00AF                30     EA      BIT     0A8H.7
+  00E7                31     EIE2    DATA    0E7H
+  0086                32     P6      DATA    086H
+  0096                33     P7      DATA    096H
+  008F                34     PSCTL   DATA    08FH
+  00F9                35     MSTEN   BIT     0F8H.1
+  00DF                36     CF      BIT     0D8H.7
+  00E8                37     ADC0CN  DATA    0E8H
+  00D4                38     DAC0CN  DATA    0D4H
+  00D7                39     DAC1CN  DATA    0D7H
+  00AA                40     ADC1CN  DATA    0AAH
+  00A4                41     P0MDOUT DATA    0A4H
+  00A5                42     P1MDOUT DATA    0A5H
+  00A8                43     IE      DATA    0A8H
+  00A6                44     P2MDOUT DATA    0A6H
+  00A7                45     P3MDOUT DATA    0A7H
+  0093                46     TMR3RLH DATA    093H
+  00F6                47     EIP1    DATA    0F6H
+  00F7                48     EIP2    DATA    0F7H
+  00FA                49     PCA0CPH0        DATA    0FAH
+  00FB                50     PCA0CPH1        DATA    0FBH
+  00AD                51     P3IF    DATA    0ADH
+  0092                52     TMR3RLL DATA    092H
+  00FC                53     PCA0CPH2        DATA    0FCH
+  00DE                54     CR      BIT     0D8H.6
+  00FD                55     PCA0CPH3        DATA    0FDH
+  00CE                56     EXF2    BIT     0C8H.6
+  009C                57     REN0    BIT     098H.4
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE     2
+
+  00FE                58     PCA0CPH4        DATA    0FEH
+  00EA                59     PCA0CPL0        DATA    0EAH
+  00A3                60     EMI0CF  DATA    0A3H
+  00EB                61     PCA0CPL1        DATA    0EBH
+  00DA                62     PCA0CPM0        DATA    0DAH
+  00D9                63     PCA0MD  DATA    0D9H
+  00D8                64     PCA0CN  DATA    0D8H
+  00EC                65     PCA0CPL2        DATA    0ECH
+  00DB                66     PCA0CPM1        DATA    0DBH
+  00ED                67     PCA0CPL3        DATA    0EDH
+  00DC                68     PCA0CPM2        DATA    0DCH
+  00B8                69     IP      DATA    0B8H
+  00EE                70     PCA0CPL4        DATA    0EEH
+  00DD                71     PCA0CPM3        DATA    0DDH
+  00DE                72     PCA0CPM4        DATA    0DEH
+  00FB                73     TXBSY   BIT     0F8H.3
+  00D7                74     CY      BIT     0D0H.7
+  00C3                75     SI      BIT     0C0H.3
+  00E1                76     XBR0    DATA    0E1H
+  00B9                77     SADEN0  DATA    0B9H
+  00E2                78     XBR1    DATA    0E2H
+  00AF                79     EMI0CN  DATA    0AFH
+  00AE                80     SADEN1  DATA    0AEH
+  00E3                81     XBR2    DATA    0E3H
+  00D1                82     REF0CN  DATA    0D1H
+  00A9                83     SADDR0  DATA    0A9H
+  00F3                84     SADDR1  DATA    0F3H
+  00BA                85     AMX0CF  DATA    0BAH
+  00ED                86     AD0INT  BIT     0E8H.5
+  00CB                87     RCAP2H  DATA    0CBH
+  00BC                88     PS      BIT     0B8H.4
+  0081                89     SP      DATA    081H
+  00E5                90     RCAP4H  DATA    0E5H
+  00A1                91     EMI0TC  DATA    0A1H
+  00D2                92     OV      BIT     0D0H.2
+  00C0                93     SMB0CN  DATA    0C0H
+  00CA                94     RCAP2L  DATA    0CAH
+  00FD                95     MODF    BIT     0F8H.5
+  00E4                96     RCAP4L  DATA    0E4H
+  00CF                97     SMB0CR  DATA    0CFH
+  009E                98     CPT0CN  DATA    09EH
+  00BD                99     P1MDIN  DATA    0BDH
+  009F               100     CPT1CN  DATA    09FH
+  00F8               101     SPI0CN  DATA    0F8H
+  0087               102     PCON    DATA    087H
+  00FF               103     SPIF    BIT     0F8H.7
+  00B5               104     P74OUT  DATA    0B5H
+  0089               105     TMOD    DATA    089H
+  0088               106     TCON    DATA    088H
+  00FE               107     WCOL    BIT     0F8H.6
+  00BB               108     AMX0SL  DATA    0BBH
+  00AC               109     AMX1SL  DATA    0ACH
+  0091               110     TMR3CN  DATA    091H
+  0089               111     IE0     BIT     088H.1
+  008B               112     IE1     BIT     088H.3
+  00F0               113     B       DATA    0F0H
+  00D3               114     DAC0H   DATA    0D3H
+  00BF               115     ADC0H   DATA    0BFH
+  00B2               116     OSCICN  DATA    0B2H
+  00D6               117     DAC1H   DATA    0D6H
+  00C1               118     SMBFTE  BIT     0C0H.1
+  00C7               119     BUSY    BIT     0C0H.7
+  00D2               120     DAC0L   DATA    0D2H
+  00BE               121     ADC0L   DATA    0BEH
+  00D5               122     DAC1L   DATA    0D5H
+  00A7               123     LCD_EN  BIT     0A0H.7
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE     3
+
+  00E0               124     ACC     DATA    0E0H
+  00AC               125     ES0     BIT     0A8H.4
+  00EF               126     AD0EN   BIT     0E8H.7
+  00C9               127     CT2     BIT     0C8H.1
+  00A9               128     ET0     BIT     0A8H.1
+  00AB               129     ET1     BIT     0A8H.3
+  008D               130     TF0     BIT     088H.5
+  00AD               131     ET2     BIT     0A8H.5
+  0098               132     RI0     BIT     098H.0
+  008F               133     TF1     BIT     088H.7
+  00CF               134     TF2     BIT     0C8H.7
+  00C0               135     SMBTOE  BIT     0C0H.0
+  008C               136     TH0     DATA    08CH
+  00A8               137     EX0     BIT     0A8H.0
+  0099               138     TI0     BIT     098H.1
+  0088               139     IT0     BIT     088H.0
+  00F9               140     PCA0H   DATA    0F9H
+  008D               141     TH1     DATA    08DH
+  00AA               142     EX1     BIT     0A8H.2
+  008A               143     IT1     BIT     088H.2
+  00CD               144     TH2     DATA    0CDH
+  00D0               145     P       BIT     0D0H.0
+  00F5               146     TH4     DATA    0F5H
+  00B1               147     OSCXCN  DATA    0B1H
+  008A               148     TL0     DATA    08AH
+  00E9               149     PCA0L   DATA    0E9H
+  008B               150     TL1     DATA    08BH
+  00CC               151     TL2     DATA    0CCH
+  00B9               152     PT0     BIT     0B8H.1
+  00F4               153     TL4     DATA    0F4H
+  00D3               154     RS0     BIT     0D0H.3
+  00BB               155     PT1     BIT     0B8H.3
+  00D4               156     RS1     BIT     0D0H.4
+  00BD               157     PT2     BIT     0B8H.5
+  008C               158     TR0     BIT     088H.4
+  00EE               159     AD0TM   BIT     0E8H.6
+  008E               160     TR1     BIT     088H.6
+  00CA               161     TR2     BIT     0C8H.2
+  00B8               162     PX0     BIT     0B8H.0
+  00A5               163     LCD_RS  BIT     0A0H.5
+  00BA               164     PX1     BIT     0B8H.2
+  00FA               165     SLVSEL  BIT     0F8H.2
+  0083               166     DPH     DATA    083H
+  00A6               167     LCD_RW  BIT     0A0H.6
+  00CD               168     RCLK0   BIT     0C8H.5
+  00C5               169     ADC0GTH DATA    0C5H
+  00CC               170     TCLK0   BIT     0C8H.4
+  0082               171     DPL     DATA    082H
+  00C4               172     ADC0GTL DATA    0C4H
+  0099               173     SBUF0   DATA    099H
+  00F2               174     SBUF1   DATA    0F2H
+  00C7               175     ADC0LTH DATA    0C7H
+  00CB               176     EXEN2   BIT     0C8H.3
+  00EF               177     RSTSRC  DATA    0EFH
+  00B7               178     FLACL   DATA    0B7H
+  00C8               179     CPRL2   BIT     0C8H.0
+  0098               180     SCON0   DATA    098H
+  00F1               181     SCON1   DATA    0F1H
+  00C6               182     ADC0LTL DATA    0C6H
+  00C8               183     T2CON   DATA    0C8H
+  00C5               184     STA     BIT     0C0H.5
+  00C9               185     T4CON   DATA    0C9H
+  00C3               186     SMB0ADR DATA    0C3H
+  00C2               187     SMB0DAT DATA    0C2H
+  009A               188     SPI0CFG DATA    09AH
+  0095               189     TMR3H   DATA    095H
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE     4
+
+  008E               190     CKCON   DATA    08EH
+  00FC               191     RXOVRN  BIT     0F8H.4
+  0080               192     D0      BIT     080H.0
+  0094               193     TMR3L   DATA    094H
+  0081               194     D1      BIT     080H.1
+  00E8               195     AD0LJST BIT     0E8H.0
+  0082               196     D2      BIT     080H.2
+  00D5               197     F0      BIT     0D0H.5
+  00B6               198     FLSCL   DATA    0B6H
+  0083               199     D3      BIT     080H.3
+  00EA               200     AD0CM0  BIT     0E8H.2
+  00D1               201     F1      BIT     0D0H.1
+  00C4               202     STO     BIT     0C0H.4
+  00C6               203     ENSMB   BIT     0C0H.6
+  0084               204     D4      BIT     080H.4
+  00EB               205     AD0CM1  BIT     0E8H.3
+  009B               206     SPI0DAT DATA    09BH
+  0085               207     D5      BIT     080H.5
+  0086               208     D6      BIT     080H.6
+  00E9               209     AD0WINT BIT     0E8H.1
+  009C               210     ADC1    DATA    09CH
+  0087               211     D7      BIT     080H.7
+  00EC               212     AD0BUSY BIT     0E8H.4
+  00D0               213     PSW     DATA    0D0H
+  00D8               214     CCF0    BIT     0D8H.0
+  009A               215     RB80    BIT     098H.2
+  00C1               216     SMB0STA DATA    0C1H
+  00D9               217     CCF1    BIT     0D8H.1
+                     218     ?PR?set_LCD_read_write?LCD12864          SEGMENT CODE 
+                     219     ?PR?wait_lcd_not_busy?LCD12864           SEGMENT CODE 
+                     220     ?PR?_lcd_wcmd?LCD12864                   SEGMENT CODE 
+                     221     ?PR?_lcd_wdat?LCD12864                   SEGMENT CODE 
+                     222     ?PR?clear?LCD12864   SEGMENT CODE 
+                     223     ?PR?lcd_init?LCD12864                    SEGMENT CODE 
+                     224     ?PR?_set_xy?LCD12864 SEGMENT CODE 
+                     225     ?DT?_set_xy?LCD12864 SEGMENT DATA OVERLAYABLE 
+                     226     ?PR?_print?LCD12864  SEGMENT CODE 
+                     227     ?DT?_print?LCD12864  SEGMENT DATA OVERLAYABLE 
+                     228     ?PR?_print_char?LCD12864                 SEGMENT CODE 
+                     229     ?DT?_print_char?LCD12864                 SEGMENT DATA OVERLAYABLE 
+                     230     ?PR?_Draw_PM?LCD12864                    SEGMENT CODE 
+                     231     ?DT?_Draw_PM?LCD12864                    SEGMENT DATA OVERLAYABLE 
+                     232             EXTRN   CODE (_delay_ms)
+                     233             EXTRN   CODE (?C?CLDPTR)
+                     234             PUBLIC  _Draw_PM
+                     235             PUBLIC  _print_char
+                     236             PUBLIC  _print
+                     237             PUBLIC  _set_xy
+                     238             PUBLIC  lcd_init
+                     239             PUBLIC  clear
+                     240             PUBLIC  _lcd_wdat
+                     241             PUBLIC  _lcd_wcmd
+                     242             PUBLIC  wait_lcd_not_busy
+                     243             PUBLIC  set_LCD_read_write
+                     244     
+----                 245             RSEG  ?DT?_Draw_PM?LCD12864
+0000                 246     ?_Draw_PM?BYTE:
+0000                 247             ptr?951:   DS   3
+0003                 248             ORG  3
+0003                 249               i?952:   DS   1
+0004                 250             ORG  4
+0004                 251               j?953:   DS   1
+0005                 252             ORG  5
+0005                 253               k?954:   DS   1
+                     254     
+----                 255             RSEG  ?DT?_set_xy?LCD12864
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE     5
+
+0000                 256     ?_set_xy?BYTE:
+0000                 257            xpos?642:   DS   1
+                     258     
+----                 259             RSEG  ?DT?_print?LCD12864
+0000                 260     ?_print?BYTE:
+0000                 261             str?746:   DS   3
+                     262     
+----                 263             RSEG  ?DT?_print_char?LCD12864
+0000                 264     ?_print_char?BYTE:
+0000                 265               a?850:   DS   1
+                     266     ; /*
+                     267     ;  * @Author: ÍõÐÄå«
+                     268     ;  * @Date: 2023-11-23 21:04:30
+                     269     ;  * @LastEditors: ÍõÐÄå«
+                     270     ;  * @LastEditTime: 2023-12-22 22:54:32
+                     271     ;  * @FilePath: \undefinedc:\Users\u2021\Desktop\×ÊÁÏ\´óÈ\µ¥Æ¬»ú\ÊµÑé\Ìá¸ßÊµÑé\CÓïÑÔ°æ±¾\LC
+                             D12864.c
+                     272     ;  * @Description: LCD12864ÎÄ¼þ£¬°üº¬LCD12864ÏÔÊ¾Ïà¹Øº¯Ê
+                     273     ;  * 
+                     274     ;  * Copyright (c) 2023 by ${ÍõÐÄå«}, All Rights Reserved. 
+                     275     ;  */
+                     276     ; // °üº¬LCD12864Òº¾§ÏÔÊ¾ÆÁµÄÍ·ÎÄ¼þ
+                     277     ; #include "LCD12864.h"
+                     278     ; 
+                     279     ; // ¶¨ÒåÉèÖÃLCD¶ÁÐ´Ä£Ê½µÄº¯Ê
+                     280     ; void set_LCD_read_write(void)
+                     281     
+----                 282             RSEG  ?PR?set_LCD_read_write?LCD12864
+0000                 283     set_LCD_read_write:
+                     284                             ; SOURCE LINE # 15
+                     285     ; {
+                     286                             ; SOURCE LINE # 16
+                     287     ;       // Èç¹ûLCD_RWÎª0£¬±íÊ¾Ð´Ä£Ê½£¬½«LCD_read_writeÉèÎª0xFF£¬ÍÆÍìÊä³ö
+                     288     ;       if(LCD_RW==0)
+                     289                             ; SOURCE LINE # 18
+0000 20A604          290             JB      LCD_RW,?C0001
+                     291     ;       {
+                     292                             ; SOURCE LINE # 19
+                     293     ;               LCD_read_write= 0xFF;
+                     294                             ; SOURCE LINE # 20
+0003 75A4FF          295             MOV     P0MDOUT,#0FFH
+                     296     ;       }
+                     297                             ; SOURCE LINE # 21
+0006 22              298             RET     
+0007                 299     ?C0001:
+                     300     ;       // ·ñÔò£¬±íÊ¾¶ÁÄ£Ê½£¬½«LCD_read_writeÉèÎª0x00£¬½«LCD_dataÉèÎª0xFF£¬Â©¿ªÐ´1×÷ÎªÊäÈë
+                     301     ;       else
+                     302     ;       {
+                     303                             ; SOURCE LINE # 24
+                     304     ;               LCD_read_write= 0x00;
+                     305                             ; SOURCE LINE # 25
+0007 E4              306             CLR     A
+0008 F5A4            307             MOV     P0MDOUT,A
+                     308     ;               LCD_data=0xFF;
+                     309                             ; SOURCE LINE # 26
+000A 7580FF          310             MOV     P0,#0FFH
+                     311     ;       }
+                     312                             ; SOURCE LINE # 27
+                     313     ; }
+                     314                             ; SOURCE LINE # 28
+000D                 315     ?C0003:
+000D 22              316             RET     
+                     317     ; END OF set_LCD_read_write
+                     318     
+                     319     ; 
+                     320     ; /*
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE     6
+
+                     321     ; * ¹¦  ÄÜ£ºµÈ´LCD12864¿ÕÏÐ
+                     322     ; * ²Î  Ê£ºÎÞ
+                     323     ; * ·µ»ØÖµ£ºÎÞ
+                     324     ; */
+                     325     ; void wait_lcd_not_busy()
+                     326     
+----                 327             RSEG  ?PR?wait_lcd_not_busy?LCD12864
+0000                 328     wait_lcd_not_busy:
+                     329                             ; SOURCE LINE # 35
+                     330     ; {                          
+                     331                             ; SOURCE LINE # 36
+                     332     ;       // ½«LCD_RSÉèÎª0£¬±íÊ¾Ñ¡ÔñÖ¸Áî¼Ä´æÆ÷
+                     333     ;       LCD_RS = 0;
+                     334                             ; SOURCE LINE # 38
+0000 C2A5            335             CLR     LCD_RS
+                     336     ;       // ½«LCD_RWÉèÎª1£¬±íÊ¾¶ÁÈ¡×´Ì¬
+                     337     ;       LCD_RW = 1;
+                     338                             ; SOURCE LINE # 40
+0002 D2A6            339             SETB    LCD_RW
+                     340     ;       // µ÷ÓÃÉèÖÃLCD¶ÁÐ´Ä£Ê½µÄº¯Ê
+                     341     ;       set_LCD_read_write();
+                     342                             ; SOURCE LINE # 42
+0004 120000   F      343             LCALL   set_LCD_read_write
+                     344     ;       // ½«LCD_ENÉèÎª1
+                     345     ;       LCD_EN = 1;
+                     346                             ; SOURCE LINE # 44
+0007 D2A7            347             SETB    LCD_EN
+0009                 348     ?C0004:
+                     349     ;       // µÈ´D7Îª0£¬±íÊ¾LCD¿ÕÏÐ
+                     350     ;       while(D7);
+                     351                             ; SOURCE LINE # 46
+0009 2087FD          352             JB      D7,?C0004
+                     353     ;       // ½«LCD_ENÉèÎª0
+                     354     ;       LCD_EN = 0;
+                     355                             ; SOURCE LINE # 48
+000C C2A7            356             CLR     LCD_EN
+                     357     ; }
+                     358                             ; SOURCE LINE # 49
+000E 22              359             RET     
+                     360     ; END OF wait_lcd_not_busy
+                     361     
+                     362     ; 
+                     363     ; /*
+                     364     ; * ¹¦  ÄÜ£ºÐ´Ö¸Áîµ½LCD
+                     365     ; * ²Î  Ê£ºÒªÐ´ÈëµÄÖ¸Áî
+                     366     ; * ·µ»ØÖµ£ºÎÞ
+                     367     ; */
+                     368     ; void lcd_wcmd(uchar cmd)
+                     369     
+----                 370             RSEG  ?PR?_lcd_wcmd?LCD12864
+0000                 371     _lcd_wcmd:
+                     372             USING   0
+                     373                             ; SOURCE LINE # 56
+                     374     ;---- Variable 'cmd?240' assigned to Register 'R7' ----
+                     375     ; {                          
+                     376                             ; SOURCE LINE # 57
+                     377     ;       // µ÷ÓÃµÈ´LCD¿ÕÏÐµÄº¯Ê
+                     378     ;       wait_lcd_not_busy();
+                     379                             ; SOURCE LINE # 59
+0000 120000   F      380             LCALL   wait_lcd_not_busy
+                     381     ;       // ½«LCD_RSÉèÎª0£¬±íÊ¾Ñ¡ÔñÖ¸Áî¼Ä´æÆ÷
+                     382     ;       LCD_RS = 0;
+                     383                             ; SOURCE LINE # 61
+0003 C2A5            384             CLR     LCD_RS
+                     385     ;       // ½«LCD_RWÉèÎª0£¬±íÊ¾Ð´ÈëÊ¾Ý
+                     386     ;       LCD_RW = 0;
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE     7
+
+                     387                             ; SOURCE LINE # 63
+0005 C2A6            388             CLR     LCD_RW
+                     389     ;       // µ÷ÓÃÉèÖÃLCD¶ÁÐ´Ä£Ê½µÄº¯Ê
+                     390     ;       set_LCD_read_write();
+                     391                             ; SOURCE LINE # 65
+0007 120000   F      392             LCALL   set_LCD_read_write
+                     393     ;       // ½«ÒªÐ´ÈëµÄÖ¸Áî¸³Öµ¸øLCD_data
+                     394     ;       LCD_data = cmd;
+                     395                             ; SOURCE LINE # 67
+000A 8F80            396             MOV     P0,R7
+                     397     ;       // ÑÓÊ±1ºÁÃë
+                     398     ;       delay_ms(1);
+                     399                             ; SOURCE LINE # 69
+000C 7F01            400             MOV     R7,#01H
+000E 7E00            401             MOV     R6,#00H
+0010 7D00            402             MOV     R5,#00H
+0012 7C00            403             MOV     R4,#00H
+0014 120000   F      404             LCALL   _delay_ms
+                     405     ;       // ½«LCD_ENÉèÎª1
+                     406     ;       LCD_EN = 1;
+                     407                             ; SOURCE LINE # 71
+0017 D2A7            408             SETB    LCD_EN
+                     409     ;       // ÑÓÊ±1ºÁÃë
+                     410     ;       delay_ms(1);
+                     411                             ; SOURCE LINE # 73
+0019 7F01            412             MOV     R7,#01H
+001B 7E00            413             MOV     R6,#00H
+001D 7D00            414             MOV     R5,#00H
+001F 7C00            415             MOV     R4,#00H
+0021 120000   F      416             LCALL   _delay_ms
+                     417     ;       // ½«LCD_ENÉèÎª0
+                     418     ;       LCD_EN = 0;  
+                     419                             ; SOURCE LINE # 75
+0024 C2A7            420             CLR     LCD_EN
+                     421     ; }
+                     422                             ; SOURCE LINE # 76
+0026 22              423             RET     
+                     424     ; END OF _lcd_wcmd
+                     425     
+                     426     ; 
+                     427     ; /*
+                     428     ; * ¹¦  ÄÜ£ºLCDÐ´Ê¾Ý
+                     429     ; * ²Î  Ê£ºÒªÐ´ÈëµÄÊ¾Ý
+                     430     ; * ·µ»ØÖµ£ºÎÞ
+                     431     ; */
+                     432     ; void lcd_wdat(uchar dat)
+                     433     
+----                 434             RSEG  ?PR?_lcd_wdat?LCD12864
+0000                 435     L?0042:
+                     436             USING   0
+0000 14              437             DEC     A
+0001 F9              438             MOV     R1,A
+0002 120000   F      439             LCALL   ?C?CLDPTR
+0005 FF              440             MOV     R7,A
+0006                 441     _lcd_wdat:
+                     442             USING   0
+                     443                             ; SOURCE LINE # 83
+                     444     ;---- Variable 'dat?341' assigned to Register 'R7' ----
+                     445     ; {                          
+                     446                             ; SOURCE LINE # 84
+                     447     ;       // µ÷ÓÃµÈ´LCD¿ÕÏÐµÄº¯Ê
+                     448     ;       wait_lcd_not_busy();
+                     449                             ; SOURCE LINE # 86
+0006 120000   F      450             LCALL   wait_lcd_not_busy
+                     451     ;       // ½«LCD_RSÉèÎª1£¬±íÊ¾Ñ¡ÔñÊ¾Ý¼Ä´æÆ÷
+                     452     ;       LCD_RS = 1;
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE     8
+
+                     453                             ; SOURCE LINE # 88
+0009 D2A5            454             SETB    LCD_RS
+                     455     ;       // ½«LCD_RWÉèÎª0£¬±íÊ¾Ð´ÈëÊ¾Ý
+                     456     ;       LCD_RW = 0;
+                     457                             ; SOURCE LINE # 90
+000B C2A6            458             CLR     LCD_RW
+                     459     ;       // µ÷ÓÃÉèÖÃLCD¶ÁÐ´Ä£Ê½µÄº¯Ê
+                     460     ;       set_LCD_read_write();
+                     461                             ; SOURCE LINE # 92
+000D 120000   F      462             LCALL   set_LCD_read_write
+                     463     ;       // ½«ÒªÐ´ÈëµÄÊ¾Ý¸³Öµ¸øLCD_data
+                     464     ;       LCD_data = dat;
+                     465                             ; SOURCE LINE # 94
+0010 8F80            466             MOV     P0,R7
+                     467     ;       // ÑÓÊ±1ºÁÃë
+                     468     ;       delay_ms(1);
+                     469                             ; SOURCE LINE # 96
+0012 7F01            470             MOV     R7,#01H
+0014 7E00            471             MOV     R6,#00H
+0016 7D00            472             MOV     R5,#00H
+0018 7C00            473             MOV     R4,#00H
+001A 120000   F      474             LCALL   _delay_ms
+                     475     ;       // ½«LCD_ENÉèÎª1
+                     476     ;       LCD_EN = 1;
+                     477                             ; SOURCE LINE # 98
+001D D2A7            478             SETB    LCD_EN
+                     479     ;       // ÑÓÊ±1ºÁÃë
+                     480     ;       delay_ms(1);
+                     481                             ; SOURCE LINE # 100
+001F 7F01            482             MOV     R7,#01H
+0021 7E00            483             MOV     R6,#00H
+0023 7D00            484             MOV     R5,#00H
+0025 7C00            485             MOV     R4,#00H
+0027 120000   F      486             LCALL   _delay_ms
+                     487     ;       // ½«LCD_ENÉèÎª0
+                     488     ;       LCD_EN = 0;
+                     489                             ; SOURCE LINE # 102
+002A C2A7            490             CLR     LCD_EN
+                     491     ; }
+                     492                             ; SOURCE LINE # 103
+002C 22              493             RET     
+                     494     ; END OF _lcd_wdat
+                     495     
+                     496     ; 
+                     497     ; // ¶¨ÒåÇå³LCDÏÔÊ¾ÄÚÈÝµÄº¯Ê
+                     498     ; void clear(void)
+                     499     
+----                 500             RSEG  ?PR?clear?LCD12864
+0000                 501     clear:
+                     502             USING   0
+                     503                             ; SOURCE LINE # 106
+                     504     ; {
+                     505                             ; SOURCE LINE # 107
+                     506     ;       // Ð´Èë0x01Ö¸Áî£¬±íÊ¾Çå³LCDµÄÏÔÊ¾ÄÚÈÝ
+                     507     ;       lcd_wcmd(0x01);      
+                     508                             ; SOURCE LINE # 109
+0000 7F01            509             MOV     R7,#01H
+0002 020000   F      510             LJMP    _lcd_wcmd
+                     511     ; END OF clear
+                     512     
+                     513     ; }
+                     514     ; 
+                     515     ; /*
+                     516     ; * ¹¦  ÄÜ£ºLCD³õÊ¼»¯
+                     517     ; * ²Î  Ê£ºÎÞ
+                     518     ; * ·µ»ØÖµ£ºÎÞ
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE     9
+
+                     519     ; */
+                     520     ; void lcd_init(void)
+                     521     
+----                 522             RSEG  ?PR?lcd_init?LCD12864
+0000                 523     lcd_init:
+                     524             USING   0
+                     525                             ; SOURCE LINE # 117
+                     526     ; { 
+                     527                             ; SOURCE LINE # 118
+                     528     ;       // Ð´Èë0x34Ö¸Áî£¬±íÊ¾´ò¿ªÀ©³äÖ¸Áî²Ù×÷
+                     529     ;       lcd_wcmd(0x34);      
+                     530                             ; SOURCE LINE # 120
+0000 7F34            531             MOV     R7,#034H
+0002 120000   F      532             LCALL   _lcd_wcmd
+                     533     ;       // ÑÓÊ±5ºÁÃë
+                     534     ;       delay_ms(5);
+                     535                             ; SOURCE LINE # 122
+0005 7F05            536             MOV     R7,#05H
+0007 7E00            537             MOV     R6,#00H
+0009 7D00            538             MOV     R5,#00H
+000B 7C00            539             MOV     R4,#00H
+000D 120000   F      540             LCALL   _delay_ms
+                     541     ;       // Ð´Èë0x30Ö¸Áî£¬±íÊ¾´ò¿ª»ù±¾Ö¸Áî²Ù×÷
+                     542     ;       lcd_wcmd(0x30);      
+                     543                             ; SOURCE LINE # 124
+0010 7F30            544             MOV     R7,#030H
+0012 120000   F      545             LCALL   _lcd_wcmd
+                     546     ;       // ÑÓÊ±5ºÁÃë
+                     547     ;       delay_ms(5);
+                     548                             ; SOURCE LINE # 126
+0015 7F05            549             MOV     R7,#05H
+0017 7E00            550             MOV     R6,#00H
+0019 7D00            551             MOV     R5,#00H
+001B 7C00            552             MOV     R4,#00H
+001D 120000   F      553             LCALL   _delay_ms
+                     554     ;       // Ð´Èë0x0CÖ¸Áî£¬±íÊ¾ÏÔÊ¾¿ª£¬¹Ø¹â±ê
+                     555     ;       lcd_wcmd(0x0C);      
+                     556                             ; SOURCE LINE # 128
+0020 7F0C            557             MOV     R7,#0CH
+0022 120000   F      558             LCALL   _lcd_wcmd
+                     559     ;       // ÑÓÊ±5ºÁÃë
+                     560     ;       delay_ms(5);
+                     561                             ; SOURCE LINE # 130
+0025 7F05            562             MOV     R7,#05H
+0027 7E00            563             MOV     R6,#00H
+0029 7D00            564             MOV     R5,#00H
+002B 7C00            565             MOV     R4,#00H
+002D 120000   F      566             LCALL   _delay_ms
+                     567     ;       // Ð´Èë0x01Ö¸Áî£¬±íÊ¾Çå³LCDµÄÏÔÊ¾ÄÚÈÝ
+                     568     ;       lcd_wcmd(0x01);      
+                     569                             ; SOURCE LINE # 132
+0030 7F01            570             MOV     R7,#01H
+0032 120000   F      571             LCALL   _lcd_wcmd
+                     572     ;       // ÑÓÊ±5ºÁÃë
+                     573     ;       delay_ms(5);
+                     574                             ; SOURCE LINE # 134
+0035 7F05            575             MOV     R7,#05H
+0037 7E00            576             MOV     R6,#00H
+0039 7D00            577             MOV     R5,#00H
+003B 7C00            578             MOV     R4,#00H
+003D 020000   F      579             LJMP    _delay_ms
+                     580     ; END OF lcd_init
+                     581     
+                     582     ; }
+                     583     ; /*ÉèÖÃÏÔÊ¾Î»ÖÃ  xpos(0~7),ypos(1~4)*/
+                     584     ; void set_xy(unsigned char xpos,unsigned char ypos)
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE    10
+
+                     585     
+----                 586             RSEG  ?PR?_set_xy?LCD12864
+0000                 587     _set_xy:
+                     588             USING   0
+                     589                             ; SOURCE LINE # 137
+0000 8F00     F      590             MOV     xpos?642,R7
+                     591     ;---- Variable 'ypos?643' assigned to Register 'R5' ----
+                     592     ; {
+                     593                             ; SOURCE LINE # 138
+                     594     ;       // ¸ù¾ÝyposµÄÖµ£¬Ñ¡Ôñ²»Í¬µÄÐÐµØÖ·
+                     595     ;       switch(ypos)
+                     596                             ; SOURCE LINE # 140
+0002 ED              597             MOV     A,R5
+0003 24FE            598             ADD     A,#0FEH
+0005 6010            599             JZ      ?C0013
+0007 14              600             DEC     A
+0008 6013            601             JZ      ?C0014
+000A 14              602             DEC     A
+000B 6016            603             JZ      ?C0015
+000D 2403            604             ADD     A,#03H
+000F 701A            605             JNZ     ?C0017
+                     606     ;       {
+                     607                             ; SOURCE LINE # 141
+                     608     ;               case 1:
+                     609                             ; SOURCE LINE # 142
+0011                 610     ?C0012:
+                     611     ;                       // Ð´Èë0x80|xposÖ¸Áî£¬±íÊ¾ÉèÖÃµÚÒ»ÐÐµÄÏÔÊ¾Î»ÖÃ
+                     612     ;                       lcd_wcmd(0X80|xpos);break;
+                     613                             ; SOURCE LINE # 144
+0011 E500     F      614             MOV     A,xpos?642
+0013 4480            615             ORL     A,#080H
+0015 8010            616             SJMP    ?C0040
+                     617     ;               case 2:
+                     618                             ; SOURCE LINE # 145
+0017                 619     ?C0013:
+                     620     ;                       // Ð´Èë0x90|xposÖ¸Áî£¬±íÊ¾ÉèÖÃµÚ¶þÐÐµÄÏÔÊ¾Î»ÖÃ
+                     621     ;                       lcd_wcmd(0X90|xpos);break;
+                     622                             ; SOURCE LINE # 147
+0017 E500     F      623             MOV     A,xpos?642
+0019 4490            624             ORL     A,#090H
+001B                 625     ?C0038:
+001B 800A            626             SJMP    ?C0040
+                     627     ;               case 3:
+                     628                             ; SOURCE LINE # 148
+001D                 629     ?C0014:
+                     630     ;                       // Ð´Èë0x88|xposÖ¸Áî£¬±íÊ¾ÉèÖÃµÚÈÐÐµÄÏÔÊ¾Î»ÖÃ
+                     631     ;                       lcd_wcmd(0X88|xpos);break;
+                     632                             ; SOURCE LINE # 150
+001D E500     F      633             MOV     A,xpos?642
+001F 4488            634             ORL     A,#088H
+0021                 635     ?C0039:
+0021 8004            636             SJMP    ?C0040
+                     637     ;               case 4:
+                     638                             ; SOURCE LINE # 151
+0023                 639     ?C0015:
+                     640     ;                       // Ð´Èë0x98|xposÖ¸Áî£¬±íÊ¾ÉèÖÃµÚËÄÐÐµÄÏÔÊ¾Î»ÖÃ
+                     641     ;                       lcd_wcmd(0X98|xpos);break;
+                     642                             ; SOURCE LINE # 153
+0023 E500     F      643             MOV     A,xpos?642
+0025 4498            644             ORL     A,#098H
+0027                 645     ?C0040:
+0027 FF              646             MOV     R7,A
+0028 120000   F      647             LCALL   _lcd_wcmd
+                     648     ;               default:
+                     649                             ; SOURCE LINE # 154
+                     650     ;                       // ÆäËûÇé¿ö£¬²»×öÈÎºÎ²Ù×÷
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE    11
+
+                     651     ;                       break;
+                     652                             ; SOURCE LINE # 156
+                     653     ;       }
+                     654                             ; SOURCE LINE # 157
+                     655     ; }
+                     656                             ; SOURCE LINE # 158
+002B                 657     ?C0017:
+002B 22              658             RET     
+                     659     ; END OF _set_xy
+                     660     
+                     661     ; /*ÔÚÖ¸¶¨Î»ÖÃÏÔÊ¾×Ö·û´®*/
+                     662     ; void print(unsigned char x,unsigned char y,const unsigned char* str)
+                     663     
+----                 664             RSEG  ?PR?_print?LCD12864
+0000                 665     _print:
+                     666             USING   0
+                     667                             ; SOURCE LINE # 160
+0000 8B00     F      668             MOV     str?746,R3
+0002 8A00     F      669             MOV     str?746+01H,R2
+0004 8900     F      670             MOV     str?746+02H,R1
+                     671     ;---- Variable 'y?745' assigned to Register 'R5' ----
+                     672     ;---- Variable 'x?744' assigned to Register 'R7' ----
+                     673     ; { 
+                     674                             ; SOURCE LINE # 161
+                     675     ;       // ¶¨ÒåÒ»¸öÎÞ·ûºÅ×Ö·û±äÁ¿£¬ÓÃÓÚ´æ´¢×Ö·û´®ÖÐµÄ×Ö·û
+                     676     ;       unsigned char lcd_temp; 
+                     677     ;       // µ÷ÓÃÉèÖÃÏÔÊ¾Î»ÖÃµÄº¯Ê
+                     678     ;       set_xy(x,y);
+                     679                             ; SOURCE LINE # 165
+0006 120000   F      680             LCALL   _set_xy
+                     681     ;       // È¡³ö×Ö·û´®ÖÐµÄµÚÒ»¸ö×Ö·û
+                     682     ;       lcd_temp=*str;
+                     683                             ; SOURCE LINE # 167
+0009 AB00     F      684             MOV     R3,str?746
+000B AA00     F      685             MOV     R2,str?746+01H
+000D A900     F      686             MOV     R1,str?746+02H
+                     687     ;---- Variable 'lcd_temp?747' assigned to Register 'R7' ----
+000F 8013            688             SJMP    ?C0041
+0011                 689     ?C0018:
+                     690     ;               // µ±×Ö·û²»Îª0x00Ê±£¬±íÊ¾×Ö·û´®Î´½áÊø
+                     691     ;               while(lcd_temp != 0x00) 
+                     692                             ; SOURCE LINE # 169
+0011 EF              693             MOV     A,R7
+0012 6016            694             JZ      ?C0020
+                     695     ;               { 
+                     696                             ; SOURCE LINE # 170
+                     697     ;               // ÔÚLCDÉÏÐ´Èë¸Ã×Ö·û
+                     698     ;               lcd_wdat(lcd_temp);
+                     699                             ; SOURCE LINE # 172
+0014 120000   F      700             LCALL   _lcd_wdat
+                     701     ;               // È¡³ö×Ö·û´®ÖÐµÄÏÂÒ»¸ö×Ö·û
+                     702     ;               lcd_temp=*(++str);
+                     703                             ; SOURCE LINE # 174
+0017 AB00     F      704             MOV     R3,str?746
+0019 0500     F      705             INC     str?746+02H
+001B E500     F      706             MOV     A,str?746+02H
+001D 7002            707             JNZ     ?C0035
+001F 0500     F      708             INC     str?746+01H
+0021                 709     ?C0035:
+0021 F9              710             MOV     R1,A
+0022 AA00     F      711             MOV     R2,str?746+01H
+0024                 712     ?C0041:
+0024 120000   F      713             LCALL   ?C?CLDPTR
+0027 FF              714             MOV     R7,A
+                     715     ;               } 
+                     716                             ; SOURCE LINE # 175
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE    12
+
+0028 80E7            717             SJMP    ?C0018
+                     718     ; }
+                     719                             ; SOURCE LINE # 176
+002A                 720     ?C0020:
+002A 22              721             RET     
+                     722     ; END OF _print
+                     723     
+                     724     ; /*ÔÚÖ¸¶¨Î»ÖÃÏÔÊ¾×Ö·û*/
+                     725     ; void print_char(unsigned char x,unsigned char y,unsigned char a)
+                     726     
+----                 727             RSEG  ?PR?_print_char?LCD12864
+0000                 728     _print_char:
+                     729             USING   0
+                     730                             ; SOURCE LINE # 178
+0000 8B00     F      731             MOV     a?850,R3
+                     732     ;---- Variable 'y?849' assigned to Register 'R5' ----
+                     733     ;---- Variable 'x?848' assigned to Register 'R7' ----
+                     734     ; { 
+                     735                             ; SOURCE LINE # 179
+                     736     ;       // µ÷ÓÃÉèÖÃÏÔÊ¾Î»ÖÃµÄº¯Ê
+                     737     ;       set_xy(x,y);
+                     738                             ; SOURCE LINE # 181
+0002 120000   F      739             LCALL   _set_xy
+                     740     ;       // ÔÚLCDÉÏÐ´Èë¸Ã×Ö·û
+                     741     ;       lcd_wdat(a);
+                     742                             ; SOURCE LINE # 183
+0005 AF00     F      743             MOV     R7,a?850
+0007 020000   F      744             LJMP    _lcd_wdat
+                     745     ; END OF _print_char
+                     746     
+                     747     ; }
+                     748     ; /*
+                     749     ; * ¹¦  ÄÜ£ºÔÚÕû¸öÒº¾§ÆÁÄ»ÉÏ»­Í¼
+                     750     ; * ²Î  Ê£ºÍ¼Æ¬µÄµãÕóÊ¾Ý
+                     751     ; * ·µ»ØÖµ£ºÎÞ
+                     752     ; */
+                     753     ; void Draw_PM(const unsigned  char *ptr)
+                     754     
+----                 755             RSEG  ?PR?_Draw_PM?LCD12864
+0000                 756     _Draw_PM:
+                     757             USING   0
+                     758                             ; SOURCE LINE # 190
+0000 8B00     F      759             MOV     ptr?951,R3
+0002 8A00     F      760             MOV     ptr?951+01H,R2
+0004 8900     F      761             MOV     ptr?951+02H,R1
+                     762     ; {
+                     763                             ; SOURCE LINE # 191
+                     764     ;       // ¶¨ÒåÈ¸öÎÞ·ûºÅ×Ö·û±äÁ¿£¬ÓÃÓÚ×÷ÎªÑ­»·¼ÆÊÆ÷
+                     765     ;       uchar i, j, k;
+                     766     ;       // Ð´Èë0x34Ö¸Áî£¬±íÊ¾´ò¿ªÀ©Õ¹Ö¸Áî¼¯
+                     767     ;       lcd_wcmd(0x34);        
+                     768                             ; SOURCE LINE # 195
+0006 7F34            769             MOV     R7,#034H
+0008 120000   F      770             LCALL   _lcd_wcmd
+                     771     ;       // ½«iÉèÎª0x80£¬±íÊ¾´ÓµÚÒ»ÐÐ¿ªÊ¼
+                     772     ;       i = 0x80;
+                     773                             ; SOURCE LINE # 197
+000B 750080   F      774             MOV     i?952,#080H
+                     775     ;                   
+                     776     ;       // ÏÈÐ´ÉÏ°ëÆÁ
+                     777     ;       // ¶ÔÓÚÃ¿Ò»ÐÐ£¬¹²32ÐÐ
+                     778     ;       for(j=0; j<32; j++)
+                     779                             ; SOURCE LINE # 201
+000E E4              780             CLR     A
+000F F500     F      781             MOV     j?953,A
+0011                 782     ?C0022:
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE    13
+
+                     783     ;       {
+                     784                             ; SOURCE LINE # 202
+                     785     ;               // Ð´ÈëiÖ¸Áî£¬±íÊ¾ÉèÖÃÐÐµØÖ·
+                     786     ;               lcd_wcmd(i++);
+                     787                             ; SOURCE LINE # 204
+0011 AF00     F      788             MOV     R7,i?952
+0013 0500     F      789             INC     i?952
+0015 120000   F      790             LCALL   _lcd_wcmd
+                     791     ;               // Ð´Èë0x80Ö¸Áî£¬±íÊ¾ÉèÖÃÁÐµØÖ·Îª0
+                     792     ;               lcd_wcmd(0x80);
+                     793                             ; SOURCE LINE # 206
+0018 7F80            794             MOV     R7,#080H
+001A 120000   F      795             LCALL   _lcd_wcmd
+                     796     ;               // ¶ÔÓÚÃ¿Ò»ÁÐ£¬¹²8*2=16ÁÐ
+                     797     ;               for(k=0; k<16; k++)
+                     798                             ; SOURCE LINE # 208
+001D E4              799             CLR     A
+001E F500     F      800             MOV     k?954,A
+0020                 801     ?C0025:
+                     802     ;               {
+                     803                             ; SOURCE LINE # 209
+                     804     ;                       // ÔÚLCDÉÏÐ´ÈëÍ¼Æ¬µÄµãÕóÊ¾Ý
+                     805     ;                       lcd_wdat(*ptr++);
+                     806                             ; SOURCE LINE # 211
+0020 AB00     F      807             MOV     R3,ptr?951
+0022 0500     F      808             INC     ptr?951+02H
+0024 E500     F      809             MOV     A,ptr?951+02H
+0026 AA00     F      810             MOV     R2,ptr?951+01H
+0028 7002            811             JNZ     ?C0036
+002A 0500     F      812             INC     ptr?951+01H
+002C                 813     ?C0036:
+002C 120000   F      814             LCALL   L?0042
+                     815     ;               }
+                     816                             ; SOURCE LINE # 212
+002F 0500     F      817             INC     k?954
+0031 E500     F      818             MOV     A,k?954
+0033 C3              819             CLR     C
+0034 9410            820             SUBB    A,#010H
+0036 40E8            821             JC      ?C0025
+                     822     ;       }
+                     823                             ; SOURCE LINE # 213
+0038                 824     ?C0024:
+0038 0500     F      825             INC     j?953
+003A E500     F      826             MOV     A,j?953
+003C C3              827             CLR     C
+003D 9420            828             SUBB    A,#020H
+003F 40D0            829             JC      ?C0022
+0041                 830     ?C0023:
+                     831     ;       // ½«iÉèÎª0x80£¬±íÊ¾´ÓµÚÒ»ÐÐ¿ªÊ¼
+                     832     ;       i = 0x80;
+                     833                             ; SOURCE LINE # 215
+0041 750080   F      834             MOV     i?952,#080H
+                     835     ;       // ÔÙÐ´ÏÂ°ëÆÁ
+                     836     ;       // ¶ÔÓÚÃ¿Ò»ÐÐ£¬¹²32ÐÐ
+                     837     ;       for(j=0; j<32; j++)
+                     838                             ; SOURCE LINE # 218
+0044 E4              839             CLR     A
+0045 F500     F      840             MOV     j?953,A
+0047                 841     ?C0028:
+                     842     ;       {
+                     843                             ; SOURCE LINE # 219
+                     844     ;               // Ð´ÈëiÖ¸Áî£¬±íÊ¾ÉèÖÃÐÐµØÖ·
+                     845     ;               lcd_wcmd(i++);
+                     846                             ; SOURCE LINE # 221
+0047 AF00     F      847             MOV     R7,i?952
+0049 0500     F      848             INC     i?952
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE    14
+
+004B 120000   F      849             LCALL   _lcd_wcmd
+                     850     ;               // Ð´Èë0x88Ö¸Áî£¬±íÊ¾ÉèÖÃÁÐµØÖ·Îª8
+                     851     ;               lcd_wcmd(0x88);    
+                     852                             ; SOURCE LINE # 223
+004E 7F88            853             MOV     R7,#088H
+0050 120000   F      854             LCALL   _lcd_wcmd
+                     855     ;               // ¶ÔÓÚÃ¿Ò»ÁÐ£¬¹²8*2=16ÁÐ
+                     856     ;               for(k=0; k<16; k++)
+                     857                             ; SOURCE LINE # 225
+0053 E4              858             CLR     A
+0054 F500     F      859             MOV     k?954,A
+0056                 860     ?C0031:
+                     861     ;               {
+                     862                             ; SOURCE LINE # 226
+                     863     ;                       // ÔÚLCDÉÏÐ´ÈëÍ¼Æ¬µÄµãÕóÊ¾Ý
+                     864     ;                       lcd_wdat(*ptr++);
+                     865                             ; SOURCE LINE # 228
+0056 AB00     F      866             MOV     R3,ptr?951
+0058 0500     F      867             INC     ptr?951+02H
+005A E500     F      868             MOV     A,ptr?951+02H
+005C AA00     F      869             MOV     R2,ptr?951+01H
+005E 7002            870             JNZ     ?C0037
+0060 0500     F      871             INC     ptr?951+01H
+0062                 872     ?C0037:
+0062 120000   F      873             LCALL   L?0042
+                     874     ;               } 
+                     875                             ; SOURCE LINE # 229
+0065 0500     F      876             INC     k?954
+0067 E500     F      877             MOV     A,k?954
+0069 C3              878             CLR     C
+006A 9410            879             SUBB    A,#010H
+006C 40E8            880             JC      ?C0031
+                     881     ;       }  
+                     882                             ; SOURCE LINE # 230
+006E                 883     ?C0030:
+006E 0500     F      884             INC     j?953
+0070 E500     F      885             MOV     A,j?953
+0072 C3              886             CLR     C
+0073 9420            887             SUBB    A,#020H
+0075 40D0            888             JC      ?C0028
+0077                 889     ?C0029:
+                     890     ;       // Ð´Èë0x36Ö¸Áî£¬±íÊ¾´ò¿ª»æÍ¼ÏÔÊ¾
+                     891     ;       lcd_wcmd(0x36);        
+                     892                             ; SOURCE LINE # 232
+0077 7F36            893             MOV     R7,#036H
+0079 120000   F      894             LCALL   _lcd_wcmd
+                     895     ;       // Ð´Èë0x30Ö¸Áî£¬±íÊ¾»Øµ½»ù±¾Ö¸Áî¼¯
+                     896     ;       lcd_wcmd(0x30);        
+                     897                             ; SOURCE LINE # 234
+007C 7F30            898             MOV     R7,#030H
+007E 020000   F      899             LJMP    _lcd_wcmd
+                     900     ; END OF _Draw_PM
+                     901     
+                     902             END
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE    15
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                          T Y P E  V A L U E   ATTRIBUTES
+
+?C0001. . . . . . . . . . . . .  C ADDR   0007H   R   SEG=?PR?SET_LCD_READ_WRITE?LCD12864
+?C0003. . . . . . . . . . . . .  C ADDR   000DH   R   SEG=?PR?SET_LCD_READ_WRITE?LCD12864
+?C0004. . . . . . . . . . . . .  C ADDR   0009H   R   SEG=?PR?WAIT_LCD_NOT_BUSY?LCD12864
+?C0012. . . . . . . . . . . . .  C ADDR   0011H   R   SEG=?PR?_SET_XY?LCD12864
+?C0013. . . . . . . . . . . . .  C ADDR   0017H   R   SEG=?PR?_SET_XY?LCD12864
+?C0014. . . . . . . . . . . . .  C ADDR   001DH   R   SEG=?PR?_SET_XY?LCD12864
+?C0015. . . . . . . . . . . . .  C ADDR   0023H   R   SEG=?PR?_SET_XY?LCD12864
+?C0017. . . . . . . . . . . . .  C ADDR   002BH   R   SEG=?PR?_SET_XY?LCD12864
+?C0018. . . . . . . . . . . . .  C ADDR   0011H   R   SEG=?PR?_PRINT?LCD12864
+?C0020. . . . . . . . . . . . .  C ADDR   002AH   R   SEG=?PR?_PRINT?LCD12864
+?C0022. . . . . . . . . . . . .  C ADDR   0011H   R   SEG=?PR?_DRAW_PM?LCD12864
+?C0023. . . . . . . . . . . . .  C ADDR   0041H   R   SEG=?PR?_DRAW_PM?LCD12864
+?C0024. . . . . . . . . . . . .  C ADDR   0038H   R   SEG=?PR?_DRAW_PM?LCD12864
+?C0025. . . . . . . . . . . . .  C ADDR   0020H   R   SEG=?PR?_DRAW_PM?LCD12864
+?C0028. . . . . . . . . . . . .  C ADDR   0047H   R   SEG=?PR?_DRAW_PM?LCD12864
+?C0029. . . . . . . . . . . . .  C ADDR   0077H   R   SEG=?PR?_DRAW_PM?LCD12864
+?C0030. . . . . . . . . . . . .  C ADDR   006EH   R   SEG=?PR?_DRAW_PM?LCD12864
+?C0031. . . . . . . . . . . . .  C ADDR   0056H   R   SEG=?PR?_DRAW_PM?LCD12864
+?C0035. . . . . . . . . . . . .  C ADDR   0021H   R   SEG=?PR?_PRINT?LCD12864
+?C0036. . . . . . . . . . . . .  C ADDR   002CH   R   SEG=?PR?_DRAW_PM?LCD12864
+?C0037. . . . . . . . . . . . .  C ADDR   0062H   R   SEG=?PR?_DRAW_PM?LCD12864
+?C0038. . . . . . . . . . . . .  C ADDR   001BH   R   SEG=?PR?_SET_XY?LCD12864
+?C0039. . . . . . . . . . . . .  C ADDR   0021H   R   SEG=?PR?_SET_XY?LCD12864
+?C0040. . . . . . . . . . . . .  C ADDR   0027H   R   SEG=?PR?_SET_XY?LCD12864
+?C0041. . . . . . . . . . . . .  C ADDR   0024H   R   SEG=?PR?_PRINT?LCD12864
+?C?CLDPTR . . . . . . . . . . .  C ADDR   -----       EXT
+?DT?_DRAW_PM?LCD12864 . . . . .  D SEG    0006H       REL=UNIT
+?DT?_PRINT?LCD12864 . . . . . .  D SEG    0003H       REL=UNIT
+?DT?_PRINT_CHAR?LCD12864. . . .  D SEG    0001H       REL=UNIT
+?DT?_SET_XY?LCD12864. . . . . .  D SEG    0001H       REL=UNIT
+?PR?CLEAR?LCD12864. . . . . . .  C SEG    0005H       REL=UNIT
+?PR?LCD_INIT?LCD12864 . . . . .  C SEG    0040H       REL=UNIT
+?PR?SET_LCD_READ_WRITE?LCD12864  C SEG    000EH       REL=UNIT
+?PR?WAIT_LCD_NOT_BUSY?LCD12864.  C SEG    000FH       REL=UNIT
+?PR?_DRAW_PM?LCD12864 . . . . .  C SEG    0081H       REL=UNIT
+?PR?_LCD_WCMD?LCD12864. . . . .  C SEG    0027H       REL=UNIT
+?PR?_LCD_WDAT?LCD12864. . . . .  C SEG    002DH       REL=UNIT
+?PR?_PRINT?LCD12864 . . . . . .  C SEG    002BH       REL=UNIT
+?PR?_PRINT_CHAR?LCD12864. . . .  C SEG    000AH       REL=UNIT
+?PR?_SET_XY?LCD12864. . . . . .  C SEG    002CH       REL=UNIT
+?_DRAW_PM?BYTE. . . . . . . . .  D ADDR   0000H   R   SEG=?DT?_DRAW_PM?LCD12864
+?_PRINT?BYTE. . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?_PRINT?LCD12864
+?_PRINT_CHAR?BYTE . . . . . . .  D ADDR   0000H   R   SEG=?DT?_PRINT_CHAR?LCD12864
+?_SET_XY?BYTE . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?_SET_XY?LCD12864
+A?850 . . . . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?_PRINT_CHAR?LCD12864
+AA. . . . . . . . . . . . . . .  B ADDR   00C0H.2 A   
+AC. . . . . . . . . . . . . . .  B ADDR   00D0H.6 A   
+ACC . . . . . . . . . . . . . .  D ADDR   00E0H   A   
+AD0BUSY . . . . . . . . . . . .  B ADDR   00E8H.4 A   
+AD0CM0. . . . . . . . . . . . .  B ADDR   00E8H.2 A   
+AD0CM1. . . . . . . . . . . . .  B ADDR   00E8H.3 A   
+AD0EN . . . . . . . . . . . . .  B ADDR   00E8H.7 A   
+AD0INT. . . . . . . . . . . . .  B ADDR   00E8H.5 A   
+AD0LJST . . . . . . . . . . . .  B ADDR   00E8H.0 A   
+AD0TM . . . . . . . . . . . . .  B ADDR   00E8H.6 A   
+AD0WINT . . . . . . . . . . . .  B ADDR   00E8H.1 A   
+ADC0CF. . . . . . . . . . . . .  D ADDR   00BCH   A   
+ADC0CN. . . . . . . . . . . . .  D ADDR   00E8H   A   
+ADC0GTH . . . . . . . . . . . .  D ADDR   00C5H   A   
+ADC0GTL . . . . . . . . . . . .  D ADDR   00C4H   A   
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE    16
+
+ADC0H . . . . . . . . . . . . .  D ADDR   00BFH   A   
+ADC0L . . . . . . . . . . . . .  D ADDR   00BEH   A   
+ADC0LTH . . . . . . . . . . . .  D ADDR   00C7H   A   
+ADC0LTL . . . . . . . . . . . .  D ADDR   00C6H   A   
+ADC1. . . . . . . . . . . . . .  D ADDR   009CH   A   
+ADC1CF. . . . . . . . . . . . .  D ADDR   00ABH   A   
+ADC1CN. . . . . . . . . . . . .  D ADDR   00AAH   A   
+AMX0CF. . . . . . . . . . . . .  D ADDR   00BAH   A   
+AMX0SL. . . . . . . . . . . . .  D ADDR   00BBH   A   
+AMX1SL. . . . . . . . . . . . .  D ADDR   00ACH   A   
+B . . . . . . . . . . . . . . .  D ADDR   00F0H   A   
+BUSY. . . . . . . . . . . . . .  B ADDR   00C0H.7 A   
+CCF0. . . . . . . . . . . . . .  B ADDR   00D8H.0 A   
+CCF1. . . . . . . . . . . . . .  B ADDR   00D8H.1 A   
+CCF2. . . . . . . . . . . . . .  B ADDR   00D8H.2 A   
+CCF3. . . . . . . . . . . . . .  B ADDR   00D8H.3 A   
+CCF4. . . . . . . . . . . . . .  B ADDR   00D8H.4 A   
+CF. . . . . . . . . . . . . . .  B ADDR   00D8H.7 A   
+CKCON . . . . . . . . . . . . .  D ADDR   008EH   A   
+CLEAR . . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?CLEAR?LCD12864
+CPRL2 . . . . . . . . . . . . .  B ADDR   00C8H.0 A   
+CPT0CN. . . . . . . . . . . . .  D ADDR   009EH   A   
+CPT1CN. . . . . . . . . . . . .  D ADDR   009FH   A   
+CR. . . . . . . . . . . . . . .  B ADDR   00D8H.6 A   
+CT2 . . . . . . . . . . . . . .  B ADDR   00C8H.1 A   
+CY. . . . . . . . . . . . . . .  B ADDR   00D0H.7 A   
+D0. . . . . . . . . . . . . . .  B ADDR   0080H.0 A   
+D1. . . . . . . . . . . . . . .  B ADDR   0080H.1 A   
+D2. . . . . . . . . . . . . . .  B ADDR   0080H.2 A   
+D3. . . . . . . . . . . . . . .  B ADDR   0080H.3 A   
+D4. . . . . . . . . . . . . . .  B ADDR   0080H.4 A   
+D5. . . . . . . . . . . . . . .  B ADDR   0080H.5 A   
+D6. . . . . . . . . . . . . . .  B ADDR   0080H.6 A   
+D7. . . . . . . . . . . . . . .  B ADDR   0080H.7 A   
+DAC0CN. . . . . . . . . . . . .  D ADDR   00D4H   A   
+DAC0H . . . . . . . . . . . . .  D ADDR   00D3H   A   
+DAC0L . . . . . . . . . . . . .  D ADDR   00D2H   A   
+DAC1CN. . . . . . . . . . . . .  D ADDR   00D7H   A   
+DAC1H . . . . . . . . . . . . .  D ADDR   00D6H   A   
+DAC1L . . . . . . . . . . . . .  D ADDR   00D5H   A   
+DPH . . . . . . . . . . . . . .  D ADDR   0083H   A   
+DPL . . . . . . . . . . . . . .  D ADDR   0082H   A   
+EA. . . . . . . . . . . . . . .  B ADDR   00A8H.7 A   
+EIE1. . . . . . . . . . . . . .  D ADDR   00E6H   A   
+EIE2. . . . . . . . . . . . . .  D ADDR   00E7H   A   
+EIP1. . . . . . . . . . . . . .  D ADDR   00F6H   A   
+EIP2. . . . . . . . . . . . . .  D ADDR   00F7H   A   
+EMI0CF. . . . . . . . . . . . .  D ADDR   00A3H   A   
+EMI0CN. . . . . . . . . . . . .  D ADDR   00AFH   A   
+EMI0TC. . . . . . . . . . . . .  D ADDR   00A1H   A   
+ENSMB . . . . . . . . . . . . .  B ADDR   00C0H.6 A   
+ES0 . . . . . . . . . . . . . .  B ADDR   00A8H.4 A   
+ET0 . . . . . . . . . . . . . .  B ADDR   00A8H.1 A   
+ET1 . . . . . . . . . . . . . .  B ADDR   00A8H.3 A   
+ET2 . . . . . . . . . . . . . .  B ADDR   00A8H.5 A   
+EX0 . . . . . . . . . . . . . .  B ADDR   00A8H.0 A   
+EX1 . . . . . . . . . . . . . .  B ADDR   00A8H.2 A   
+EXEN2 . . . . . . . . . . . . .  B ADDR   00C8H.3 A   
+EXF2. . . . . . . . . . . . . .  B ADDR   00C8H.6 A   
+F0. . . . . . . . . . . . . . .  B ADDR   00D0H.5 A   
+F1. . . . . . . . . . . . . . .  B ADDR   00D0H.1 A   
+FLACL . . . . . . . . . . . . .  D ADDR   00B7H   A   
+FLSCL . . . . . . . . . . . . .  D ADDR   00B6H   A   
+I?952 . . . . . . . . . . . . .  D ADDR   0003H   R   SEG=?DT?_DRAW_PM?LCD12864
+IE. . . . . . . . . . . . . . .  D ADDR   00A8H   A   
+IE0 . . . . . . . . . . . . . .  B ADDR   0088H.1 A   
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE    17
+
+IE1 . . . . . . . . . . . . . .  B ADDR   0088H.3 A   
+IP. . . . . . . . . . . . . . .  D ADDR   00B8H   A   
+IT0 . . . . . . . . . . . . . .  B ADDR   0088H.0 A   
+IT1 . . . . . . . . . . . . . .  B ADDR   0088H.2 A   
+J?953 . . . . . . . . . . . . .  D ADDR   0004H   R   SEG=?DT?_DRAW_PM?LCD12864
+K?954 . . . . . . . . . . . . .  D ADDR   0005H   R   SEG=?DT?_DRAW_PM?LCD12864
+L?0042. . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?_LCD_WDAT?LCD12864
+LCD12864. . . . . . . . . . . .  N NUMB   -----       
+LCD_EN. . . . . . . . . . . . .  B ADDR   00A0H.7 A   
+LCD_INIT. . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?LCD_INIT?LCD12864
+LCD_RS. . . . . . . . . . . . .  B ADDR   00A0H.5 A   
+LCD_RW. . . . . . . . . . . . .  B ADDR   00A0H.6 A   
+MODF. . . . . . . . . . . . . .  B ADDR   00F8H.5 A   
+MSTEN . . . . . . . . . . . . .  B ADDR   00F8H.1 A   
+OSCICN. . . . . . . . . . . . .  D ADDR   00B2H   A   
+OSCXCN. . . . . . . . . . . . .  D ADDR   00B1H   A   
+OV. . . . . . . . . . . . . . .  B ADDR   00D0H.2 A   
+P . . . . . . . . . . . . . . .  B ADDR   00D0H.0 A   
+P0. . . . . . . . . . . . . . .  D ADDR   0080H   A   
+P0MDOUT . . . . . . . . . . . .  D ADDR   00A4H   A   
+P1. . . . . . . . . . . . . . .  D ADDR   0090H   A   
+P1MDIN. . . . . . . . . . . . .  D ADDR   00BDH   A   
+P1MDOUT . . . . . . . . . . . .  D ADDR   00A5H   A   
+P2. . . . . . . . . . . . . . .  D ADDR   00A0H   A   
+P2MDOUT . . . . . . . . . . . .  D ADDR   00A6H   A   
+P3. . . . . . . . . . . . . . .  D ADDR   00B0H   A   
+P3IF. . . . . . . . . . . . . .  D ADDR   00ADH   A   
+P3MDOUT . . . . . . . . . . . .  D ADDR   00A7H   A   
+P4. . . . . . . . . . . . . . .  D ADDR   0084H   A   
+P5. . . . . . . . . . . . . . .  D ADDR   0085H   A   
+P6. . . . . . . . . . . . . . .  D ADDR   0086H   A   
+P7. . . . . . . . . . . . . . .  D ADDR   0096H   A   
+P74OUT. . . . . . . . . . . . .  D ADDR   00B5H   A   
+PCA0CN. . . . . . . . . . . . .  D ADDR   00D8H   A   
+PCA0CPH0. . . . . . . . . . . .  D ADDR   00FAH   A   
+PCA0CPH1. . . . . . . . . . . .  D ADDR   00FBH   A   
+PCA0CPH2. . . . . . . . . . . .  D ADDR   00FCH   A   
+PCA0CPH3. . . . . . . . . . . .  D ADDR   00FDH   A   
+PCA0CPH4. . . . . . . . . . . .  D ADDR   00FEH   A   
+PCA0CPL0. . . . . . . . . . . .  D ADDR   00EAH   A   
+PCA0CPL1. . . . . . . . . . . .  D ADDR   00EBH   A   
+PCA0CPL2. . . . . . . . . . . .  D ADDR   00ECH   A   
+PCA0CPL3. . . . . . . . . . . .  D ADDR   00EDH   A   
+PCA0CPL4. . . . . . . . . . . .  D ADDR   00EEH   A   
+PCA0CPM0. . . . . . . . . . . .  D ADDR   00DAH   A   
+PCA0CPM1. . . . . . . . . . . .  D ADDR   00DBH   A   
+PCA0CPM2. . . . . . . . . . . .  D ADDR   00DCH   A   
+PCA0CPM3. . . . . . . . . . . .  D ADDR   00DDH   A   
+PCA0CPM4. . . . . . . . . . . .  D ADDR   00DEH   A   
+PCA0H . . . . . . . . . . . . .  D ADDR   00F9H   A   
+PCA0L . . . . . . . . . . . . .  D ADDR   00E9H   A   
+PCA0MD. . . . . . . . . . . . .  D ADDR   00D9H   A   
+PCON. . . . . . . . . . . . . .  D ADDR   0087H   A   
+PS. . . . . . . . . . . . . . .  B ADDR   00B8H.4 A   
+PSCTL . . . . . . . . . . . . .  D ADDR   008FH   A   
+PSW . . . . . . . . . . . . . .  D ADDR   00D0H   A   
+PT0 . . . . . . . . . . . . . .  B ADDR   00B8H.1 A   
+PT1 . . . . . . . . . . . . . .  B ADDR   00B8H.3 A   
+PT2 . . . . . . . . . . . . . .  B ADDR   00B8H.5 A   
+PTR?951 . . . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?_DRAW_PM?LCD12864
+PX0 . . . . . . . . . . . . . .  B ADDR   00B8H.0 A   
+PX1 . . . . . . . . . . . . . .  B ADDR   00B8H.2 A   
+RB80. . . . . . . . . . . . . .  B ADDR   0098H.2 A   
+RCAP2H. . . . . . . . . . . . .  D ADDR   00CBH   A   
+RCAP2L. . . . . . . . . . . . .  D ADDR   00CAH   A   
+RCAP4H. . . . . . . . . . . . .  D ADDR   00E5H   A   
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE    18
+
+RCAP4L. . . . . . . . . . . . .  D ADDR   00E4H   A   
+RCLK0 . . . . . . . . . . . . .  B ADDR   00C8H.5 A   
+REF0CN. . . . . . . . . . . . .  D ADDR   00D1H   A   
+REN0. . . . . . . . . . . . . .  B ADDR   0098H.4 A   
+RI0 . . . . . . . . . . . . . .  B ADDR   0098H.0 A   
+RS0 . . . . . . . . . . . . . .  B ADDR   00D0H.3 A   
+RS1 . . . . . . . . . . . . . .  B ADDR   00D0H.4 A   
+RSTSRC. . . . . . . . . . . . .  D ADDR   00EFH   A   
+RXOVRN. . . . . . . . . . . . .  B ADDR   00F8H.4 A   
+SADDR0. . . . . . . . . . . . .  D ADDR   00A9H   A   
+SADDR1. . . . . . . . . . . . .  D ADDR   00F3H   A   
+SADEN0. . . . . . . . . . . . .  D ADDR   00B9H   A   
+SADEN1. . . . . . . . . . . . .  D ADDR   00AEH   A   
+SBUF0 . . . . . . . . . . . . .  D ADDR   0099H   A   
+SBUF1 . . . . . . . . . . . . .  D ADDR   00F2H   A   
+SCON0 . . . . . . . . . . . . .  D ADDR   0098H   A   
+SCON1 . . . . . . . . . . . . .  D ADDR   00F1H   A   
+SET_LCD_READ_WRITE. . . . . . .  C ADDR   0000H   R   SEG=?PR?SET_LCD_READ_WRITE?LCD12864
+SI. . . . . . . . . . . . . . .  B ADDR   00C0H.3 A   
+SLVSEL. . . . . . . . . . . . .  B ADDR   00F8H.2 A   
+SM00. . . . . . . . . . . . . .  B ADDR   0098H.7 A   
+SM10. . . . . . . . . . . . . .  B ADDR   0098H.6 A   
+SM20. . . . . . . . . . . . . .  B ADDR   0098H.5 A   
+SMB0ADR . . . . . . . . . . . .  D ADDR   00C3H   A   
+SMB0CN. . . . . . . . . . . . .  D ADDR   00C0H   A   
+SMB0CR. . . . . . . . . . . . .  D ADDR   00CFH   A   
+SMB0DAT . . . . . . . . . . . .  D ADDR   00C2H   A   
+SMB0STA . . . . . . . . . . . .  D ADDR   00C1H   A   
+SMBFTE. . . . . . . . . . . . .  B ADDR   00C0H.1 A   
+SMBTOE. . . . . . . . . . . . .  B ADDR   00C0H.0 A   
+SP. . . . . . . . . . . . . . .  D ADDR   0081H   A   
+SPI0CFG . . . . . . . . . . . .  D ADDR   009AH   A   
+SPI0CKR . . . . . . . . . . . .  D ADDR   009DH   A   
+SPI0CN. . . . . . . . . . . . .  D ADDR   00F8H   A   
+SPI0DAT . . . . . . . . . . . .  D ADDR   009BH   A   
+SPIEN . . . . . . . . . . . . .  B ADDR   00F8H.0 A   
+SPIF. . . . . . . . . . . . . .  B ADDR   00F8H.7 A   
+STA . . . . . . . . . . . . . .  B ADDR   00C0H.5 A   
+STO . . . . . . . . . . . . . .  B ADDR   00C0H.4 A   
+STR?746 . . . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?_PRINT?LCD12864
+T2CON . . . . . . . . . . . . .  D ADDR   00C8H   A   
+T4CON . . . . . . . . . . . . .  D ADDR   00C9H   A   
+TB80. . . . . . . . . . . . . .  B ADDR   0098H.3 A   
+TCLK0 . . . . . . . . . . . . .  B ADDR   00C8H.4 A   
+TCON. . . . . . . . . . . . . .  D ADDR   0088H   A   
+TF0 . . . . . . . . . . . . . .  B ADDR   0088H.5 A   
+TF1 . . . . . . . . . . . . . .  B ADDR   0088H.7 A   
+TF2 . . . . . . . . . . . . . .  B ADDR   00C8H.7 A   
+TH0 . . . . . . . . . . . . . .  D ADDR   008CH   A   
+TH1 . . . . . . . . . . . . . .  D ADDR   008DH   A   
+TH2 . . . . . . . . . . . . . .  D ADDR   00CDH   A   
+TH4 . . . . . . . . . . . . . .  D ADDR   00F5H   A   
+TI0 . . . . . . . . . . . . . .  B ADDR   0098H.1 A   
+TL0 . . . . . . . . . . . . . .  D ADDR   008AH   A   
+TL1 . . . . . . . . . . . . . .  D ADDR   008BH   A   
+TL2 . . . . . . . . . . . . . .  D ADDR   00CCH   A   
+TL4 . . . . . . . . . . . . . .  D ADDR   00F4H   A   
+TMOD. . . . . . . . . . . . . .  D ADDR   0089H   A   
+TMR3CN. . . . . . . . . . . . .  D ADDR   0091H   A   
+TMR3H . . . . . . . . . . . . .  D ADDR   0095H   A   
+TMR3L . . . . . . . . . . . . .  D ADDR   0094H   A   
+TMR3RLH . . . . . . . . . . . .  D ADDR   0093H   A   
+TMR3RLL . . . . . . . . . . . .  D ADDR   0092H   A   
+TR0 . . . . . . . . . . . . . .  B ADDR   0088H.4 A   
+TR1 . . . . . . . . . . . . . .  B ADDR   0088H.6 A   
+TR2 . . . . . . . . . . . . . .  B ADDR   00C8H.2 A   
+A51 MACRO ASSEMBLER  LCD12864                                                             12/22/2023 22:57:53 PAGE    19
+
+TXBSY . . . . . . . . . . . . .  B ADDR   00F8H.3 A   
+WAIT_LCD_NOT_BUSY . . . . . . .  C ADDR   0000H   R   SEG=?PR?WAIT_LCD_NOT_BUSY?LCD12864
+WCOL. . . . . . . . . . . . . .  B ADDR   00F8H.6 A   
+WDTCN . . . . . . . . . . . . .  D ADDR   00FFH   A   
+XBR0. . . . . . . . . . . . . .  D ADDR   00E1H   A   
+XBR1. . . . . . . . . . . . . .  D ADDR   00E2H   A   
+XBR2. . . . . . . . . . . . . .  D ADDR   00E3H   A   
+XPOS?642. . . . . . . . . . . .  D ADDR   0000H   R   SEG=?DT?_SET_XY?LCD12864
+_DELAY_MS . . . . . . . . . . .  C ADDR   -----       EXT
+_DRAW_PM. . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?_DRAW_PM?LCD12864
+_LCD_WCMD . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?_LCD_WCMD?LCD12864
+_LCD_WDAT . . . . . . . . . . .  C ADDR   0006H   R   SEG=?PR?_LCD_WDAT?LCD12864
+_PRINT. . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?_PRINT?LCD12864
+_PRINT_CHAR . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?_PRINT_CHAR?LCD12864
+_SET_XY . . . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?_SET_XY?LCD12864
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

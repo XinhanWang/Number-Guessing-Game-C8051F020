@@ -1,0 +1,85 @@
+; .\Objects\time.SRC generated from: time.c
+; COMPILER INVOKED BY:
+;        C:\Keil_v5\C51\BIN\C51.EXE time.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\time.lst) TABS(2) SRC(.\Objects\time.SRC)
+
+
+NAME	TIME
+
+?PR?_delay_ms?TIME   SEGMENT CODE 
+?DT?_delay_ms?TIME   SEGMENT DATA OVERLAYABLE 
+	EXTRN	DATA (time_ms)
+	EXTRN	CODE (?C?ULCMP)
+	PUBLIC	_delay_ms
+
+	RSEG  ?DT?_delay_ms?TIME
+?_delay_ms?BYTE:
+          a?040:   DS   4
+	ORG  4
+time_ms_start?041:   DS   4
+; /*
+;  * @Author: 王心瀚
+;  * @Date: 2023-12-19 11:10:32
+;  * @LastEditors: 王心瀚
+;  * @LastEditTime: 2023-12-22 22:56:51
+;  * @FilePath: \undefinedc:\Users\u2021\Desktop\资料\大三\单片机\实验\提高实验\C语言版本\time.c
+;  * @Description: 时间文件，包含时间相关的函数(延时ms函数)
+;  * 
+;  * Copyright (c) 2023 by ${王心瀚}, All Rights Reserved. 
+;  */
+; #include "time.h" //包含时间相关的头文件
+; void delay_ms(unsigned long a) //定义一个函数delay_ms，用来延时a毫秒
+
+	RSEG  ?PR?_delay_ms?TIME
+_delay_ms:
+	USING	0
+			; SOURCE LINE # 12
+	MOV  	a?040+03H,R7
+	MOV  	a?040+02H,R6
+	MOV  	a?040+01H,R5
+	MOV  	a?040,R4
+; {
+			; SOURCE LINE # 13
+; 	unsigned long data time_ms_start=time_ms; //定义一个变量time_ms_start，用来存储开始的时间
+			; SOURCE LINE # 14
+	MOV  	time_ms_start?041+03H,time_ms+03H
+	MOV  	time_ms_start?041+02H,time_ms+02H
+	MOV  	time_ms_start?041+01H,time_ms+01H
+	MOV  	time_ms_start?041,time_ms
+?C0001:
+; 	while(1) //无限循环
+			; SOURCE LINE # 15
+; 	{
+			; SOURCE LINE # 16
+; 		if(time_ms-time_ms_start==a) //如果当前时间减去开始时间等于a
+			; SOURCE LINE # 17
+	CLR  	C
+	MOV  	A,time_ms+03H
+	SUBB 	A,time_ms_start?041+03H
+	MOV  	R7,A
+	MOV  	A,time_ms+02H
+	SUBB 	A,time_ms_start?041+02H
+	MOV  	R6,A
+	MOV  	A,time_ms+01H
+	SUBB 	A,time_ms_start?041+01H
+	MOV  	R5,A
+	MOV  	A,time_ms
+	SUBB 	A,time_ms_start?041
+	MOV  	R4,A
+	MOV  	R3,a?040+03H
+	MOV  	R2,a?040+02H
+	MOV  	R1,a?040+01H
+	MOV  	R0,a?040
+	CLR  	C
+	LCALL	?C?ULCMP
+	JNZ  	?C0001
+; 			break; //跳出循环
+			; SOURCE LINE # 18
+; 	}
+			; SOURCE LINE # 19
+; }
+			; SOURCE LINE # 20
+?C0004:
+	RET  	
+; END OF _delay_ms
+
+	END

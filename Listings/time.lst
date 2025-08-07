@@ -1,0 +1,37 @@
+C51 COMPILER V9.60.7.0   TIME                                                              12/22/2023 09:21:57 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE TIME
+NO OBJECT MODULE REQUESTED
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE C语言版本\time.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Lis
+                    -tings\time.lst) TABS(2) SRC(.\Objects\time.SRC)
+
+line level    source
+
+   1          #include "time.h" //包含时间相关的头文件
+   2          void delay_ms(unsigned long a) //定义一个函数delay_ms，用来延时a毫秒
+   3          {
+   4   1        unsigned long data time_ms_start=time_ms; //定义一个变量time_ms_start，用来存储开始的时间
+   5   1        while(1) //无限循环
+   6   1        {
+   7   2          if(time_ms-time_ms_start==a) //如果当前时间减去开始时间等于a
+   8   2            break; //跳出循环
+   9   2        }
+  10   1      }
+  11          
+  12          
+  13          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     56    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       8
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

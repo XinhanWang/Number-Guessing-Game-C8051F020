@@ -1,0 +1,113 @@
+A51 MACRO ASSEMBLER  TIME                                                                 12/22/2023 09:21:57 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\time.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE .\Objects\time.src PR(.\Listings\time.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\Objects\time.SRC generated from: C语言版本\time.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        C:\Keil_v5\C51\BIN\C51.EXE C语言版本\time.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTE
+                             XTEND PRINT(.\Listings\time.lst) TABS(2) SRC(.\Objects\time.SRC)
+                       4     
+                       5     
+                       6     NAME    TIME
+                       7     
+                       8     ?PR?_delay_ms?TIME   SEGMENT CODE 
+                       9     ?DT?_delay_ms?TIME   SEGMENT DATA OVERLAYABLE 
+                      10             EXTRN   DATA (time_ms)
+                      11             EXTRN   CODE (?C?ULCMP)
+                      12             PUBLIC  _delay_ms
+                      13     
+----                  14             RSEG  ?DT?_delay_ms?TIME
+0000                  15     ?_delay_ms?BYTE:
+0000                  16               a?040:   DS   4
+0004                  17             ORG  4
+0004                  18     time_ms_start?041:   DS   4
+                      19     ; #include "time.h" //包含时间相关的头文件
+                      20     ; void delay_ms(unsigned long a) //定义一个函蔰elay_ms，用来延时a毫秒
+                      21     
+----                  22             RSEG  ?PR?_delay_ms?TIME
+0000                  23     _delay_ms:
+                      24             USING   0
+                      25                             ; SOURCE LINE # 2
+0000 8F00     F       26             MOV     a?040+03H,R7
+0002 8E00     F       27             MOV     a?040+02H,R6
+0004 8D00     F       28             MOV     a?040+01H,R5
+0006 8C00     F       29             MOV     a?040,R4
+                      30     ; {
+                      31                             ; SOURCE LINE # 3
+                      32     ;       unsigned long data time_ms_start=time_ms; //定义一个变量time_ms_start，用来存储开始
+                             的时间
+                      33                             ; SOURCE LINE # 4
+0008 850000   F       34             MOV     time_ms_start?041+03H,time_ms+03H
+000B 850000   F       35             MOV     time_ms_start?041+02H,time_ms+02H
+000E 850000   F       36             MOV     time_ms_start?041+01H,time_ms+01H
+0011 850000   F       37             MOV     time_ms_start?041,time_ms
+0014                  38     ?C0001:
+                      39     ;       while(1) //无限循环
+                      40                             ; SOURCE LINE # 5
+                      41     ;       {
+                      42                             ; SOURCE LINE # 6
+                      43     ;               if(time_ms-time_ms_start==a) //如果当前时间减去开始时间等于a
+                      44                             ; SOURCE LINE # 7
+0014 C3               45             CLR     C
+0015 E500     F       46             MOV     A,time_ms+03H
+0017 9500     F       47             SUBB    A,time_ms_start?041+03H
+0019 FF               48             MOV     R7,A
+001A E500     F       49             MOV     A,time_ms+02H
+001C 9500     F       50             SUBB    A,time_ms_start?041+02H
+001E FE               51             MOV     R6,A
+001F E500     F       52             MOV     A,time_ms+01H
+0021 9500     F       53             SUBB    A,time_ms_start?041+01H
+0023 FD               54             MOV     R5,A
+0024 E500     F       55             MOV     A,time_ms
+0026 9500     F       56             SUBB    A,time_ms_start?041
+A51 MACRO ASSEMBLER  TIME                                                                 12/22/2023 09:21:57 PAGE     2
+
+0028 FC               57             MOV     R4,A
+0029 AB00     F       58             MOV     R3,a?040+03H
+002B AA00     F       59             MOV     R2,a?040+02H
+002D A900     F       60             MOV     R1,a?040+01H
+002F A800     F       61             MOV     R0,a?040
+0031 C3               62             CLR     C
+0032 120000   F       63             LCALL   ?C?ULCMP
+0035 70DD             64             JNZ     ?C0001
+                      65     ;                       break; //跳出循环
+                      66                             ; SOURCE LINE # 8
+                      67     ;       }
+                      68                             ; SOURCE LINE # 9
+                      69     ; }
+                      70                             ; SOURCE LINE # 10
+0037                  71     ?C0004:
+0037 22               72             RET     
+                      73     ; END OF _delay_ms
+                      74     
+                      75             END
+A51 MACRO ASSEMBLER  TIME                                                                 12/22/2023 09:21:57 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+?C0001 . . . . . .  C ADDR   0014H   R   SEG=?PR?_DELAY_MS?TIME
+?C0004 . . . . . .  C ADDR   0037H   R   SEG=?PR?_DELAY_MS?TIME
+?C?ULCMP . . . . .  C ADDR   -----       EXT
+?DT?_DELAY_MS?TIME  D SEG    0008H       REL=UNIT
+?PR?_DELAY_MS?TIME  C SEG    0038H       REL=UNIT
+?_DELAY_MS?BYTE. .  D ADDR   0000H   R   SEG=?DT?_DELAY_MS?TIME
+A?040. . . . . . .  D ADDR   0000H   R   SEG=?DT?_DELAY_MS?TIME
+TIME . . . . . . .  N NUMB   -----       
+TIME_MS. . . . . .  D ADDR   -----       EXT
+TIME_MS_START?041.  D ADDR   0004H   R   SEG=?DT?_DELAY_MS?TIME
+_DELAY_MS. . . . .  C ADDR   0000H   R   SEG=?PR?_DELAY_MS?TIME
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

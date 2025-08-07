@@ -1,0 +1,4 @@
+"..\out\STARTUP.obj",
+"..\out\main.obj" 
+TO "..\out\12864œ‘ æÕº∆¨" 
+PRINT("..\listing\12864œ‘ æÕº∆¨.m51") RAMSIZE(256) 

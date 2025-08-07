@@ -1,0 +1,318 @@
+C51 COMPILER V9.60.7.0   GUESSING_GAME                                                     12/22/2023 09:21:57 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE GUESSING_GAME
+NO OBJECT MODULE REQUESTED
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE CÓïÑÔ°æ±¾\guessing_game.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PR
+                    -INT(.\Listings\guessing_game.lst) TABS(2) SRC(.\Objects\guessing_game.SRC)
+
+line level    source
+
+   1          #include "guessing_game.h" //°üº¬²ÂÊıÓÎÏ·Ïà¹ØµÄÍ·ÎÄ¼ş
+   2          unsigned char code digits[]="0123456789ABCDEF"; //¶¨ÒåÒ»¸ö³£Á¿Êı×édigits£¬ÓÃÀ´´æ´¢16½øÖÆµÄÊı×ÖµÄASCIIÂë
+   3          unsigned char xdata random_digits[64]={0}; //¶¨ÒåÒ»¸öÀ©Õ¹Êı¾İÊı×érandom_digits£¬ÓÃÀ´´æ´¢Ëæ»úµÄÊı×Ö£¬³õÊ¼»¯
+             -ÎªÈ«0
+   4          unsigned char bits=0; //¶¨ÒåÒ»¸ö±äÁ¿bits£¬ÓÃÀ´´æ´¢ÊäÈëµÄÎ»Êı£¬³õÊ¼»¯Îª0
+   5          unsigned int display_time=0; //¶¨ÒåÒ»¸ö±äÁ¿display_time£¬ÓÃÀ´´æ´¢ÏÔÊ¾µÄÊ±¼ä£¬³õÊ¼»¯Îª0
+   6          unsigned char xdata level_bits[10]={1,2,3,4,5,6,7,8,9,10}; //¶¨ÒåÒ»¸öÀ©Õ¹Êı¾İÊı×élevel_bits£¬ÓÃÀ´´æ´¢²»Í¬¹
+             -Ø¿¨µÄÎ»Êı
+   7          unsigned int xdata level_display_time[10]={200,400,600,800,1000,1200,1400,1600,1800,2000}; //¶¨ÒåÒ»¸öÀ©Õ¹Ê
+             -ı¾İÊı×élevel_display_time£¬ÓÃÀ´´æ´¢²»Í¬¹Ø¿¨µÄÊı¾İÏÔÊ¾Ê±¼ä
+   8          bit check_digits(void) //¶¨ÒåÒ»¸öº¯Êıcheck_digits£¬ÓÃÀ´¼ì²éÓÃ»§ÊäÈëµÄÊı×ÖÊÇ·ñºÍËæ»úµÄÊı×ÖÏàÍ¬
+   9          {
+  10   1        unsigned char i=0; //¶¨ÒåÒ»¸ö±äÁ¿i£¬ÓÃÀ´×÷ÎªÊı×éµÄË÷Òı£¬³õÊ¼»¯Îª0
+  11   1        for(i=0;i<64;i++) //Ñ­»·64´Î
+  12   1        {
+  13   2          if(random_digits[i]!=inputs[i]) //Èç¹ûÊı×érandom_digitsµÄµÚi¸öÔªËØºÍÊı×éinputsµÄµÚi¸öÔªËØ²»ÏàµÈ
+  14   2          {
+  15   3            break; //Ìø³öÑ­»·
+  16   3          }
+  17   2        }
+  18   1        if(i==64) //Èç¹ûiµÈÓÚ64£¬±íÊ¾ËùÓĞµÄÔªËØ¶¼ÏàµÈ
+  19   1        {
+  20   2          return 1; //·µ»Ø1£¬±íÊ¾ÕıÈ·
+  21   2        }
+  22   1        else //·ñÔò
+  23   1        {
+  24   2          return 0; //·µ»Ø0£¬±íÊ¾´íÎó
+  25   2        }
+  26   1      }
+  27          bit correct(void) //¶¨ÒåÒ»¸öº¯Êıcorrect£¬ÓÃÀ´ÏÔÊ¾ÕıÈ·µÄ»­Ãæ£¬²¢µÈ´ıÓÃ»§µÄÑ¡Ôñ
+  28          {
+  29   1        display_correct(); //µ÷ÓÃdisplay_correctº¯Êı£¬ÏÔÊ¾ÕıÈ·µÄ»­Ãæ
+  30   1        return f_or_e(); //µ÷ÓÃf_or_eº¯Êı£¬·µ»ØÓÃ»§µÄÑ¡Ôñ£¬F±íÊ¾¼ÌĞø£¬E±íÊ¾·µ»Ø
+  31   1      }
+  32          bit error(void) //¶¨ÒåÒ»¸öº¯Êıerror£¬ÓÃÀ´ÏÔÊ¾´íÎóµÄ»­Ãæ£¬²¢µÈ´ıÓÃ»§µÄÑ¡Ôñ
+  33          {
+  34   1        display_error(); //µ÷ÓÃdisplay_errorº¯Êı£¬ÏÔÊ¾´íÎóµÄ»­Ãæ
+  35   1        return f_or_e(); //µ÷ÓÃf_or_eº¯Êı£¬·µ»ØÓÃ»§µÄÑ¡Ôñ£¬F±íÊ¾ÖØĞÂ¿ªÊ¼£¬E±íÊ¾·µ»Ø
+  36   1      }
+  37          bit win(void) //¶¨ÒåÒ»¸öº¯Êıwin£¬ÓÃÀ´ÏÔÊ¾´³¹Ø³É¹¦µÄ»­Ãæ£¬²¢µÈ´ıÓÃ»§µÄÑ¡Ôñ
+  38          {
+  39   1        display_win(); //µ÷ÓÃdisplay_winº¯Êı£¬ÏÔÊ¾´³¹Ø³É¹¦µÄ»­Ãæ
+  40   1        return f_or_e(); //µ÷ÓÃf_or_eº¯Êı£¬·µ»ØÓÃ»§µÄÑ¡Ôñ£¬F±íÊ¾ÔÙ´ÎÌôÕ½£¬E±íÊ¾·µ»Ø
+  41   1      }
+  42          bit lose(void) //¶¨ÒåÒ»¸öº¯Êılose£¬ÓÃÀ´ÏÔÊ¾´³¹ØÊ§°ÜµÄ»­Ãæ£¬²¢µÈ´ıÓÃ»§µÄÑ¡Ôñ
+  43          {
+  44   1        display_lose(); //µ÷ÓÃdisplay_loseº¯Êı£¬ÏÔÊ¾´³¹ØÊ§°ÜµÄ»­Ãæ
+  45   1        return f_or_e(); //µ÷ÓÃf_or_eº¯Êı£¬·µ»ØÓÃ»§µÄÑ¡Ôñ£¬F±íÊ¾ÔÙ´ÎÌôÕ½£¬E±íÊ¾·µ»Ø
+  46   1      }
+  47          unsigned char guess_once(void) //¶¨ÒåÒ»¸öº¯Êıguess_once£¬ÓÃÀ´½øĞĞÒ»´Î²ÂÊıÓÎÏ·
+  48          {
+  49   1        bit a,temp; //¶¨ÒåÁ½¸öÎ»±äÁ¿aºÍtemp£¬ÓÃÀ´´æ´¢¼ì²é½á¹ûºÍÓÃ»§Ñ¡Ôñ
+  50   1        unsigned char state=0; //¶¨ÒåÒ»¸ö±äÁ¿state£¬ÓÃÀ´´æ´¢ÓÎÏ·×´Ì¬£¬³õÊ¼»¯Îª0
+  51   1        display_random_digits(); //µ÷ÓÃdisplay_random_digitsº¯Êı£¬ÏÔÊ¾Ëæ»úµÄÊı×Ö
+C51 COMPILER V9.60.7.0   GUESSING_GAME                                                     12/22/2023 09:21:57 PAGE 2   
+
+  52   1        display_input(); //µ÷ÓÃdisplay_inputº¯Êı£¬ÏÔÊ¾ÊäÈëµÄ»­Ãæ
+  53   1        state=input_digits(); //µ÷ÓÃinput_digitsº¯Êı£¬ÊäÈëÊı×Ö£¬²¢¸³Öµ¸østate
+  54   1        if(state==1) //Èç¹ûstateµÈÓÚ1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+  55   1        {
+  56   2          return state; //·µ»Østate
+  57   2        }
+  58   1        a=check_digits(); //µ÷ÓÃcheck_digitsº¯Êı£¬¼ì²éÊı×ÖÊÇ·ñÕıÈ·£¬²¢¸³Öµ¸øa
+  59   1        if(a==1) //Èç¹ûaµÈÓÚ1£¬±íÊ¾ÕıÈ·
+  60   1        {
+  61   2          temp=correct(); //µ÷ÓÃcorrectº¯Êı£¬ÏÔÊ¾ÕıÈ·µÄ»­Ãæ£¬²¢¸³Öµ¸øtemp
+  62   2          if(temp) //Èç¹ûtempÎªÕæ£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+  63   2          {
+  64   3            state=1; //½«state¸³ÖµÎª1
+  65   3            return state; //·µ»Østate
+  66   3          }
+  67   2          return 0; //·ñÔò·µ»Ø0£¬±íÊ¾¼ÌĞøÓÎÏ·
+  68   2        }
+  69   1        else //Èç¹ûaµÈÓÚ0£¬±íÊ¾´íÎó
+  70   1        {
+  71   2          temp=error(); //µ÷ÓÃerrorº¯Êı£¬ÏÔÊ¾´íÎóµÄ»­Ãæ£¬²¢¸³Öµ¸øtemp
+  72   2          if(temp) //Èç¹ûtempÎªÕæ£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+  73   2          {
+  74   3            state=1; //½«state¸³ÖµÎª1
+  75   3            return state; //·µ»Østate
+  76   3          }
+  77   2          return 2; //·ñÔò·µ»Ø2£¬±íÊ¾ÖØĞÂ¿ªÊ¼
+  78   2        }
+  79   1      }
+  80          unsigned char guess_one_level(bit b) //¶¨ÒåÒ»¸öº¯Êıguess_one_level£¬´«ÈëÒ»¸öÎ»±äÁ¿b£¬ÓÃÀ´½øĞĞÒ»´Î´³¹ØÓÎÏ·
+  81          {
+  82   1        bit a; //¶¨ÒåÒ»¸öÎ»±äÁ¿a£¬ÓÃÀ´´æ´¢¼ì²é½á¹û
+  83   1        unsigned char state=0; //¶¨ÒåÒ»¸ö±äÁ¿state£¬ÓÃÀ´´æ´¢ÓÎÏ·×´Ì¬£¬³õÊ¼»¯Îª0
+  84   1        display_random_digits(); //µ÷ÓÃdisplay_random_digitsº¯Êı£¬ÏÔÊ¾Ëæ»úµÄÊı×Ö
+  85   1        display_input(); //µ÷ÓÃdisplay_inputº¯Êı£¬ÏÔÊ¾ÊäÈëµÄ»­Ãæ
+  86   1        state=input_digits(); //µ÷ÓÃinput_digitsº¯Êı£¬ÊäÈëÊı×Ö£¬²¢¸³Öµ¸østate
+  87   1        if(state==1) //Èç¹ûstateµÈÓÚ1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+  88   1        {
+  89   2          return state; //·µ»Østate
+  90   2        }
+  91   1        a=check_digits(); //µ÷ÓÃcheck_digitsº¯Êı£¬¼ì²éÊı×ÖÊÇ·ñÕıÈ·£¬²¢¸³Öµ¸øa
+  92   1        if(a==1) //Èç¹ûaµÈÓÚ1£¬±íÊ¾ÕıÈ·
+  93   1        {
+  94   2          if(b==0) //Èç¹ûbµÈÓÚ0£¬±íÊ¾²»ÊÇ×îºóÒ»¹Ø
+  95   2          {
+  96   3            state=correct(); //µ÷ÓÃcorrectº¯Êı£¬ÏÔÊ¾ÕıÈ·µÄ»­Ãæ£¬²¢¸³Öµ¸østate
+  97   3            if(state==1) //Èç¹ûstateµÈÓÚ1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+  98   3            {
+  99   4              return state; //·µ»Østate
+ 100   4            }
+ 101   3            else //·ñÔò
+ 102   3            {
+ 103   4              return 2; //·µ»Ø2£¬±íÊ¾¼ÌĞøÓÎÏ·
+ 104   4            }
+ 105   3          }
+ 106   2          else //Èç¹ûbµÈÓÚ1£¬±íÊ¾ÊÇ×îºóÒ»¹Ø
+ 107   2          {
+ 108   3            state=win(); //µ÷ÓÃwinº¯Êı£¬ÏÔÊ¾´³¹Ø³É¹¦µÄ»­Ãæ£¬²¢¸³Öµ¸østate
+ 109   3            if(state==1) //Èç¹ûstateµÈÓÚ1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+ 110   3            {
+ 111   4              return state; //·µ»Østate
+ 112   4            }
+ 113   3            else //·ñÔò
+C51 COMPILER V9.60.7.0   GUESSING_GAME                                                     12/22/2023 09:21:57 PAGE 3   
+
+ 114   3            {
+ 115   4              return 0; //·µ»Ø0£¬±íÊ¾ÔÙ´ÎÌôÕ½
+ 116   4            }
+ 117   3          }
+ 118   2        }
+ 119   1        else //Èç¹ûaµÈÓÚ0£¬±íÊ¾´íÎó
+ 120   1        {
+ 121   2          state=lose(); //µ÷ÓÃloseº¯Êı£¬ÏÔÊ¾´³¹ØÊ§°ÜµÄ»­Ãæ£¬²¢¸³Öµ¸østate
+ 122   2          return state; //·µ»Østate
+ 123   2        }
+ 124   1      }
+ 125          unsigned char main_menu(void) //¶¨ÒåÒ»¸öº¯Êımain_menu£¬ÓÃÀ´ÏÔÊ¾Ö÷²Ëµ¥£¬²¢·µ»ØÓÃ»§µÄÑ¡Ôñ
+ 126          {
+ 127   1        unsigned char temp; //¶¨ÒåÒ»¸ö±äÁ¿temp£¬ÓÃÀ´´æ´¢ÓÃ»§µÄÑ¡Ôñ
+ 128   1        display_main_menu(); //µ÷ÓÃdisplay_main_menuº¯Êı£¬ÏÔÊ¾Ö÷²Ëµ¥
+ 129   1        while(1) //ÎŞÏŞÑ­»·
+ 130   1        {
+ 131   2          temp=kscan(); //µ÷ÓÃkscanº¯Êı£¬É¨Ãè¼üÅÌÊäÈë£¬²¢¸³Öµ¸øtemp
+ 132   2          if(temp==0|temp==1|temp==14) //Èç¹ûtempµÈÓÚ0»ò1»ò14£¬±íÊ¾ÓĞĞ§µÄÑ¡Ôñ
+ 133   2          {
+ 134   3            break; //Ìø³öÑ­»·
+ 135   3          }
+ 136   2        }
+ 137   1        return temp; //·µ»Øtemp
+ 138   1      }
+ 139          unsigned char mode_select(void) //¶¨ÒåÒ»¸öº¯Êımode_select£¬ÓÃÀ´ÏÔÊ¾Ä£Ê½Ñ¡Ôñ£¬²¢·µ»ØÓÃ»§µÄÑ¡Ôñ
+ 140          {
+ 141   1        unsigned char temp; //¶¨ÒåÒ»¸ö±äÁ¿temp£¬ÓÃÀ´´æ´¢ÓÃ»§µÄÑ¡Ôñ
+ 142   1        display_mode_select(); //µ÷ÓÃdisplay_mode_selectº¯Êı£¬ÏÔÊ¾Ä£Ê½Ñ¡Ôñ
+ 143   1        while(1) //ÎŞÏŞÑ­»·
+ 144   1        {
+ 145   2          temp=kscan(); //µ÷ÓÃkscanº¯Êı£¬É¨Ãè¼üÅÌÊäÈë£¬²¢¸³Öµ¸øtemp
+ 146   2          if(temp==0|temp==1|temp==2|temp==14) //Èç¹ûtempµÈÓÚ0»ò1»ò2»ò14£¬±íÊ¾ÓĞĞ§µÄÑ¡Ôñ
+ 147   2          {
+ 148   3            break; //Ìø³öÑ­»·
+ 149   3          }
+ 150   2        }
+ 151   1        return temp; //·µ»Øtemp
+ 152   1      }
+ 153          bit begin_select(void) //¶¨ÒåÒ»¸öº¯Êıbegin_select£¬ÓÃÀ´ÏÔÊ¾¿ªÊ¼Ñ¡Ôñ£¬²¢·µ»ØÓÃ»§µÄÑ¡Ôñ
+ 154          {
+ 155   1        display_begin_select(); //µ÷ÓÃdisplay_begin_selectº¯Êı£¬ÏÔÊ¾¿ªÊ¼Ñ¡Ôñ
+ 156   1        return f_or_e(); //µ÷ÓÃf_or_eº¯Êı£¬·µ»ØÓÃ»§µÄÑ¡Ôñ£¬F±íÊ¾¿ªÊ¼ÓÎÏ·£¬E±íÊ¾·µ»Ø
+ 157   1      }
+ 158          void mode1(void) //¶¨ÒåÒ»¸öº¯Êımode1£¬ÓÃÀ´½øĞĞ´³¹ØÄ£Ê½µÄÓÎÏ·
+ 159          {
+ 160   1        unsigned char i=0; //¶¨ÒåÒ»¸ö±äÁ¿i£¬ÓÃÀ´×÷Îª¹Ø¿¨µÄË÷Òı£¬³õÊ¼»¯Îª0
+ 161   1        unsigned char state; //¶¨ÒåÒ»¸ö±äÁ¿state£¬ÓÃÀ´´æ´¢ÓÎÏ·×´Ì¬
+ 162   1        while(1) //ÎŞÏŞÑ­»·
+ 163   1        {
+ 164   2        for(i=0;i<10;i++) //Ñ­»·10´Î£¬±íÊ¾10¸ö¹Ø¿¨
+ 165   2        {
+ 166   3          bits=level_bits[i]; //½«Êı×élevel_bitsµÄµÚi¸öÔªËØ¸³Öµ¸øbits£¬±íÊ¾µ±Ç°¹Ø¿¨µÄÎ»Êı
+ 167   3          display_time=level_display_time[i]; //½«Êı×élevel_display_timeµÄµÚi¸öÔªËØ¸³Öµ¸ødisplay_time£¬±íÊ¾µ±Ç°¹Ø¿
+             -¨µÄÏÔÊ¾Ê±¼ä
+ 168   3          if(begin_select()) //µ÷ÓÃbegin_selectº¯Êı£¬ÏÔÊ¾¿ªÊ¼Ñ¡Ôñ£¬²¢ÅĞ¶ÏÓÃ»§µÄÑ¡Ôñ
+ 169   3          {
+ 170   4            return; //Èç¹ûÓÃ»§Ñ¡Ôñ·µ»Ø£¬½áÊøº¯Êı
+ 171   4          }
+ 172   3          state=guess_one_level(i==9); //µ÷ÓÃguess_one_levelº¯Êı£¬´«ÈëiÊÇ·ñµÈÓÚ9£¬±íÊ¾ÊÇ·ñÊÇ×îºóÒ»¹Ø£¬²¢¸³Öµ¸østat
+             -e
+ 173   3          if(state==1) //Èç¹ûstateµÈÓÚ1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+C51 COMPILER V9.60.7.0   GUESSING_GAME                                                     12/22/2023 09:21:57 PAGE 4   
+
+ 174   3          {   
+ 175   4            return; //½áÊøº¯Êı
+ 176   4          }
+ 177   3          if(state==0) //Èç¹ûstateµÈÓÚ0£¬±íÊ¾ÓÃ»§Ñ¡ÔñÔÙ´ÎÌôÕ½
+ 178   3          {   
+ 179   4            break; //Ìø³öÑ­»·£¬ÖØĞÂ¿ªÊ¼ÓÎÏ·
+ 180   4          }
+ 181   3        }
+ 182   2        }
+ 183   1      }
+ 184          void mode2(void) //¶¨ÒåÒ»¸öº¯Êımode2£¬ÓÃÀ´½øĞĞÁ·Ï°Ä£Ê½µÄÓÎÏ·
+ 185          {
+ 186   1        while(1) //ÎŞÏŞÑ­»·
+ 187   1        {
+ 188   2        display_bits_select(); //µ÷ÓÃdisplay_bits_selectº¯Êı£¬ÏÔÊ¾Î»ÊıÑ¡Ôñ
+ 189   2        if(input_bits()==1) //µ÷ÓÃinput_bitsº¯Êı£¬ÊäÈëÎ»Êı£¬²¢ÅĞ¶Ï·µ»ØÖµ
+ 190   2        {
+ 191   3          return; //Èç¹û·µ»Ø1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø£¬½áÊøº¯Êı
+ 192   3        }
+ 193   2        display_time_select(); //µ÷ÓÃdisplay_time_selectº¯Êı£¬ÏÔÊ¾Ê±¼äÑ¡Ôñ
+ 194   2        if(input_display_time()==1) //µ÷ÓÃinput_display_timeº¯Êı£¬ÊäÈëÊ±¼ä£¬²¢ÅĞ¶Ï·µ»ØÖµ
+ 195   2        {
+ 196   3          return; //Èç¹û·µ»Ø1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø£¬½áÊøº¯Êı
+ 197   3        }
+ 198   2        display_begin_select(); //µ÷ÓÃdisplay_begin_selectº¯Êı£¬ÏÔÊ¾¿ªÊ¼Ñ¡Ôñ
+ 199   2        while(1) //ÎŞÏŞÑ­»·
+ 200   2        {
+ 201   3        if(begin_select()) //µ÷ÓÃbegin_selectº¯Êı£¬ÏÔÊ¾¿ªÊ¼Ñ¡Ôñ£¬²¢ÅĞ¶ÏÓÃ»§µÄÑ¡Ôñ
+ 202   3        {
+ 203   4          return; //Èç¹ûÓÃ»§Ñ¡Ôñ·µ»Ø£¬½áÊøº¯Êı
+ 204   4        }
+ 205   3        if(guess_once()==1) //µ÷ÓÃguess_onceº¯Êı£¬½øĞĞÒ»´Î²ÂÊıÓÎÏ·£¬²¢ÅĞ¶Ï·µ»ØÖµ
+ 206   3        {   
+ 207   4          return; //Èç¹û·µ»Ø1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø£¬½áÊøº¯Êı
+ 208   4        }
+ 209   3        }
+ 210   2        }
+ 211   1      }
+ 212          void mode3(void) //¶¨ÒåÒ»¸öº¯Êımode3£¬ÓÃÀ´½øĞĞËæ»úÄ£Ê½µÄÓÎÏ·
+ 213          {
+ 214   1        while(1) //ÎŞÏŞÑ­»·
+ 215   1        {
+ 216   2        bits=1+rand()%8; //½«1¼ÓÉÏ0µ½7µÄËæ»úÊı¸³Öµ¸øbits£¬±íÊ¾Ëæ»úµÄÎ»Êı
+ 217   2        display_time=bits*200+rand()%101; //½«bits³ËÒÔ200¼ÓÉÏ0µ½100µÄËæ»úÊı¸³Öµ¸ødisplay_time£¬±íÊ¾Ëæ»úµÄÏÔÊ¾Ê±¼ä
+ 218   2        if(begin_select()) //µ÷ÓÃbegin_selectº¯Êı£¬ÏÔÊ¾¿ªÊ¼Ñ¡Ôñ£¬²¢ÅĞ¶ÏÓÃ»§µÄÑ¡Ôñ
+ 219   2        {
+ 220   3          return; //Èç¹ûÓÃ»§Ñ¡Ôñ·µ»Ø£¬½áÊøº¯Êı
+ 221   3        }
+ 222   2        if(guess_once()==1) //µ÷ÓÃguess_onceº¯Êı£¬½øĞĞÒ»´Î²ÂÊıÓÎÏ·£¬²¢ÅĞ¶Ï·µ»ØÖµ
+ 223   2        {   
+ 224   3          return; //Èç¹û·µ»Ø1£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø£¬½áÊøº¯Êı
+ 225   3        }
+ 226   2        }
+ 227   1      }
+ 228          void acknowledgement(void) //¶¨ÒåÒ»¸öº¯Êıacknowledgement£¬ÓÃÀ´ÏÔÊ¾ÖÂĞ»µÄ»­Ãæ
+ 229          {
+ 230   1        display_acknowledgement(); //µ÷ÓÃdisplay_acknowledgementº¯Êı£¬ÏÔÊ¾ÖÂĞ»µÄ»­Ãæ
+ 231   1      }
+ 232          void gussing_game(void) //¶¨ÒåÒ»¸öº¯Êıgussing_game£¬ÓÃÀ´½øĞĞ²ÂÊıÓÎÏ·
+ 233          {
+ 234   1        unsigned char mode; //¶¨ÒåÒ»¸ö±äÁ¿mode£¬ÓÃÀ´´æ´¢ÓÎÏ·Ä£Ê½
+ 235   1        while(1) //ÎŞÏŞÑ­»·
+C51 COMPILER V9.60.7.0   GUESSING_GAME                                                     12/22/2023 09:21:57 PAGE 5   
+
+ 236   1        {
+ 237   2          mode=mode_select(); //µ÷ÓÃmode_selectº¯Êı£¬ÏÔÊ¾Ä£Ê½Ñ¡Ôñ£¬²¢¸³Öµ¸ømode
+ 238   2          if(mode==14) //Èç¹ûmodeµÈÓÚ14£¬±íÊ¾ÓÃ»§Ñ¡Ôñ·µ»Ø
+ 239   2          {
+ 240   3            break; //Ìø³öÑ­»·
+ 241   3          } 
+ 242   2          switch(mode) //¸ù¾İmodeµÄÖµÑ¡Ôñ²»Í¬µÄ·ÖÖ§
+ 243   2          {
+ 244   3            case 0: 
+ 245   3              mode1(); //Èç¹ûmodeµÈÓÚ0£¬µ÷ÓÃmode1º¯Êı£¬½øĞĞ´³¹ØÄ£Ê½µÄÓÎÏ·
+ 246   3              break;
+ 247   3            case 1: 
+ 248   3              mode2(); //Èç¹ûmodeµÈÓÚ1£¬µ÷ÓÃmode2º¯Êı£¬½øĞĞÁ·Ï°Ä£Ê½µÄÓÎÏ·
+ 249   3              break;
+ 250   3            case 2: 
+ 251   3              mode3(); //Èç¹ûmodeµÈÓÚ2£¬µ÷ÓÃmode3º¯Êı£¬½øĞĞËæ»úÄ£Ê½µÄÓÎÏ·
+ 252   3              break;
+ 253   3            default:
+ 254   3              break;
+ 255   3          }
+ 256   2        }
+ 257   1      }
+ 258          void games(void) //¶¨ÒåÒ»¸öº¯Êıgames£¬ÓÃÀ´½øĞĞÓÎÏ·
+ 259          {
+ 260   1        unsigned char menu; //¶¨ÒåÒ»¸ö±äÁ¿menu£¬ÓÃÀ´´æ´¢Ö÷²Ëµ¥µÄÑ¡Ôñ
+ 261   1        display_gussing_game(); //µ÷ÓÃdisplay_gussing_gameº¯Êı£¬ÏÔÊ¾²ÂÊıÓÎÏ·µÄLOGO
+ 262   1        while(1) //ÎŞÏŞÑ­»·
+ 263   1        {
+ 264   2          menu=main_menu(); //µ÷ÓÃmain_menuº¯Êı£¬ÏÔÊ¾Ö÷²Ëµ¥£¬²¢¸³Öµ¸ømenu
+ 265   2          if(menu==14) //Èç¹ûmenuµÈÓÚ14£¬±íÊ¾ÓÃ»§Ñ¡ÔñÍË³ö
+ 266   2          {
+ 267   3            break; //Ìø³öÑ­»·
+ 268   3          } 
+ 269   2        switch(menu) //¸ù¾İmenuµÄÖµÑ¡Ôñ²»Í¬µÄ·ÖÖ§
+ 270   2        {
+ 271   3          case 0: 
+ 272   3            gussing_game(); //Èç¹ûmenuµÈÓÚ0£¬µ÷ÓÃgussing_gameº¯Êı£¬½øĞĞ²ÂÊıÓÎÏ·
+ 273   3            break;
+ 274   3          case 1: 
+ 275   3            acknowledgement(); //Èç¹ûmenuµÈÓÚ1£¬µ÷ÓÃacknowledgementº¯Êı£¬ÏÔÊ¾ÖÂĞ»µÄ»­Ãæ
+ 276   3            break;
+ 277   3          default:
+ 278   3            break;
+ 279   3        }
+ 280   2        }
+ 281   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    519    ----
+   CONSTANT SIZE    =     17    ----
+   XDATA SIZE       =     94    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       4
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,192 @@
+C51 COMPILER V9.60.7.0   1                                                                 12/19/2023 13:00:58 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE 1
+OBJECT MODULE PLACED IN .\Objects\1.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE 1.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\1.lst) 
+                    -TABS(2) OBJECT(.\Objects\1.obj)
+
+line level    source
+
+   1          #include <REG51.h> 
+   2          
+   3          void Init_Device(void);
+   4          unsigned char kscan(void);
+   5          void delayms(unsigned long);
+   6          void input_password(void);
+   7          void check_password(void);
+   8          void input_time(void);
+   9          void delays(unsigned long,unsigned char);
+  10          unsigned char data i=0;
+  11          unsigned long data time_ms=0;
+  12          unsigned char data dxm=0xC0;
+  13          unsigned char data hc[8]={0,0,0,0,0,0,0,0};
+  14          unsigned char data time[8]={0,0,0,0,0,0,0,0};
+  15          unsigned char data password[6]={1,0,3,7,10,15};
+  16          unsigned char data input[6]={0,0,0,0,0,0};
+  17          unsigned char data zmb[23]={0xC0,0xF9,0xA4,0xB0,0x99,0x92,0x82,0xF8,0x80,0x90,0x88,0x83,0xC6,0xA1,0x86,0x8
+             -E,0x8C,0xC1,0xCE,0x91,0x89,0xC7,0xFF};
+  18          
+  19          void main(void)
+  20          { unsigned char data k=0;
+  21   1        Init_Device();
+  22   1        while(1)
+  23   1        {
+  24   2          for(k=0;k<8;k++)
+  25   2          {
+  26   3            hc[k]=16;
+  27   3          }
+  28   2          delays(1,0);
+  29   2          check_password();
+  30   2        }
+  31   1      }
+  32          
+  33          void T0I(void) interrupt 1
+  34          { 
+  35   1        TH0=0xFC;
+  36   1        TL0=0x18;
+  37   1        time_ms++;
+  38   1        if(i==0)
+  39   1        {
+  40   2          dxm=0x01;
+  41   2        }
+  42   1        else
+  43   1        {
+  44   2          dxm=dxm<<1;
+  45   2        }
+  46   1        P2=dxm;
+  47   1        P0=zmb[hc[i]];
+  48   1        i++;
+  49   1        if(i==8)
+  50   1        {
+  51   2          i=0;
+  52   2        }
+  53   1      }
+C51 COMPILER V9.60.7.0   1                                                                 12/19/2023 13:00:58 PAGE 2   
+
+  54          
+  55          
+  56          void check_password(void)
+  57          {
+  58   1        unsigned char data j,k=0;
+  59   1        for(j=0;j<3;j++)
+  60   1        {
+  61   2          for(k=0;k<8;k++)
+  62   2          {
+  63   3            hc[k]=22;
+  64   3          }
+  65   2          input_password();
+  66   2          for(k=0;k<6;k++)
+  67   2          {
+  68   3            if(password[k]!=input[k])
+  69   3              break;
+  70   3          }
+  71   2          if(k==6)
+  72   2          {
+  73   3            for(k=0;k<8;k++)
+  74   3            {
+  75   4              hc[k]=12;
+  76   4            }
+  77   3            delays(1,0);
+  78   3            input_time();
+  79   3            return;
+  80   3          }
+  81   2          else
+  82   2          {
+  83   3            for(k=0;k<8;k++)
+  84   3          {
+  85   4            hc[k]=15;
+  86   4          }
+  87   3            delays(1,0);
+  88   3          }
+  89   2        }
+  90   1        for(k=0;k<8;k++)
+  91   1          {
+  92   2            hc[k]=14;
+  93   2          }
+  94   1          delays(1,0);
+  95   1        for(k=0;k<8;k++)
+  96   1          {
+  97   2            hc[k]=22;
+  98   2          }
+  99   1          delays(60,1);
+ 100   1      }
+ 101          void input_password(void)
+ 102          {
+ 103   1        unsigned char data j=0;
+ 104   1        for(j=0;j<6;j++)
+ 105   1          {
+ 106   2            hc[j+2]=input[j]=kscan();
+ 107   2          }
+ 108   1      }
+ 109          void input_time(void)
+ 110          {
+ 111   1        unsigned char data j,temp=0;
+ 112   1        for(j=0;j<8;j++)
+ 113   1          {
+ 114   2            hc[j]=18;
+ 115   2          }
+C51 COMPILER V9.60.7.0   1                                                                 12/19/2023 13:00:58 PAGE 3   
+
+ 116   1        delays(1,0);
+ 117   1        for(j=0;j<8;j++)
+ 118   1          {
+ 119   2            hc[j]=22;
+ 120   2          }
+ 121   1        for(j=0;j<8;j++)
+ 122   1          {
+ 123   2            temp=kscan();
+ 124   2            if(temp>=0&temp<=9)
+ 125   2              hc[j]=time[j]=temp;
+ 126   2            else
+ 127   2              j--;
+ 128   2          }
+ 129   1        for(j=0;j<8;j++)
+ 130   1          {
+ 131   2            hc[j]=14;
+ 132   2          }
+ 133   1        delays(1,0);
+ 134   1        for(j=0;j<8;j++)
+ 135   1          {
+ 136   2            hc[j]=22;
+ 137   2          }
+ 138   1        delays(60,1);
+ 139   1      }
+ 140          void delayms(unsigned long a)
+ 141          {
+ 142   1        unsigned long data time_ms_start=time_ms;
+ 143   1        while(1)
+ 144   1        {
+ 145   2          if(time_ms-time_ms_start==a)
+ 146   2            break;
+ 147   2        }
+ 148   1      }
+ 149          void delays(unsigned long a,unsigned char mode)
+ 150          {
+ 151   1        unsigned char data j=0;
+ 152   1        if(mode==0)
+ 153   1          delayms(1000*a);
+ 154   1        else
+ 155   1        {
+ 156   2          for(j=a;j>0;j--)
+ 157   2          {
+ 158   3            hc[6]=j/10;
+ 159   3            hc[7]=j%10;
+ 160   3            delayms(1000);
+ 161   3          }
+ 162   2        }
+ 163   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    606    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     57      20
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

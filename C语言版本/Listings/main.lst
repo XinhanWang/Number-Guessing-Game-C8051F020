@@ -1,0 +1,89 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              01/04/2025 19:16:52 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+*** WARNING C500 IN LINE 1 OF main.c: LICENSE ERROR (R207(3): REGISTRY READ ERROR)
+
+   1          /*
+   2           * @Author: 王心瀚
+   3           * @Date: 2023-11-23 19:30:43
+   4           * @LastEditors: 王心瀚
+   5           * @LastEditTime: 2023-12-22 22:49:45
+   6           * @FilePath: \undefinedc:\Users\u2021\Desktop\资料\大三\单片机\实验\提高实验\C语言版本\main.c
+   7           * @Description: 主函数文件，包括主函数和定时器0的中断服务函数，调用初始化设备函数和猜数字游戏的函数
+   8           * 
+   9           * Copyright (c) 2023 by ${王心瀚}, All Rights Reserved. 
+  10           */
+  11          // 包含C8051F020芯片的头文件
+  12          #include "C8051F020.h"
+  13          // 包含LCD12864液晶显示屏的头文件
+  14          #include "LCD12864.h"
+  15          // 包含键盘输入的头文件
+  16          #include "keyboard.h"
+  17          // 包含显示的头文件
+  18          #include "display.h"
+  19          // 包含猜数字游戏的头文件
+  20          #include "guessing_game.h"
+  21          // 声明初始化设备的函数
+  22          void Init_Device(void);
+  23          
+  24          // 定义一个无符号长整型变量，用于存储时间（毫秒）
+  25          unsigned long data time_ms;
+  26          // 主函数
+  27          void main(void)
+  28          {
+  29   1        //当前时间初始化为0
+  30   1        time_ms=0;
+  31   1        // 关闭看门狗定时器
+  32   1        WDTCN     = 0xDE;
+  33   1          WDTCN     = 0xAD;
+  34   1        // 调用初始化设备的函数
+  35   1        Init_Device();
+  36   1      /*WDTCN=0xA5;
+  37   1      WDTCN=0xA5;
+  38   1        */
+  39   1        // 无限循环
+  40   1        while(1)
+  41   1         {
+  42   2           /*
+  43   2            #WDTCN=0xA5;
+  44   2           */
+  45   2          // 调用猜数字游戏的函数
+  46   2          games();
+  47   2         }
+  48   1      }
+  49          
+  50          // 定时器0的中断服务函数
+  51          void T0I(void) interrupt 1
+  52          { 
+  53   1        // 设置定时器0的低8位为0x30
+C51 COMPILER V9.60.7.0   MAIN                                                              01/04/2025 19:16:52 PAGE 2   
+
+  54   1        TL0       = 0x30;
+  55   1        // 设置定时器0的高8位为0xF8
+  56   1          TH0       = 0xF8;
+  57   1        // 时间变量加1
+  58   1        time_ms++;
+  59   1      }
+  60          
+  61          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     59    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
