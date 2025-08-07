@@ -12,7 +12,11 @@ B站介绍视频：[猜数游戏](https://www.bilibili.com/video/BV1Jg4y1k75C)
 
 ## 设计思路
 
+<div align="center">
+
 ![设计思路图](图片/image.png)
+
+</div>
 
 **硬件选择**：C8051F020单片机+4*4键盘+LCD12864显示器
 
